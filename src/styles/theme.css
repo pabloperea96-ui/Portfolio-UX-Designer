@@ -1,0 +1,543 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+
+  /* ========================================
+     Design System Foundation Tokens
+     ======================================== */
+
+  /* Text */
+  --ds-text-primary: #141411;
+  --ds-text-secondary: #6C6262;
+  --ds-text-tertiary: #867C7C;
+  --ds-text-tertiary-inverse: #A89F9F;
+  --ds-text-inverse: #FFFFFF;
+
+  /* Surface */
+  --ds-surface-page: #FFFFFF;
+  --ds-surface-card: #F3F3F3;
+  --ds-surface-subtle: #D2D2D2;
+  --ds-surface-inverse: #292925;
+  --ds-surface-background: #F6F6F6;
+
+  /* Action */
+  --ds-action-primary: #388259;
+  --ds-action-pressed: #1C472F;
+  --ds-action-subtle: #C1DFCE;
+  --ds-action-disabled: #A4D3B9;
+  --ds-action-hover-primary: #2A6745;
+  --ds-action-hover-secondary: #D9EAE1;
+  --ds-action-hover-secondary-inverse: rgba(255, 255, 255, 0.12);
+
+  /* Border */
+  --ds-border-default: #ACACAC;
+  --ds-border-subtle: #D2D2D2;
+  --ds-border-focus: #52B47E;
+
+  /* Radius */
+  --ds-radius-sm: 14px;
+  --ds-radius-md: 16px;
+  --ds-radius-lg: 26px;
+  --ds-radius-xl: 24px;
+  --ds-radius-pill: 40px;
+
+  /* Layout */
+  --ds-aspect-hero-image: 645 / 739;
+  --ds-max-w-content: 1386px;
+
+  /* Case Study — Scoped accent (no global default)
+     Each case study page sets --cs-accent on its root element.
+     Falls back to --ds-action-primary when unset. */
+  --cs-accent: var(--ds-action-primary);
+  --cs-accent-text: #212226;
+
+  /* Border Width */
+  --ds-border-width-default: 1px;
+  --ds-border-width-focus: 2px;
+
+  /* Spacing (Comfortable) */
+  --ds-space-4: 4px;
+  --ds-space-8: 8px;
+  --ds-space-10: 10px;
+  --ds-space-12: 12px;
+  --ds-space-16: 16px;
+  --ds-space-24: 24px;
+  --ds-space-32: 32px;
+  --ds-space-48: 48px;
+  --ds-space-64: 64px;
+  --ds-space-72: 72px;
+  --ds-space-96: 96px;
+  --ds-space-102: 102px;
+
+  /* Typography */
+  --ds-font-family: "Inter", sans-serif;
+
+  /* Font Size – Label */
+  --ds-font-size-label-lg: 14px;
+  --ds-font-size-label-sm: 12px;
+
+  /* Font Size – Body */
+  --ds-font-size-body-default: 18px;
+  --ds-font-size-body-emphasis: 20px;
+  --ds-font-size-body-compact: 14px;
+
+  /* Font Size – Action */
+  --ds-font-size-action-inline: 14px;
+  --ds-font-size-action-sm: 16px;
+  --ds-font-size-action-lg: 20px;
+
+  /* Font Size – Heading */
+  --ds-font-size-heading-compact: 16px;
+  --ds-font-size-heading-section: 36px;
+  --ds-font-size-heading-overview: 36px;
+  --ds-font-size-heading-page: 48px;
+  --ds-font-size-heading-hero: 56px;
+
+  /* Font Size – Data */
+  --ds-font-size-data-emphasis: 36px;
+  --ds-font-size-data-default: 24px;
+  --ds-font-size-data-compact: 16px;
+
+  /* Line Height */
+  --ds-line-height-body: 26px;
+  --ds-line-height-body-compact: 22px;
+  --ds-line-height-emphasis: 32px;
+  --ds-line-height-heading-compact: 24px;
+  --ds-line-height-heading-overview: 48px;
+  --ds-line-height-data-emphasis: 40px;
+  --ds-line-height-data-default: 36px;
+  --ds-line-height-data: 24px;
+
+  /* Font Weight */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+
+  /* Letter Spacing (Tracking) */
+  --ds-tracking-label-eyebrow: 0.2px;
+  --ds-tracking-label-sm: -0.15px;
+  --ds-tracking-action-inline: -0.15px;
+  --ds-tracking-action-button-df: -0.31px;
+  --ds-tracking-action-button-lg: -0.44px;
+  --ds-tracking-body-default: -0.45px;
+  --ds-tracking-body-emphasis: -0.45px;
+  --ds-tracking-body-compact: -0.15px;
+  --ds-tracking-heading-compact: -0.31px;
+  --ds-tracking-heading-section: 0.4px;
+  --ds-tracking-heading-overview: -0.9px;
+  --ds-tracking-heading-page: -0.53px;
+  --ds-tracking-heading-hero: -1.68px;
+  --ds-tracking-data: 0.37px;
+
+  /* ========================================
+     Generic / shadcn variables
+     ======================================== */
+  --background: var(--ds-surface-page);
+  --foreground: oklch(0.145 0 0);
+  --card: var(--ds-surface-card);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Button colors */
+  --btn-primary-bg: var(--ds-action-primary);
+  --btn-primary-bg-hover: var(--ds-action-hover-primary);
+  --btn-primary-text: var(--ds-text-inverse);
+  --btn-secondary-bg-hover: var(--ds-action-hover-secondary);
+  --btn-secondary-border: var(--ds-border-default);
+  --btn-secondary-text: var(--ds-text-primary);
+
+  /* Nav Button colors */
+  --nav-btn-text: var(--ds-text-primary);
+  --nav-btn-text-idle: var(--ds-text-secondary);
+  --nav-btn-text-hover: var(--ds-action-hover-primary);
+  --nav-btn-underline: var(--ds-text-primary);
+
+  /* Icon colors */
+  --icon-foreground: var(--ds-text-primary);
+
+  /* Badge colors */
+  --badge-bg: var(--ds-surface-page);
+  --badge-text: var(--ds-text-primary);
+  --badge-border: var(--ds-border-default);
+
+  /* Case Study Link colors */
+  --case-link-text: var(--ds-text-primary);
+  --case-link-icon: var(--ds-text-primary);
+  --case-link-bg: var(--ds-surface-background);
+  --case-link-border: var(--ds-border-subtle);
+
+  /* Project Thumbnail */
+  --thumbnail-bg: var(--ds-surface-page);
+  --thumbnail-radius: var(--ds-radius-md);
+  --thumbnail-gradient-to: rgba(246, 246, 246, 0.4);
+
+  /* Filter colors */
+  --filter-bg: var(--ds-surface-page);
+  --filter-bg-hover: var(--ds-surface-background);
+  --filter-bg-selected: var(--ds-surface-inverse);
+  --filter-text: var(--ds-text-secondary);
+  --filter-text-hover: var(--ds-text-primary);
+  --filter-text-selected: var(--ds-text-inverse);
+  --filter-border: var(--ds-border-default);
+
+  /* DesignCard */
+  --dcard-bg: var(--ds-surface-background);
+  --dcard-bg-hover: var(--ds-surface-card);
+  --dcard-bg-content: var(--ds-surface-page);
+  --dcard-border: var(--ds-border-subtle);
+  --dcard-border-hover: var(--ds-border-focus);
+  --dcard-title: var(--ds-text-primary);
+  --dcard-description: var(--ds-text-secondary);
+
+  /* DesignThumbnail */
+  --dthumb-bg: var(--ds-surface-inverse);
+  --dthumb-bg-idle: var(--ds-surface-background);
+  --dthumb-icon: var(--ds-text-inverse);
+  --dthumb-icon-idle: var(--ds-text-primary);
+
+  /* DesignLabel */
+  --label-filled-bg: var(--primary);
+  --label-filled-text: var(--primary-foreground);
+}
+
+/* ========================================
+   Responsive Token Overrides — Mobile
+   ========================================
+   Scales down typography and spacing tokens for viewports < 768px.
+   Every component using DS composite text classes or spacing utilities
+   automatically adapts — zero component code changes needed.
+
+   Placed BEFORE .spacing-compact so that compact mode (higher specificity
+   due to class selector vs :root pseudo-class at equal specificity,
+   or later source order) always wins when both are active.
+   ======================================== */
+@media (max-width: 767px) {
+  :root {
+    /* Typography — Headings */
+    --ds-font-size-heading-hero: 36px;
+    --ds-font-size-heading-page: 32px;
+    --ds-font-size-heading-section: 28px;
+    --ds-font-size-heading-overview: 28px;
+
+    /* Typography — Data */
+    --ds-font-size-data-emphasis: 28px;
+    --ds-font-size-data-default: 20px;
+
+    /* Typography — Body */
+    --ds-font-size-body-emphasis: 18px;
+    --ds-font-size-body-default: 16px;
+
+    /* Line Heights — scaled to match reduced font sizes */
+    --ds-line-height-heading-overview: 36px;
+    --ds-line-height-data-emphasis: 32px;
+    --ds-line-height-data-default: 28px;
+    --ds-line-height-body: 24px;
+
+    /* Tracking — loosen tight tracking at smaller sizes */
+    --ds-tracking-heading-hero: -0.9px;
+    --ds-tracking-heading-page: -0.4px;
+    --ds-tracking-heading-overview: -0.6px;
+
+    /* Spacing — compress large gaps for smaller viewports */
+    --ds-space-102: 64px;
+    --ds-space-96: 56px;
+    --ds-space-72: 48px;
+    --ds-space-64: 40px;
+    --ds-space-48: 32px;
+  }
+}
+
+/* Spacing Mode: Compact
+   Apply class "spacing-compact" to root element to switch from Comfortable (default) */
+.spacing-compact {
+  --ds-space-4: 4px;
+  --ds-space-8: 6px;
+  --ds-space-10: 8px;
+  --ds-space-12: 8px;
+  --ds-space-16: 12px;
+  --ds-space-24: 16px;
+  --ds-space-32: 24px;
+  --ds-space-48: 32px;
+  --ds-space-64: 48px;
+  --ds-space-72: 64px;
+  --ds-space-96: 72px;
+  --ds-space-102: 96px;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Button colors */
+  --color-btn-primary-bg: var(--btn-primary-bg);
+  --color-btn-primary-bg-hover: var(--btn-primary-bg-hover);
+  --color-btn-primary-text: var(--btn-primary-text);
+  --color-btn-secondary-bg-hover: var(--btn-secondary-bg-hover);
+  --color-btn-secondary-border: var(--btn-secondary-border);
+  --color-btn-secondary-text: var(--btn-secondary-text);
+
+  /* Nav Button colors */
+  --color-nav-btn-text: var(--nav-btn-text);
+  --color-nav-btn-text-idle: var(--nav-btn-text-idle);
+  --color-nav-btn-text-hover: var(--nav-btn-text-hover);
+  --color-nav-btn-underline: var(--nav-btn-underline);
+
+  /* Icon colors */
+  --color-icon-foreground: var(--icon-foreground);
+
+  /* Badge colors */
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-text: var(--badge-text);
+  --color-badge-border: var(--badge-border);
+
+  /* Case Study Link colors */
+  --color-case-link-text: var(--case-link-text);
+  --color-case-link-icon: var(--case-link-icon);
+  --color-case-link-bg: var(--case-link-bg);
+  --color-case-link-border: var(--case-link-border);
+
+  /* Project Thumbnail */
+  --color-thumbnail-bg: var(--thumbnail-bg);
+
+  /* Filter colors */
+  --color-filter-bg: var(--filter-bg);
+  --color-filter-bg-hover: var(--filter-bg-hover);
+  --color-filter-bg-selected: var(--filter-bg-selected);
+  --color-filter-text: var(--filter-text);
+  --color-filter-text-hover: var(--filter-text-hover);
+  --color-filter-text-selected: var(--filter-text-selected);
+  --color-filter-border: var(--filter-border);
+
+  /* DesignCard */
+  --color-dcard-bg: var(--dcard-bg);
+  --color-dcard-bg-hover: var(--dcard-bg-hover);
+  --color-dcard-bg-content: var(--dcard-bg-content);
+  --color-dcard-border: var(--dcard-border);
+  --color-dcard-border-hover: var(--dcard-border-hover);
+  --color-dcard-title: var(--dcard-title);
+  --color-dcard-description: var(--dcard-description);
+
+  /* DesignThumbnail */
+  --color-dthumb-bg: var(--dthumb-bg);
+  --color-dthumb-bg-idle: var(--dthumb-bg-idle);
+  --color-dthumb-icon: var(--dthumb-icon);
+  --color-dthumb-icon-idle: var(--dthumb-icon-idle);
+
+  /* DesignLabel */
+  --color-label-filled-bg: var(--label-filled-bg);
+  --color-label-filled-text: var(--label-filled-text);
+
+  /* Design System Foundation Tokens */
+  --color-ds-text-primary: var(--ds-text-primary);
+  --color-ds-text-secondary: var(--ds-text-secondary);
+  --color-ds-text-tertiary: var(--ds-text-tertiary);
+  --color-ds-text-tertiary-inverse: var(--ds-text-tertiary-inverse);
+  --color-ds-text-inverse: var(--ds-text-inverse);
+  --color-ds-surface-page: var(--ds-surface-page);
+  --color-ds-surface-card: var(--ds-surface-card);
+  --color-ds-surface-subtle: var(--ds-surface-subtle);
+  --color-ds-surface-inverse: var(--ds-surface-inverse);
+  --color-ds-surface-background: var(--ds-surface-background);
+  --color-ds-action-primary: var(--ds-action-primary);
+  --color-ds-action-pressed: var(--ds-action-pressed);
+  --color-ds-action-subtle: var(--ds-action-subtle);
+  --color-ds-action-disabled: var(--ds-action-disabled);
+  --color-ds-action-hover-primary: var(--ds-action-hover-primary);
+  --color-ds-action-hover-secondary: var(--ds-action-hover-secondary);
+  --color-ds-border-default: var(--ds-border-default);
+  --color-ds-border-subtle: var(--ds-border-subtle);
+  --color-ds-border-focus: var(--ds-border-focus);
+
+  /* Case Study Accent — scoped per-page via inline style */
+  --color-cs-accent: var(--cs-accent);
+  --color-cs-accent-text: var(--cs-accent-text);
+
+  /* Design System Radius Tokens */
+  --radius-ds-sm: var(--ds-radius-sm);
+  --radius-ds-md: var(--ds-radius-md);
+  --radius-ds-lg: var(--ds-radius-lg);
+  --radius-ds-xl: var(--ds-radius-xl);
+  --radius-ds-pill: var(--ds-radius-pill);
+
+  /* Design System Border Width Tokens */
+  --border-ds-default: var(--ds-border-width-default);
+  --border-ds-focus: var(--ds-border-width-focus);
+
+  /* Design System Spacing Tokens (Comfortable) */
+  --spacing-ds-4: var(--ds-space-4);
+  --spacing-ds-8: var(--ds-space-8);
+  --spacing-ds-10: var(--ds-space-10);
+  --spacing-ds-12: var(--ds-space-12);
+  --spacing-ds-16: var(--ds-space-16);
+  --spacing-ds-24: var(--ds-space-24);
+  --spacing-ds-32: var(--ds-space-32);
+  --spacing-ds-48: var(--ds-space-48);
+  --spacing-ds-64: var(--ds-space-64);
+  --spacing-ds-72: var(--ds-space-72);
+  --spacing-ds-96: var(--ds-space-96);
+  --spacing-ds-102: var(--ds-space-102);
+
+  /* Design System Typography Tokens */
+  --font-ds-sans: var(--ds-font-family);
+
+  /* Font Size – Label */
+  --text-ds-label-lg: var(--ds-font-size-label-lg);
+  --text-ds-label-sm: var(--ds-font-size-label-sm);
+
+  /* Font Size – Body */
+  --text-ds-body-default: var(--ds-font-size-body-default);
+  --text-ds-body-emphasis: var(--ds-font-size-body-emphasis);
+  --text-ds-body-compact: var(--ds-font-size-body-compact);
+
+  /* Font Size – Action */
+  --text-ds-action-inline: var(--ds-font-size-action-inline);
+  --text-ds-action-sm: var(--ds-font-size-action-sm);
+  --text-ds-action-lg: var(--ds-font-size-action-lg);
+
+  /* Font Size – Heading */
+  --text-ds-heading-compact: var(--ds-font-size-heading-compact);
+  --text-ds-heading-section: var(--ds-font-size-heading-section);
+  --text-ds-heading-overview: var(--ds-font-size-heading-overview);
+  --text-ds-heading-page: var(--ds-font-size-heading-page);
+  --text-ds-heading-hero: var(--ds-font-size-heading-hero);
+
+  /* Font Size – Data */
+  --text-ds-data-emphasis: var(--ds-font-size-data-emphasis);
+  --text-ds-data-default: var(--ds-font-size-data-default);
+  --text-ds-data-compact: var(--ds-font-size-data-compact);
+
+  /* Line Height */
+  --leading-ds-body: var(--ds-line-height-body);
+  --leading-ds-body-compact: var(--ds-line-height-body-compact);
+  --leading-ds-emphasis: var(--ds-line-height-emphasis);
+  --leading-ds-heading-compact: var(--ds-line-height-heading-compact);
+  --leading-ds-heading-overview: var(--ds-line-height-heading-overview);
+  --leading-ds-data-emphasis: var(--ds-line-height-data-emphasis);
+  --leading-ds-data-default: var(--ds-line-height-data-default);
+  --leading-ds-data: var(--ds-line-height-data);
+
+  /* Font Weight */
+  --weight-ds-regular: var(--ds-font-weight-regular);
+  --weight-ds-medium: var(--ds-font-weight-medium);
+
+  /* Letter Spacing (Tracking) */
+  --tracking-ds-label-eyebrow: var(--ds-tracking-label-eyebrow);
+  --tracking-ds-label-sm: var(--ds-tracking-label-sm);
+  --tracking-ds-action-inline: var(--ds-tracking-action-inline);
+  --tracking-ds-action-button-df: var(--ds-tracking-action-button-df);
+  --tracking-ds-action-button-lg: var(--ds-tracking-action-button-lg);
+  --tracking-ds-body-default: var(--ds-tracking-body-default);
+  --tracking-ds-body-emphasis: var(--ds-tracking-body-emphasis);
+  --tracking-ds-body-compact: var(--ds-tracking-body-compact);
+  --tracking-ds-heading-compact: var(--ds-tracking-heading-compact);
+  --tracking-ds-heading-section: var(--ds-tracking-heading-section);
+  --tracking-ds-heading-overview: var(--ds-tracking-heading-overview);
+  --tracking-ds-heading-page: var(--ds-tracking-heading-page);
+  --tracking-ds-heading-hero: var(--ds-tracking-heading-hero);
+  --tracking-ds-data: var(--ds-tracking-data);
+}

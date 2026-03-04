@@ -1,0 +1,155 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/*
+ * Motion's useScroll defaults its container to document.scrollingElement (<html>),
+ * which is position:static by default. This causes a dev warning when a target
+ * element is provided. Setting position:relative silences it and ensures
+ * scroll-offset calculations are accurate.
+ */
+html {
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Composite Text Style Utilities
+   ========================================
+   Each class bundles font-size + weight + line-height + letter-spacing
+   from the DS tokens into a single reusable class.
+   ======================================== */
+
+/* Label */
+.ds-text-label-eyebrow {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-label-lg);
+  font-weight: var(--ds-font-weight-regular);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-label-eyebrow);
+}
+
+.ds-text-label-sm {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-label-sm);
+  font-weight: var(--ds-font-weight-regular);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-label-sm);
+}
+
+/* Action */
+.ds-text-action-inline {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-action-inline);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-action-inline);
+}
+
+.ds-text-action-button-df {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-action-sm);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-action-button-df);
+}
+
+.ds-text-action-button-lg {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-action-lg);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-action-button-lg);
+}
+
+/* Body */
+.ds-text-body-default {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-body-default);
+  font-weight: var(--ds-font-weight-regular);
+  line-height: var(--ds-line-height-body);
+  letter-spacing: var(--ds-tracking-body-default);
+}
+
+.ds-text-body-emphasis {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-body-emphasis);
+  font-weight: var(--ds-font-weight-regular);
+  line-height: var(--ds-line-height-body);
+  letter-spacing: var(--ds-tracking-body-emphasis);
+}
+
+.ds-text-body-compact {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-body-compact);
+  font-weight: var(--ds-font-weight-regular);
+  line-height: var(--ds-line-height-body-compact);
+  letter-spacing: var(--ds-tracking-body-compact);
+}
+
+/* Heading */
+.ds-text-heading-compact {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-heading-compact);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-heading-compact);
+  letter-spacing: var(--ds-tracking-heading-compact);
+}
+
+.ds-text-heading-section {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-heading-section);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-heading-section);
+}
+
+.ds-text-heading-overview {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-heading-overview);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-heading-overview);
+  letter-spacing: var(--ds-tracking-heading-overview);
+}
+
+.ds-text-heading-page {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-heading-page);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-heading-page);
+}
+
+.ds-text-heading-hero {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-heading-hero);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: normal;
+  letter-spacing: var(--ds-tracking-heading-hero);
+}
+
+/* Data */
+.ds-text-data-emphasis {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-data-emphasis);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-data-emphasis);
+  letter-spacing: var(--ds-tracking-data);
+}
+
+.ds-text-data-default {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-data-default);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-data-default);
+  letter-spacing: var(--ds-tracking-data);
+}
+
+.ds-text-data-compact {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-data-compact);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-line-height-data);
+  letter-spacing: var(--ds-tracking-data);
+}

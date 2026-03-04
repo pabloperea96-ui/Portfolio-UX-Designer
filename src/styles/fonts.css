@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   Design System Font Stack
+   ========================================
+   Primary: Inter (Google Fonts)
+   Loaded with weights 400 (Regular), 500 (Medium), 600 (SemiBold), and 700 (Bold)
+   to match the design system's font-weight tokens.
+   Referenced via --ds-font-family in theme.css
+   ======================================== */

@@ -1,0 +1,1081 @@
+{
+  "$schema": "Design System Guidelines — Pablo Perea Portfolio",
+  "version": "1.1.0",
+  "lastUpdated": "2026-02-23",
+  "purpose": "Authoritative design reference for AI tools generating new pages, case studies, and components. All UI must use the CSS variables and composite text classes defined here — never hardcode colors, spacing, or typography values. The system is responsive by default — typography and spacing tokens scale down on mobile via CSS media queries, and layout components stack vertically on small viewports.",
+
+  "designPhilosophy": {
+    "summary": "A minimal, typographically-driven portfolio that prioritizes content legibility and spatial clarity. Every element earns its place through function, not decoration.",
+    "principles": [
+      {
+        "name": "Token-first styling",
+        "description": "All visual properties (color, spacing, radius, typography) must reference CSS custom properties from theme.css. Never hardcode hex colors, pixel values, or font sizes inline. This enables centralized theming and Comfortable/Compact spacing mode switching."
+      },
+      {
+        "name": "Composition over duplication",
+        "description": "Complex UI is built by composing small, single-purpose DS primitives. For example, ProjectCard with imageVariant='editorial' composes TechnicalSheet + ContentImage + MotionReveal — it owns layout while TechnicalSheet owns the text block. Never duplicate a pattern that already exists as a component."
+      },
+      {
+        "name": "Figma instance-swap parity",
+        "description": "Components mirror Figma's instance swap architecture: variant props (size, subtitleVariant, ctaType, layout) control which internal sub-component renders, making each component as flexible as its Figma counterpart without code changes."
+      },
+      {
+        "name": "Progressive disclosure of motion",
+        "description": "Animations are subtle, functional, and scroll-triggered. Content fades in as users scroll — it never jumps or bounces. The MotionReveal primitive standardizes this with 4 animation types. Parallax is reserved for hero images only."
+      },
+      {
+        "name": "Spatial hierarchy through generous whitespace",
+        "description": "Sections breathe with large padding (72px–96px vertical). Content blocks within sections use moderate gaps (24px–64px). Text elements use tight gaps (4px–16px). This three-tier spacing creates a clear visual hierarchy without decorative dividers."
+      },
+      {
+        "name": "Color restraint",
+        "description": "The palette is nearly monochrome: dark text on white surfaces, with a single green accent for interactive elements. Color is never used for decoration — it signals actionability (buttons, links, focus rings). Tertiary text and borders create depth through value, not hue."
+      },
+      {
+        "name": "One typeface, two weights",
+        "description": "Inter at Regular (400) and Medium (500) handles nearly everything from 12px labels to 56px hero headings. Hierarchy is established through size and letter-spacing, not weight proliferation. Weights 600 (SemiBold) and 700 (Bold) are loaded but reserved exclusively for the Navigation brand button — never use them in DS components or page content."
+      },
+      {
+        "name": "Responsive by default via token scaling",
+        "description": "Responsiveness is achieved through a two-layer hybrid: (1) CSS media queries in theme.css override typography and spacing tokens for mobile viewports — every component automatically adapts with zero code changes, and (2) layout components use Tailwind responsive breakpoints (flex-col md:flex-row) for structural changes like stacking direction. Variables handle global scaling; breakpoints handle layout flow."
+      }
+    ]
+  },
+
+  "typography": {
+    "fontStack": {
+      "primary": "Inter",
+      "fallback": "sans-serif",
+      "cssVariable": "--ds-font-family",
+      "loadedWeights": [400, 500, 600, 700],
+      "source": "Google Fonts (fonts.css)",
+      "rule": "ONLY use Inter for all generated text. Never introduce additional typefaces."
+    },
+    "rendering": {
+      "antialiasing": "-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale",
+      "appliedTo": "<html> element in index.css"
+    },
+    "compositeTextClasses": {
+      "description": "Pre-built CSS classes in index.css that bundle font-size + weight + line-height + letter-spacing from DS tokens. Always use these instead of assembling individual Tailwind utilities.",
+      "label": {
+        "ds-text-label-eyebrow": {
+          "size": "14px (--ds-font-size-label-lg)",
+          "weight": "400 (Regular)",
+          "lineHeight": "normal",
+          "tracking": "0.2px",
+          "usage": "Section subtitles, eyebrow text above headings, category labels. Always paired with text-ds-text-tertiary."
+        },
+        "ds-text-label-sm": {
+          "size": "12px (--ds-font-size-label-sm)",
+          "weight": "400 (Regular)",
+          "lineHeight": "normal",
+          "tracking": "-0.15px",
+          "usage": "Metadata labels, captions, tooltip text, badge text, tertiary annotations. Usually text-ds-text-tertiary."
+        }
+      },
+      "action": {
+        "ds-text-action-inline": {
+          "size": "14px (--ds-font-size-action-inline)",
+          "weight": "500 (Medium)",
+          "lineHeight": "normal",
+          "tracking": "-0.15px",
+          "usage": "NavButton labels, CaseStudyLink labels, filter pills, breadcrumb text."
+        },
+        "ds-text-action-button-df": {
+          "size": "16px (--ds-font-size-action-sm)",
+          "weight": "500 (Medium)",
+          "lineHeight": "normal",
+          "tracking": "-0.31px",
+          "usage": "Default-size DesignButton label."
+        },
+        "ds-text-action-button-lg": {
+          "size": "20px (--ds-font-size-action-lg)",
+          "weight": "500 (Medium)",
+          "lineHeight": "normal",
+          "tracking": "-0.44px",
+          "usage": "Large DesignButton label (hero CTAs)."
+        }
+      },
+      "body": {
+        "ds-text-body-default": {
+          "size": "18px (--ds-font-size-body-default)",
+          "weight": "400 (Regular)",
+          "lineHeight": "26px",
+          "tracking": "-0.45px",
+          "usage": "Primary paragraph text, descriptions in TechnicalSheet (default/section size), SectionHeader descriptions."
+        },
+        "ds-text-body-emphasis": {
+          "size": "20px (--ds-font-size-body-emphasis)",
+          "weight": "400 (Regular)",
+          "lineHeight": "26px",
+          "tracking": "-0.45px",
+          "usage": "Hero sub-text, TechnicalSheet descriptions in small/large size. Slightly larger body for emphasis contexts."
+        },
+        "ds-text-body-compact": {
+          "size": "14px (--ds-font-size-body-compact)",
+          "weight": "400 (Regular)",
+          "lineHeight": "22px",
+          "tracking": "-0.15px",
+          "usage": "Card descriptions, bullet list items, process step descriptions, skill card items. Dense but readable."
+        }
+      },
+      "heading": {
+        "ds-text-heading-compact": {
+          "size": "16px (--ds-font-size-heading-compact)",
+          "weight": "500 (Medium)",
+          "lineHeight": "24px",
+          "tracking": "-0.31px",
+          "usage": "Card titles, metadata values, process step titles, mobile nav brand text."
+        },
+        "ds-text-heading-section": {
+          "size": "36px (--ds-font-size-heading-section)",
+          "weight": "500 (Medium)",
+          "lineHeight": "normal",
+          "tracking": "0.4px (positive!)",
+          "usage": "TechnicalSheet title at size='section', stat values in StatItem, About section subheading, QuoteBlock text."
+        },
+        "ds-text-heading-overview": {
+          "size": "36px (--ds-font-size-heading-overview)",
+          "weight": "500 (Medium)",
+          "lineHeight": "48px",
+          "tracking": "-0.9px",
+          "usage": "TechnicalSheet title at size='small' (used in ProjectOverview). Same font-size as heading-section but different line-height and tracking."
+        },
+        "ds-text-heading-page": {
+          "size": "48px (--ds-font-size-heading-page)",
+          "weight": "500 (Medium)",
+          "lineHeight": "normal",
+          "tracking": "-0.53px",
+          "usage": "TechnicalSheet title at default size, ResultCard metrics, process step numbers, QuoteBlock avatar. Primary page-level headings."
+        },
+        "ds-text-heading-hero": {
+          "size": "56px (--ds-font-size-heading-hero)",
+          "weight": "500 (Medium)",
+          "lineHeight": "normal",
+          "tracking": "-1.68px (tight!)",
+          "usage": "Hero titles, SectionHeader titles, TechnicalSheet at size='large', case study hero h1. The largest, most impactful text style."
+        }
+      },
+      "data": {
+        "ds-text-data-emphasis": {
+          "size": "36px (--ds-font-size-data-emphasis)",
+          "weight": "500 (Medium)",
+          "lineHeight": "40px",
+          "tracking": "0.37px",
+          "usage": "DesignCard metric value at default size."
+        },
+        "ds-text-data-default": {
+          "size": "24px (--ds-font-size-data-default)",
+          "weight": "500 (Medium)",
+          "lineHeight": "36px",
+          "tracking": "0.37px",
+          "usage": "DesignCard metric value at compact size."
+        },
+        "ds-text-data-compact": {
+          "size": "16px (--ds-font-size-data-compact)",
+          "weight": "500 (Medium)",
+          "lineHeight": "24px",
+          "tracking": "0.37px",
+          "usage": "DesignCard metric heading (small label above the value)."
+        }
+      }
+    },
+    "italicUsage": "Italic text should be used consciously and purposefully — never as a default pattern across all headings. If a specific heading benefits from editorial emphasis, apply italic to one or two key words via <span className='italic'>. Do not apply italic across every section title in a page."
+  },
+
+  "colors": {
+    "philosophy": "Near-monochrome with one portfolio accent (green). No gradients in UI elements. Color signals function (interactive = green, static = gray scale). Case study pages use a per-project --cs-accent token to brand each project with its own color while keeping the portfolio chrome (nav, CTAs, footer) green.",
+    "tokens": {
+      "text": {
+        "--ds-text-primary": { "value": "#141411", "usage": "All headings, card titles, primary labels. The default text color." },
+        "--ds-text-secondary": { "value": "#6C6262", "usage": "Body paragraphs, descriptions, card subtitles, footer text." },
+        "--ds-text-tertiary": { "value": "#867C7C", "usage": "Eyebrow labels, captions, metadata labels, muted annotations." },
+        "--ds-text-tertiary-inverse": { "value": "#A89F9F", "usage": "Tertiary text on dark/inverse surfaces. Accessible ~5.4:1 contrast on --ds-surface-inverse. Used by CaseStudyFooter variant='inverse' for the eyebrow label." },
+        "--ds-text-inverse": { "value": "#FFFFFF", "usage": "Text on dark backgrounds: primary buttons, dark thumbnails, tooltips, result cards." }
+      },
+      "surface": {
+        "--ds-surface-page": { "value": "#FFFFFF", "usage": "Default page background, card content areas, badge backgrounds." },
+        "--ds-surface-card": { "value": "#F3F3F3", "usage": "Card hover backgrounds, secondary surfaces." },
+        "--ds-surface-subtle": { "value": "#D2D2D2", "usage": "Subtle background for secondary elements." },
+        "--ds-surface-inverse": { "value": "#292925", "usage": "Dark backgrounds: solid thumbnails, tooltips, filter pills (selected)." },
+        "--ds-surface-background": { "value": "#F6F6F6", "usage": "Section backgrounds (Projects, Contact), metric card idle state, case-study-link background." }
+      },
+      "action": {
+        "--ds-action-primary": { "value": "#388259", "usage": "Primary button background, focus ring color. THE accent green." },
+        "--ds-action-pressed": { "value": "#1C472F", "usage": "Active/pressed state for primary actions." },
+        "--ds-action-subtle": { "value": "#C1DFCE", "usage": "Mobile nav active item background, light green highlight." },
+        "--ds-action-disabled": { "value": "#A4D3B9", "usage": "Disabled button state." },
+        "--ds-action-hover-primary": { "value": "#2A6745", "usage": "Primary button hover, NavButton hover text color." },
+        "--ds-action-hover-secondary": { "value": "#D9EAE1", "usage": "Secondary button hover background (light surfaces)." },
+        "--ds-action-hover-secondary-inverse": { "value": "rgba(255, 255, 255, 0.12)", "usage": "Secondary button hover background on dark/inverse surfaces. Subtle white overlay that keeps --ds-text-inverse readable." }
+      },
+      "border": {
+        "--ds-border-default": { "value": "#ACACAC", "usage": "Secondary button border, badge border, filter pill border." },
+        "--ds-border-subtle": { "value": "#D2D2D2", "usage": "Section dividers, card idle borders, metadata row separators, nav scroll border." },
+        "--ds-border-focus": { "value": "#52B47E", "usage": "Skill card hover border (green), focus indicator." }
+      },
+      "caseStudyAccent": {
+        "--cs-accent": {
+          "default": "var(--ds-action-primary)",
+          "usage": "Per-project accent color for case study pages. Set on the page root <div> via inline style. Falls back to portfolio green when unset. Used for: hero backgrounds, numbered pills, exhibit controls (toggles, sliders, checkmarks), annotation highlights, dashed borders.",
+          "tailwind": "bg-cs-accent, text-cs-accent, border-cs-accent",
+          "currentValues": {
+            "CaseStudyAudio": "#F0C70E (Yellow)",
+            "CaseStudyInvest": "default (portfolio green)"
+          }
+        },
+        "--cs-accent-text": {
+          "default": "#212226",
+          "usage": "Text color for content rendered on top of --cs-accent backgrounds (e.g. hero title, numbered pill text). Defaults to dark text. Override per-page if the accent color is dark."
+        }
+      }
+    },
+    "semanticMappings": {
+      "description": "Component-specific CSS variables that alias foundation tokens. This indirection lets you retheme components independently.",
+      "examples": [
+        "Button: --btn-primary-bg → --ds-action-primary",
+        "NavButton: --nav-btn-text → --ds-text-primary, --nav-btn-text-idle → --ds-text-secondary",
+        "Badge: --badge-bg → --ds-surface-page, --badge-border → --ds-border-default",
+        "Card: --dcard-bg → --ds-surface-background, --dcard-border-hover → --ds-border-focus",
+        "Filter: --filter-bg-selected → --ds-surface-inverse, --filter-text-selected → --ds-text-inverse",
+        "Thumbnail: --dthumb-bg → --ds-surface-inverse, --dthumb-icon → --ds-text-inverse",
+        "CaseStudyFooter inverse: scoped --ds-text-primary → --ds-text-inverse, --ds-text-secondary → --ds-text-inverse, --ds-text-tertiary → --ds-text-tertiary-inverse, --btn-secondary-text → --ds-text-inverse, --btn-secondary-border → --ds-text-inverse, --btn-secondary-bg-hover → --ds-action-hover-secondary-inverse, --icon-foreground → --ds-text-inverse",
+        "Case Study Accent: --cs-accent (page-scoped) — set via inline style on case study root div. Inherited by all children including exhibit components. Falls back to --ds-action-primary (portfolio green) via :root default."
+      ]
+    }
+  },
+
+  "spacing": {
+    "philosophy": "A deliberate 8px-base scale with specific additions (4px, 10px) for micro-adjustments. Spacing modes (Comfortable default, Compact via .spacing-compact class) scale all values proportionally.",
+    "scale": {
+      "--ds-space-4": { "comfortable": "4px", "compact": "4px", "usage": "Tightest gap: subtitle-to-title in TechnicalSheet, NavButton internal gaps." },
+      "--ds-space-8": { "comfortable": "8px", "compact": "6px", "usage": "Badge gaps in tag rows, text block internal gaps, skill card item spacing." },
+      "--ds-space-10": { "comfortable": "10px", "compact": "8px", "usage": "Button icon-to-text gap, bullet dot vertical offset." },
+      "--ds-space-12": { "comfortable": "12px", "compact": "8px", "usage": "Filter pill padding, tooltip padding, bullet list item spacing, badge label-to-list gap." },
+      "--ds-space-16": { "comfortable": "16px", "compact": "12px", "usage": "Button padding (default), SectionHeader internal gap, result card metric-to-description, process step title-to-description." },
+      "--ds-space-24": { "comfortable": "24px", "compact": "16px", "usage": "Page horizontal padding (mobile), TechnicalSheet outer gap, card internal padding, grid gaps, hero label-to-title." },
+      "--ds-space-32": { "comfortable": "32px", "compact": "24px", "usage": "Button padding (default horizontal), Hero content gaps, metadata section gaps, social card row gaps." },
+      "--ds-space-48": { "comfortable": "48px", "compact": "32px", "usage": "Section internal gaps (hero, cta, contact), horizontal card layout gap, page padding (desktop), button padding (large horizontal)." },
+      "--ds-space-64": { "comfortable": "64px", "compact": "48px", "usage": "ProjectCard (editorial/scrollReveal) grid gap, ProjectOverview grid gap, process grid header-to-grid spacing, hero bottom padding." },
+      "--ds-space-72": { "comfortable": "72px", "compact": "64px", "usage": "Section vertical padding, About section top, DesignSection projects/cta gap." },
+      "--ds-space-96": { "comfortable": "96px", "compact": "72px", "usage": "Large section vertical padding (desktop), ProjectCard spaced bottom margin, hero bottom padding (desktop)." },
+      "--ds-space-102": { "comfortable": "102px", "compact": "96px", "usage": "Largest gap: between project cards in the home ProjectsSection stack." }
+    },
+    "tailwindUsage": "Use Tailwind's DS spacing utilities: px-ds-24, gap-ds-48, py-ds-72, mb-ds-96, etc. The @theme inline block maps --spacing-ds-XX for each token."
+  },
+
+  "responsiveness": {
+    "strategy": "Two-layer hybrid: CSS token overrides for global scaling (typography + spacing), Tailwind breakpoints for structural layout changes (stacking direction). This means ~80% of responsive adaptation happens automatically through variables, with only layout-flow changes requiring component-level breakpoints.",
+    "breakpoint": "767px (max-width) — aligns with Tailwind's md: breakpoint at 768px.",
+    "layer1_tokenOverrides": {
+      "location": "theme.css → @media (max-width: 767px) { :root { ... } }",
+      "placement": "After :root, BEFORE .spacing-compact (so compact mode wins via later source order at equal specificity).",
+      "typography": {
+        "description": "Scales down large heading and data font sizes for mobile readability. Small text (labels, body-compact, actions) is untouched — already mobile-appropriate.",
+        "overrides": {
+          "--ds-font-size-heading-hero": { "desktop": "56px", "mobile": "36px" },
+          "--ds-font-size-heading-page": { "desktop": "48px", "mobile": "32px" },
+          "--ds-font-size-heading-section": { "desktop": "36px", "mobile": "28px" },
+          "--ds-font-size-heading-overview": { "desktop": "36px", "mobile": "28px" },
+          "--ds-font-size-data-emphasis": { "desktop": "36px", "mobile": "28px" },
+          "--ds-font-size-data-default": { "desktop": "24px", "mobile": "20px" },
+          "--ds-font-size-body-emphasis": { "desktop": "20px", "mobile": "18px" },
+          "--ds-font-size-body-default": { "desktop": "18px", "mobile": "16px" }
+        }
+      },
+      "lineHeights": {
+        "description": "Scaled proportionally to match reduced font sizes.",
+        "overrides": {
+          "--ds-line-height-heading-overview": { "desktop": "48px", "mobile": "36px" },
+          "--ds-line-height-data-emphasis": { "desktop": "40px", "mobile": "32px" },
+          "--ds-line-height-data-default": { "desktop": "36px", "mobile": "28px" },
+          "--ds-line-height-body": { "desktop": "26px", "mobile": "24px" }
+        }
+      },
+      "tracking": {
+        "description": "Loosens tight negative tracking at smaller sizes — tight tracking designed for 48-56px doesn't work at 28-36px.",
+        "overrides": {
+          "--ds-tracking-heading-hero": { "desktop": "-1.68px", "mobile": "-0.9px" },
+          "--ds-tracking-heading-page": { "desktop": "-0.53px", "mobile": "-0.4px" },
+          "--ds-tracking-heading-overview": { "desktop": "-0.9px", "mobile": "-0.6px" }
+        }
+      },
+      "spacing": {
+        "description": "Compresses large gaps for smaller viewports. Small spacing (4-32px) is untouched.",
+        "overrides": {
+          "--ds-space-102": { "desktop": "102px", "mobile": "64px" },
+          "--ds-space-96": { "desktop": "96px", "mobile": "56px" },
+          "--ds-space-72": { "desktop": "72px", "mobile": "48px" },
+          "--ds-space-64": { "desktop": "64px", "mobile": "40px" },
+          "--ds-space-48": { "desktop": "48px", "mobile": "32px" }
+        }
+      },
+      "componentsAffected": [
+        "TechnicalSheet — all size variants auto-scale (heading-hero/page/section/overview + body text)",
+        "SectionHeader — heading-hero title + body-default description auto-scale",
+        "DesignCard (metric) — data-emphasis/data-default values auto-scale",
+        "StatItem — heading-section stat auto-scales",
+        "QuoteBlock — heading-section blockquote auto-scales",
+        "ResultCard — heading-page metric auto-scales",
+        "ProcessStep — heading-page number auto-scales",
+        "Hero — heading-hero + body-emphasis auto-scale",
+        "CaseStudySection — py-ds-72 padding auto-compresses",
+        "DesignSection — all variant gaps/padding auto-compress",
+        "ProjectsSection — gap-ds-102 between cards auto-compresses",
+        "ProjectCard (editorial/scrollReveal) — gap-ds-64 and mb-ds-96 (spaced) auto-compress"
+      ]
+    },
+    "layer2_layoutBreakpoints": {
+      "description": "Structural layout changes that cannot be expressed with CSS variables. These require Tailwind responsive classes in component code.",
+      "ProjectCard": {
+        "change": "Horizontal layouts (left/right) stack vertically on mobile",
+        "desktop": "flex-row gap-ds-48 — side-by-side thumbnail + text",
+        "mobile": "flex-col gap-ds-24 — thumbnail on top, text below (natural reading order)",
+        "rightVariant": "Uses md:order-first on the sheet block wrapper to swap text before thumbnail on desktop, while keeping thumbnail-first DOM order for mobile stacking"
+      },
+      "otherResponsiveComponents": [
+        "Hero — typographic layout, single column (flex-col), no breakpoint-driven layout swap needed",
+        "CaseStudyFooter — flex-col md:flex-row (already responsive)",
+        "DesignSection pageFooter — flex-col md:flex-row (already responsive)",
+        "ProjectCard (editorial/mockup) — flex-col md:flex-row, stacks on mobile (already responsive)",
+        "ProjectOverview — lg:grid-cols-[2fr_1fr], stacks on mobile (already responsive)",
+        "ProcessGrid — lg:grid-cols-4, md:grid-cols-2 (already responsive)",
+        "ResultGrid — lg:grid-cols-4, sm:grid-cols-2 (already responsive)",
+        "Contact socialCards — flex-col md:flex-row (already responsive)",
+        "AllProjects grid — md:grid-cols-2, single-col on mobile (already responsive)",
+        "About card grid — grid-cols-1 sm:grid-cols-2, cards stack on phones (<640px)",
+        "Navigation — desktop NavButtons hidden on mobile, MobileNav drawer shown instead (already responsive)"
+      ]
+    },
+    "spacingCompactInteraction": {
+      "description": "If .spacing-compact class is applied alongside the mobile media query, compact mode wins (later source order, equal specificity). This is intentional — explicit compact mode is a stronger override than viewport-based compression.",
+      "precedence": ":root (desktop defaults) → @media mobile (auto-scale) → .spacing-compact (explicit override)"
+    },
+    "addingResponsiveTokens": {
+      "steps": [
+        "1. Add the desktop value in :root {}",
+        "2. Add the mobile override in @media (max-width: 767px) { :root { ... } }",
+        "3. If spacing, also add compact value in .spacing-compact {}",
+        "4. Map to Tailwind in @theme inline {} if it needs a utility class"
+      ]
+    }
+  },
+
+  "borders": {
+    "radius": {
+      "--ds-radius-sm": { "value": "14px", "usage": "NavButton, DesignThumbnail, mobile nav items, tooltips." },
+      "--ds-radius-md": { "value": "16px", "usage": "DesignCard, ResultCard, ProjectThumbnail (--thumbnail-radius)." },
+      "--ds-radius-lg": { "value": "26px", "usage": "DesignButton (default size), DesignBadge, CaseStudyLink (stroked), DesignFilter." },
+      "--ds-radius-xl": { "value": "24px", "usage": "ContentImage default rounding, ProcessGrid container." },
+      "--ds-radius-pill": { "value": "40px", "usage": "DesignButton (large size), fully-rounded pill shapes." }
+    },
+    "width": {
+      "--ds-border-width-default": { "value": "1px", "usage": "Standard border on badges, cards, filters, buttons." },
+      "--ds-border-width-focus": { "value": "2px", "usage": "Hover/focus border thickness (card hover states)." }
+    },
+    "tailwindUsage": "Use rounded-ds-sm, rounded-ds-md, rounded-ds-lg, rounded-ds-xl, rounded-ds-pill. For widths: border-ds-default, border-ds-focus."
+  },
+
+  "layout": {
+    "layoutTokens": {
+      "--ds-max-w-content": { "value": "1386px", "tailwind": "max-w-(--ds-max-w-content)", "usage": "Site-wide content column max-width for all homepage sections (Hero, ProjectsSection, About, Contact). Defined in theme.css :root. Changing it once resizes every section simultaneously." },
+      "--ds-aspect-hero-image": { "value": "645 / 739", "usage": "Portrait aspect ratio of the Hero thumbnail. Applied via style={{ aspectRatio: 'var(--ds-aspect-hero-image)' }} on the image wrapper in Hero.tsx." }
+    },
+    "maxWidths": {
+      "--ds-max-w-content (1386px)": "Token-based site-wide content column. Used as max-w-(--ds-max-w-content) on the inner content wrapper of every homepage section (Hero, ProjectsSection, About, Contact). Changing the token in theme.css resizes all sections at once.",
+      "max-w-7xl (1280px)": "Case study pages, AllProjects grid, CaseStudySection inner container, page footers.",
+      "max-w-4xl": "Constrained width for standalone TechnicalSheet blocks (challenge sections, solution headers).",
+      "max-w-3xl": "Narrow column for ProcessGrid headers.",
+      "max-w-md": "404 page centered content.",
+      "max-w-[672px]": "Centered description text cap in TechnicalSheet to maintain comfortable line length."
+    },
+    "gridPatterns": {
+      "projectCards_home": "Single column stack with gap-ds-102 (largest spacing). Alternating left/right layout prop on ProjectCard.",
+      "projectCards_allProjects": "2-column grid (md:grid-cols-2) with gap-x-ds-32, gap-y-ds-48. All cards use layout='top' with sheetSize='small'.",
+      "solutionBlocks": "2-column grid (lg:grid-cols-2) with gap-ds-64. Image/text sides alternate via imagePosition prop.",
+      "challengeCards": "3-column grid (md:grid-cols-3) with gap-ds-32. Metric cards with compact size.",
+      "processSteps": "4-column grid (lg:grid-cols-4) with gap-px + bg-border (creates 1px dividers). Rounded-ds-xl container.",
+      "resultCards": "4-column grid (lg:grid-cols-4) with gap-ds-24.",
+      "aboutGrid": "Responsive grid (grid-cols-1 sm:grid-cols-2) with gap-ds-24. Cards stack on phones (<640px), go side-by-side on sm+. Metric and skill cards have padding+borders that need full-width on small phones.",
+      "statItemGrid": "2-column grid (grid-cols-2) with gap-ds-24 inside case study research sections. Kept always 2-col because StatItem content is inherently compact (short numbers + wrapping labels). Unlike DesignCards, no padding/border makes 2-col safe even at 320px.",
+      "socialCards": "3-column flex row (md:flex-row) with gap-ds-32.",
+      "metadata": "2:1 grid (lg:grid-cols-[2fr_1fr]) with gap-ds-64 lg:gap-ds-96 for ProjectOverview."
+    },
+    "responsiveBreakpoints": {
+      "mobile": "< 768px (md). Single column layouts, reduced horizontal padding (px-ds-24).",
+      "tablet": "768px+ (md). Two-column grids activate, navigation shows desktop items.",
+      "desktop": "1024px+ (lg). Full multi-column layouts, extended horizontal padding (px-ds-48)."
+    },
+    "sectionPadding": {
+      "horizontal": "px-ds-24 (mobile) → lg:px-ds-48 (desktop). Applied to the Layer 2 inner content-wrapper <div> (NOT on the <section> tag itself, and NOT via DesignSection className). The three-layer pattern is: <section id background> → <div max-w-(--ds-max-w-content) mx-auto px-ds-24 lg:px-ds-48> → <DesignSection variant>. CaseStudySection handles its own padding internally.",
+      "vertical": "Handled by DesignSection variant classes (py-ds-48 for projects, py-ds-72 for cta/hero, py-ds-96 for About). Never apply py-* to the outer <section> tag except when not using DesignSection (e.g. About which applies py-ds-96 directly on the section)."
+    }
+  },
+
+  "animation": {
+    "library": "Motion (motion/react) — formerly Framer Motion. Import as: import { motion } from 'motion/react'",
+    "primitive": {
+      "component": "MotionReveal",
+      "location": "/src/app/components/ds/motion-reveal.tsx",
+      "description": "Universal animation wrapper. Use this instead of raw motion.div.",
+      "types": {
+        "slide-up": { "initial": "opacity:0, y:30", "duration": "0.8s", "usage": "Default for most content blocks, text sections, cards." },
+        "scale": { "initial": "opacity:0, scale:0.95", "duration": "0.5s", "usage": "Images, cards that should feel like they 'pop' into view." },
+        "fade": { "initial": "opacity:0", "duration": "0.8s", "usage": "Subtle reveals for footer text, secondary content." },
+        "slide-left": { "initial": "opacity:0, x:30", "duration": "0.8s", "usage": "Horizontal entrance, rarely used." }
+      },
+      "triggerModes": {
+        "inView": "Default. Fires when element enters viewport (margin: -100px). Once: true.",
+        "mount": "Fires immediately on component mount. Used for above-fold content on route change (AllProjects grid, hero content)."
+      },
+      "staggerPattern": "For lists/grids, wrap each item in MotionReveal with delay={index * 0.1} (cards) or delay={index * 0.06} (dense grids). Keep duration at 0.5-0.6s for staggered items."
+    },
+    "pageTransitions": {
+      "provider": "AnimatePresence in RootLayout with mode='wait'",
+      "enter": "opacity: 0 → 1, duration 0.4s",
+      "exit": "opacity: 1 → 0, duration 0.4s",
+      "scrollReset": "window.scrollTo(0, 0) on location.pathname change"
+    },
+    "parallax": {
+      "component": "ParallaxHero",
+      "effect": "Background image translates 0→30% on scroll. Opacity fades 1→0 at 80% scroll.",
+      "usage": "ONLY for case study hero sections. Never parallax regular page content."
+    },
+    "microInteractions": {
+      "buttons": "whileHover: scale 1.03 (CaseStudyLink stroked), whileTap: scale 0.97",
+      "socialCards": "whileHover: y -4px (lift effect)",
+      "navigation": "initial: y -100, animate: y 0, duration 0.6s (slides down on page load)",
+      "arrows": "Scroll indicator arrow bounces (y: [0, 8, 0]) on hover with 1.5s infinite repeat"
+    }
+  },
+
+  "navigation": {
+    "component": "Navigation",
+    "location": "/src/app/layouts/Navigation.tsx",
+    "behavior": {
+      "type": "Single adaptive bar — adapts right-side content based on route.",
+      "height": "80px fixed",
+      "position": "fixed top-0, z-50",
+      "glassMorphism": {
+        "unscrolled": "backdrop-blur-[30px] bg-background/85",
+        "scrolled": "backdrop-blur-[30px] bg-background/95 + border-b border-ds-border-subtle"
+      }
+    },
+    "brandButton": {
+      "text": "Pablo Perea Bohórquez",
+      "fontWeight": 600,
+      "fontSize": "var(--ds-font-size-body-emphasis)",
+      "tracking": "var(--ds-tracking-body-emphasis)",
+      "note": "The brand button is the ONLY element in the project that uses font-weight 600 (SemiBold). This is an intentional design choice — do not replicate this weight elsewhere."
+    },
+    "homeMode": {
+      "left": "Brand name button (scrolls to top)",
+      "right_desktop": "Section NavButtons with scroll-spy (Home, Proyectos, Sobre mi, Contacto) + animated underline (layoutId='activeSection')",
+      "right_mobile": "Hamburger → MobileNav sheet drawer"
+    },
+    "subpageMode": {
+      "left": "Brand name button (navigates to /)",
+      "right_desktop": "Inline breadcrumb: NavButton(icon) 'Portfolio' > Chevron > [optional: 'Todos los proyectos' >] 'Case Study Title'. Reads ?from=allProjects search param.",
+      "right_mobile": "Compact NavButton(icon) back button to last clickable parent breadcrumb."
+    },
+    "addingCaseStudy": "Add slug → title mapping to CASE_STUDY_TITLES record in Navigation.tsx."
+  },
+
+  "components": {
+    "overview": "~30 reusable Figma-mapped components in /src/app/components/ds/, barrel-exported from index.ts (~33 named exports). Import: import { ComponentName } from '../../components/ds';",
+
+    "primitives": {
+      "description": "Atomic building blocks — no internal composition with other DS components.",
+
+      "DesignButton": {
+        "file": "design-button.tsx",
+        "purpose": "Primary and secondary action buttons with optional icon — supports directional arrows or any DesignIcon.",
+        "variants": {
+          "primary": "Green fill (--btn-primary-bg), white text, hover darkens + shadow.",
+          "secondary": "Transparent with border overlay (--btn-secondary-border), hover adds green-tint bg + shadow."
+        },
+        "sizes": {
+          "small": "px-ds-24 py-ds-12, rounded-ds-md, ds-text-action-inline, 14px icon.",
+          "default": "px-ds-32 py-ds-16, rounded-ds-md, ds-text-action-button-df, 18px icon.",
+          "large": "px-ds-48 py-ds-24, rounded-ds-md, ds-text-action-button-lg, 24px icon."
+        },
+        "iconProps": {
+          "icon": "boolean — whether to show an icon.",
+          "iconType": "'arrow' (default) renders DesignArrow; any DesignIconName (e.g. 'mail', 'github', 'linkedin') renders the corresponding DesignIcon. Fully backward-compatible — omitting iconType gives arrow behavior.",
+          "iconDirection": "Arrow pointing direction (8 values). Only used when iconType='arrow'. Default: 'right'.",
+          "iconPosition": "'left' | 'right' — which side of the text the icon renders. Default: 'left'. INDEPENDENT from iconDirection and iconType."
+        },
+        "patterns": {
+          "backButton": "<DesignButton variant='secondary' icon iconDirection='left'>Volver a Home</DesignButton>",
+          "contactCTA": "<DesignButton variant='primary' icon iconType='mail' iconPosition='right'>Contactar</DesignButton>",
+          "heroCTA": "<DesignButton variant='primary' size='large' icon>Escribeme</DesignButton>",
+          "heroContactSecondary": "<DesignButton variant='secondary' icon iconType='mail' iconPosition='right'>Contactar</DesignButton>"
+        }
+      },
+
+      "NavButton": {
+        "file": "nav-button.tsx",
+        "purpose": "Navigation link with state-based color and optional back-arrow icon + underline.",
+        "states": {
+          "idle": "opacity-75, color --nav-btn-text-idle (#6C6262)",
+          "hovered": "opacity-100, color --nav-btn-text-hover (#2A6745, green)",
+          "selected": "opacity-100, color --nav-btn-text (#141411), optional animated underline bar"
+        },
+        "props": {
+          "icon": "Shows left-pointing back arrow (only when NOT selected).",
+          "underline": "Shows/hides the animated underline when selected. Default true.",
+          "layoutId": "Shared layout ID for the underline animation across a group of NavButtons."
+        }
+      },
+
+      "DesignArrow": {
+        "file": "design-arrow.tsx",
+        "purpose": "Directional arrow icon with 8 directions, each using a dedicated SVG path (no CSS rotation).",
+        "directions": ["down", "up", "left", "right", "down-left", "up-left", "up-right", "down-right"],
+        "defaults": "direction='right', size=24, color='currentColor'"
+      },
+
+      "Chevron": {
+        "file": "chevron.tsx",
+        "purpose": "Small directional chevron for breadcrumbs and navigation separators.",
+        "directions": ["right", "left", "up", "down"],
+        "defaults": "direction='right', size=14, color='var(--icon-foreground)'"
+      },
+
+      "DesignIcon": {
+        "file": "design-icon.tsx",
+        "purpose": "Figma-exported SVG icons for domain-specific use cases.",
+        "availableIcons": ["sparkle-orbit", "sparkle-motion", "sparkles", "palette", "code", "users", "zap", "mail", "github", "linkedin"],
+        "defaults": "size=24, color='currentColor'"
+      },
+
+      "DesignBadge": {
+        "file": "design-badge.tsx",
+        "purpose": "Pill-shaped tag for skills, tools, and categories.",
+        "styling": "rounded-ds-lg, border --badge-border, bg --badge-bg, ds-text-label-sm, px-ds-16 py-ds-8"
+      },
+
+      "DesignLabel": {
+        "file": "design-label.tsx",
+        "purpose": "Category/type label pill (e.g., 'Proyecto conceptual', '2025').",
+        "variants": {
+          "filled": "Dark bg (--primary), white text. Used in hero overlays.",
+          "subtle": "Transparent bg, tertiary text. For secondary labels."
+        },
+        "styling": "rounded-full, px-ds-16 py-ds-8, ds-text-body-compact"
+      },
+
+      "DesignFilter": {
+        "file": "design-filter.tsx",
+        "purpose": "Category filter pill with idle/hover/selected states.",
+        "states": {
+          "idle": "White bg, gray text, border.",
+          "hovered": "Light gray bg (--filter-bg-hover), dark text.",
+          "selected": "Dark bg (--filter-bg-selected), white text."
+        },
+        "styling": "rounded-ds-lg, border --filter-border, px-ds-16 py-ds-12, ds-text-label-eyebrow"
+      },
+
+      "DesignThumbnail": {
+        "file": "design-thumbnail.tsx",
+        "purpose": "48px icon container used inside DesignCard.",
+        "variants": {
+          "solid": "Dark bg (--dthumb-bg), white icon. Always-on dark state for skill cards.",
+          "interactive": "White idle → dark on parent hover. Icon color inverts. Needs parent group/card."
+        },
+        "sizing": "size-ds-48, rounded-ds-sm, p-ds-12"
+      },
+
+      "StatItem": {
+        "file": "stat-item.tsx",
+        "purpose": "Large metric + small label. Used in research sections of case studies.",
+        "styling": "ds-text-heading-section (stat) + ds-text-label-sm text-ds-text-tertiary (label), mt-ds-4 between."
+      },
+
+      "BulletList": {
+        "file": "bullet-list.tsx",
+        "purpose": "Vertical list with 1.5px dot bullets. Used inside ProjectCard/TechnicalSheet children slot.",
+        "styling": "space-y-ds-12, ds-text-body-compact text-ds-text-secondary, bullet dot bg-ds-text-primary"
+      },
+
+      "ContentImage": {
+        "file": "content-image.tsx",
+        "purpose": "Responsive image with rounded container, configurable aspect ratio, and optional caption.",
+        "defaults": "aspectRatio='16/9', rounded='rounded-ds-xl'",
+        "caption": "ds-text-label-sm text-ds-text-tertiary mt-ds-16 text-center"
+      },
+
+      "DSTooltip": {
+        "file": "ds-tooltip.tsx",
+        "purpose": "Design-system-styled tooltip wrapping Radix (via shadcn).",
+        "styling": "bg-ds-surface-inverse text-ds-text-inverse, px-ds-12 py-ds-8, rounded-ds-sm, max-w-[240px], ds-text-label-sm"
+      },
+
+      "StepList": {
+        "file": "step-list.tsx",
+        "purpose": "Numbered vertical stepper for syncing annotated step copy with IPhoneMockup frames. Designed to sit in the children slot of TechnicalSheet (via ProjectCard). Bidirectional: clicking a step pill or row fires onStepChange (which advances the mockup); the mockup advancing (onMockupFrameChange) updates the same parent state, which in turn sets activeStep.",
+        "visualAnatomy": {
+          "leftColumn": "32px numbered pill (ds-space-32 circle) + flex-grow vertical connector line (border-subtle, 1px wide) that stretches to match each row's content height.",
+          "rightColumn": "Step title (always visible) + description (visible only on active step, animated height open/close via motion/react AnimatePresence)."
+        },
+        "states": {
+          "active": "Pill filled ds-action-primary, text ds-text-inverse. Title ds-text-primary + ds-font-weight-medium. Description expanded.",
+          "inactive": "Pill transparent, border ds-border-default, text ds-text-tertiary. Title ds-text-secondary + ds-font-weight-regular. Description hidden.",
+          "hoverInactive": "Pill border and title color shift to ds-text-primary (via local hoveredIndex state). Cursor pointer."
+        },
+        "typography": "All text uses ds-font-size-body-compact, ds-line-height-body-compact, ds-tracking-body-compact, ds-font-family. Pill number uses ds-font-size-label-lg.",
+        "props": {
+          "steps": "StepItem[] — { title: string; description?: string }[]. Length MUST equal mockupFrames.length on the sibling ProjectCard.",
+          "activeStep": "number — controlled, owned by parent page. Never manage this inside StepList.",
+          "onStepChange": "(index: number) => void — update the same state that drives activeMockupFrame on ProjectCard.",
+          "className": "optional string on the outer wrapper."
+        },
+        "stateOwnership": "ALWAYS in the parent page component. StepList is fully controlled. The same state drives both activeMockupFrame (on ProjectCard) and activeStep (on StepList).",
+        "rule": "steps.length must equal mockupFrames.length — one step per frame. Mismatching lengths produces out-of-sync UI.",
+        "animation": "AnimatePresence + motion.div with height: 0→auto, opacity: 0→1, duration 0.25s easeInOut. overflow: hidden on the motion wrapper prevents clipping during transition.",
+        "usagePattern": "const [activeStep, setActiveStep] = useState(0); → pass activeMockupFrame={activeStep} onMockupFrameChange={setActiveStep} to ProjectCard and activeStep={activeStep} onStepChange={setActiveStep} to StepList inside the children slot."
+      }
+    },
+
+    "compositions": {
+      "description": "Higher-order components that compose primitives into reusable patterns.",
+
+      "TechnicalSheet": {
+        "file": "technical-sheet.tsx",
+        "role": "UNIVERSAL TEXT BLOCK PRIMITIVE. The single most important composition component.",
+        "structure": "Vertical stack (gap-ds-24): [TextBlock(gap-ds-8: SubtitleTitle(gap-ds-4) + Description)] → [Children slot] → [Tags row] → [CTA slot]",
+        "instanceSwapProps": {
+          "size": {
+            "default": "heading-page title, body-default description",
+            "small": "heading-overview title, body-emphasis description",
+            "large": "heading-hero title, body-emphasis description",
+            "section": "heading-section title, body-default description"
+          },
+          "subtitleVariant": {
+            "eyebrow": "ds-text-label-eyebrow, text-ds-text-tertiary (default)",
+            "label": "ds-text-label-sm, text-ds-text-tertiary"
+          },
+          "ctaType": {
+            "link": "CaseStudyLink (default variant, inline text + arrow)",
+            "button": "DesignButton (configurable variant)"
+          },
+          "align": {
+            "left": "items-start (default)",
+            "centered": "items-center text-center, description capped at max-w-[672px]"
+          }
+        },
+        "childrenSlot": "Flexible ReactNode below description. Accepts BulletList, stat grids, custom badge layouts, or any content.",
+        "usageGuideline": "When you need a subtitle + title + description + optional content + optional badges + optional CTA, ALWAYS use TechnicalSheet. Do not recreate this pattern manually."
+      },
+
+      "SectionHeader": {
+        "file": "design-section.tsx",
+        "role": "Simplified heading block for page-level section titles. Intentionally kept separate from TechnicalSheet.",
+        "structure": "Vertical stack (gap-ds-4): subtitle (label-eyebrow/tertiary, leading-none) → title (heading-hero/primary, leading-none) → description (body-default/secondary). Both subtitle and title use leading-none so the CSS gap maps directly to visible glyph-to-glyph spacing.",
+        "whenToUse": "Use for the top-level heading of Home page sections (Proyectos, Sobre mi) and AllProjects page header. For everything else, use TechnicalSheet."
+      },
+
+      "DesignSection": {
+        "file": "design-section.tsx",
+        "role": "Layout container with Figma-mapped section variants.",
+        "variants": {
+          "hero": "flex gap-ds-48 items-center py-ds-72 overflow-clip (NOTE: the current Hero.tsx does NOT use DesignSection — it has its own layout. This variant is preserved for potential future use or alternative hero layouts)",
+          "projects": "flex-col gap-ds-72 items-center py-ds-48",
+          "cta": "flex-col gap-ds-48 items-center py-ds-72 overflow-clip",
+          "contact": "flex gap-ds-48 items-start py-ds-72 overflow-clip",
+          "footer": "flex gap-ds-48 items-start pt-ds-16 pb-ds-72",
+          "pageFooter": "flex-col md:flex-row justify-between items-center gap-ds-24 pt-ds-48 border-t border-ds-border-subtle",
+          "projectGrid": "flex-col gap-ds-72 items-center py-ds-48"
+        }
+      },
+
+      "CaseStudySection": {
+        "file": "case-study-section.tsx",
+        "role": "Standard section wrapper for case study pages. Handles padding + max-width + optional accent bg.",
+        "styling": "py-ds-72 md:py-ds-96 px-ds-24 lg:px-ds-48, inner max-w-7xl mx-auto",
+        "accentProp": "accent={true} adds bg-accent/30 for alternating visual rhythm."
+      },
+
+      "ProjectCard": {
+        "file": "project-card.tsx",
+        "role": "UNIFIED project showcase card. Replaced both the old ProjectCard and the deleted SolutionBlock. Composes ProjectThumbnail | ContentImage | IPhoneMockup (selected via imageVariant) with TechnicalSheet.",
+        "layouts": {
+          "left": "Horizontal: image left, sheet right. Desktop: flex-row gap-ds-48. Mobile: stacks vertically (flex-col gap-ds-24, image on top). Default showCta: true.",
+          "right": "Horizontal: sheet left, image right. Desktop: flex-row gap-ds-48 with md:order-first on sheet. Mobile: stacks vertically (image on top). Default showCta: true.",
+          "top": "Vertical: image top, sheet below. gap-ds-24. Default showCta: false. Always vertical at all breakpoints."
+        },
+        "imageVariants": {
+          "thumbnail": "ProjectThumbnail — hover-zoom + gradient overlay. For portfolio listing cards. Props: image, alt, zoom, imageClassName.",
+          "editorial": "ContentImage — plain rounded image, no hover. For case study solution sections. Props: image, alt, imageAspectRatio, imageRounded, imageCaption.",
+          "mockup": "IPhoneMockup — iPhone 16 SVG frame with navigable frames. For app screen walkthroughs. Props: mockupFrames, mockupMaxWidth, activeMockupFrame, onMockupFrameChange."
+        },
+        "mockupProps": {
+          "mockupFrames": "(string | ReactNode)[] — required when imageVariant='mockup'. Accepts screenshot URL strings or React elements (e.g. interactive prototype screens). One item per frame/step.",
+          "mockupMaxWidth": "CSS max-width of the mockup container. Default '280px'.",
+          "activeMockupFrame": "number — controlled frame index, driven by parent state.",
+          "onMockupFrameChange": "(i: number) => void — fires when user clicks left/right half of the phone or dot indicators."
+        },
+        "childrenSlot": "ReactNode forwarded to TechnicalSheet's children slot. Accepts BulletList, StatItem grids, StepList, or any content. When using StepList here, set showCta={false} — the steps serve as the navigation CTA.",
+        "sheetProps": "subtitle, subtitleVariant ('eyebrow'|'label'), title, description, sheetAlign, sheetSize forwarded verbatim to TechnicalSheet.",
+        "behaviorProps": {
+          "scrollReveal": "Wraps each column in its own MotionReveal for independent scroll entrance.",
+          "spaced": "Adds mb-ds-96 below the card — use on all solution blocks except the last."
+        },
+        "responsiveBehavior": "Horizontal layouts use flex-col md:flex-row with gap-ds-24 md:gap-ds-48. The right variant uses md:order-first on the sheet wrapper to swap order on desktop while keeping image-first for mobile stacking. Layer 2 layout breakpoint — typography and spacing handled by Layer 1 token overrides.",
+        "patterns": {
+          "portfolioListingCard": "layout='left|right', imageVariant='thumbnail' (default), image, alt (dedicated string — not project.title), tags, subtitle, title, description, ctaLabel, onCtaClick, zoom (from data), showCta (from data). All per-project values live in the ProjectData array — never compute inline.",
+          "caseStudySolutionBlock": "layout='left|right', imageVariant='editorial', subtitleVariant='label', sheetSize='section', scrollReveal, spaced (omit on last). Optional children: BulletList.",
+          "iPhoneMockupCard": "layout='right', imageVariant='mockup', mockupFrames=[...], activeMockupFrame={step}, onMockupFrameChange={setStep}, showCta={false}. Children: StepList with matching steps array and same state."
+        },
+        "homeUsage": "layout='left'|'right' alternating, imageVariant='thumbnail', default sheetSize, with CTA links.",
+        "allProjectsUsage": "layout='top', imageVariant='thumbnail', sheetSize='small', no CTA, wrapped in clickable div."
+      },
+
+      "ProjectThumbnail": {
+        "file": "project-thumbnail.tsx",
+        "role": "Image container with hover gradient overlay and subtle scale animation.",
+        "features": "group/thumbnail scoping, zoom prop (wrapper scale), 1.02 scale on hover, gradient fadeIn on hover."
+      },
+
+      "ProjectOverview": {
+        "file": "project-overview.tsx",
+        "role": "Case study overview section: TechnicalSheet (2fr) + ProjectMetadata (1fr) in responsive grid.",
+        "structure": "grid lg:grid-cols-[2fr_1fr] gap-ds-64 lg:gap-ds-96. Both columns have slide-up entrance."
+      },
+
+      "ProjectMetadata": {
+        "file": "project-metadata.tsx",
+        "role": "Vertical metadata list with border-separated label/value rows + optional tag badges.",
+        "structure": "flex-col gap-ds-32. Each row: label (ds-text-label-sm/tertiary) + value (ds-text-heading-compact/primary) + border-b."
+      },
+
+      "SolutionBlock": {
+        "file": "DEPRECATED — solution-block.tsx has been deleted",
+        "role": "DEPRECATED. Consolidated into ProjectCard with imageVariant='editorial'. Do not recreate this file.",
+        "migration": "Replace any SolutionBlock usage with ProjectCard: <ProjectCard imageVariant='editorial' subtitleVariant='label' sheetSize='section' scrollReveal spaced layout='left|right' image={...} title={...} description={...}><BulletList items={[...]} /></ProjectCard>",
+        "note": "The SolutionBlock component no longer exists in the codebase. All its functionality is covered by ProjectCard."
+      },
+
+      "ProcessGrid": {
+        "file": "process-grid.tsx",
+        "role": "4-step numbered process section with optional wireframe image.",
+        "composition": "TechnicalSheet (header) → grid of ProcessStep in MotionReveal → optional ContentImage",
+        "gridStyle": "gap-px bg-border rounded-ds-xl overflow-hidden (creates 1px divider lines between steps)."
+      },
+
+      "ProcessStep": {
+        "file": "process-step.tsx",
+        "role": "Individual step card: faded number + title + description.",
+        "styling": "bg-background p-ds-32 lg:p-ds-48. Number: ds-text-heading-page text-ds-text-secondary/30."
+      },
+
+      "ResultGrid": {
+        "file": "result-card.tsx",
+        "role": "Dark metric cards grid with centered header. Also accepts mockupFrames to replace the metric-card grid with a centred IPhoneMockup.",
+        "composition": "TechnicalSheet (align='centered', header) → grid of ResultCard in MotionReveal (default), or centred IPhoneMockup when mockupFrames provided.",
+        "resultCard": "bg-primary text-primary-foreground rounded-ds-md p-ds-32. Metric: ds-text-heading-page. Description: ds-text-label-sm opacity-70.",
+        "mockupMode": "Pass mockupFrames prop to render a centred IPhoneMockup instead of ResultCard grid. Used for 'Prueba el prototipo completo' sections."
+      },
+
+      "QuoteBlock": {
+        "file": "quote-block.tsx",
+        "role": "Centered testimonial/reflection quote with avatar circle.",
+        "structure": "text-center space-y-ds-32: avatar circle (64px, bg-primary) → blockquote (ds-text-heading-section) → author (ds-text-heading-compact) + subtitle (ds-text-label-sm/tertiary)"
+      },
+
+      "CaseStudyFooter": {
+        "file": "case-study-footer.tsx",
+        "role": "Bottom CTA section for case studies. Thank-you message + back/contact buttons. Supports variant='inverse' for dark background with accessible text.",
+        "composition": "TechnicalSheet (size='section', subtitleVariant='label') + two DesignButtons (secondary back + primary contact)",
+        "layout": "flex-col md:flex-row justify-between items-center, py-ds-72 md:py-ds-96",
+        "variants": {
+          "default": "border-t border-ds-border-subtle, inherits page background. Standard text colors.",
+          "inverse": "bg-ds-surface-inverse, no top border. Scoped CSS variable overrides on the <section> style attribute remap --ds-text-primary → --ds-text-inverse, --ds-text-secondary → --ds-text-inverse, --ds-text-tertiary → --ds-text-tertiary-inverse (#A89F9F), --btn-secondary-text/border → --ds-text-inverse, --icon-foreground → --ds-text-inverse. All composed children (TechnicalSheet, DesignButton) inherit the inverse palette automatically — no per-child overrides needed."
+        },
+        "props": {
+          "variant": "'default' | 'inverse'. Default: 'default'.",
+          "label": "Eyebrow text. Default: 'Gracias por leer'. Renders as tertiary text (--ds-text-tertiary on default, --ds-text-tertiary-inverse on inverse).",
+          "heading": "Heading text. Default: '¿Interesado en trabajar juntos?'.",
+          "backLabel": "Back button label. Default: 'Volver a Home'.",
+          "contactLabel": "Contact CTA label. Default: 'Contactar'.",
+          "email": "Contact email. Default: 'pabloperea96@gmail.com'.",
+          "className": "Additional className on the <section> wrapper."
+        },
+        "accessibilityNote": "The inverse variant uses --ds-text-tertiary-inverse (#A89F9F) for the eyebrow label, providing ~5.4:1 contrast ratio on --ds-surface-inverse (#292925). This passes WCAG AA for normal text."
+      },
+
+      "ParallaxHero": {
+        "file": "parallax-hero.tsx",
+        "role": "Full-viewport hero with parallax background image and gradient overlay.",
+        "structure": "Full viewport height (85vh mobile, 90vh desktop). Parallax image (0→30% translateY). Gradient: from-background via-background/40 to-transparent. Bottom-aligned children with entrance animation.",
+        "usage": "ONLY for case study page tops. Never use for Home hero or regular sections."
+      },
+
+      "DesignCard": {
+        "file": "design-card.tsx",
+        "role": "Multi-variant card for stats, skills, social links, and numbered principles.",
+        "variants": {
+          "metric": "Large stat value + description. Hover: bg darkens, border thickens. Used in About stats and case study challenges.",
+          "skill": "Dark thumbnail + title + item list. Hover: green border + shadow. Used in About skills.",
+          "social": "Thumbnail + title/subtitle + hover arrow. Used in Contact section.",
+          "numbered": "Accent-filled number pill (--cs-accent bg, --cs-accent-text color, 32px circle) + title + description. No hover effects. Used for design constraints/principles in case studies. The pill inherits the per-project accent color automatically."
+        },
+        "numberedProps": {
+          "number": "string — formatted number for the pill (e.g. '01')",
+          "title": "string — card title",
+          "description": "string — card description"
+        },
+        "responsiveBehavior": {
+          "strategy": "Differentiated scaling per variant — NOT uniform downscale. The DesignCard component itself has no breakpoints; responsiveness comes from Layer 1 token scaling and parent grid layout.",
+          "metric_default": "ds-text-data-emphasis (36→28px) auto-scales via Layer 1. Card padding (p-ds-32) stays fixed. Parent About grid stacks to 1-col on phones (<640px).",
+          "metric_compact": "ds-text-data-default (24→20px) auto-scales via Layer 1. Used in case study challenge grids (md:grid-cols-3 → 1-col). Moderate reduction.",
+          "skill": "Uses ds-text-heading-compact (16px) + ds-text-body-compact (14px) — both untouched by mobile overrides. Already mobile-appropriate. No font scaling needed.",
+          "social": "Same small text classes as skill. No font scaling needed. Parent Contact layout already stacks (flex-col md:flex-row).",
+          "numbered": "Uses ds-text-heading-compact (16px) + ds-text-body-compact (14px) — same as skill, already mobile-appropriate. Parent grid handles stacking (md:grid-cols-2 lg:grid-cols-4 → 1-col on mobile)."
+        }
+      },
+
+      "IPhoneMockup": {
+        "file": "iphone-mockup.tsx",
+        "role": "Standalone iPhone 16 Natural Titanium SVG mockup for showcasing app screens. Used internally by ProjectCard when imageVariant='mockup'. Scalable vector, viewBox 0 0 390 804.",
+        "modes": {
+          "static": "Single item in frames array → renders a fixed screenshot inside the phone frame.",
+          "navigable": "Multiple frames → dot-navigable carousel. Click left half to retreat, right half to advance.",
+          "controlled": "Provide activeFrame + onFrameChange to drive from parent state — required for StepList bidirectional sync.",
+          "uncontrolled": "Omit activeFrame + onFrameChange — manages its own internal index. Zero-prop standalone usage."
+        },
+        "props": {
+          "frames": "(string | ReactNode)[] — screenshot image URLs or React elements. Required.",
+          "activeFrame": "number — controlled frame index (optional).",
+          "onFrameChange": "(i: number) => void — fires on left/right click or dot tap (optional).",
+          "scrollHint": "boolean — shows a persistent 'Try scrolling' chip with a Mouse icon below the phone frame, with a slow bobbing animation. Use for scrollable ReactNode frames to signal interactivity. Renders in the portfolio canvas layer, never overlaid on the app screen.",
+          "interactiveHint": "boolean — enables Figma-style interactive hotspot discovery. On first scroll-into-view, all [data-hotspot] elements inside the screen flash with a blue pulse (one-time entrance hint). When the user clicks the screen but misses a [data-hotspot] element, the hotspots flash again. Prototype screens must mark their interactive elements with the data-hotspot HTML attribute."
+        },
+        "dotStyling": "Active dot: ds-action-primary fill. Inactive dot: ds-border-default stroke, transparent fill.",
+        "usageNote": "Prefer via ProjectCard (imageVariant='mockup') for layout composition. Use standalone only when the mockup is needed outside a ProjectCard context."
+      },
+
+      "CaseStudyLink": {
+        "file": "case-study-link.tsx",
+        "role": "Inline link with up-right arrow.",
+        "variants": {
+          "default": "Plain text + arrow. Hover: translates 4px right.",
+          "stroked": "Pill with bg/border. Hover: scale 1.03."
+        }
+      },
+
+      "MobileNav": {
+        "file": "mobile-nav.tsx",
+        "role": "Sheet drawer for mobile navigation. Wraps shadcn Sheet with DS styling.",
+        "structure": "Brand header (border-b) → nav items (rounded-ds-sm buttons) → footer (email link, border-t)"
+      },
+
+      "BreadcrumbNav": {
+        "file": "breadcrumb-nav.tsx",
+        "role": "Reusable pill-shaped breadcrumb. Currently unused (Navigation.tsx handles breadcrumbs inline). Kept as a DS primitive for potential future use."
+      }
+    },
+
+    "motionPrimitive": {
+      "MotionReveal": {
+        "file": "motion-reveal.tsx",
+        "role": "Universal scroll-reveal animation wrapper. Use this instead of raw motion.div for all content entrance animations.",
+        "rule": "Every content block that enters the viewport should be wrapped in MotionReveal. Only use raw motion.div for micro-interactions (hover, press, layout animations)."
+      }
+    }
+  },
+
+  "pageTemplates": {
+    "home": {
+      "route": "/",
+      "structure": [
+        "Hero — Full viewport, typographic hero (no image). Single heading-hero h1 statement (with green accent on name) + two DesignButtons (primary 'Ver Proyectos' + secondary 'Contáctame') + scroll indicator arrow at bottom. No eyebrow text.",
+        "ProjectsSection — bg-ds-surface-background, SectionHeader + alternating ProjectCards (left/right) with gap-ds-102 + 'Ver Todos' button",
+        "About — SectionHeader + bio text (left, body-default/secondary) + 2×2 card grid (right: 2 metric + 2 skill DesignCards)",
+        "Contact — bg-ds-surface-background, centered TechnicalSheet + large DesignButton (mail icon) + 3 social DesignCards + footer"
+      ],
+      "scrollSections": "Each section has an id (home, projects, about, contact) for scroll-spy navigation.",
+      "heroNote": "The Hero section uses a pure typographic approach — no hero image. The --ds-aspect-hero-image token is preserved in theme.css for potential future use but is NOT currently rendered. The Hero does NOT use DesignSection; it uses its own flex layout (flex-col gap-ds-48 py-ds-72)."
+    },
+
+    "allProjects": {
+      "route": "/projects",
+      "structure": [
+        "Top padding: pt-32 md:pt-40 (clears 80px nav + breathing room)",
+        "SectionHeader (subtitle + title + description)",
+        "DesignFilter row for category filtering",
+        "2-column grid of ProjectCard layout='top' sheetSize='small'",
+        "Page footer (DesignSection variant='pageFooter') with count + back button"
+      ],
+      "filterBehavior": "Derive categories from project data with 'All' prepended. Active filter highlights with dark bg."
+    },
+
+    "caseStudy": {
+      "route": "/projects/:slug",
+      "structure": [
+        "ParallaxHero — full viewport, DesignLabel tags, h1 title",
+        "CaseStudySection — ProjectOverview (description + metadata sidebar)",
+        "[optional] Full-width ContentImage break (outside CaseStudySection, with MotionReveal)",
+        "CaseStudySection — Challenge (TechnicalSheet + DesignCard metric/compact grid, or custom stats)",
+        "CaseStudySection — Research (TechnicalSheet + StatItem grid + ContentImage, in lg:grid-cols-2)",
+        "[variant A] CaseStudySection — ProcessGrid (4 numbered steps + optional wireframe)",
+        "[variant B] CaseStudySection — UserFlowDiagram (for flow-centric case studies like Invest)",
+        "CaseStudySection — Solution header (TechnicalSheet in max-w-4xl) + 3× ProjectCard (editorial or mockup, scrollReveal, spaced except last)",
+        "CaseStudySection — ResultGrid (centered header + 4 dark metric cards, OR mockupFrames with interactive prototype)",
+        "[optional] CaseStudySection — QuoteBlock (centered reflection quote)",
+        "[optional] CaseStudySection — 'Aprendizajes clave' learnings grid (TechnicalSheet header + md:grid-cols-3 of h3 ds-text-heading-compact + p ds-text-body-default/secondary, each in MotionReveal)",
+        "CaseStudyFooter variant='inverse' — dark background thank-you CTA with back + contact buttons"
+      ],
+      "accentAlternation": "Alternate accent={true/false} on CaseStudySections for visual rhythm. The exact pattern varies per case study — there is no single fixed sequence. The general principle: adjacent sections should alternate where possible, but content needs (e.g. full-width image breaks, learnings grids) may require consecutive non-accent sections. Current patterns: Invest (normal→accent→normal→accent→normal→accent→footer), Audio (normal→normal→normal→accent→normal→accent→normal→accent→normal→footer), Shipping (normal→accent→normal→accent→normal→normal→accent→footer).",
+      "learningsSection": {
+        "description": "Optional 'Aprendizajes clave' section used in Audio and Shipping case studies. Not a DS component — built inline with existing primitives.",
+        "pattern": "CaseStudySection > MotionReveal(TechnicalSheet subtitle='Reflexión' title='Aprendizajes clave') + grid md:grid-cols-3 gap-ds-32 > MotionReveal(h3 ds-text-heading-compact + p ds-text-body-default text-ds-text-secondary) per learning item. Each item gets staggered delay (index * 0.15, duration 0.6).",
+        "usedIn": ["CaseStudyAudio.tsx", "CaseStudyShipping.tsx"]
+      },
+      "existingCaseStudies": {
+        "inversion-etf-apalancamiento": {
+          "component": "CaseStudyInvest",
+          "uniqueFeatures": ["UserFlowDiagram instead of ProcessGrid", "Interactive prototype screens (AssetInfoScreen, InvestmentSetupScreen, RiskClarificationScreen) as ReactNode mockupFrames", "ResultGrid with iframe-based Figma prototype + 'Reiniciar prototipo' button", "Solution blocks all use layout='left' with imageVariant='mockup'"]
+        },
+        "ajustes-audio-reproduccion": {
+          "component": "CaseStudyAudio",
+          "uniqueFeatures": ["Full-width ContentImage break between Overview and Challenge", "Solution blocks all use layout='left' with imageVariant='mockup' (static images)", "Learnings section", "ResultGrid with mockupFrames (static images)"]
+        },
+        "rediseno-planificacion-envios": {
+          "component": "CaseStudyShipping",
+          "uniqueFeatures": ["Problem section uses raw stat divs (ds-text-heading-section text-ds-action-primary) instead of StatItem component", "Solution blocks alternate layout='left'/'right'/'left' with imageVariant='editorial'", "Learnings section", "Standard ResultGrid with metric cards (no mockup)"]
+        }
+      },
+      "addingNewCaseStudy": {
+        "steps": [
+          "1. Create /src/app/pages/case-study/CaseStudy[Name].tsx following the section structure above.",
+          "2. Add a case to the switch in CaseStudyPage.tsx mapping slug → component.",
+          "3. Add slug → title to CASE_STUDY_TITLES in Navigation.tsx for breadcrumb support. CRITICAL: forgetting this step means breadcrumbs show the raw slug instead of a readable title.",
+          "4. Add project entry to the projects arrays in ProjectsSection.tsx and AllProjects.tsx with hasCaseStudy: true and the slug.",
+          "5. All section content should use DS components (TechnicalSheet, ProjectCard with appropriate imageVariant, ResultGrid, ProcessGrid, QuoteBlock, ContentImage, BulletList, StatItem, DesignLabel, DesignCard). Solution blocks use ProjectCard with imageVariant='editorial' or 'mockup'. SolutionBlock is deprecated.",
+          "6. Wrap content blocks in MotionReveal for scroll-reveal. Use CaseStudySection for consistent padding/max-width.",
+          "7. Use unsplash images (never hallucinate URLs). Set useEffect scrollTo(0,0) at mount."
+        ]
+      }
+    },
+
+    "notFound": {
+      "route": "* (catch-all)",
+      "structure": "Centered TechnicalSheet (align='centered') with DesignButton back to home. Min-height 80vh."
+    }
+  },
+
+  "routing": {
+    "library": "react-router v7 (data mode, createBrowserRouter)",
+    "rootLayout": "RootLayout wraps all pages with Navigation + AnimatePresence (mode='wait') for crossfade transitions.",
+    "frozenOutlet": "FrozenOutlet pattern freezes the outlet ref so exit animations render the old page, not the new one. IMPORTANT: useLocation() inside frozen components returns stale location.state — use URL search params (?from=allProjects) instead.",
+    "routes": [
+      { "path": "/", "component": "HomePage", "description": "Single-page portfolio home." },
+      { "path": "/projects", "component": "AllProjectsPage", "description": "Filterable grid of all projects." },
+      { "path": "/projects/:slug", "component": "CaseStudyPage", "description": "Dynamic case study. Switch statement maps slug to component." },
+      { "path": "*", "component": "NotFoundPage", "description": "404 catch-all." }
+    ]
+  },
+
+  "cssArchitecture": {
+    "fileStructure": {
+      "/src/styles/fonts.css": "Google Fonts import for Inter 400+500+600+700. Font faces defined here ONLY. Weights 600/700 reserved for Navigation brand button.",
+      "/src/styles/tailwind.css": "Tailwind v4 base import (@import 'tailwindcss' source(none)) + source directive + tw-animate-css.",
+      "/src/styles/theme.css": "FIVE top-level blocks (NEVER nest): :root (all foundation tokens + semantic vars), @media max-width:767px (responsive mobile overrides), .spacing-compact (explicit compact spacing), .dark (dark mode overrides), @theme inline (Tailwind v4 mappings). CRITICAL: @theme inline MUST be a top-level directive, not nested inside :root. The @media block must come AFTER :root but BEFORE .spacing-compact so compact mode wins via source order.",
+      "/src/styles/index.css": "Import chain (fonts → tailwind → theme) + html base styles + composite text class definitions (.ds-text-*)."
+    },
+    "tokenNamingConvention": {
+      "foundation": "--ds-{category}-{name}: e.g., --ds-text-primary, --ds-space-24, --ds-radius-md",
+      "semantic": "Component-specific aliases: --btn-primary-bg, --nav-btn-text, --badge-bg, --dcard-border",
+      "tailwindMapping": "@theme inline maps foundation tokens for Tailwind utility generation: --color-ds-text-primary, --spacing-ds-24, --radius-ds-md, --text-ds-body-default, etc."
+    },
+    "criticalWarning": "theme.css has FIVE top-level blocks: :root { ... } → @media (max-width: 767px) { :root { ... } } → .spacing-compact { ... } → .dark { ... } → @theme inline { ... }. A previous error nested blocks inside :root by missing a closing brace, which broke all Tailwind utility classes. Always verify this structure is maintained. The @media block for responsive overrides MUST come before .spacing-compact so that compact mode always takes precedence."
+  },
+
+  "fileOrganization": {
+    "/src/app/App.tsx": "Root component with RouterProvider.",
+    "/src/app/routes.tsx": "createBrowserRouter configuration.",
+    "/src/app/layouts/": "RootLayout.tsx (AnimatePresence wrapper), Navigation.tsx (adaptive nav bar).",
+    "/src/app/components/ds/": "All 35 design system components + index.ts barrel export.",
+    "/src/app/components/ui/": "shadcn primitives (Tooltip, Sheet) — never imported directly by pages, only by DS wrappers.",
+    "/src/app/components/figma/": "ImageWithFallback (protected, do not modify).",
+    "/src/app/pages/home/": "HomePage.tsx + section components (Hero, ProjectsSection, About, Contact).",
+    "/src/app/pages/projects/": "AllProjectsPage.tsx + AllProjects.tsx.",
+    "/src/app/pages/case-study/": "CaseStudyPage.tsx (router) + individual case studies (CaseStudyInvest.tsx, CaseStudyAudio.tsx, CaseStudyShipping.tsx).",
+    "/src/app/components/user-flow-diagram.tsx": "Page-level UserFlowDiagram component for visualizing user flows in case studies. NOT a DS primitive — lives outside /ds/. See pageSpecificComponents section.",
+    "/src/app/components/prototypes/": "Interactive prototype screen components rendered as ReactNode frames inside IPhoneMockup. Organized by case study slug (e.g. /prototypes/invest/).",
+    "/src/app/pages/NotFoundPage.tsx": "404 page.",
+    "/src/imports/": "Figma-exported SVG paths and raster image assets."
+  },
+
+  "pageSpecificComponents": {
+    "description": "Components that are NOT part of the DS barrel export but are used in specific pages. They live outside /components/ds/ and follow DS token rules but are not universal primitives.",
+
+    "UserFlowDiagram": {
+      "file": "/src/app/components/user-flow-diagram.tsx",
+      "purpose": "Two-layer horizontal flow visualization for case study design process sections. Shows phases with step cards, directional arrows, and always-visible tooltip annotations.",
+      "structure": {
+        "layer1_flow": "Horizontal flex of FlowPhase groups. Each phase has a label + step cards connected by ArrowSpacer directional arrows.",
+        "layer2_tooltips": "Always-visible annotation cards aligned beneath their corresponding step cards. Same flex proportions as Layer 1 for column alignment."
+      },
+      "props": {
+        "phases": "FlowPhase[] — { name: string; steps: FlowStep[] }",
+        "FlowStep": "{ line1: string; line2?: string; tooltip?: { title: string; description: string; position?: TooltipPosition } }",
+        "TooltipPosition": "'top-left' | 'top-center' | 'top-right' | 'right' | 'bottom-right' | 'bottom-center' | 'bottom-left' | 'left'"
+      },
+      "styling": "Uses DS tokens exclusively. Step cards: bg-ds-surface-page, border-ds-border-subtle, rounded-ds-sm. Tooltips: bg-ds-surface-inverse, text-ds-text-inverse, rounded-ds-sm. Phase labels: ds-text-label-sm, text-ds-text-tertiary.",
+      "responsiveness": "Scrolls horizontally on viewports < MacBook Pro 16 inch. TooltipPointer uses only CSS longhand properties.",
+      "usedIn": ["CaseStudyInvest.tsx — Design Process section (variant B, replaces ProcessGrid)"]
+    },
+
+    "PrototypeScreens": {
+      "directory": "/src/app/components/prototypes/invest/",
+      "purpose": "Interactive React components that render inside IPhoneMockup as ReactNode frames. Each screen simulates a real app screen with scrollable content, interactive elements, and DS-styled UI.",
+      "exports": ["AssetInfoScreen", "InvestmentSetupScreen", "RiskClarificationScreen"],
+      "usage": "Passed as elements in the mockupFrames array of ProjectCard (imageVariant='mockup'): mockupFrames={[<AssetInfoScreen />]}. The scrollHint prop on ProjectCard signals users to scroll these interactive frames.",
+      "addingNew": "Create a new directory under /prototypes/ named after the case study slug. Export screen components from an index.tsx barrel. Each screen should use DS tokens and be sized for the 390×804 IPhoneMockup viewport."
+    }
+  },
+
+  "doAndDont": {
+    "do": [
+      "Use DS components from /components/ds/ for all UI. Import from the barrel: import { X, Y } from '../../components/ds'",
+      "Use composite text classes (ds-text-body-default, ds-text-heading-hero, etc.) instead of individual font Tailwind utilities.",
+      "Use DS spacing utilities (px-ds-24, gap-ds-48) instead of arbitrary values.",
+      "Use DS color utilities (text-ds-text-primary, bg-ds-surface-background) for all colors.",
+      "Use DS radius utilities (rounded-ds-sm, rounded-ds-lg) for all border radius.",
+      "Wrap content blocks in MotionReveal for scroll-reveal animations.",
+      "Use TechnicalSheet as the universal text block — it handles subtitle + title + description + children + badges + CTA.",
+      "Use CaseStudySection for all case study page sections.",
+      "Alternate accent={true/false} on case study sections for visual rhythm.",
+      "Use unsplash_tool for all images — never hallucinate image URLs.",
+      "Give every list item a unique key prop based on data content.",
+      "Keep Inter as the only typeface. Hierarchy comes from size and tracking, not weight variety.",
+      "Rely on Layer 1 responsive token overrides for typography/spacing scaling — they work automatically via CSS variables. Don't add manual font-size breakpoints in components.",
+      "Use flex-col md:flex-row (or lg:) for layouts that need to stack on mobile. Pair with responsive gap utilities (gap-ds-24 md:gap-ds-48).",
+      "When adding new responsive token overrides, add them to the @media (max-width: 767px) block in theme.css, placed BEFORE .spacing-compact.",
+      "Use max-w-(--ds-max-w-content) for all homepage section content wrappers — the token is defined in theme.css and resizes every section at once.",
+      "Give every project in ProjectData a dedicated alt string separate from its title.",
+      "Store all per-project values (zoom, alt, showCta, slug) in the ProjectData array — keep JSX render logic data-agnostic."
+    ],
+    "dont": [
+      "Never hardcode hex colors, pixel spacing, or font sizes. Always use CSS variables or DS utility classes.",
+      "Never import from /components/ui/ in pages — always use the DS wrapper (DSTooltip, MobileNav).",
+      "Never use raw motion.div for scroll-reveal — use MotionReveal instead.",
+      "Never use parallax effects outside of ParallaxHero on case study pages.",
+      "Never nest @theme inline inside :root in theme.css — it must be a top-level directive.",
+      "Never add font imports outside of /src/styles/fonts.css.",
+      "Never modify protected files: ImageWithFallback.tsx, pnpm-lock.yaml.",
+      "Never recreate patterns that already exist as DS components (e.g., don't manually build subtitle+title+description — use TechnicalSheet).",
+      "Never use location.state inside case study components (stale due to FrozenOutlet). Use URL search params instead.",
+      "Prefer weights 400 (Regular) and 500 (Medium) for all DS components. Weights 600 (SemiBold) and 700 (Bold) are loaded and reserved for the Navigation brand button only — do not use them elsewhere without explicit design direction.",
+      "Never add per-component font-size media queries — typography scaling is handled globally by Layer 1 token overrides in theme.css.",
+      "Never place the @media responsive block AFTER .spacing-compact in theme.css — compact mode must always win via source order.",
+      "Never use max-w-7xl or hardcoded max-w-[1386px] for homepage content columns — use max-w-(--ds-max-w-content) so the token controls every section.",
+      "Never put px-* on DesignSection via className — horizontal padding belongs on the Layer 2 content-wrapper div (see layout.sectionPadding).",
+      "Never wrap a grid of individually-revealed cards in an outer MotionReveal — the outer fade fires first, then each card tries to re-animate, causing a double-flash.",
+      "Never use raw Tailwind spatial utilities (e.g. bottom-12) — use the DS equivalent (bottom-ds-48) so spacing stays on the token scale.",
+      "Never compute alt text or zoom inline in JSX render — these belong in ProjectData alongside image, title, and slug."
+    ]
+  }
+}
