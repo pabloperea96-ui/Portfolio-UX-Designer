@@ -3,9 +3,11 @@ import { DesignSection, SectionHeader } from '../../components/ds/design-section
 import { ProjectCard } from '../../components/ds/project-card';
 import { DesignButton } from '../../components/ds/design-button';
 import { MotionReveal } from '../../components/ds/motion-reveal';
-import imgImage from 'figma:asset/2fa6b41fc03580debb00a957f36a224c8a150867.png';
-import imgImage1 from 'figma:asset/444b5564c84e17f1679709b64f0b7425e204bda1.png';
-import imgImage2 from 'figma:asset/1e693f471685629c8f28297b2a4132f27bb3383f.png';
+import { caseStudies } from '../case-study/case-studies.config';
+
+const imgImage = '/images/cover-etf.png';
+const imgImage1 = '/images/cover-audio.png';
+const imgImage2 = '/images/cover-planificacion.png';
 
 interface ProjectData {
   id: number;
@@ -28,38 +30,38 @@ const projects: ProjectData[] = [
     id: 1,
     layout: 'left',
     subtitle: 'Proyecto conceptual',
-    title: 'Flujo de inversión apalancada',
+    title: caseStudies[0].title,
     description:
       'Proyecto conceptual en el que introduzco fricciones intencionales en el flujo de una inversión apalancada, con el objetivo de que la persona tome una decisión de inversión informada.',
     image: imgImage,
     alt: 'Pantallas del flujo de inversión apalancada mostrando las fricciones intencionales de la interfaz',
     tags: ['Proyecto conceptual', 'UX / UI', 'Prototipado'],
-    slug: 'inversion-etf-apalancamiento',
+    slug: caseStudies[0].slug,
     zoom: 1.15,
   },
   {
     id: 2,
     layout: 'right',
     subtitle: 'Proyecto conceptual',
-    title: 'Ajustes de Audio y Reproducción',
+    title: caseStudies[1].title,
     description:
       'Exploración conceptual sobre cómo presentar controles complejos — toggles, sliders, selectores — de forma clara y escalable dentro de una pantalla de configuración móvil.',
     image: imgImage1,
     alt: 'Pantalla de configuración de reproducción y audio con controles de toggle y slider',
     tags: ['UX / UI', 'Interaction Design', 'Design Systems'],
-    slug: 'ajustes-audio-reproduccion',
+    slug: caseStudies[1].slug,
   },
   {
     id: 3,
     layout: 'left',
     subtitle: 'Mercado Libre',
-    title: 'Rediseño de Planificación de envios',
+    title: caseStudies[2].title,
     description:
       'Simplificamos la experiencia del front de Planificación de envíos de Full, desde el cual los vendedores definen el stock que van a enviar a las bodegas, según sus necesidades de reposición de stock.',
     image: imgImage2,
     alt: 'Interfaz de planificación de envíos de Mercado Libre Full con el flujo rediseñado',
     tags: ['UX / UI'],
-    slug: 'rediseno-planificacion-envios',
+    slug: caseStudies[2].slug,
     showCta: true,
     zoom: 0.9,
   },

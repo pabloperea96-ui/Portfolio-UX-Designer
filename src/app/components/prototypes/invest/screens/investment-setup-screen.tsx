@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import svgPaths from '../../../../../imports/svg-zymc35igio';
-import imgEllipse165 from 'figma:asset/d245925c51aab3660e4a193918eecafa250e39b6.png';
+const imgEllipse165 = '/images/invest-ellipse.png';
 
 // SVG paths from the Figma token file
 const CHEVRON_UP = svgPaths.p11bb1900;

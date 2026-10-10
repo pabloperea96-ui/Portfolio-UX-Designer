@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { type ReactNode } from 'react';
 import { motion, type Transition, type Variants } from 'motion/react';
 
@@ -83,7 +84,7 @@ const motionComponents = {
   li: motion.li,
 };
 
-export function MotionReveal({
+export const MotionReveal: React.FC<MotionRevealProps> = ({
   children,
   type = 'slide-up',
   trigger = 'inView',
@@ -93,7 +94,7 @@ export function MotionReveal({
   once = true,
   className,
   as = 'div',
-}: MotionRevealProps) {
+}) => {
   const dur = duration ?? defaultDurations[type];
   const config = variantMap[type](delay, dur);
 
@@ -123,4 +124,4 @@ export function MotionReveal({
       {children}
     </MotionTag>
   );
-}
+};

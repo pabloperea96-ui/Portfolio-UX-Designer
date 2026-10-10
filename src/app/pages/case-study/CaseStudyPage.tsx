@@ -1,7 +1,5 @@
 import { useParams } from 'react-router';
-import { CaseStudyInvest } from './CaseStudyInvest';
-import { CaseStudyAudio } from './CaseStudyAudio';
-import { CaseStudyShipping } from './CaseStudyShipping';
+import { getCaseStudyBySlug } from './case-studies.config';
 import { NotFoundPage } from '../NotFoundPage';
 
 /**
@@ -14,15 +12,12 @@ import { NotFoundPage } from '../NotFoundPage';
  */
 export function CaseStudyPage() {
   const { slug } = useParams<{ slug: string }>();
+  const entry = getCaseStudyBySlug(slug);
 
-  switch (slug) {
-    case 'inversion-etf-apalancamiento':
-      return <CaseStudyInvest />;
-    case 'ajustes-audio-reproduccion':
-      return <CaseStudyAudio />;
-    case 'rediseno-planificacion-envios':
-      return <CaseStudyShipping />;
-    default:
-      return <NotFoundPage />;
+  if (!entry) {
+    return <NotFoundPage />;
   }
+
+  const Component = entry.component;
+  return <Component />;
 }

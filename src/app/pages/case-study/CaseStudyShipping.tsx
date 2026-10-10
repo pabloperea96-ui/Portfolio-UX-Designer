@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import imgScreen1 from 'figma:asset/ca5170c18565e337e60d3ec9c108fccc31a52c28.png';
-import imgScreen2 from 'figma:asset/e547cef89914ad5403e282125f4a9c29fbc44d04.png';
-import imgScreen3 from 'figma:asset/d59797df74111f88718f41de062a18e1589805ea.png';
+const imgScreen1 = '/images/shipping-screen-summary.png';
+const imgScreen2 = '/images/shipping-screen-recommendations.png';
+const imgScreen3 = '/images/shipping-screen-actions.png';
 import {
   ParallaxHero,
   CaseStudySection,

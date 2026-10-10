@@ -8,9 +8,11 @@ import {
   MotionReveal,
   DesignSection,
 } from '../../components/ds';
-import imgEtf from 'figma:asset/2fa6b41fc03580debb00a957f36a224c8a150867.png';
-import imgAudio from 'figma:asset/444b5564c84e17f1679709b64f0b7425e204bda1.png';
-import imgPlanificacion from 'figma:asset/1e693f471685629c8f28297b2a4132f27bb3383f.png';
+import { caseStudies } from '../case-study/case-studies.config';
+
+const imgEtf = '/images/cover-etf.png';
+const imgAudio = '/images/cover-audio.png';
+const imgPlanificacion = '/images/cover-planificacion.png';
 
 interface Project {
   id: number;
@@ -27,7 +29,7 @@ interface Project {
 const allProjects: Project[] = [
   {
     id: 1,
-    title: 'Flujo de inversión apalancada',
+    title: caseStudies[0].title,
     category: 'Proyecto conceptual',
     description:
       'Proyecto conceptual en el que introduzco fricciones intencionales en el flujo de una inversión apalancada, con el objetivo de que la persona tome una decisión de inversión informada.',
@@ -35,11 +37,11 @@ const allProjects: Project[] = [
     image: imgEtf,
     tags: ['Proyecto conceptual', 'UX / UI', 'Prototipado'],
     hasCaseStudy: true,
-    slug: 'inversion-etf-apalancamiento',
+    slug: caseStudies[0].slug,
   },
   {
     id: 2,
-    title: 'Ajustes de Audio y Reproducción',
+    title: caseStudies[1].title,
     category: 'Proyecto conceptual',
     description:
       'Exploración conceptual sobre cómo presentar controles complejos — toggles, sliders, selectores — de forma clara y escalable dentro de una pantalla de configuración móvil.',
@@ -47,11 +49,11 @@ const allProjects: Project[] = [
     image: imgAudio,
     tags: ['UX / UI', 'Interaction Design', 'Design Systems'],
     hasCaseStudy: true,
-    slug: 'ajustes-audio-reproduccion',
+    slug: caseStudies[1].slug,
   },
   {
     id: 3,
-    title: 'Rediseño de Planificación de envios',
+    title: caseStudies[2].title,
     category: 'Mercado Libre',
     description:
       'Simplificamos la experiencia del front de Planificación de envíos de Full, desde el cual los vendedores definen el stock que van a enviar a las bodegas, según sus necesidades de reposición de stock.',
@@ -59,7 +61,7 @@ const allProjects: Project[] = [
     image: imgPlanificacion,
     tags: ['UX / UI'],
     hasCaseStudy: true,
-    slug: 'rediseno-planificacion-envios',
+    slug: caseStudies[2].slug,
   },
   {
     id: 4,
