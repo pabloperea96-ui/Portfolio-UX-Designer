@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { Hero } from './Hero';
-import { ProjectsSection } from './ProjectsSection';
-import { About } from './About';
+import { StorySection } from './StorySection';
 import { Contact } from './Contact';
 
 /**
@@ -31,8 +30,7 @@ export function HomePage() {
   return (
     <main className="relative">
       <Hero />
-      <ProjectsSection />
-      <About />
+      <StorySection />
       <Contact />
     </main>
   );

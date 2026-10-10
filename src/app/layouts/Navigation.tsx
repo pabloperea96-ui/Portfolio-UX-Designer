@@ -4,16 +4,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router';
 import { NavButton } from '../components/ds/nav-button';
 import { MobileNav } from '../components/ds/mobile-nav';
 import { Chevron } from '../components/ds/chevron';
-
-/**
- * Slug → display title mapping for case study breadcrumbs.
- * Add new entries here when creating additional case studies.
- */
-const CASE_STUDY_TITLES: Record<string, string> = {
-  'inversion-etf-apalancamiento': 'Flujo de inversión apalancada',
-  'ajustes-audio-reproduccion': 'Ajustes de Audio y Reproducción',
-  'rediseno-planificacion-envios': 'Rediseño de Planificación de envíos',
-};
+import { CASE_STUDY_TITLES } from '../pages/case-study/case-studies.config';
 
 interface BreadcrumbItem {
   label: string;
@@ -54,7 +45,7 @@ export function Navigation() {
 
       if (!isHome) return;
 
-      const sections = ['home', 'projects', 'about', 'contact'];
+      const sections = ['home', 'story', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
@@ -106,10 +97,9 @@ export function Navigation() {
 
   /* ── Section nav items (Home only) ───────────────────── */
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'projects', label: 'Proyectos', path: '/projects' },
-    { id: 'about', label: 'Sobre mí' },
-    { id: 'contact', label: 'Contacto' },
+    { id: 'home', label: 'Work', path: '/projects' },
+    { id: 'story', label: 'About me' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   /* ── Breadcrumb items (subpages only) ────────────────── */
@@ -179,7 +169,7 @@ export function Navigation() {
       }`}
     >
       <div
-        className="flex items-center justify-between h-full max-w-(--ds-max-w-content) mx-auto px-ds-24 lg:px-ds-48"
+        className="flex items-center justify-between h-full w-full px-ds-24"
         style={{
           '--ds-font-size-action-inline': 'var(--ds-font-size-body-default)',
           '--ds-tracking-action-inline': 'var(--ds-tracking-body-default)',
