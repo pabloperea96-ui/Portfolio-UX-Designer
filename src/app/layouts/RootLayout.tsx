@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useLocation, useOutlet } from 'react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { Navigation } from './Navigation';
@@ -11,6 +11,14 @@ function FrozenOutlet() {
   const o = useOutlet();
   const [outlet] = useState(o);
   return <>{outlet}</>;
+}
+
+function RouteFallback() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center bg-background" aria-hidden>
+      <div className="h-8 w-8 rounded-full border-2 border-ds-border-subtle border-t-ds-action-primary animate-spin" />
+    </div>
+  );
 }
 
 /**
@@ -30,18 +38,20 @@ export function RootLayout() {
     <div className="relative min-h-screen bg-background text-ds-text-primary font-ds-sans">
       <Navigation />
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={location.pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className="relative"
-        >
-          <FrozenOutlet />
-        </motion.div>
-      </AnimatePresence>
+      <Suspense fallback={<RouteFallback />}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="relative"
+          >
+            <FrozenOutlet />
+          </motion.div>
+        </AnimatePresence>
+      </Suspense>
     </div>
   );
 }
