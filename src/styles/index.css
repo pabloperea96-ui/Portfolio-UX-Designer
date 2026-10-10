@@ -101,7 +101,7 @@ html {
   font-family: var(--ds-font-family);
   font-size: var(--ds-font-size-heading-section);
   font-weight: var(--ds-font-weight-medium);
-  line-height: normal;
+  line-height: var(--ds-line-height-heading-section);
   letter-spacing: var(--ds-tracking-heading-section);
 }
 
@@ -117,7 +117,7 @@ html {
   font-family: var(--ds-font-family);
   font-size: var(--ds-font-size-heading-page);
   font-weight: var(--ds-font-weight-medium);
-  line-height: normal;
+  line-height: var(--ds-line-height-heading-page);
   letter-spacing: var(--ds-tracking-heading-page);
 }
 
@@ -125,7 +125,7 @@ html {
   font-family: var(--ds-font-family);
   font-size: var(--ds-font-size-heading-hero);
   font-weight: var(--ds-font-weight-medium);
-  line-height: normal;
+  line-height: var(--ds-line-height-heading-hero);
   letter-spacing: var(--ds-tracking-heading-hero);
 }
 

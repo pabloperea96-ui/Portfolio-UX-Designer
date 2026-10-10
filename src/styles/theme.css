@@ -7,19 +7,20 @@
      Design System Foundation Tokens
      ======================================== */
 
-  /* Text */
+  /* Text — aligned with Figma Text semantic tokens (Raw refs) */
   --ds-text-primary: #141411;
-  --ds-text-secondary: #6C6262;
-  --ds-text-tertiary: #867C7C;
+  --ds-text-secondary: #6B6B6B;
+  --ds-text-tertiary: #999999;
   --ds-text-tertiary-inverse: #A89F9F;
   --ds-text-inverse: #FFFFFF;
 
-  /* Surface */
+  /* Surface — aligned with Figma Surface tokens */
   --ds-surface-page: #FFFFFF;
   --ds-surface-card: #F3F3F3;
   --ds-surface-subtle: #D2D2D2;
   --ds-surface-inverse: #292925;
   --ds-surface-background: #F6F6F6;
+  --ds-surface-raised: #F6F6F6;
 
   /* Action */
   --ds-action-primary: #388259;
@@ -35,10 +36,11 @@
   --ds-border-subtle: #D2D2D2;
   --ds-border-focus: #52B47E;
 
-  /* Radius */
-  --ds-radius-sm: 14px;
-  --ds-radius-md: 16px;
-  --ds-radius-lg: 26px;
+  /* Radius — aligned with Figma Radius (Sm/Md/Lg/None); xl + pill kept for legacy */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-none: 0;
   --ds-radius-xl: 24px;
   --ds-radius-pill: 40px;
 
@@ -56,7 +58,7 @@
   --ds-border-width-default: 1px;
   --ds-border-width-focus: 2px;
 
-  /* Spacing (Comfortable) */
+  /* Spacing (Comfortable) — aligned with Figma Space.100–1100; 10/72/102 kept for legacy */
   --ds-space-4: 4px;
   --ds-space-8: 8px;
   --ds-space-10: 10px;
@@ -67,51 +69,59 @@
   --ds-space-48: 48px;
   --ds-space-64: 64px;
   --ds-space-72: 72px;
+  --ds-space-80: 80px;
   --ds-space-96: 96px;
   --ds-space-102: 102px;
+  --ds-space-128: 128px;
 
   /* Typography */
   --ds-font-family: "Inter", sans-serif;
 
-  /* Font Size – Label */
+  /* Font Size – Label — Figma Font.Size.Label */
   --ds-font-size-label-lg: 14px;
   --ds-font-size-label-sm: 12px;
 
-  /* Font Size – Body */
+  /* Font Size – Body — Figma Font.Size.Body */
   --ds-font-size-body-default: 18px;
   --ds-font-size-body-emphasis: 20px;
   --ds-font-size-body-compact: 14px;
+  --ds-font-size-body-lead: 28px;
 
-  /* Font Size – Action */
+  /* Font Size – Action — Figma Font.Size.Action */
   --ds-font-size-action-inline: 14px;
   --ds-font-size-action-sm: 16px;
   --ds-font-size-action-lg: 20px;
 
-  /* Font Size – Heading */
-  --ds-font-size-heading-compact: 16px;
-  --ds-font-size-heading-section: 36px;
-  --ds-font-size-heading-overview: 36px;
-  --ds-font-size-heading-page: 48px;
-  --ds-font-size-heading-hero: 56px;
+  /* Font Size – Heading — Figma Font.Size.Heading */
+  --ds-font-size-heading-compact: 14px;
+  --ds-font-size-heading-section: 48px;
+  --ds-font-size-heading-overview: 48px;
+  --ds-font-size-heading-page: 64px;
+  --ds-font-size-heading-hero: 96px;
 
-  /* Font Size – Data */
+  /* Font Size – Data — Figma Font.Size.Data */
   --ds-font-size-data-emphasis: 36px;
   --ds-font-size-data-default: 24px;
   --ds-font-size-data-compact: 16px;
 
-  /* Line Height */
+  /* Line Height — Figma Font.Lineheight */
   --ds-line-height-body: 26px;
   --ds-line-height-body-compact: 22px;
   --ds-line-height-emphasis: 32px;
+  --ds-line-height-lead: 38px;
   --ds-line-height-heading-compact: 24px;
   --ds-line-height-heading-overview: 48px;
+  --ds-line-height-heading-section: 56px;
+  --ds-line-height-heading-page: 72px;
+  --ds-line-height-heading-hero: 100px;
   --ds-line-height-data-emphasis: 40px;
   --ds-line-height-data-default: 36px;
   --ds-line-height-data: 24px;
 
-  /* Font Weight */
+  /* Font Weight — Figma Font.Weight */
   --ds-font-weight-regular: 400;
   --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
 
   /* Letter Spacing (Tracking) */
   --ds-tracking-label-eyebrow: 0.2px;
@@ -128,6 +138,10 @@
   --ds-tracking-heading-page: -0.53px;
   --ds-tracking-heading-hero: -1.68px;
   --ds-tracking-data: 0.37px;
+  /* Editorial / Home — scale with font size (em) */
+  --ds-tracking-heading-display: -0.03em;
+  --ds-tracking-body-narrative: -0.02em;
+  --ds-tracking-label-eyebrow-hero: 0.12em;
 
   /* ========================================
      Generic / shadcn variables
@@ -245,11 +259,11 @@
    ======================================== */
 @media (max-width: 767px) {
   :root {
-    /* Typography — Headings */
-    --ds-font-size-heading-hero: 36px;
-    --ds-font-size-heading-page: 32px;
-    --ds-font-size-heading-section: 28px;
-    --ds-font-size-heading-overview: 28px;
+    /* Typography — Headings (scaled for mobile) */
+    --ds-font-size-heading-hero: 48px;
+    --ds-font-size-heading-page: 40px;
+    --ds-font-size-heading-section: 32px;
+    --ds-font-size-heading-overview: 32px;
 
     /* Typography — Data */
     --ds-font-size-data-emphasis: 28px;
@@ -260,7 +274,10 @@
     --ds-font-size-body-default: 16px;
 
     /* Line Heights — scaled to match reduced font sizes */
-    --ds-line-height-heading-overview: 36px;
+    --ds-line-height-heading-hero: 52px;
+    --ds-line-height-heading-page: 44px;
+    --ds-line-height-heading-section: 38px;
+    --ds-line-height-heading-overview: 38px;
     --ds-line-height-data-emphasis: 32px;
     --ds-line-height-data-default: 28px;
     --ds-line-height-body: 24px;
@@ -269,10 +286,13 @@
     --ds-tracking-heading-hero: -0.9px;
     --ds-tracking-heading-page: -0.4px;
     --ds-tracking-heading-overview: -0.6px;
+    --ds-tracking-heading-display: -0.02em;
 
     /* Spacing — compress large gaps for smaller viewports */
+    --ds-space-128: 80px;
     --ds-space-102: 64px;
     --ds-space-96: 56px;
+    --ds-space-80: 48px;
     --ds-space-72: 48px;
     --ds-space-64: 40px;
     --ds-space-48: 32px;
@@ -443,6 +463,7 @@
   --color-ds-surface-subtle: var(--ds-surface-subtle);
   --color-ds-surface-inverse: var(--ds-surface-inverse);
   --color-ds-surface-background: var(--ds-surface-background);
+  --color-ds-surface-raised: var(--ds-surface-raised);
   --color-ds-action-primary: var(--ds-action-primary);
   --color-ds-action-pressed: var(--ds-action-pressed);
   --color-ds-action-subtle: var(--ds-action-subtle);
@@ -461,6 +482,7 @@
   --radius-ds-sm: var(--ds-radius-sm);
   --radius-ds-md: var(--ds-radius-md);
   --radius-ds-lg: var(--ds-radius-lg);
+  --radius-ds-none: var(--ds-radius-none);
   --radius-ds-xl: var(--ds-radius-xl);
   --radius-ds-pill: var(--ds-radius-pill);
 
@@ -479,8 +501,10 @@
   --spacing-ds-48: var(--ds-space-48);
   --spacing-ds-64: var(--ds-space-64);
   --spacing-ds-72: var(--ds-space-72);
+  --spacing-ds-80: var(--ds-space-80);
   --spacing-ds-96: var(--ds-space-96);
   --spacing-ds-102: var(--ds-space-102);
+  --spacing-ds-128: var(--ds-space-128);
 
   /* Design System Typography Tokens */
   --font-ds-sans: var(--ds-font-family);
@@ -506,6 +530,9 @@
   --text-ds-heading-page: var(--ds-font-size-heading-page);
   --text-ds-heading-hero: var(--ds-font-size-heading-hero);
 
+  /* Font Size – Body Lead */
+  --text-ds-body-lead: var(--ds-font-size-body-lead);
+
   /* Font Size – Data */
   --text-ds-data-emphasis: var(--ds-font-size-data-emphasis);
   --text-ds-data-default: var(--ds-font-size-data-default);
@@ -515,8 +542,12 @@
   --leading-ds-body: var(--ds-line-height-body);
   --leading-ds-body-compact: var(--ds-line-height-body-compact);
   --leading-ds-emphasis: var(--ds-line-height-emphasis);
+  --leading-ds-lead: var(--ds-line-height-lead);
   --leading-ds-heading-compact: var(--ds-line-height-heading-compact);
   --leading-ds-heading-overview: var(--ds-line-height-heading-overview);
+  --leading-ds-heading-section: var(--ds-line-height-heading-section);
+  --leading-ds-heading-page: var(--ds-line-height-heading-page);
+  --leading-ds-heading-hero: var(--ds-line-height-heading-hero);
   --leading-ds-data-emphasis: var(--ds-line-height-data-emphasis);
   --leading-ds-data-default: var(--ds-line-height-data-default);
   --leading-ds-data: var(--ds-line-height-data);
@@ -524,6 +555,7 @@
   /* Font Weight */
   --weight-ds-regular: var(--ds-font-weight-regular);
   --weight-ds-medium: var(--ds-font-weight-medium);
+  --weight-ds-semibold: var(--ds-font-weight-semibold);
 
   /* Letter Spacing (Tracking) */
   --tracking-ds-label-eyebrow: var(--ds-tracking-label-eyebrow);
@@ -540,4 +572,7 @@
   --tracking-ds-heading-page: var(--ds-tracking-heading-page);
   --tracking-ds-heading-hero: var(--ds-tracking-heading-hero);
   --tracking-ds-data: var(--ds-tracking-data);
+  --tracking-ds-heading-display: var(--ds-tracking-heading-display);
+  --tracking-ds-body-narrative: var(--ds-tracking-body-narrative);
+  --tracking-ds-label-eyebrow-hero: var(--ds-tracking-label-eyebrow-hero);
 }

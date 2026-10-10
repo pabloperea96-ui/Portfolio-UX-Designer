@@ -257,9 +257,11 @@
       "--ds-space-32": { "comfortable": "32px", "compact": "24px", "usage": "Button padding (default horizontal), Hero content gaps, metadata section gaps, social card row gaps." },
       "--ds-space-48": { "comfortable": "48px", "compact": "32px", "usage": "Section internal gaps (hero, cta, contact), horizontal card layout gap, page padding (desktop), button padding (large horizontal)." },
       "--ds-space-64": { "comfortable": "64px", "compact": "48px", "usage": "ProjectCard (editorial/scrollReveal) grid gap, ProjectOverview grid gap, process grid header-to-grid spacing, hero bottom padding." },
-      "--ds-space-72": { "comfortable": "72px", "compact": "64px", "usage": "Section vertical padding, About section top, DesignSection projects/cta gap." },
+      "--ds-space-72": { "comfortable": "72px", "compact": "64px", "usage": "Legacy. Section vertical padding, DesignSection projects/cta gap." },
+      "--ds-space-80": { "comfortable": "80px", "usage": "Figma Space.900. Section spacing." },
       "--ds-space-96": { "comfortable": "96px", "compact": "72px", "usage": "Large section vertical padding (desktop), ProjectCard spaced bottom margin, hero bottom padding (desktop)." },
-      "--ds-space-102": { "comfortable": "102px", "compact": "96px", "usage": "Largest gap: between project cards in the home ProjectsSection stack." }
+      "--ds-space-102": { "comfortable": "102px", "compact": "96px", "usage": "Legacy. Largest gap: between project cards in the home ProjectsSection stack." },
+      "--ds-space-128": { "comfortable": "128px", "usage": "Figma Space.1100. Largest section spacing." }
     },
     "tailwindUsage": "Use Tailwind's DS spacing utilities: px-ds-24, gap-ds-48, py-ds-72, mb-ds-96, etc. The @theme inline block maps --spacing-ds-XX for each token."
   },
@@ -273,10 +275,10 @@
       "typography": {
         "description": "Scales down large heading and data font sizes for mobile readability. Small text (labels, body-compact, actions) is untouched — already mobile-appropriate.",
         "overrides": {
-          "--ds-font-size-heading-hero": { "desktop": "56px", "mobile": "36px" },
-          "--ds-font-size-heading-page": { "desktop": "48px", "mobile": "32px" },
-          "--ds-font-size-heading-section": { "desktop": "36px", "mobile": "28px" },
-          "--ds-font-size-heading-overview": { "desktop": "36px", "mobile": "28px" },
+          "--ds-font-size-heading-hero": { "desktop": "96px", "mobile": "48px" },
+          "--ds-font-size-heading-page": { "desktop": "64px", "mobile": "40px" },
+          "--ds-font-size-heading-section": { "desktop": "48px", "mobile": "32px" },
+          "--ds-font-size-heading-overview": { "desktop": "48px", "mobile": "32px" },
           "--ds-font-size-data-emphasis": { "desktop": "36px", "mobile": "28px" },
           "--ds-font-size-data-default": { "desktop": "24px", "mobile": "20px" },
           "--ds-font-size-body-emphasis": { "desktop": "20px", "mobile": "18px" },
@@ -286,7 +288,10 @@
       "lineHeights": {
         "description": "Scaled proportionally to match reduced font sizes.",
         "overrides": {
-          "--ds-line-height-heading-overview": { "desktop": "48px", "mobile": "36px" },
+          "--ds-line-height-heading-hero": { "desktop": "100px", "mobile": "52px" },
+          "--ds-line-height-heading-page": { "desktop": "72px", "mobile": "44px" },
+          "--ds-line-height-heading-section": { "desktop": "56px", "mobile": "38px" },
+          "--ds-line-height-heading-overview": { "desktop": "48px", "mobile": "38px" },
           "--ds-line-height-data-emphasis": { "desktop": "40px", "mobile": "32px" },
           "--ds-line-height-data-default": { "desktop": "36px", "mobile": "28px" },
           "--ds-line-height-body": { "desktop": "26px", "mobile": "24px" }
@@ -303,8 +308,10 @@
       "spacing": {
         "description": "Compresses large gaps for smaller viewports. Small spacing (4-32px) is untouched.",
         "overrides": {
+          "--ds-space-128": { "desktop": "128px", "mobile": "80px" },
           "--ds-space-102": { "desktop": "102px", "mobile": "64px" },
           "--ds-space-96": { "desktop": "96px", "mobile": "56px" },
+          "--ds-space-80": { "desktop": "80px", "mobile": "48px" },
           "--ds-space-72": { "desktop": "72px", "mobile": "48px" },
           "--ds-space-64": { "desktop": "64px", "mobile": "40px" },
           "--ds-space-48": { "desktop": "48px", "mobile": "32px" }

@@ -85,21 +85,35 @@ Every time a DS component is **created**, **modified**, or **deleted**, all of t
 
 **The rule in plain language:** the guidelines document is the living spec of the design system. If the code changes and the doc doesn't, the doc is wrong. Never leave a session with the two out of sync.
 
+### 2.7 Exceptions — Prototypes and case-study-specific palettes
+
+Rules 2.1 (tokens, no hardcode) and 2.2 (Inter only) have **scoped exceptions** that must not be extended without justification:
+
+- **Invest prototypes** (`src/app/components/prototypes/invest/`): Use a dedicated palette (e.g. `#010440`, `#27bc62`, `#f2dfdf`) and **Helvetica Neue** for fidelity to the product mock. Do not reuse these colors or fonts elsewhere in the site.
+- **Audio case study** (exhibits, `audio-screens.tsx`, `CaseStudyAudio.tsx`): Use a project-specific palette (`#212226`, `#F0C70E`, etc.) and local constants; this is intentional for that case study only.
+- Any **new exception** (e.g. another prototype with its own mock) must be documented here and justified (e.g. fidelity to product design). Do not extend hardcoded palettes or non-Inter fonts to the rest of the portfolio.
+
 ---
 
 ## 3. Design System Token Reference
 
+Token values are aligned with Figma variables. Source files (when provided): `colors.json`, `radius_border.json`, `spacing.json`, `typography.json`. Code source of truth: [src/styles/theme.css](src/styles/theme.css).
+
 ### Colors
+Values aligned with Figma variables (colors.json). Semantic tokens map to Raw palette.
+
 | Token | Value | Use |
 |---|---|---|
 | `--ds-text-primary` | `#141411` | Primary body text, headings |
-| `--ds-text-secondary` | `#6C6262` | Secondary/supporting text |
-| `--ds-text-tertiary` | `#867C7C` | Placeholder, captions, inactive |
+| `--ds-text-secondary` | `#6B6B6B` | Secondary/supporting text |
+| `--ds-text-tertiary` | `#999999` | Placeholder, captions, inactive |
 | `--ds-text-tertiary-inverse` | `#A89F9F` | Tertiary text on dark/inverse surfaces (accessible ~5.4:1 contrast on `--ds-surface-inverse`) |
 | `--ds-text-inverse` | `#FFFFFF` | Text on dark surfaces |
 | `--ds-surface-page` | `#FFFFFF` | Page background |
 | `--ds-surface-card` | `#F3F3F3` | Card surfaces |
+| `--ds-surface-subtle` | `#D2D2D2` | Subtle surfaces |
 | `--ds-surface-background` | `#F6F6F6` | Section backgrounds |
+| `--ds-surface-raised` | `#F6F6F6` | Raised surfaces (Figma Surface.Raised) |
 | `--ds-surface-inverse` | `#292925` | Dark/inverted surfaces |
 | `--ds-action-primary` | `#388259` | Primary CTAs, active states |
 | `--ds-border-default` | `#ACACAC` | Standard borders |
@@ -134,7 +148,7 @@ background: color-mix(in srgb, var(--cs-accent) 5%, transparent);
 ```
 
 ### Spacing
-All spacing tokens are available as Tailwind utilities: `p-ds-24`, `gap-ds-48`, `mb-ds-96`, etc.
+Aligned with Figma Space scale (spacing.json). All tokens available as Tailwind utilities: `p-ds-24`, `gap-ds-48`, `mb-ds-96`, etc.
 
 | Token | Value (Comfortable mode) |
 |---|---|
@@ -146,20 +160,40 @@ All spacing tokens are available as Tailwind utilities: `p-ds-24`, `gap-ds-48`, 
 | `--ds-space-32` | 32px |
 | `--ds-space-48` | 48px |
 | `--ds-space-64` | 64px |
-| `--ds-space-72` | 72px |
+| `--ds-space-72` | 72px (legacy) |
+| `--ds-space-80` | 80px |
 | `--ds-space-96` | 96px |
-| `--ds-space-102` | 102px |
+| `--ds-space-102` | 102px (legacy) |
+| `--ds-space-128` | 128px |
 
 Spacing scales down automatically at `max-width: 767px` via `:root` overrides — no component code changes needed.
 
 ### Radius
+Aligned with Figma Radius (radius_border.json). `xl` and `pill` kept for legacy use.
+
 | Token | Value | Tailwind |
 |---|---|---|
-| `--ds-radius-sm` | 14px | `rounded-ds-sm` |
-| `--ds-radius-md` | 16px | `rounded-ds-md` |
-| `--ds-radius-lg` | 26px | `rounded-ds-lg` |
-| `--ds-radius-xl` | 24px | `rounded-ds-xl` |
-| `--ds-radius-pill` | 40px | `rounded-ds-pill` |
+| `--ds-radius-sm` | 4px | `rounded-ds-sm` |
+| `--ds-radius-md` | 8px | `rounded-ds-md` |
+| `--ds-radius-lg` | 12px | `rounded-ds-lg` |
+| `--ds-radius-none` | 0 | `rounded-ds-none` |
+| `--ds-radius-xl` | 24px | `rounded-ds-xl` (legacy) |
+| `--ds-radius-pill` | 40px | `rounded-ds-pill` (legacy) |
+
+### Typography
+Aligned with Figma typography.json (Font.Size, Font.Lineheight, Font.Weight). Key tokens:
+
+| Token | Value (desktop) | Use |
+|---|---|---|
+| `--ds-font-size-heading-hero` | 96px | Hero headline (mobile override: 48px) |
+| `--ds-font-size-heading-page` | 64px | Page titles |
+| `--ds-font-size-heading-section` | 48px | Section titles |
+| `--ds-font-size-body-default` | 18px | Body text |
+| `--ds-font-size-body-lead` | 28px | Lead/eyebrow body |
+| `--ds-line-height-heading-hero` | 100px | Hero line height |
+| `--ds-font-weight-semibold` | 600 | Semibold weight |
+
+Composite text classes in `index.css` (e.g. `.ds-text-heading-hero`, `.ds-text-body-default`) reference these tokens. Letter-spacing remains as in theme.css; see `DESIGN-SYSTEM-LETTER-SPACING.md` for tracking tokens.
 
 ### Layout
 | Token | Value | Use |
@@ -649,6 +683,7 @@ If you have a component selected in the editor, the selected code will be passed
 | Use `${hexColor}0D` to create a subtle accent tint from a CSS variable | Use `color-mix(in srgb, var(--cs-accent) 5%, transparent)` — works with CSS custom properties, no hex string manipulation needed |
 | Hardcode a numbered pill card inline in a page file | Use `<DesignCard variant="numbered">` — it handles the accent pill, title, description, and all DS tokens automatically |
 | Use per-size border-radius on `DesignButton` (e.g. `rounded-ds-pill` for large, `rounded-ds-lg` for default) | All button sizes use uniform `rounded-ds-md` (`--ds-radius-md`, 16px). The radius no longer varies by size. |
+| Extend hardcoded palettes or fonts from prototypes/case studies to the rest of the site | Keep prototype and case-study-specific palettes (Invest, Audio) scoped; document any new exception in Section 2.7. Use DS tokens everywhere else. |
 
 ---
 
