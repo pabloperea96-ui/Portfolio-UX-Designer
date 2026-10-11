@@ -93,7 +93,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 
 ## 2. Color
 
-**Neutros decididos el 2026-10-11.** Pruebas: archivo Portfolio-V2, sección CP-004 (`2020:300`). En la librería: colecciones `Primitives` (rampa) y `Color` (semánticos, modos Light y Dark), documentadas en la página 🎨 Color.
+**Cerrado el 2026-10-11.** Pruebas: archivo Portfolio-V2, sección CP-004 (`2020:300`). En la librería: colecciones `Primitives` (rampa) y `Color` (semánticos, modos Light y Dark), documentadas en la página 🎨 Color.
 
 ### Base
 
@@ -123,10 +123,29 @@ Fondo `#FAFAFA` y texto `#121212` en modo claro, y al revés en oscuro (par C6 d
 
 **Por qué el 600 es `#6B6B6B` y no `#717171`** (el gris de las pruebas): con `#717171`, el texto secundario sobre superficie clara daba 4.36:1 y no pasaba AA.
 
-### Pendiente
+### Acento, links, imagen y lista (cerrado el 2026-10-11)
 
-- **El par de colores propio** de About y del CTA final (`REFERENCIAS.md`, al estilo de Mijo Bello). No se ha decidido; no se inventa.
-- **Links:** color y subrayado.
+Pruebas: Portfolio-V2, sección CP-005 (`2028:140`). Se eligió A6, B2, C3 y D2b con D1 en móvil.
+
+| Token | Light | Dark | Para qué |
+|---|---|---|---|
+| `color/accent/bg` | tinta `#1F2A44` | hueso `#EFEEEB` | Fondo del momento propio: About y CTA final |
+| `color/accent/text` | hueso | tinta | Texto y datos sobre el acento; selección de texto y gráficos |
+| `color/link/text` | 900 | 50 | Texto del link (igual al texto principal) |
+| `color/link/underline` | 600 | 500 | Subrayado en reposo |
+| `color/link/underline-hover` | 900 | 50 | Subrayado en hover (transición de 0.2 s) |
+| `color/text/on-image` | 0 | 0 | Titular sobre imagen |
+| `color/overlay/scrim` | negro 70% | negro 70% | Extremo del velo degradado |
+
+**Por qué A6 (tinta y hueso), invertido en oscuro:** 12.29:1 de texto y un momento claro en los dos modos: 13.66:1 contra el fondo claro y, al invertirse, 16.15:1 contra el oscuro. Sin invertir, la tinta se fundía con el fondo oscuro (1.31:1). El acento se reserva para su momento: no se usa en links ni en botones.
+**Por qué B2:** el link se distingue por el subrayado y no por el color (WCAG 1.4.1). En reposo el subrayado es gris y discreto; en hover sube al color del texto.
+**Por qué C3:** con fotos claras, un titular blanco necesita al menos 60% de negro debajo. El degradado (transparente desde el 35% de la altura hasta 70% abajo) oscurece solo donde va el texto y deja la imagen limpia arriba. Con un velo plano de 40% daba 2.85:1.
+**Por qué D2b, y D1 en móvil:** el gris de Atmar en reposo daba 1.67:1 y la lista es la navegación principal. Con `color/text/secondary` (5.11 / 5.43:1) mantiene la idea —apagado en reposo, encendido en hover— y pasa AA en cualquier tamaño. En pantallas táctiles no hay hover (`@media (hover: hover)`), así que ahí la lista va toda en texto principal.
+
+### Fuera por ahora
+
+- **Feedback** (éxito, error, aviso): no hay formularios. Si un componente lo pide, por ejemplo «email copiado», se agrega con él.
+- **Superficies por nivel:** con fondo y superficie alcanza; la web es casi plana.
 
 ---
 
