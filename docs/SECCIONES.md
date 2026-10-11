@@ -238,4 +238,35 @@ Común a los 4 case studies. Las variantes de Agentes y Design System suman bloq
 
 ---
 
+## 9. Variante: case study de Agentes
+
+Usa la plantilla. El cuerpo sigue la narrativa de [REFERENCIAS](REFERENCIAS.md#case-study) (Pixel Agent); cada paso es una sección con su titular-tesis:
+
+1. Frustración en primera persona
+2. Las fricciones concretas
+3. Una cita que lo condensa
+4. La decisión de diseño clave (por qué X y no Y)
+5. Qué hace el agente por dentro → **simulación**
+6. Cierre con una idea
+
+### Cita
+
+Rol Tesis, columnas 5–12, sin comillas decorativas. Atribución debajo en rol Ficha (`color/text/secondary`).
+
+### Simulación guionizada
+
+| | |
+|---|---|
+| **Qué es** | El superagente resolviendo una tarea de diseño en 4–6 pasos: pedido → razonamiento → skill que elige → resultado. Construida en HTML con los tokens de la web |
+| **Datos** | Guion representativo, sin datos reales de RappiPay; el case study lo dice |
+| **Cómo avanza** | Corre una vez al entrar en pantalla; cada paso aparece con `motion/reveal`. Al terminar queda quieta, con un link de texto «Replay» |
+| **Reduced motion** | No corre sola: avanza con un link «Next step» ([DESIGN](DESIGN.md#movimiento-reducido-prefers-reduced-motion)) |
+| **Ancho** | Columnas 5–12 en desktop · todo el ancho de la retícula en tablet y móvil |
+| **Color** | La interfaz del agente usa el par del acento (`color/accent/*`), como los gráficos |
+
+**Por qué HTML y no vídeo (Pablo, 2026-10-11):** el texto se lee y escala en móvil, no expone material confidencial, y construirla con el propio sistema demuestra lo AI-native en vez de decorarlo ([BRIEF](BRIEF.md#7-primera-impresión-y-tono)). Integra la simulación de Pixel Agent con el reveal de State of AI.
+**Por qué una vez + «Replay»:** igual que el reveal, lo que ya leíste no vuelve a animarse solo; volver a verla es decisión de quien lee.
+
+---
+
 _Las siguientes secciones se agregan a medida que avanza el grill._
