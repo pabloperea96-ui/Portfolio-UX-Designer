@@ -91,4 +91,43 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 
 ---
 
+## 2. Color
+
+**Neutros decididos el 2026-10-11.** Pruebas: archivo Portfolio-V2, sección CP-004 (`2020:300`). En la librería: colecciones `Primitives` (rampa) y `Color` (semánticos, modos Light y Dark), documentadas en la página 🎨 Color.
+
+### Base
+
+Fondo `#FAFAFA` y texto `#121212` en modo claro, y al revés en oscuro (par C6 de las pruebas).
+
+**Por qué:** el blanco y el negro puros cansan la vista; C6 suaviza los dos extremos y mantiene 17.95:1. Frente a `#141414` (C2), el texto queda un poco más lejos del gris secundario, así que la jerarquía se conserva mejor.
+
+### Rampa de neutros (primitivos)
+
+| Paso | 0 | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 850 | 900 | 950 | 1000 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Hex | FFFFFF | FAFAFA | F2F2F2 | DEDEDE | C4C4C4 | A3A3A3 | 8A8A8A | 6B6B6B | 4D4D4D | 2E2E2E | 1E1E1E | 121212 | 0A0A0A | 000000 |
+
+### Semánticos
+
+| Token | Light | Dark | Para qué |
+|---|---|---|---|
+| `color/bg/default` | 50 | 900 | Fondo de página |
+| `color/bg/surface` | 100 | 850 | Bloques y tarjetas sobre el fondo |
+| `color/text/primary` | 900 | 50 | Texto principal |
+| `color/text/secondary` | 600 | 500 | Texto secundario |
+| `color/border/subtle` | 200 | 800 | Divisores decorativos |
+| `color/border/strong` | 500 | 600 | Bordes de controles |
+| `color/focus` | 900 | 50 | Anillo de foco |
+
+**Contraste verificado en los dos modos:** texto principal entre 15.97 y 17.95:1; texto secundario entre 4.76 y 5.43:1 (AA); borde fuerte entre 3.08 y 3.52:1 (3:1 para interfaz). El borde sutil no llega a 3:1 y por eso solo es decorativo.
+
+**Por qué el 600 es `#6B6B6B` y no `#717171`** (el gris de las pruebas): con `#717171`, el texto secundario sobre superficie clara daba 4.36:1 y no pasaba AA.
+
+### Pendiente
+
+- **El par de colores propio** de About y del CTA final (`REFERENCIAS.md`, al estilo de Mijo Bello). No se ha decidido; no se inventa.
+- **Links:** color y subrayado.
+
+---
+
 _Las siguientes secciones se agregan a medida que avanza el grill._
