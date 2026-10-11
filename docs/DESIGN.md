@@ -28,18 +28,38 @@ Inter es la alternativa libre más cercana. La regla para Inter es **verse como 
 
 ### Escala — Helvetica Neue (valores v2 sobre la rampa)
 
-| Rol | Tamaño | Line-height | Tracking |
+| Rol | Tamaño (desktop) | Line-height | Tracking |
 |---|---|---|---|
 | Ficha | 12 px | 140% | +1.5% |
 | Body | 16 px | 155% | +0.5% |
 | Métrica | 24 px | 125% | 0% |
 | Título de case study | 32 px | 120% | −0.5% |
 | Hero | 40 px | 115% | −1% |
-| CTA | 64 px | 100% | −2% |
+| CTA | 128 px | 100% | −2% |
 
 **Por qué estos valores:** con los valores v1 Helvetica Neue se veía demasiado comprimida y poco editorial. v2 abre los tamaños chicos y cierra menos los grandes: es una escala óptica, donde el tracking baja a medida que sube el tamaño.
-**Por qué estos tamaños (2026-10-11):** los anteriores (13, 17, 26, 38, 68) no estaban en la rampa. Cada rol pasó al paso más cercano. El título sube a 32 para no chocar con la métrica (24). La ficha baja a 12 para separarse del body. El CTA queda en 64 por ahora: el tamaño de página (REFERENCIAS pide ~140 px) se decide con la retícula y los breakpoints.
+**Por qué estos tamaños (2026-10-11):** los anteriores (13, 17, 26, 38, 68) no estaban en la rampa. Cada rol pasó al paso más cercano. El título sube a 32 para no chocar con la métrica (24). La ficha baja a 12 para separarse del body. El CTA estuvo en 64 hasta decidir los breakpoints; ahora va de 48 a 128 según la pantalla (tabla siguiente).
 El body va siempre en Regular.
+
+### Tamaños por breakpoint (decidido el 2026-10-11)
+
+Los breakpoints están en [§3](#3-espaciado-y-retícula).
+
+| Rol | Móvil | Tablet | Desktop |
+|---|---|---|---|
+| CTA | 48 | 96 | 128 |
+| Hero | 32 | 40 | 40 |
+| Título de case study | 24 | 32 | 32 |
+| Métrica | 24 | 24 | 24 |
+| Body | 16 | 16 | 16 |
+| Ficha | 12 | 12 | 12 |
+
+Line-height y tracking en % no cambian; sus valores en px se recalculan para cada tamaño.
+
+**Por qué el CTA llega a 128 y no a 140:** 128 es el techo de la rampa y queda a menos de un 10% de lo que piden las referencias. Inventar un 140 rompería la regla de la rampa.
+**Por qué 48 en móvil:** una frase corta como «Escríbeme» entra en una línea de 327 px; a 64 ya no. **Regla:** el CTA es una frase corta. Si el link mostrara el email completo, a 128 no entraría ni en 1440.
+**Por qué solo cambian los roles grandes:** con 40 px en 327 de ancho caben unas 14 letras por línea y la frase del hero se parte en demasiadas líneas. Body, ficha y métrica ya se leen bien en móvil.
+**Título y métrica a 24 en móvil:** empatan en tamaño y peso. La métrica se distingue por ser una cifra; se valida en contexto.
 
 ### Fallback — Inter
 
@@ -86,6 +106,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 ### Pendiente
 
 - **Pesos por rol:** se definen en las pruebas en contexto.
+- **Extra de Inter para el CTA:** se midió a 64 px. Con el CTA en 48 / 96 / 128 hay que medirlo de nuevo en el specimen.
 - **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
 - **Librería:** los 6 estilos de texto están en Inter provisional; falta conectar su familia a `typography/family/base` (Helvetica Neue) a mano.
 
@@ -180,6 +201,60 @@ Rampas de 11 tonos en OKLCH con la luminosidad de los neutros, como tinta y hues
 ### Fuera por ahora
 
 - **Superficies por nivel:** con fondo y superficie alcanza; la web es casi plana.
+
+---
+
+## 3. Espaciado y retícula
+
+**Decidido el 2026-10-11.**
+
+### Escala de espaciado
+
+**4, 8, 12, 16, 24, 32, 48, 64, 96, 128 y 160.** Todo margen, padding y gap sale de aquí.
+
+**Por qué:** es la misma regla de la [rampa tipográfica](#rampa-de-tamaños): 4 y 12 son la excepción para lo chico (separar una etiqueta de su valor en la ficha) y desde 8 van múltiplos de 8. La letra y el aire comparten una sola retícula de 8, así que no hay una segunda lógica que recordar.
+**Por qué no fluida (`clamp` con `vw`):** Figma no puede representar un token con mínimo y máximo. Los cambios por pantalla van por breakpoint.
+
+### Breakpoints
+
+| Nombre | Desde | Hasta |
+|---|---|---|
+| Móvil | 0 | 767 |
+| Tablet | 768 | 1279 |
+| Desktop | 1280 | — |
+
+El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangre ignoran ese límite.
+
+**Por qué tres:** un portfolio se ve sobre todo en laptop y celular. El tablet existe para que un iPad vertical no muestre el layout de móvil estirado. Un cuarto breakpoint (wide) solo serviría para limitar el ancho, y eso ya lo hace el máximo de 1440.
+**Por qué 768 y 1280:** son múltiplos de 8 y coinciden con los anchos reales de iPad y de laptop.
+
+### Retícula
+
+| | Columnas | Margen | Gutter | Columna de texto |
+|---|---|---|---|---|
+| Móvil | 4 | 24 | 16 | todo el ancho (327 px a 375) |
+| Tablet | 8 | 32 | 24 | 6 columnas (~520 px a 768) |
+| Desktop | 12 | 48 | 24 | 4 columnas (379 px a 1280 · 432 px a 1440) |
+
+**Por qué estos valores:** la columna de texto de las referencias (340–430 px, [REFERENCIAS](REFERENCIAS.md#case-study)) sale sola de la retícula: 4 de 12 columnas en desktop. No es un ancho suelto.
+**Por qué margen de 48 en desktop:** da el aire de Givelet, que usa 36 (fuera de la escala). Con 64, a 1280 la columna de texto bajaría de 379 px y la imagen a sangre se distinguiría menos del contenido.
+**Por qué margen de 24 en móvil (Pablo, 2026-10-11):** con 16 el texto queda pegado al borde.
+
+### Ritmo vertical
+
+| | Móvil | Tablet | Desktop |
+|---|---|---|---|
+| Entre secciones | 96 | 128 | 160 |
+| Titular-tesis → cuerpo | 32 | 48 | 48 |
+| Entre párrafos del body | 24 | 24 | 24 |
+
+**Por qué 160 en desktop:** es el «mucho aire» que piden las referencias. Con 128 el aire se parece más al de Hayler, que fue «decente pero no del todo bueno». En móvil baja a 96 para que el scroll no se haga eterno.
+**Por qué 24 entre párrafos:** es una línea en blanco (el body tiene 24.8 px de línea), así el texto mantiene su ritmo vertical.
+
+### Pendiente
+
+- **Titular-tesis → cuerpo en tablet:** quedó en 48 por defecto; se valida en contexto.
+- **Espacios dentro de los componentes** (ficha, card de proyecto, nav): se definen con cada componente, sobre esta escala.
 
 ---
 
