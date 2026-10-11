@@ -42,7 +42,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 |---|---|
 | **Propósito** | Identidad y saltos de sección. Mínima, texto plano ([REFERENCIAS](REFERENCIAS.md#navegación)). |
 | **Slots** | Nombre (izquierda, link a la home) · Work (4) · About · Contact (derecha) |
-| **Destinos** | Work → lista de trabajo de la home · About → `/#about` · Contact → el CTA de la página actual |
+| **Destinos** | Work → lista de trabajo de la home · About → `/#about` · Contact → `#contact`, el CTA de la página actual |
 | **Texto** | Rol Body (16 px, Regular) en todos los breakpoints |
 | **Color** | `color/text/primary`; sobre el hero del case study, `color/text/on-image` |
 | **Links** | Patrón `color/link/*`: subrayado gris en reposo, sube al color del texto en hover (`motion/hover`, 0.2 s). Sin hover en táctil |
@@ -148,6 +148,25 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 **Por qué solo texto (Pablo, 2026-10-11):** el momento humano lo sostienen la voz (bio de Pamidor) y el color propio (Mijo Bello), sin su collage. Cambia el principio de [REFERENCIAS](REFERENCIAS.md#principio-rector), que se actualiza para decir lo mismo.
 **Por qué la primera frase en Hero (Pablo, 2026-10-11):** cada fondo tiene su pieza grande: frase del hero (qué hago) → proyectos → frase del About (quién soy) → CTA (escríbeme). No es un título ni un eyebrow: es la bio empezando fuerte.
 **Por qué la trayectoria:** lleva las empresas reconocibles que filtra el recruiter ([BRIEF](BRIEF.md#3-audiencia)) y ordena un recorrido no lineal. Binalogue va «en paralelo», como capítulo y no como cierre ([BRIEF](BRIEF.md#5-situación-profesional-y-cómo-se-cuenta)).
+
+---
+
+## 7. CTA final (footer global)
+
+| | |
+|---|---|
+| **Propósito** | La conversión principal: escribir por email ([BRIEF](BRIEF.md#8-conversión)). Cierra todas las páginas |
+| **Fondo** | `color/accent/bg`. En la home es un solo tramo continuo con el About; en el case study y la 404, va solo |
+| **Slots** | Frase → línea de contacto |
+| **Frase** | Corta, es un link `mailto:`. Rol CTA (128 / 96 / 48, Bold), alineada a la izquierda, todo el ancho de la retícula |
+| **Línea de contacto** | Rol Body: email escrito (también `mailto:`, texto seleccionable) · LinkedIn · CV (PDF, pestaña nueva) |
+| **Links** | Patrón `color/link/*` sobre el acento; el subrayado de la frase, proporcional a su tamaño |
+| **Separación** | About → CTA: 160 / 128 / 96 · frase → línea de contacto: 48 / 32 / 32 |
+| **Ancla** | `#contact` (destino de la nav) |
+| **Fuera** | Formulario, botones, «copiar email», hora local ([REFERENCIAS](REFERENCIAS.md#cta-final)) |
+
+**Por qué un solo tramo con el About (Pablo, 2026-10-11):** se lee como una idea, «quién soy → escríbeme». Partirlo pediría una franja o un segundo acento sin motivo.
+**Por qué el email escrito y mailto (Pablo, 2026-10-11):** el BRIEF pide mailto visible y copiable, y el email completo no entra en la frase. Escrito debajo cubre a quien no tiene cliente de correo; se copia seleccionándolo. Un botón de copiar traería un estado «copiado» y los tokens de feedback que DESIGN sacó.
 
 ---
 
