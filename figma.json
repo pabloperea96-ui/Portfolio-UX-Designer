@@ -11,6 +11,15 @@
       "rol": "proceso",
       "congelado": false,
       "doc": "docs/DESIGN.md"
+    },
+    {
+      "fileKey": "rEK7Vsiyvusv9Z3eGRYv9m",
+      "nombre": "Portfolio Design System",
+      "grupo": "Portfolio v2",
+      "iniciativa": "Design system del portfolio v2 (solo lo decidido en DESIGN.md)",
+      "rol": "libreria",
+      "congelado": false,
+      "doc": "docs/DESIGN.md"
     }
   ],
   "librerias": {
