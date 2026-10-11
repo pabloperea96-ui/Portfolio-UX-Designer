@@ -170,4 +170,72 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 
 ---
 
+## 8. Plantilla de case study
+
+Común a los 4 case studies. Las variantes de Agentes y Design System suman bloques al cuerpo (secciones siguientes).
+
+### Hero
+
+| | |
+|---|---|
+| **Slots** | Imagen a sangre · titular (el nombre del proyecto) abajo a la izquierda |
+| **Alto** | 80 svh desktop y tablet · 70 svh móvil: la ficha asoma debajo |
+| **Titular** | Rol **Hero** (64 / 48 / 32, Medium), `color/text/on-image`, dentro de la retícula |
+| **Velo** | `color/overlay/scrim` en dos degradados: abajo (transparente desde el 35% hasta 70% de negro, para el titular) y **arriba** (70% en el borde hasta transparente al 20%, para la nav) |
+| **Movimiento** | El nombre llega desde la lista y crece de 48 a 64 (`motion/reveal`). La imagen no se anima |
+
+**Por qué el titular en Hero (Pablo, 2026-10-11):** es el hero de su página; a 32 se perdía sobre una imagen a sangre (las referencias miden 64–90). Al viajar desde la lista crece, y «entraste» se ve. Sin token nuevo.
+**Por qué el segundo degradado (Pablo, 2026-10-11):** la nav blanca de 16 px no pasa 4.5:1 sobre fotos claras. Reutiliza el scrim al revés y deja limpio el centro de la imagen, sin depender de cada foto.
+
+### Ficha
+
+| | |
+|---|---|
+| **Campos** | Company · Role · Year |
+| **Formato** | Etiqueta en rol Ficha (`color/text/secondary`, mayúscula inicial) sobre el valor en Body (`color/text/primary`) |
+| **Layout** | Una fila de 3 campos en desktop y tablet · apilados en móvil |
+| **Separación** | Hero → ficha: 96 / 64 / 48 |
+
+**Por qué tres campos (Pablo, 2026-10-11):** los mismos datos que la ficha de la lista, ahora con etiqueta. Timeline y equipo salen. La etiqueta nombra un dato, no anuncia un título: no es eyebrow.
+
+### Índice de secciones (solo desktop)
+
+| | |
+|---|---|
+| **Dónde** | Fijo en las columnas 1–3. Aparece al terminar el hero y se va al llegar a «siguiente proyecto» |
+| **Items** | Una etiqueta corta por sección del cuerpo (2–3 palabras, en `CONTENIDO.md`), rol Body |
+| **Estado** | Secciones en `color/text/secondary`; la actual en `color/text/primary` (encendido D2b, `motion/hover`). Clic → salta con scroll nativo |
+| **Tablet y móvil** | No hay índice |
+
+**Por qué solo desktop (Pablo, 2026-10-11):** en móvil haría falta una barra plegable con estado, lo que se evitó con la nav. Allí se lee de corrido y las tesis orientan. Es la única pieza fija de la web.
+
+### Cuerpo
+
+| | |
+|---|---|
+| **Overview** | Primera sección: pregunta-titular en rol **Tesis** + respuesta de 2–3 frases en Body. Sin eyebrow (Hayler) |
+| **Secciones** | Titular-tesis (rol **Tesis**: 32 / 32 / 24, Medium) → 48 / 48 / 32 → texto en Body → imágenes |
+| **Columnas (desktop)** | Texto en 5–8 (~380 px a 1280) · imágenes en 5–12 |
+| **Tablet y móvil** | Texto en la columna de texto de la retícula · imágenes a todo el ancho de la retícula |
+| **Entre secciones** | 160 / 128 / 96 · entre párrafos, 24 |
+| **Cifra estrella** | Máximo una por case study, solo si es real: su titular-tesis sube a rol **Hero** y la cifra entra con `motion/reveal` (sube desde abajo mientras aparece). Sin cifra, el resultado se cuenta como cambio cualitativo |
+
+**Por qué «Tesis» (Pablo, 2026-10-11):** el rol de 32 ya existía como «Título de case study»; ahora lo usan los titulares-tesis y se renombra para decir lo que hace.
+**Por qué sin rol Métrica (Pablo, 2026-10-11):** la cifra nunca va suelta: vive en una frase que dice qué significa ([REFERENCIAS](REFERENCIAS.md#case-study), nunca tarjetas de KPI). Cuando es la estrella, la frase entera sube a Hero. Un token menos.
+
+### Siguiente proyecto
+
+| | |
+|---|---|
+| **Bloque** | El mismo bloque de la [lista de trabajo](#4-lista-de-trabajo): nombre en rol Proyecto + ficha + medio 4:5 a la derecha |
+| **Ficha** | Empieza con «Next project»: `Next project · Company · Role · Year` |
+| **Orden** | Agentes → Design System → MeLi → RappiCard → Agentes (loop) |
+| **Después** | El CTA, sobre el acento |
+
+**Por qué el bloque de la lista (Pablo, 2026-10-11):** un solo componente, con el mismo encendido y la misma transición. «Next project» va en la ficha, debajo del nombre: encima sería eyebrow. El loop evita el callejón sin salida y vuelve al titular AI-native.
+
+**Cambios para DESIGN (cierre del grill):** el titular del case study pasa al rol Hero; «Título de case study» se renombra a «Tesis»; el rol Métrica sale.
+
+---
+
 _Las siguientes secciones se agregan a medida que avanza el grill._

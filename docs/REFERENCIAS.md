@@ -63,7 +63,7 @@ Esto traduce el brief: *un paso por delante* (Givelet) + *cercano y humano* (Bel
 **Esqueleto:**
 
 1. **Hero** — imagen a sangre + titular abajo a la izquierda, en blanco. *(Araújo)*
-2. **Ficha** — rol, timeline, año, equipo. *(Pamidor, Araújo)*
+2. **Ficha** — empresa, rol, año. *(Pamidor, Araújo)* Timeline y equipo salieron el 2026-10-11 ([SECCIONES](SECCIONES.md#ficha)).
 3. **Overview** — una pregunta-titular + respuesta corta y directa. Sin eyebrows. *(Hayler)*
 4. **Cuerpo con titulares-tesis** — cada sección afirma algo ("Sellers kept stock 10 days longer"), nunca "Process" o "Results". *(State of AI Design)*
 5. **Columnas de texto estrechas** — 340–430 px, cuerpo de 16–18 px. *(Araújo, State of AI, Hayler)*
