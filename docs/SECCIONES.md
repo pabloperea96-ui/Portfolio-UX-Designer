@@ -33,4 +33,29 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 
 ---
 
+## 2. Nav
+
+| | |
+|---|---|
+| **Propósito** | Identidad y saltos de sección. Mínima, texto plano ([REFERENCIAS](REFERENCIAS.md#navegación)). |
+| **Slots** | Nombre (izquierda, link a la home) · Work · About · Contact (derecha) |
+| **Destinos** | Work → lista de trabajo de la home · About → `/#about` · Contact → el CTA de la página actual |
+| **Texto** | Rol Body (16 px, Regular) en todos los breakpoints |
+| **Color** | `color/text/primary`; sobre el hero del case study, `color/text/on-image` |
+| **Links** | Patrón `color/link/*`: subrayado gris en reposo, sube al color del texto en hover (`motion/hover`, 0.2 s). Sin hover en táctil |
+| **Espacio entre items** | 24 en desktop y tablet · 16 en móvil |
+| **Posición** | Arriba, dentro del margen de la retícula. **No es fija**: se va con el scroll |
+| **Móvil** | La misma nav, en una línea. Sin hamburguesa |
+
+**Por qué «Work» sin contador (Pablo, 2026-10-11):** con 2 proyectos, «Work (2)» se lee como poco; el contador de Givelet funciona con 8. Vuelve cuando haya 4 (v2.2).
+**Por qué «Contact» y no el email:** el email ya es la frase del CTA, que cierra todas las páginas. Repetirlo arriba duplica.
+**Por qué no es fija (Pablo, 2026-10-11):** nada flota sobre el contenido, como en Givelet. En el case study la orientación la da el índice fijo: una sola pieza fija por página. Escondida al bajar y visible al subir sería movimiento que no cuenta nada.
+**Por qué sin hamburguesa y en Body (Pablo, 2026-10-11):** nombre + tres items a 16 px ocupan unos 270 px y entran en los 327 de móvil. Un menú plegable traería estado, capa y movimiento, y el radio de «menú móvil» que DESIGN sacó por no tener elemento. La nav es lectura, así que va en Regular y no necesita token propio.
+
+**Pendiente:**
+- **Legibilidad sobre el hero del case study:** el velo actual (`color/overlay/scrim`) oscurece solo abajo. Se resuelve con el hero del case study.
+- **Nombre largo en móvil:** si el nombre completo no entra en 327 px, en móvil va el nombre de pila. Se confirma con el nombre real en `CONTENIDO.md`.
+
+---
+
 _Las siguientes secciones se agregan a medida que avanza el grill._
