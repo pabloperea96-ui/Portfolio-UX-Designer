@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specimen HN vs Inter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=block" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f2f2f2; --card: #fff; --ink: #0d0d0d; --muted: #737373; --line: #e0e0e0;
+    --ok: #1a7f37; --bad: #c2410c; --accent: #2563eb;
+    --ui: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--ui); font-size: 13px; }
+  header { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+    padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
+  header h1 { font-size: 15px; margin: 0 8px 0 0; font-weight: 600; }
+  .seg { display: inline-flex; border: 1px solid #ccc; border-radius: 6px; overflow: hidden; }
+  .seg button { border: 0; background: #fff; padding: 5px 10px; font: inherit; cursor: pointer; }
+  .seg button + button { border-left: 1px solid #ccc; }
+  .seg button.on { background: var(--ink); color: #fff; }
+  label.inline { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); }
+  input[type=number] { width: 64px; font: inherit; padding: 3px 5px; border: 1px solid #ccc; border-radius: 4px; }
+  button.plain { font: inherit; padding: 5px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; }
+  .warn { color: var(--bad); font-weight: 600; }
+  main { padding: 16px; display: grid; gap: 16px; max-width: 1100px; }
+  .role { background: #fafafa; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  .ctrl { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-bottom: 10px; }
+  .ctrl strong { min-width: 110px; font-size: 13px; }
+  .ctrl input[type=range] { width: 150px; vertical-align: middle; }
+  .status { margin-left: auto; font-weight: 600; }
+  .status.ok { color: var(--ok); } .status.bad { color: var(--bad); }
+  .pair { display: flex; flex-wrap: wrap; gap: 12px; }
+  .col { flex: 0 1 480px; min-width: 0; }
+  .col small { display: block; color: var(--muted); margin-bottom: 4px; }
+  .sheet { background: var(--card); padding: 20px 40px; overflow: hidden; }
+  .spec { width: 400px; max-width: 100%; color: var(--ink); }
+  .spec.nowrap { white-space: nowrap; width: auto; display: inline-block; }
+  .ficha { display: inline-flex; gap: 24px; white-space: nowrap; }
+  .ficha div { display: flex; flex-direction: column; gap: 2px; }
+  .ficha span:first-child { color: var(--muted); }
+  .overlay .pair { display: grid; }
+  .overlay .col { grid-area: 1 / 1; }
+  .overlay .col.inter .sheet { background: transparent; }
+  .overlay .col.inter .spec, .overlay .col.inter .ficha span { color: rgba(220, 38, 38, .75) !important; }
+  .overlay .col.inter small { visibility: hidden; }
+  .breaks { color: var(--muted); font-size: 12px; margin-top: 6px; white-space: pre-wrap; }
+  .hn { font-family: "Helvetica Neue"; }
+  .inter { font-family: "Inter"; }
+  #out { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  #out table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  #out th, #out td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
+  #out th { color: var(--muted); font-weight: 500; }
+  #sweep { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+  #sweep .ctrl { margin-bottom: 6px; }
+  #sweep p.note { color: var(--muted); margin: 0 0 10px; }
+  .steps { display: flex; flex-wrap: wrap; gap: 16px; }
+  .steps > div { flex: 1 1 420px; min-width: 0; }
+  .step { display: grid; grid-template-columns: 92px 1fr; align-items: baseline; gap: 8px; padding: 4px 6px;
+    border-radius: 6px; cursor: pointer; overflow: hidden; }
+  .step:hover { background: #f5f5f5; }
+  .step.cur { background: #eef4ff; outline: 1px solid var(--accent); }
+  .step .k { color: var(--muted); font-size: 11px; line-height: 1.3; }
+  .step .k b { color: var(--ink); font-size: 12px; }
+  .step .t { white-space: nowrap; overflow: hidden; color: var(--ink); }
+  .tag { display: inline-block; font-size: 10px; padding: 0 4px; border-radius: 3px; margin-right: 2px; background: #eee; }
+  .tag.ref { background: #fde68a; } .tag.cur { background: #bfdbfe; }
+  @media (max-width: 600px) { .sheet { padding: 16px; } .status { margin-left: 0; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Helvetica Neue vs Inter ajustada</h1>
+  <span class="seg" id="weights">
+    <button data-w="400" class="on">Regular</button><button data-w="500">Medium</button><button data-w="700">Bold</button>
+  </span>
+  <label class="inline"><input type="checkbox" id="overlay"> Superponer (Inter en rojo)</label>
+  <label class="inline">Escala Inter <input type="number" id="scale" step="0.1" value="94.7">%</label>
+  <label class="inline">Compensación tracking Inter <input type="number" id="comp" step="0.1">%</label>
+  <button class="plain" id="v2">Valores v2</button>
+  <button class="plain" id="v1">Valores v1</button>
+  <span id="hnwarn"></span>
+</header>
+<main id="main">
+  <section id="sweep">
+    <div class="ctrl"><strong>Barrido de tracking</strong> <span class="seg" id="sweeprole"></span></div>
+    <p class="note">Cada fuente con los mismos pasos de tracking. Clic en un paso de HN fija el tracking del rol; clic en uno de Inter ajusta la compensación del peso actual.
+      <span class="tag ref">Inter rec.</span> = fórmula Dynamic Metrics de Inter v3 para el tamaño real de Inter.</p>
+    <div class="steps">
+      <div><small>Helvetica Neue</small><div id="sweephn"></div></div>
+      <div><small>Inter ajustada</small><div id="sweepinter"></div></div>
+    </div>
+  </section>
+  <section id="out"></section>
+</main>
+<script>
+const ROLES = [
+  { id: 'hero',   name: 'Hero',    size: 38, v2: [115, -1],   v1: [105, -2], weighted: true,
+    text: 'Product Designer at RappiPay. I design AI agents and the systems they run on.' },
+  { id: 'title',  name: 'Título',  size: 26, v2: [120, -0.5], v1: [112, -1], weighted: true,
+    text: 'One context for every initiative' },
+  { id: 'ficha',  name: 'Ficha',   size: 13, v2: [140, 1.5],  v1: [131, 0],  weighted: true, ficha: true },
+  { id: 'body',   name: 'Body (siempre Regular)', size: 17, v2: [155, 0.5], v1: [150, 0], weighted: false,
+    text: 'The superagent reads the company’s context before it acts. Each skill is a small, written decision about how a designer would approach the problem.' },
+  { id: 'metric', name: 'Métrica', size: 24, v2: [125, 0],    v1: [115, -1], weighted: true,
+    text: 'Sellers kept their stock 10 days longer.' },
+  { id: 'cta',    name: 'CTA',     size: 68, v2: [100, -2],   v1: [95, -4],  weighted: true, nowrap: true, interExtra: { 400: 0.8, 500: 1, 700: 1.4 },
+    text: 'Reach me out' },
+];
+// Compensación medida el 2026-10-10: Inter necesita más aire que HN a medida que sube el peso.
+const COMP = { 400: 0, 500: 1, 700: 1.6 };
+// El CTA a 68px necesita más aire en Inter que el resto: Inter sin eje óptico usa el corte de texto, más ancho en display.
+const extraFor = r => (r.interExtra && r.interExtra[weight]) || 0;
+const compFor = r => r.weighted ? state.comp[weight] + extraFor(r) : 0;
+const FICHA = [['Role', 'Product Designer'], ['Year', '2026'], ['Team', 'Design, Eng']];
+
+let weight = 400;
+let state = load() || { vals: Object.fromEntries(ROLES.map(r => [r.id, [...r.v2]])), comp: { ...COMP }, scale: 94.7 };
+
+function load() { try { return JSON.parse(localStorage.getItem('specimen-hn-inter')); } catch (e) { return null; } }
+function save() { try { localStorage.setItem('specimen-hn-inter', JSON.stringify(state)); } catch (e) {} }
+
+const main = document.getElementById('main');
+const out = document.getElementById('out');
+
+function wordsHTML(text) { return text.split(' ').map(w => `<span class="w">${w}</span>`).join(' '); }
+
+function build() {
+  for (const r of ROLES) {
+    const sec = document.createElement('section');
+    sec.className = 'role'; sec.id = 'role-' + r.id;
+    const content = r.ficha
+      ? `<div class="ficha">${FICHA.map(([k, v]) => `<div><span>${k}</span><span>${v}</span></div>`).join('')}</div>`
+      : `<div class="spec ${r.nowrap ? 'nowrap' : ''}">${wordsHTML(r.text)}</div>`;
+    sec.innerHTML = `
+      <div class="ctrl">
+        <strong>${r.name} · ${r.size}px</strong>
+        <label class="inline">lh <input type="range" min="80" max="180" step="1" data-k="0"><input type="number" step="1" data-k="0">%</label>
+        <label class="inline">tracking <input type="range" min="-5" max="5" step="0.1" data-k="1"><input type="number" step="0.1" data-k="1">%</label>
+        <span class="status"></span>
+      </div>
+      <div class="pair">
+        <div class="col hn"><small>Helvetica Neue (local)</small><div class="sheet">${content}</div></div>
+        <div class="col inter"><small class="interlabel"></small><div class="sheet">${content}</div></div>
+      </div>
+      <div class="breaks"></div>`;
+    main.insertBefore(sec, out);
+    sec.querySelectorAll('input').forEach(inp => inp.addEventListener('input', () => {
+      state.vals[r.id][+inp.dataset.k] = parseFloat(inp.value) || 0;
+      render();
+    }));
+  }
+}
+
+function render() {
+  const scale = state.scale / 100;
+  const comp = state.comp[weight];
+  document.getElementById('scale').value = state.scale;
+  document.getElementById('comp').value = comp;
+  for (const r of ROLES) {
+    const [lh, tr] = state.vals[r.id];
+    const w = r.weighted ? weight : 400;
+    const c = compFor(r);
+    const sec = document.getElementById('role-' + r.id);
+    sec.querySelectorAll('.ctrl input').forEach(i => { if (document.activeElement !== i) i.value = state.vals[r.id][+i.dataset.k]; });
+    const lhPx = r.size * lh / 100;
+    const hn = sec.querySelector('.col.hn .sheet > *');
+    const it = sec.querySelector('.col.inter .sheet > *');
+    Object.assign(hn.style, { fontSize: r.size + 'px', lineHeight: lhPx + 'px', letterSpacing: (tr / 100) + 'em', fontWeight: w });
+    // Inter: mismo line-height en px que HN, tamaño escalado y tracking + compensación por peso.
+    Object.assign(it.style, { fontSize: (r.size * scale) + 'px', lineHeight: lhPx + 'px', letterSpacing: ((tr + c) / 100) + 'em', fontWeight: w });
+    sec.querySelector('.interlabel').textContent =
+      `Inter · ${(r.size * scale).toFixed(2)}px · tracking ${(tr + c).toFixed(1)}%${c ? ` (HN ${tr} + comp ${c})` : ''}`;
+  }
+  setTimeout(compare, 0);
+  sweep();
+  table();
+  save();
+}
+
+function lines(el) {
+  const rows = [];
+  let top = null;
+  el.querySelectorAll('.w').forEach(s => {
+    if (s.offsetTop !== top) { rows.push([]); top = s.offsetTop; }
+    rows[rows.length - 1].push(s.textContent);
+  });
+  return rows.map(r => r.join(' '));
+}
+
+function compare() {
+  for (const r of ROLES) {
+    const sec = document.getElementById('role-' + r.id);
+    const hn = sec.querySelector('.col.hn .sheet > *');
+    const it = sec.querySelector('.col.inter .sheet > *');
+    const st = sec.querySelector('.status');
+    const br = sec.querySelector('.breaks');
+    if (r.ficha || r.nowrap) {
+      const a = hn.scrollWidth, b = it.scrollWidth, d = b - a;
+      const pct = (d / a * 100);
+      st.textContent = `ancho HN ${a}px · Inter ${b}px (${d >= 0 ? '+' : ''}${pct.toFixed(1)}%)`;
+      st.className = 'status ' + (Math.abs(pct) <= 2 ? 'ok' : 'bad');
+      br.textContent = '';
+      continue;
+    }
+    const a = lines(hn), b = lines(it);
+    const same = a.length === b.length && a.every((l, i) => l === b[i]);
+    st.textContent = same ? `✓ mismos cortes (${a.length} líneas)` : `✗ cortes distintos (HN ${a.length} · Inter ${b.length})`;
+    st.className = 'status ' + (same ? 'ok' : 'bad');
+    br.textContent = same ? '' : 'HN:     ' + a.join('  ⏎  ') + '\nInter:  ' + b.join('  ⏎  ');
+  }
+}
+
+// Muestra corta por rol: el barrido es para mirar el espaciado, no los cortes.
+const SAMPLE = {
+  hero: 'Product Designer at RappiPay.', title: 'One context for every initiative', ficha: 'Role  Product Designer  2026  Design, Eng',
+  body: 'The superagent reads the company’s context before it acts.', metric: 'Sellers kept their stock 10 days longer.', cta: 'Reach me out',
+};
+// Inter Dynamic Metrics (v3): https://d.rsms.me/inter-website/v3/dynmetrics/ — en % del tamaño.
+const interRec = px => (-0.0223 + 0.185 * Math.exp(-0.1745 * px)) * 100;
+let sweepRole = 'hero';
+
+function sweep() {
+  const r = ROLES.find(x => x.id === sweepRole);
+  const [lh, tr] = state.vals[r.id];
+  const w = r.weighted ? weight : 400;
+  const c = compFor(r);
+  const ipx = r.size * state.scale / 100;
+  const rec = interRec(ipx);
+  const steps = [];
+  for (let s = -4; s <= 3.001; s += 0.5) steps.push(Math.round(s * 10) / 10);
+  const near = v => steps.reduce((a, b) => Math.abs(b - v) < Math.abs(a - v) ? b : a);
+  const row = (font, px, s, tags, cur, onpick) =>
+    `<div class="step ${cur ? 'cur' : ''}" data-s="${s}" data-pick="${onpick}">
+      <span class="k"><b>${s > 0 ? '+' : ''}${s.toFixed(1)}%</b><br>${tags.join('')}</span>
+      <span class="t" style="font-family:${font};font-size:${px}px;font-weight:${w};letter-spacing:${s / 100}em;line-height:1.15">${SAMPLE[r.id]}</span></div>`;
+  document.getElementById('sweephn').innerHTML = steps.map(s => {
+    const t = [];
+    if (s === near(r.v1[1])) t.push('<span class="tag">v1</span>');
+    if (s === near(r.v2[1])) t.push('<span class="tag">v2</span>');
+    if (s === near(tr)) t.push('<span class="tag cur">actual</span>');
+    return row("'Helvetica Neue'", r.size, s, t, s === near(tr), 'hn');
+  }).join('');
+  document.getElementById('sweepinter').innerHTML = steps.map(s => {
+    const t = [];
+    if (s === near(rec)) t.push(`<span class="tag ref">Inter rec. ${rec.toFixed(1)}%</span>`);
+    if (s === near(tr + c)) t.push('<span class="tag cur">actual</span>');
+    return row('Inter', ipx, s, t, s === near(tr + c), 'inter');
+  }).join('');
+}
+
+function buildSweep() {
+  const seg = document.getElementById('sweeprole');
+  seg.innerHTML = ROLES.map(r => `<button data-r="${r.id}" class="${r.id === sweepRole ? 'on' : ''}">${r.name.split(' ')[0]}</button>`).join('');
+  seg.addEventListener('click', e => {
+    if (!e.target.dataset.r) return;
+    sweepRole = e.target.dataset.r;
+    seg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === e.target));
+    sweep();
+  });
+  document.getElementById('sweep').addEventListener('click', e => {
+    const st = e.target.closest('.step'); if (!st) return;
+    const s = parseFloat(st.dataset.s);
+    const r = ROLES.find(x => x.id === sweepRole);
+    if (st.dataset.pick === 'hn') state.vals[r.id][1] = s;
+    else if (r.weighted) state.comp[weight] = Math.round((s - state.vals[r.id][1] - extraFor(r)) * 10) / 10;
+    render();
+  });
+}
+
+function table() {
+  const comp = state.comp[weight];
+  out.innerHTML = `<strong>Valores para Figma (columna HN) y CSS</strong>
+  <table><tr><th>Rol</th><th>Tamaño</th><th>Line-height</th><th>Tracking HN</th><th>CSS HN</th><th>Tracking Inter (${['', '', '', '', 'Regular', 'Medium', '', 'Bold'][weight / 100]})</th></tr>
+  ${ROLES.map(r => {
+    const [lh, tr] = state.vals[r.id];
+    const c = compFor(r);
+    const ch = lh !== r.v2[0] || tr !== r.v2[1] ? ' ✎' : '';
+    return `<tr><td>${r.name}${ch}</td><td>${r.size}px</td><td>${lh}%</td><td>${tr}%</td>
+      <td><code>line-height: ${(lh / 100).toFixed(2)}; letter-spacing: ${(tr / 100).toFixed(3)}em</code></td><td>${(tr + c).toFixed(1)}%</td></tr>`;
+  }).join('')}</table>
+  <p style="color:var(--muted);margin:8px 0 0">✎ = distinto de v2. Los valores se guardan en este navegador.</p>`;
+}
+
+document.getElementById('weights').addEventListener('click', e => {
+  if (!e.target.dataset.w) return;
+  weight = +e.target.dataset.w;
+  document.querySelectorAll('#weights button').forEach(b => b.classList.toggle('on', b === e.target));
+  render();
+});
+document.getElementById('overlay').addEventListener('change', e => document.body.classList.toggle('overlay', e.target.checked));
+document.getElementById('scale').addEventListener('input', e => { state.scale = parseFloat(e.target.value) || 100; render(); });
+document.getElementById('comp').addEventListener('input', e => { state.comp[weight] = parseFloat(e.target.value) || 0; render(); });
+document.getElementById('v2').addEventListener('click', () => { ROLES.forEach(r => state.vals[r.id] = [...r.v2]); state.comp = { ...COMP }; state.scale = 94.7; render(); });
+document.getElementById('v1').addEventListener('click', () => { ROLES.forEach(r => state.vals[r.id] = [...r.v1]); render(); });
+
+// Si HN no está instalada, el navegador cae a otra fuente y la comparación no vale.
+function hasHN() {
+  const c = document.createElement('canvas').getContext('2d');
+  const s = 'mmmmmmmmmmlliiWW';
+  c.font = '40px monospace'; const base = c.measureText(s).width;
+  c.font = '40px "Helvetica Neue", monospace'; return c.measureText(s).width !== base;
+}
+
+build();
+buildSweep();
+document.fonts.load('400 20px Inter').then(() => Promise.all([document.fonts.load('500 20px Inter'), document.fonts.load('700 20px Inter')])).then(() => {
+  document.getElementById('hnwarn').innerHTML = hasHN() ? '' : '<span class="warn">⚠ Helvetica Neue no está instalada en este navegador</span>';
+  render();
+});
+render();
+</script>
+</body>
+</html>
