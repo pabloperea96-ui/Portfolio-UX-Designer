@@ -70,7 +70,15 @@ Ejemplo: el hero en Medium lleva −1% en Helvetica Neue y −1% + 1% = **0%** e
 
 ### Pesos
 
-Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El body va siempre en Regular. Qué peso lleva cada rol se decide en pruebas en contexto, con pantallas reales y no con specimens sueltos.
+Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marca la jerarquía y el peso la refuerza, siempre con el mismo significado:
+
+| Nivel | Peso | Roles |
+|---|---|---|
+| Acción | Bold | CTA |
+| Afirmación | Medium | Hero, título de case study, métrica |
+| Lectura | Regular | Body (siempre), ficha |
+
+**Por qué tres niveles fijos (2026-10-11):** con todos los pesos iguales no había dónde destacar. Si cada peso significa una sola cosa, el peso nunca se usa como decoración. Esto ajusta la regla de `REFERENCIAS.md` («jerarquía por tamaño, no por peso»): el tamaño sigue mandando y el peso solo refuerza. Se valida en pruebas en contexto.
 
 **Por qué tres y no más:** son los pesos que tienen medida la compensación de Inter. Un peso nuevo obliga a medirlo de nuevo en el specimen.
 **Bold, en observación:** Pablo duda de él. Sigue disponible hasta verlo en contexto; si no se gana su lugar, sale, y con él su compensación.
