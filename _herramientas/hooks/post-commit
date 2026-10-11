@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# post-commit del proyecto — el respaldo automático (push en segundo plano) vive en el kit.
+KIT="$(git config --global kit.ruta 2>/dev/null)"; [ -d "$KIT" ] || KIT="$HOME/Documents/kit"
+[ -x "$KIT/herramientas/hooks/post-commit" ] && exec "$KIT/herramientas/hooks/post-commit"
+echo "⚠ post-commit · no encuentro el kit ($KIT): este commit NO se empujó a GitHub. Haz git push a mano."
+exit 0
