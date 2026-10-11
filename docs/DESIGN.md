@@ -281,11 +281,12 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 | Campos | 8 |
 | Bloques y tarjetas | 16 |
 | Overlays (menú móvil) | 24 |
-| Botones y chips | 999 |
+| Botones | 4 |
+| Chips | 999 |
 
-4 y 12 quedan para componentes chicos que lo necesiten.
+12 queda para componentes chicos que lo necesiten.
 
-**Por qué este mapa:** el sitio sigue siendo editorial donde manda la imagen (recta, como en las referencias), y lo interactivo se reconoce por su forma: lo que se toca es pill.
+**Por qué este mapa:** el sitio sigue siendo editorial donde manda la imagen (recta, como en las referencias). El botón va casi recto, en 4 como en Givelet (Pablo, 2026-10-11), para no verse como una app; el pill queda solo para los chips, que son etiquetas y no acciones.
 **Por qué un mapa y no solo la escala:** si cada componente elige su radio a ojo, el sitio se ve inconsistente.
 **Ojo:** los radios de 8 y 24 de los paneles de la librería de Figma son de la documentación, no de la web.
 
