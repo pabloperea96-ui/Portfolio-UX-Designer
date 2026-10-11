@@ -107,6 +107,17 @@ Fondo `#FAFAFA` y texto `#121212` en modo claro, y al revés en oscuro (par C6 d
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Hex | FFFFFF | FAFAFA | F2F2F2 | DEDEDE | C4C4C4 | A3A3A3 | 8A8A8A | 6B6B6B | 4D4D4D | 2E2E2E | 1E1E1E | 121212 | 0A0A0A | 000000 |
 
+### Rampas del acento (primitivos)
+
+Tinta y hueso tienen rampa completa para que se vea todo lo que existe y para crecer sin inventar tonos (por ejemplo, un gráfico con varias series). Se generaron en OKLCH con **la misma luminosidad por paso que los neutros**: el mismo paso da casi el mismo contraste en las tres familias (el 600 da ~5.1:1 sobre el fondo claro en todas).
+
+| Paso | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `color/ink` (tinta) | F9FAFC | F0F2F8 | D8DEEC | BAC4DB | 95A3C3 | 798AAE | 5A6B91 | 3D4C6F | **1F2A44** | 0B1121 | 050A16 |
+| `color/bone` (hueso) | FAFAF9 | **EFEEEB** | E0DED8 | C7C4BA | A8A395 | 8F8A7A | 716B5A | 524D3E | 322E22 | 14120B | 0C0A05 |
+
+En negrita, los tonos del par A6. Transparencias: `color/neutral/1000-a70` (negro al 70%), para el velo.
+
 ### Semánticos
 
 | Token | Light | Dark | Para qué |
@@ -129,8 +140,8 @@ Pruebas: Portfolio-V2, sección CP-005 (`2028:140`). Se eligió A6, B2, C3 y D2b
 
 | Token | Light | Dark | Para qué |
 |---|---|---|---|
-| `color/accent/bg` | tinta `#1F2A44` | hueso `#EFEEEB` | Fondo del momento propio: About y CTA final |
-| `color/accent/text` | hueso | tinta | Texto y datos sobre el acento; selección de texto y gráficos |
+| `color/accent/bg` | ink/800 `#1F2A44` | bone/100 `#EFEEEB` | Fondo del momento propio: About y CTA final |
+| `color/accent/text` | bone/100 | ink/800 | Texto y datos sobre el acento; selección de texto y gráficos |
 | `color/link/text` | 900 | 50 | Texto del link (igual al texto principal) |
 | `color/link/underline` | 600 | 500 | Subrayado en reposo |
 | `color/link/underline-hover` | 900 | 50 | Subrayado en hover (transición de 0.2 s) |
