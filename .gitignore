@@ -3,3 +3,6 @@ dist/
 .DS_Store
 .env*
 !.env.example
+
+# Permisos locales de Claude Code: son de cada equipo
+.claude/settings.local.json
