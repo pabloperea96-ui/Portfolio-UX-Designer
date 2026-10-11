@@ -56,6 +56,8 @@ Los breakpoints están en [§3](#3-espaciado-y-retícula).
 
 Line-height y tracking en % no cambian; sus valores en px se recalculan para cada tamaño.
 
+**En Figma:** la colección `Typography` tiene los modos `Mobile`, `Tablet` y `Desktop` (2026-10-11). Cada rol apunta al paso de la rampa de su modo, con line-height y tracking ya en px.
+
 **Por qué el CTA llega a 128 y no a 140:** 128 es el techo de la rampa y queda a menos de un 10% de lo que piden las referencias. Inventar un 140 rompería la regla de la rampa.
 **Por qué 48 en móvil:** una frase corta como «Escríbeme» entra en una línea de 327 px; a 64 ya no. **Regla:** el CTA es una frase corta. Si el link mostrara el email completo, a 128 no entraría ni en 1440.
 **Por qué solo cambian los roles grandes:** con 40 px en 327 de ancho caben unas 14 letras por línea y la frase del hero se parte en demasiadas líneas. Body, ficha y métrica ya se leen bien en móvil.
@@ -250,6 +252,12 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 
 **Por qué 160 en desktop:** es el «mucho aire» que piden las referencias. Con 128 el aire se parece más al de Hayler, que fue «decente pero no del todo bueno». En móvil baja a 96 para que el scroll no se haga eterno.
 **Por qué 24 entre párrafos:** es una línea en blanco (el body tiene 24.8 px de línea), así el texto mantiene su ritmo vertical.
+
+### En Figma
+
+- **Escala:** variables `space/4` … `space/160` en la colección `Primitives`, con scope de gap y padding.
+- **Retícula:** estilos `grid/mobile`, `grid/tablet` y `grid/desktop`, con gutter y margen enlazados a `space/*`.
+- **Documentación:** páginas 📏 Espaciado y 📐 Retícula y layout de la librería.
 
 ### Pendiente
 
