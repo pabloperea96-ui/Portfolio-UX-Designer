@@ -51,6 +51,12 @@
       "porque": "El MCP remoto no tiene las fuentes locales del Mac y el MCP de Figma desktop es solo de lectura (medido el 2026-10-11)."
     },
     {
+      "titulo": "Formato de documentación del design system",
+      "regla": "Cada página de la librería: la ficha Doc/ComponentDoc a la izquierda (x 0, 400 de ancho) y, a la derecha (x 615), un contenedor «Documentación · <página>» con fondo #3D3D3D, radio 24, padding 64 y 64 entre bloques. Dentro: DocMasthead de Baseline a todo el ancho (título, versión, descripción con la fuente en DESIGN.md), y cada sección arranca con un SectionLabel de Baseline (numeral, LABEL en versales, recuento). Texto de documentación en Inter #FAFAFA (principal) y #8A8A8A (secundario); filetes blancos al 12%. Las muestras que dependen de un modo o de un fondo claro van en paneles con radio 8 y padding 32 (o 24 en tarjetas). La página tiene fondo #1E1E1E.",
+      "alcance": "rEK7Vsiyvusv9Z3eGRYv9m, todas las páginas",
+      "porque": "Pablo ajustó así la página Color el 2026-10-11 y pidió aplicarlo al resto: la ficha dice qué falta; el contenedor muestra lo decidido, con el mismo orden en todas las páginas."
+    },
+    {
       "titulo": "El checkpoint es una instancia remota",
       "regla": "CheckpointLabel viene de la librería: al editar sus textos, re-resolver cada nodo desde la instancia antes de cada escritura (C-09) y verificar con una captura, no releyendo lo escrito.",
       "alcance": "instancias de CheckpointLabel",
