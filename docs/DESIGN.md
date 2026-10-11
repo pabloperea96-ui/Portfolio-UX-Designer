@@ -32,9 +32,9 @@ Inter es la alternativa libre más cercana. La regla para Inter es **verse como 
 |---|---|---|---|
 | Ficha | 12 px | 140% | +1.5% |
 | Body | 16 px | 155% | +0.5% |
-| Métrica | 24 px | 125% | 0% |
-| Título de case study | 32 px | 120% | −0.5% |
-| Hero | 40 px | 115% | −1% |
+| Tesis | 32 px | 120% | −0.5% |
+| Proyecto | 48 px | 115% | −1% |
+| Hero | 64 px | 115% | −1% |
 | CTA | 128 px | 100% | −2% |
 
 **Por qué estos valores:** con los valores v1 Helvetica Neue se veía demasiado comprimida y poco editorial. v2 abre los tamaños chicos y cierra menos los grandes: es una escala óptica, donde el tracking baja a medida que sube el tamaño.
@@ -48,11 +48,13 @@ Los breakpoints están en [§3](#3-espaciado-y-retícula).
 | Rol | Móvil | Tablet | Desktop |
 |---|---|---|---|
 | CTA | 48 | 96 | 128 |
-| Hero | 32 | 40 | 40 |
-| Título de case study | 24 | 32 | 32 |
-| Métrica | 24 | 24 | 24 |
+| Hero | 32 | 48 | 64 |
+| Proyecto | 24 | 40 | 48 |
+| Tesis | 24 | 32 | 32 |
 | Body | 16 | 16 | 16 |
 | Ficha | 12 | 12 | 12 |
+
+**Cambios del grill de secciones (2026-10-11):** el hero sube a 64 / 48 en desktop y tablet; nace **Proyecto** (nombre en la lista de trabajo); «Título de case study» se renombra **Tesis** (titulares-tesis del cuerpo; el titular sobre la imagen usa Hero); **Métrica sale** (la cifra vive dentro de una tesis). Qué usa cada rol y por qué: [`SECCIONES.md`](SECCIONES.md).
 
 Line-height y tracking en % no cambian; sus valores en px se recalculan para cada tamaño.
 
@@ -61,7 +63,7 @@ Line-height y tracking en % no cambian; sus valores en px se recalculan para cad
 **Por qué el CTA llega a 128 y no a 140:** 128 es el techo de la rampa y queda a menos de un 10% de lo que piden las referencias. Inventar un 140 rompería la regla de la rampa.
 **Por qué 48 en móvil:** una frase corta como «Escríbeme» entra en una línea de 327 px; a 64 ya no. **Regla:** el CTA es una frase corta. Si el link mostrara el email completo, a 128 no entraría ni en 1440.
 **Por qué solo cambian los roles grandes:** con 40 px en 327 de ancho caben unas 14 letras por línea y la frase del hero se parte en demasiadas líneas. Body, ficha y métrica ya se leen bien en móvil.
-**Título y métrica a 24 en móvil:** empatan en tamaño y peso. La métrica se distingue por ser una cifra; se valida en contexto.
+**Proyecto y Tesis a 24 en móvil:** empatan, pero nunca conviven en la misma sección: Proyecto vive en la lista y en «siguiente proyecto»; Tesis, en el cuerpo del case study.
 
 ### Fallback — Inter
 
@@ -88,7 +90,7 @@ Ejemplo: el hero en Medium lleva −1% en Helvetica Neue y −1% + 1% = **0%** e
 - **Los % de tracking de Inter son relativos a su tamaño real** (el declarado × 0.947). En CSS, `letter-spacing` en `em` se calcula sobre el tamaño declarado, así que hay que multiplicar el valor de Inter por 0.947. Ejemplo: +1% pasa a `0.0095em`.
 - **Una sola lista de fuentes (`"Helvetica Neue", Inter`) no permite un tracking distinto para cada fuente**, porque `letter-spacing` se aplica al elemento sea cual sea la fuente que se dibuje. Para usar los valores de Inter hace falta detectar si Helvetica Neue está instalada (el specimen lo hace midiendo un texto en canvas) y marcar `<html>` con una clase, por ejemplo `no-hn`. Esa clase cambia las variables de tracking.
 - **El `size-adjust` va en el `@font-face` de Inter**, así que solo afecta a Inter.
-- **En Figma** (librería «Portfolio Design System», colección `Typography`), los roles no tienen valores sueltos de tamaño, familia ni peso: el tamaño es un alias de la rampa (colección `Primitives`, `font-size/<n>`), la familia de `font-family/helvetica-neue` y el peso de `font-weight/regular`, `/medium` o `/bold` (solo esos tres existen, así que la regla de pesos queda en la librería). Line-height y tracking no tienen primitivos en Figma: su escala en % vive aquí y en el CSS, porque Figma no puede calcular un % de un tamaño. Line-height y letter-spacing van en **px**, no en %: Figma lee esas variables en px (se midió el 2026-10-11). Los valores en px salen de esta tabla; si cambia un tamaño, hay que recalcularlos. Los roles se llaman en inglés, como en el código: `meta` (ficha), `body`, `metric`, `title`, `hero` y `cta`.
+- **En Figma** (librería «Portfolio Design System», colección `Typography`), los roles no tienen valores sueltos de tamaño, familia ni peso: el tamaño es un alias de la rampa (colección `Primitives`, `font-size/<n>`), la familia de `font-family/helvetica-neue` y el peso de `font-weight/regular`, `/medium` o `/bold` (solo esos tres existen, así que la regla de pesos queda en la librería). Line-height y tracking no tienen primitivos en Figma: su escala en % vive aquí y en el CSS, porque Figma no puede calcular un % de un tamaño. Line-height y letter-spacing van en **px**, no en %: Figma lee esas variables en px (se midió el 2026-10-11). Los valores en px salen de esta tabla; si cambia un tamaño, hay que recalcularlos. Los roles se llaman en inglés, como en el código: `meta` (ficha), `body`, `thesis` (tesis), `project` (proyecto), `hero` y `cta`.
 
 ### Pesos
 
@@ -97,7 +99,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 | Nivel | Peso | Roles |
 |---|---|---|
 | Acción | Bold | CTA |
-| Afirmación | Medium | Hero, título de case study, métrica |
+| Afirmación | Medium | Hero, Proyecto, Tesis |
 | Lectura | Regular | Body (siempre), ficha |
 
 **Por qué tres niveles fijos (2026-10-11):** con todos los pesos iguales no había dónde destacar. Si cada peso significa una sola cosa, el peso nunca se usa como decoración. Esto ajusta la regla de `REFERENCIAS.md` («jerarquía por tamaño, no por peso»): el tamaño sigue mandando y el peso solo refuerza. Se valida en pruebas en contexto.
@@ -108,7 +110,8 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 ### Pendiente
 
 - **Pesos por rol:** se definen en las pruebas en contexto.
-- **Tamaños contra las referencias (revisión del 2026-10-11):** el hero (40) queda debajo de lo que miden las referencias para «una frase grande con mucho aire» (Givelet 52, Araújo 64); el título de case study sobre imagen (32), debajo de Araújo (64) y Atmar (90); y la métrica (24) no es la «cifra grande» de State of AI (64), o sobra si la métrica vive dentro del titular-tesis. No se cambian aún: se deciden en las pruebas en contexto.
+- **Inter a 48 y 64:** Proyecto (48) y el hero nuevo (64) no están medidos en el specimen. Hay que confirmar que Inter corta en las mismas palabras y, si no, ajustar su tracking.
+- **Line-height y tracking de Proyecto:** 115% / −1% salen de la escala óptica (igual que el hero); se validan en contexto.
 - **Extra de Inter para el CTA:** se midió a 64 px. Con el CTA en 48 / 96 / 128 hay que medirlo de nuevo en el specimen.
 - **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
 - **Librería:** los 6 estilos de texto están en Inter provisional; falta conectar su familia a `typography/family/base` (Helvetica Neue) a mano.
@@ -264,7 +267,7 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 ### Pendiente
 
 - **Titular-tesis → cuerpo en tablet:** quedó en 48 por defecto; se valida en contexto.
-- **Espacios dentro de los componentes** (ficha, card de proyecto, nav): se definen con cada componente, sobre esta escala.
+- **Espacios dentro de los componentes** (ficha, card de proyecto, nav): definidos en [`SECCIONES.md`](SECCIONES.md) el 2026-10-11, todos sobre esta escala.
 
 ---
 
@@ -281,7 +284,7 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 | Hero a sangre e imágenes del cuerpo del case study | 0 |
 | Miniaturas de la lista de trabajo | 8 |
 
-El resto de la escala queda disponible para los componentes que salgan de `SECCIONES.md`.
+El resto de la escala queda disponible. El grill de [`SECCIONES.md`](SECCIONES.md) (2026-10-11) no pidió roles nuevos de radio: imágenes y bloques van sin radio.
 
 **Por qué:** el sitio sigue siendo editorial donde manda la imagen (recta, como en las referencias).
 **Por qué solo dos roles (2026-10-11):** el primer mapa también daba radio a campos (8), bloques (16), menú móvil (24), botones (4) y chips (pill). Se sacó porque ningún elemento de las referencias los usa: el CTA no tiene formulario ni botones, la nav es texto plano y las disciplinas van como texto. Un rol nuevo nace de una sección de `SECCIONES.md`, no de suponer qué componente va a existir. Si vuelven, los valores elegidos fueron esos; el botón en 4 fue decisión de Pablo.

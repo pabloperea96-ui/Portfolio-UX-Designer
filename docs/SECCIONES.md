@@ -56,7 +56,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 **Por qué sin hamburguesa y en Body (Pablo, 2026-10-11):** nombre + tres items a 16 px (con «Work (4)») ocupan unos 295 px y entran en los 327 de móvil. Un menú plegable traería estado, capa y movimiento, y el radio de «menú móvil» que DESIGN sacó por no tener elemento. La nav es lectura, así que va en Regular y no necesita token propio.
 
 **Pendiente:**
-- **Legibilidad sobre el hero del case study:** el velo actual (`color/overlay/scrim`) oscurece solo abajo. Se resuelve con el hero del case study.
+- ~~Legibilidad sobre el hero del case study~~: resuelto con un segundo degradado arriba ([Hero del case study](#hero)).
 - **Nombre largo en móvil:** si el nombre completo no entra en 327 px, en móvil va el nombre de pila. Se confirma con el nombre real en `CONTENIDO.md`.
 
 ---
@@ -287,4 +287,9 @@ Usan la plantilla sin bloques propios. MeLi tiene la cifra estrella candidata (+
 
 ---
 
-_Las siguientes secciones se agregan a medida que avanza el grill._
+## Verificación del grill (2026-10-11)
+
+- Cada sección traza a [BRIEF](BRIEF.md) o [REFERENCIAS](REFERENCIAS.md); los cambios contra REFERENCIAS (About sin collage, ficha de tres campos) quedaron escritos allá.
+- Tokens nuevos: solo el rol **Proyecto**, con elemento que lo usa. Salen: rol Métrica. Renombre: Título de case study → Tesis. Ningún color, radio ni sombra nuevo.
+- Nada de la lista [Nunca](REFERENCIAS.md#nunca): sin eyebrows (fichas y «Next project» van debajo de los nombres), sin KPI cards, sin botones, sin lila.
+- Ninguna sección copia un solo referente: cada una dice qué toma de quién.
