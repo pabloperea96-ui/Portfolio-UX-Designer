@@ -1,0 +1,51 @@
+{
+  "$schema": "operar-figma/proyecto@1",
+  "proyecto": "Portfolio v2",
+  "verificado": "2026-10-11",
+  "archivos": [
+    {
+      "fileKey": "GYijPPBk9Jo9ECv7EybWlf",
+      "nombre": "🚧 Portfolio-V2",
+      "grupo": "Portfolio v2",
+      "iniciativa": "Rediseño del portfolio (DESIGN.md por grill)",
+      "rol": "proceso",
+      "congelado": false,
+      "doc": "docs/DESIGN.md"
+    }
+  ],
+  "librerias": {
+    "permitidas": [
+      { "nombre": "pablo_perea_portafolio_2026", "para": "componentes de proceso (CheckpointLabel)" }
+    ],
+    "notas": [
+      "Las librerías de comunidad (Material 3, iOS, macOS…) están disponibles pero no se usan: el portfolio tiene su propio sistema."
+    ]
+  },
+  "trampas_tokens": [],
+  "reglas": [
+    {
+      "titulo": "Exploraciones como frames sueltos",
+      "regla": "Cada exploración vive en su propia sección de la página «🔁 Rondas & Checkpoints», con su checkpoint (CP-NNN) arriba.",
+      "alcance": "GYijPPBk9Jo9ECv7EybWlf",
+      "porque": "El checkpoint dice qué se probó y por qué; sin él, una sección vieja no se entiende."
+    },
+    {
+      "titulo": "Nada se borra: se archiva",
+      "regla": "Una exploración descartada se mueve a «🗃️ Exploraciones archivadas»; esa página es de solo lectura.",
+      "alcance": "GYijPPBk9Jo9ECv7EybWlf",
+      "porque": "Las rondas viejas son el registro de por qué se decidió algo."
+    },
+    {
+      "titulo": "Helvetica Neue no se carga por MCP",
+      "regla": "Los textos en Helvetica Neue se ajustan a mano; por MCP se escribe en Inter y se avisa.",
+      "alcance": "cualquier escritura de texto",
+      "porque": "El MCP remoto no tiene las fuentes locales del Mac y el MCP de Figma desktop es solo de lectura (medido el 2026-10-11)."
+    },
+    {
+      "titulo": "El checkpoint es una instancia remota",
+      "regla": "CheckpointLabel viene de la librería: al editar sus textos, re-resolver cada nodo desde la instancia antes de cada escritura (C-09) y verificar con una captura, no releyendo lo escrito.",
+      "alcance": "instancias de CheckpointLabel",
+      "porque": "Cada override sobre una instancia remota re-indexa los ids de sus hermanos."
+    }
+  ]
+}
