@@ -13,7 +13,7 @@
 
 | Página | Secciones, en orden |
 |---|---|
-| **Home** | Nav → Hero → Lista de trabajo → About → CTA |
+| **Home** | Entrada (saludo) → Nav → Hero → Lista de trabajo → About → CTA |
 | **Case study** (Agentes, Design System, MeLi benefits-engine, RappiCard) | Nav → Hero → Ficha → Overview → Cuerpo → Siguiente proyecto → CTA |
 | **404** | Nav → Frase + link a la lista de trabajo → CTA |
 
@@ -109,6 +109,45 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 **Por qué los 4 (Pablo, 2026-10-11):** la v2.0 sale con los cuatro case studies ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)); nada de filas «próximamente».
 
 **Rol nuevo para DESIGN:** `Proyecto` (48 / 40 / 24, Medium, nivel Afirmación). Se agrega a la tabla de tipografía y a la colección `Typography` en el cierre del grill.
+
+---
+
+## 5. Entrada: el saludo
+
+| | |
+|---|---|
+| **Propósito** | Saludar mientras la web termina de cargar. La persona antes que la tecnología ([BRIEF](BRIEF.md#7-primera-impresión-y-tono)) |
+| **Slot** | Un saludo corto (copy en `CONTENIDO.md`) |
+| **Dónde** | En el lugar exacto de la frase del hero: rol Hero (64 / 48 / 32, Medium), 8 columnas a la izquierda, fondo normal de la página. La nav ya está visible |
+| **Duración** | Lo que tarda la carga real, con **techo de 4 s**. Si la web está lista en 0.5 s, dura 0.5 s |
+| **Salida** | El saludo se desvanece y la frase del hero aparece en su lugar (`motion/reveal`) |
+| **Cuándo** | Una vez por sesión, solo al entrar por la home. Quien vuelve o llega directo a un case study no lo ve |
+| **Saltar** | Clic, tecla o scroll |
+| **Reduced motion** | Aparece y desaparece sin animación |
+
+**Por qué solo mientras carga (Pablo, 2026-10-11):** [REFERENCIAS](REFERENCIAS.md#global--sensación-tipografía-color) dice «no tomar el tiempo de carga de Givelet». Una duración fija sería espera artificial; atada a la carga real, cuenta algo y cumple la regla de movimiento de [DESIGN](DESIGN.md#5-movimiento). El techo protege al recruiter, que da segundos por portfolio.
+**Por qué en el lugar del hero (Pablo, 2026-10-11):** no es una pantalla de carga aparte: el saludo se convierte en la frase, en el mismo sitio. Fondo normal porque el acento es de About y CTA; una cortina de color sería la entrada decorativa que DESIGN sacó. Sin tokens nuevos.
+
+---
+
+## 6. About
+
+| | |
+|---|---|
+| **Propósito** | El momento humano: quién es Pablo, en su voz, y por dónde pasó |
+| **Fondo** | `color/accent/bg`, texto en `color/accent/text` |
+| **Slots** | Primera frase de la bio → resto de la bio → trayectoria. Solo texto: sin collage, sin foto |
+| **Primera frase** | Rol Hero (64 / 48 / 32, Medium), 8 columnas |
+| **Bio** | Rol Body, 2–3 párrafos en primera persona con humor, columnas 1–4 |
+| **Trayectoria** | Rol Ficha, una línea por etapa: empresa · rol · años. Orden cronológico inverso: RappiPay · Binalogue (en paralelo) · Mercado Libre · agencia. Columnas 7–10 |
+| **Desktop** | Frase → 48 → bio (1–4) y trayectoria (7–10) en la misma fila |
+| **Móvil** | Apilado: frase → bio → trayectoria |
+| **Ancla** | `#about` (destino de la nav) |
+| **Movimiento** | Ninguno |
+
+**Por qué solo texto (Pablo, 2026-10-11):** el momento humano lo sostienen la voz (bio de Pamidor) y el color propio (Mijo Bello), sin su collage. Cambia el principio de [REFERENCIAS](REFERENCIAS.md#principio-rector), que se actualiza para decir lo mismo.
+**Por qué la primera frase en Hero (Pablo, 2026-10-11):** cada fondo tiene su pieza grande: frase del hero (qué hago) → proyectos → frase del About (quién soy) → CTA (escríbeme). No es un título ni un eyebrow: es la bio empezando fuerte.
+**Por qué la trayectoria:** lleva las empresas reconocibles que filtra el recruiter ([BRIEF](BRIEF.md#3-audiencia)) y ordena un recorrido no lineal. Binalogue va «en paralelo», como capítulo y no como cierre ([BRIEF](BRIEF.md#5-situación-profesional-y-cómo-se-cuenta)).
 
 ---
 

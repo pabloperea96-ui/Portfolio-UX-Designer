@@ -9,7 +9,7 @@
 ## Principio rector
 
 **Matthieu Givelet es la base de todo** (estructura, tipografía, ritmo, calma).
-**Mijo Bello aparece en un solo momento humano** (color + collage), no como estilo global.
+**Mijo Bello aparece en un solo momento humano** (su idea de un color propio), no como estilo global. Sin su collage: el About es solo texto ([SECCIONES](SECCIONES.md#6-about), 2026-10-11).
 
 Esto traduce el brief: *un paso por delante* (Givelet) + *cercano y humano* (Bello), sin que la web parezca dos webs.
 
@@ -84,11 +84,10 @@ Con **una simulación guionizada e interactiva** (ver Movimiento).
 **No tomar:** overview recargado (Atmar); poco contexto por proyecto (Givelet).
 
 ### About — el momento humano
-**Collage + par de colores propio.** *(Mijo Bello)*
+**Par de colores propio + voz.** *(Mijo Bello, Pamidor)*
 
-- Imágenes y vídeo de tamaños distintos que se solapan, sin retícula.
-- El recorrido no lineal (agencia → MeLi → RappiPay, Binalogue en paralelo) se cuenta bien como collage.
 - Voz en primera persona con humor, al estilo de la bio de Pamidor.
+- **Sin collage ni foto (Pablo, 2026-10-11):** solo texto. El recorrido no lineal se ordena con una trayectoria en texto ([SECCIONES](SECCIONES.md#6-about)).
 
 **No tomar de Mijo Bello:** sus etiquetas pequeñas en mayúsculas con tracking (son eyebrows).
 
