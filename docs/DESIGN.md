@@ -59,6 +59,7 @@ Ejemplo: el hero en Medium lleva −1% en Helvetica Neue y −1% + 1% = **0%** e
 - **Los % de tracking de Inter son relativos a su tamaño real** (el declarado × 0.947). En CSS, `letter-spacing` en `em` se calcula sobre el tamaño declarado, así que hay que multiplicar el valor de Inter por 0.947. Ejemplo: +1% pasa a `0.0095em`.
 - **Una sola lista de fuentes (`"Helvetica Neue", Inter`) no permite un tracking distinto para cada fuente**, porque `letter-spacing` se aplica al elemento sea cual sea la fuente que se dibuje. Para usar los valores de Inter hace falta detectar si Helvetica Neue está instalada (el specimen lo hace midiendo un texto en canvas) y marcar `<html>` con una clase, por ejemplo `no-hn`. Esa clase cambia las variables de tracking.
 - **El `size-adjust` va en el `@font-face` de Inter**, así que solo afecta a Inter.
+- **En Figma** (librería «Portfolio Design System», colección `Typography`), line-height y letter-spacing van en **px**, no en %: Figma lee esas variables en px (se midió el 2026-10-11). Los valores en px salen de esta tabla; si cambia un tamaño, hay que recalcularlos. Los roles se llaman en inglés, como en el código: `meta` (ficha), `body`, `metric`, `title`, `hero` y `cta`.
 
 ### Pesos
 
