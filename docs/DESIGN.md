@@ -153,9 +153,32 @@ Pruebas: Portfolio-V2, sección CP-005 (`2028:140`). Se eligió A6, B2, C3 y D2b
 **Por qué C3:** con fotos claras, un titular blanco necesita al menos 60% de negro debajo. El degradado (transparente desde el 35% de la altura hasta 70% abajo) oscurece solo donde va el texto y deja la imagen limpia arriba. Con un velo plano de 40% daba 2.85:1.
 **Por qué D2b, y D1 en móvil:** el gris de Atmar en reposo daba 1.67:1 y la lista es la navegación principal. Con `color/text/secondary` (5.11 / 5.43:1) mantiene la idea —apagado en reposo, encendido en hover— y pasa AA en cualquier tamaño. En pantallas táctiles no hay hover (`@media (hover: hover)`), así que ahí la lista va toda en texto principal.
 
+### Feedback (agregado el 2026-10-11)
+
+Hoy no hay formularios, pero el feedback queda listo por si se agrega uno (o para «email copiado»).
+
+| Tipo | Rampa | Texto (L / D) | Fondo suave (L / D) | Borde (L / D) |
+|---|---|---|---|---|
+| `color/feedback/error/*` | `color/red` | 600 / 400 | 100 / 900 | 500 |
+| `color/feedback/success/*` | `color/green` | 600 / 400 | 100 / 900 | 500 |
+| `color/feedback/warning/*` | `color/amber` | 600 / 400 | 100 / 900 | 500 |
+| `color/feedback/info/*` | `color/ink` (tinta) | 600 / 400 | 100 / 900 | 500 |
+
+Rampas de 11 tonos en OKLCH con la luminosidad de los neutros, como tinta y hueso:
+
+| Paso | 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 950 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `color/red` | FFF8F8 | FFEEEB | FED2CC | FEABA1 | F27B6F | E0564D | C02726 | 94020D | 5D0105 | 2B0001 | 1D0000 |
+| `color/green` | F7FCF8 | EAF6EC | CAE7CE | 9FD3A9 | 6AB87C | 40A15C | 007A36 | 015E28 | 013916 | 001806 | 000E03 |
+| `color/amber` | FDF9F5 | FBF0E4 | F3DABB | E7BC86 | D39540 | BB7A06 | 925F05 | 6B4402 | 412801 | 1C0F00 | 120800 |
+
+**Contraste verificado sobre los colores reales de cada modo:** el texto pasa AA sobre el fondo, la superficie y su propio fondo suave (entre 4.75 y 7.73:1); el borde pasa 3:1 (entre 3.11 y 5.77:1).
+**Por qué info usa la tinta:** ya es nuestra y es azul; sumar otro azul sería un acento más. Además, nada lila ni violeta.
+**Por qué el verde 600 es `#007A36`:** el que salía de la rampa (`#008139`) daba 4.47:1 sobre la superficie clara.
+**Regla:** el color nunca va solo. El mensaje dice qué pasó (WCAG 1.4.1).
+
 ### Fuera por ahora
 
-- **Feedback** (éxito, error, aviso): no hay formularios. Si un componente lo pide, por ejemplo «email copiado», se agrega con él.
 - **Superficies por nivel:** con fondo y superficie alcanza; la web es casi plana.
 
 ---
