@@ -4,6 +4,9 @@
 > No escribe copy (eso es `CONTENIDO.md`) ni crea tokens sin un elemento que los use.
 > Construido mediante grill desde el 2026-10-11. Se valida contra [`BRIEF.md`](BRIEF.md), [`REFERENCIAS.md`](REFERENCIAS.md) y [`DESIGN.md`](DESIGN.md).
 
+**Regla: integrar, no copiar.** Ninguna sección es la copia de un solo referente; cada una toma lo mejor de varios y lo cruza con lo propio (tokens, ritmo, contenido AI-native).
+**Por qué (Pablo, 2026-10-11):** la web tiene que leerse como suya, no como «la de Araújo con otro texto».
+
 ---
 
 ## 1. Inventario de v2.0
@@ -55,6 +58,29 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 **Pendiente:**
 - **Legibilidad sobre el hero del case study:** el velo actual (`color/overlay/scrim`) oscurece solo abajo. Se resuelve con el hero del case study.
 - **Nombre largo en móvil:** si el nombre completo no entra en 327 px, en móvil va el nombre de pila. Se confirma con el nombre real en `CONTENIDO.md`.
+
+---
+
+## 3. Hero de la home
+
+| | |
+|---|---|
+| **Propósito** | La primera impresión del [BRIEF](BRIEF.md#7-primera-impresión-y-tono): un paso por delante y cercano, en una frase |
+| **Slots** | Una sola frase editorial. Nada más: ni imagen, ni subtítulo, ni credenciales |
+| **Texto** | Rol Hero, Medium: **64** desktop · **48** tablet · **32** móvil |
+| **Ancho** | 8 de 12 columnas en desktop (~780 px a 1280 · ~880 a 1440); todo el ancho en tablet y móvil. Alineada a la izquierda |
+| **Alto** | Sin `100vh`: nav → 160 / 128 / 96 → frase → 160 / 128 / 96 → lista |
+| **Movimiento** | Ninguno. La frase está desde el primer cuadro |
+| **Copy** | Lo escribe Pablo en `CONTENIDO.md`. Límite práctico: 3–4 líneas en desktop (~12–16 palabras) |
+
+**Regla verificable:** el primer proyecto de la lista se ve en la primera pantalla, a 1440×900 (empieza en ~690 px) y a 375×812 (~460 px). Si la frase final la empuja fuera, se acorta la frase, no el aire.
+
+**Por qué 64 / 48 / 32 (Pablo, 2026-10-11):** el hero es lo único arriba, así que el peso lo pone la tipografía; a 40 competía con el body. Las referencias miden 52–64 para «una frase grande con mucho aire». En tablet, 48 evita que la frase se parta de más; en móvil sigue en 32 (con 40 caben ~14 letras por línea). Jerarquía: CTA 128 > hero 64 > body 16.
+**Por qué 8 columnas a la izquierda:** ~24 letras por línea dan un bloque compacto de 3–4 líneas; a 12 columnas serían 2 líneas de banner. A la izquierda comparte borde con la lista y el body: una sola línea de lectura. Las 4 columnas libres son espacio negativo.
+**Por qué alto por ritmo:** con `100vh` el hero se vuelve portada y esconde el trabajo, que es lo que vino a ver el hiring manager. Usa los mismos espacios que separan todas las secciones.
+**Por qué solo la frase (Pablo, 2026-10-11):** el nombre ya está en la nav. Integra la frase única (Araújo) con el aire y la contención (Givelet); lo propio lo pone el contenido.
+
+**Riesgo anotado:** los recruiters filtran por título y empresa ([BRIEF](BRIEF.md#3-audiencia)), y el hero no lo dice. Tiene que leerse en la ficha de la lista de trabajo o en About; se revisa en esas ramas.
 
 ---
 
