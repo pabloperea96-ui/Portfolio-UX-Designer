@@ -312,4 +312,52 @@ El resto de la escala queda disponible para los componentes que salgan de `SECCI
 
 ---
 
+## 5. Movimiento
+
+**Decidido el 2026-10-11.** Parte de [REFERENCIAS](REFERENCIAS.md#movimiento) (State of AI Design): **solo se mueve lo que cuenta algo.**
+
+### Tokens
+
+| Token | Duración | Curva | Stagger | Qué lo usa |
+|---|---|---|---|---|
+| `motion/reveal` | 900 ms | `cubic-bezier(0.22, 1, 0.36, 1)` (ease-out-quint) | 60 ms | Cifras, pasos de la simulación del agente, diagramas del Design System y el nombre del proyecto que viaja al case study |
+| `motion/hover` | 200 ms | `cubic-bezier(0.44, 0, 0.56, 1)` | — | Subrayado de links y lista de trabajo (gris → texto) |
+
+Todo lo que se mueve usa uno de los dos. No hay más duraciones.
+
+**Por qué dos y no tres:** Atmar anima su lista a 0.3 s y State of AI sus links a 0.2 s. Unificar la lista con los links deja un solo ritmo de respuesta en toda la web.
+
+### Reveal
+
+- **Se dispara una vez**, cuando el elemento entra en pantalla con el 20% visible (IntersectionObserver). Después queda quieto. Si la página carga con el elemento ya visible, se anima al cargar.
+- **Qué se revela:** barras que crecen en ancho, cifras que suben desde abajo mientras aparecen, pasos de la simulación. **Nunca** títulos ni imágenes (REFERENCIAS: sin entradas decorativas).
+
+**Por qué una sola vez:** una cifra que ya leíste y vuelve a animarse es decoración.
+
+### Transición de la lista al case study
+
+El **nombre del proyecto viaja** desde la lista hasta el titular del case study, con `motion/reveal` (View Transitions entre documentos, sin librería). Es la única transición de página. En navegadores sin soporte, se navega sin transición.
+
+**Por qué (Pablo, 2026-10-11):** es lo que le gustó de Atmar (anotado en EXTRACCIONES, no en REFERENCIAS). Cumple la regla porque cuenta algo: «entraste a este proyecto». Un fundido de página completa no contaría nada.
+
+### Movimiento reducido (`prefers-reduced-motion`)
+
+| Qué | Comportamiento |
+|---|---|
+| Reveal | Aparece en su estado final, sin animar |
+| Transición lista → case study | Corte directo |
+| Hover (color y subrayado) | Se mantiene: es un cambio de color, no movimiento |
+| Simulación del agente | Avanza solo con un botón «Siguiente paso», nunca sola |
+| Vídeos de la lista (variante B) | No se reproducen solos; muestran su primer cuadro |
+
+**Por qué estado final y no un fundido corto:** un fundido sigue siendo movimiento para algunas personas, y el estado final no esconde información (WCAG 2.3.3).
+
+### Fuera
+
+- **Smooth scroll** (Lenis o `scroll-behavior: smooth`): el scroll es nativo.
+- **Entradas decorativas** de títulos e imágenes, stagger de letras (Atmar) y texturas animadas.
+- **Fundido de página completa.**
+
+---
+
 _Las siguientes secciones se agregan a medida que avanza el grill._
