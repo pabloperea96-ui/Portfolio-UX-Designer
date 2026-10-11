@@ -85,11 +85,11 @@ Hilos explorados como material de partida (ninguno elegido):
 
 | Fase | Alcance | Fecha |
 |---|---|---|
-| **v2.0** | Home + case study Agentes + case study Design System | **2026-11-21** |
-| **v2.1** | + case study MeLi benefits-engine | Después del lanzamiento |
-| **v2.2** | + case study RappiCard | Después del lanzamiento |
+| **v2.0** | Home + los 4 case studies: Agentes, Design System, MeLi benefits-engine y RappiCard | Objetivo **2026-11-21** |
 
-Un portfolio online con 2 case studies excelentes vale más que uno perfecto con 4 que nunca sale.
+**Mandan los 4 case studies, no la fecha (Pablo, 2026-10-11).** La v2.0 no sale sin los cuatro completos; si alguno no llega, la fecha se mueve. Durante la construcción, los que falten van con placeholders.
+**Por qué:** la lista de trabajo se diseña para 4 proyectos, y lanzar con filas de «próximamente» se leería como una web sin terminar.
+**Riesgo aceptado:** la fecha fija existía porque el proyecto se abandonó una vez. Sin ella, el avance se sigue por case study: cada uno tiene que cerrar su contenido antes de pasar al siguiente.
 
 ## 10. No-objetivos
 

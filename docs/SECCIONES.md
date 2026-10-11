@@ -14,7 +14,7 @@
 | Página | Secciones, en orden |
 |---|---|
 | **Home** | Nav → Hero → Lista de trabajo → About → CTA |
-| **Case study** (Agentes, Design System) | Nav → Hero → Ficha → Overview → Cuerpo → Siguiente proyecto → CTA |
+| **Case study** (Agentes, Design System, MeLi benefits-engine, RappiCard) | Nav → Hero → Ficha → Overview → Cuerpo → Siguiente proyecto → CTA |
 | **404** | Nav → Frase + link a la lista de trabajo → CTA |
 
 Fuera de v2.0: Archive ([REFERENCIAS](REFERENCIAS.md#arquitectura)). El CV es un PDF enlazado desde el CTA, no una página.
@@ -32,7 +32,7 @@ Cierra todas las páginas, igual en todas. En el case study va **después** de �
 ### 404
 
 Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un link a la lista de trabajo, y el CTA. No crea componentes ni tokens; la frase va en `CONTENIDO.md`.
-**Por qué (Pablo, 2026-10-11):** en v2.0 habrá links rotos (v1, MeLi y RappiCard antes de tiempo, URLs mal escritas). La 404 del hosting es el «slop visual» de la lista [Nunca](REFERENCIAS.md#nunca), y quien llega por un link viejo tiene que aterrizar en la web.
+**Por qué (Pablo, 2026-10-11):** en v2.0 habrá links rotos (v1, URLs mal escritas). La 404 del hosting es el «slop visual» de la lista [Nunca](REFERENCIAS.md#nunca), y quien llega por un link viejo tiene que aterrizar en la web.
 
 ---
 
@@ -41,7 +41,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | | |
 |---|---|
 | **Propósito** | Identidad y saltos de sección. Mínima, texto plano ([REFERENCIAS](REFERENCIAS.md#navegación)). |
-| **Slots** | Nombre (izquierda, link a la home) · Work · About · Contact (derecha) |
+| **Slots** | Nombre (izquierda, link a la home) · Work (4) · About · Contact (derecha) |
 | **Destinos** | Work → lista de trabajo de la home · About → `/#about` · Contact → el CTA de la página actual |
 | **Texto** | Rol Body (16 px, Regular) en todos los breakpoints |
 | **Color** | `color/text/primary`; sobre el hero del case study, `color/text/on-image` |
@@ -50,10 +50,10 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | **Posición** | Arriba, dentro del margen de la retícula. **No es fija**: se va con el scroll |
 | **Móvil** | La misma nav, en una línea. Sin hamburguesa |
 
-**Por qué «Work» sin contador (Pablo, 2026-10-11):** con 2 proyectos, «Work (2)» se lee como poco; el contador de Givelet funciona con 8. Vuelve cuando haya 4 (v2.2).
+**Por qué «Work (4)»:** con 2 proyectos, «Work (2)» se leía como poco y se decidió sin contador hasta tener 4. Al pasar los 4 case studies a v2.0 ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)), el contador vuelve: dice cuánto trabajo hay antes de bajar (Givelet, Araújo).
 **Por qué «Contact» y no el email:** el email ya es la frase del CTA, que cierra todas las páginas. Repetirlo arriba duplica.
 **Por qué no es fija (Pablo, 2026-10-11):** nada flota sobre el contenido, como en Givelet. En el case study la orientación la da el índice fijo: una sola pieza fija por página. Escondida al bajar y visible al subir sería movimiento que no cuenta nada.
-**Por qué sin hamburguesa y en Body (Pablo, 2026-10-11):** nombre + tres items a 16 px ocupan unos 270 px y entran en los 327 de móvil. Un menú plegable traería estado, capa y movimiento, y el radio de «menú móvil» que DESIGN sacó por no tener elemento. La nav es lectura, así que va en Regular y no necesita token propio.
+**Por qué sin hamburguesa y en Body (Pablo, 2026-10-11):** nombre + tres items a 16 px (con «Work (4)») ocupan unos 295 px y entran en los 327 de móvil. Un menú plegable traería estado, capa y movimiento, y el radio de «menú móvil» que DESIGN sacó por no tener elemento. La nav es lectura, así que va en Regular y no necesita token propio.
 
 **Pendiente:**
 - **Legibilidad sobre el hero del case study:** el velo actual (`color/overlay/scrim`) oscurece solo abajo. Se resuelve con el hero del case study.
@@ -81,6 +81,34 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 **Por qué solo la frase (Pablo, 2026-10-11):** el nombre ya está en la nav. Integra la frase única (Araújo) con el aire y la contención (Givelet); lo propio lo pone el contenido.
 
 **Riesgo anotado:** los recruiters filtran por título y empresa ([BRIEF](BRIEF.md#3-audiencia)), y el hero no lo dice. Tiene que leerse en la ficha de la lista de trabajo o en About; se revisa en esas ramas.
+
+---
+
+## 4. Lista de trabajo
+
+| | |
+|---|---|
+| **Propósito** | Presentar cada proyecto y llevar al case study. Es la navegación principal |
+| **Proyectos** | Los 4, en el orden del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra): Agentes · Design System · MeLi benefits-engine · RappiCard. Con placeholders mientras falte contenido |
+| **Bloque** | Uno por proyecto. Texto a la izquierda, medio a la derecha, siempre igual (sin zigzag) |
+| **Texto** | Nombre (rol **Proyecto**, Medium: 48 desktop · 40 tablet · 24 móvil) → 16 → Ficha: rol · empresa · año (rol Ficha, `color/text/secondary`) |
+| **Medio** | Vídeo 4:5, propio de cada proyecto. Se reproduce al entrar en pantalla, sin hover; acepta una imagen fija si el vídeo no está |
+| **Desktop** | Texto en columnas 1–6 · columna 7 libre · medio en 8–12 (~465 px a 1280). Texto alineado arriba con el medio |
+| **Tablet** | Texto en 4 columnas · medio en 4, misma fila |
+| **Móvil** | Apilado: texto primero, medio debajo a todo el ancho |
+| **Entre bloques** | 160 / 128 / 96 (ritmo entre secciones) |
+| **Estados** | Nombre en `color/text/secondary` que se enciende a `color/text/primary` en hover (`motion/hover`); en táctil, todo en primario ([DESIGN](DESIGN.md#acento-links-imagen-y-lista-cerrado-el-2026-10-11), D2b/D1). Todo el bloque es el link |
+| **Movimiento** | Al entrar al case study, el nombre viaja al titular (`motion/reveal`, [DESIGN](DESIGN.md#transición-de-la-lista-al-case-study)) |
+| **Reduced motion** | El vídeo no se reproduce solo: muestra su primer cuadro |
+
+**Por qué una mezcla y no A contra B (2026-10-11):** las dos variantes de [REFERENCIAS](REFERENCIAS.md#lista-de-trabajo-en-la-home) se veían flacas por separado. Integra el vídeo 4:5 que se reproduce al entrar (Pianetti), el nombre como pieza tipográfica con encendido (Atmar) y la ficha como dato (Pamidor).
+**Por qué el medio a la derecha (Pablo, 2026-10-11):** el nombre queda sobre el mismo borde izquierdo que el hero: una sola línea de lectura. Alternar sería un patrón de landing.
+**Por qué texto primero en móvil (Pablo, 2026-10-11):** mismo orden que en desktop, y cumple la regla del hero: el nombre y la ficha del primer proyecto se ven sin scroll (el vídeo 4:5 primero ocuparía ~410 px).
+**Por qué el rol Proyecto a 48 / 40 / 24 (Pablo, 2026-10-11):** queda debajo del hero en cada pantalla (64 / 48 / 32), así la frase sigue siendo el punto de entrada. Rol nuevo con elemento que lo usa; sale de la rampa. Si el titular del case study termina más grande, la transición escala el nombre al viajar.
+**Por qué solo nombre y ficha (Pablo, 2026-10-11):** sin frase-tesis. La ficha va debajo del nombre (encima sería un eyebrow) y trae lo que filtra el recruiter: rol, empresa y año. Timeline y equipo quedan para la ficha del case study. Resuelve el riesgo anotado en el hero.
+**Por qué los 4 (Pablo, 2026-10-11):** la v2.0 sale con los cuatro case studies ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)); nada de filas «próximamente».
+
+**Rol nuevo para DESIGN:** `Proyecto` (48 / 40 / 24, Medium, nivel Afirmación). Se agrega a la tabla de tipografía y a la colección `Typography` en el cierre del grill.
 
 ---
 
