@@ -266,4 +266,47 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 
 ---
 
+## 4. Forma y profundidad
+
+**Decidido el 2026-10-11.**
+
+### Radios
+
+**Escala: 0, 4, 8, 12, 16, 24 y 999 (pill).** Son pasos de la [escala de espaciado](#escala-de-espaciado) más el pill.
+
+| Elemento | Radio |
+|---|---|
+| Hero a sangre e imágenes del cuerpo del case study | 0 |
+| Miniaturas de la lista de trabajo | 8 |
+| Campos | 8 |
+| Bloques y tarjetas | 16 |
+| Overlays (menú móvil) | 24 |
+| Botones y chips | 999 |
+
+4 y 12 quedan para componentes chicos que lo necesiten.
+
+**Por qué este mapa:** el sitio sigue siendo editorial donde manda la imagen (recta, como en las referencias), y lo interactivo se reconoce por su forma: lo que se toca es pill.
+**Por qué un mapa y no solo la escala:** si cada componente elige su radio a ojo, el sitio se ve inconsistente.
+**Ojo:** los radios de 8 y 24 de los paneles de la librería de Figma son de la documentación, no de la web.
+
+### Bordes
+
+| Uso | Grosor | Color |
+|---|---|---|
+| Divisores y nav fija al hacer scroll | 1 px | `color/border/subtle` |
+| Controles (campos) | 1 px | `color/border/strong` |
+| Foco | 2 px, separado 2 px del elemento (`outline-offset`) | `color/focus` |
+| Capturas de interfaz con fondo claro | 1 px por dentro | `color/border/subtle` |
+
+**Por qué un solo grosor:** el foco es el único trazo de 2 px, así nunca se confunde con un borde.
+**Por qué el borde de las capturas va solo en las claras:** una captura con fondo blanco se funde con `color/bg/default`. Las fotos y el hero no lo necesitan. Es una regla de contenido: se decide imagen por imagen, no se aplica sola. Va por dentro para no cambiar el tamaño de la imagen.
+
+### Sombras
+
+**Ninguna.** La profundidad sale del color (`color/bg/surface` sobre `color/bg/default`) y del velo sobre las imágenes (§2).
+
+**Por qué:** ninguna referencia usa sombras, y una sombra suave es una de las marcas de una web hecha con plantilla. Si algún día aparece un overlay que lo necesite, la sombra se define con ese componente.
+
+---
+
 _Las siguientes secciones se agregan a medida que avanza el grill._
