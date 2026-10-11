@@ -108,6 +108,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 ### Pendiente
 
 - **Pesos por rol:** se definen en las pruebas en contexto.
+- **Tamaños contra las referencias (revisión del 2026-10-11):** el hero (40) queda debajo de lo que miden las referencias para «una frase grande con mucho aire» (Givelet 52, Araújo 64); el título de case study sobre imagen (32), debajo de Araújo (64) y Atmar (90); y la métrica (24) no es la «cifra grande» de State of AI (64), o sobra si la métrica vive dentro del titular-tesis. No se cambian aún: se deciden en las pruebas en contexto.
 - **Extra de Inter para el CTA:** se midió a 64 px. Con el CTA en 48 / 96 / 128 hay que medirlo de nuevo en el specimen.
 - **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
 - **Librería:** los 6 estilos de texto están en Inter provisional; falta conectar su familia a `typography/family/base` (Helvetica Neue) a mano.
@@ -150,10 +151,9 @@ En negrita, los tonos del par A6. Transparencias: `color/neutral/1000-a70` (negr
 | `color/text/primary` | 900 | 50 | Texto principal |
 | `color/text/secondary` | 600 | 500 | Texto secundario |
 | `color/border/subtle` | 200 | 800 | Divisores decorativos |
-| `color/border/strong` | 500 | 600 | Bordes de controles |
 | `color/focus` | 900 | 50 | Anillo de foco |
 
-**Contraste verificado en los dos modos:** texto principal entre 15.97 y 17.95:1; texto secundario entre 4.76 y 5.43:1 (AA); borde fuerte entre 3.08 y 3.52:1 (3:1 para interfaz). El borde sutil no llega a 3:1 y por eso solo es decorativo.
+**Contraste verificado en los dos modos:** texto principal entre 15.97 y 17.95:1; texto secundario entre 4.76 y 5.43:1 (AA). El borde sutil no llega a 3:1 y por eso solo es decorativo.
 
 **Por qué el 600 es `#6B6B6B` y no `#717171`** (el gris de las pruebas): con `#717171`, el texto secundario sobre superficie clara daba 4.36:1 y no pasaba AA.
 
@@ -176,9 +176,9 @@ Pruebas: Portfolio-V2, sección CP-005 (`2028:140`). Se eligió A6, B2, C3 y D2b
 **Por qué C3:** con fotos claras, un titular blanco necesita al menos 60% de negro debajo. El degradado (transparente desde el 35% de la altura hasta 70% abajo) oscurece solo donde va el texto y deja la imagen limpia arriba. Con un velo plano de 40% daba 2.85:1.
 **Por qué D2b, y D1 en móvil:** el gris de Atmar en reposo daba 1.67:1 y la lista es la navegación principal. Con `color/text/secondary` (5.11 / 5.43:1) mantiene la idea —apagado en reposo, encendido en hover— y pasa AA en cualquier tamaño. En pantallas táctiles no hay hover (`@media (hover: hover)`), así que ahí la lista va toda en texto principal.
 
-### Feedback (agregado el 2026-10-11)
+### Feedback — fuera por ahora
 
-Hoy no hay formularios, pero el feedback queda listo por si se agrega uno (o para «email copiado»).
+**Se sacó de la librería el 2026-10-11** (el mismo día que se definió). REFERENCIAS dice del CTA «sin formulario y sin botones», así que no hay errores ni éxitos que mostrar. Los valores quedan aquí, ya verificados, para recrearlo sin recalcular si algún día aparece un formulario o un «email copiado».
 
 | Tipo | Rampa | Texto (L / D) | Fondo suave (L / D) | Borde (L / D) |
 |---|---|---|---|---|
@@ -203,6 +203,8 @@ Rampas de 11 tonos en OKLCH con la luminosidad de los neutros, como tinta y hues
 ### Fuera por ahora
 
 - **Superficies por nivel:** con fondo y superficie alcanza; la web es casi plana.
+- **`color/border/strong`** (neutral 500 / 600, entre 3.08 y 3.52:1): era para bordes de controles, y la web no tiene controles. Sacado de la librería el 2026-10-11.
+- **Feedback:** ver arriba.
 
 ---
 
@@ -278,16 +280,11 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 |---|---|
 | Hero a sangre e imágenes del cuerpo del case study | 0 |
 | Miniaturas de la lista de trabajo | 8 |
-| Campos | 8 |
-| Bloques y tarjetas | 16 |
-| Overlays (menú móvil) | 24 |
-| Botones | 4 |
-| Chips | 999 |
 
-12 queda para componentes chicos que lo necesiten.
+El resto de la escala queda disponible para los componentes que salgan de `SECCIONES.md`.
 
-**Por qué este mapa:** el sitio sigue siendo editorial donde manda la imagen (recta, como en las referencias). El botón va casi recto, en 4 como en Givelet (Pablo, 2026-10-11), para no verse como una app; el pill queda solo para los chips, que son etiquetas y no acciones.
-**Por qué un mapa y no solo la escala:** si cada componente elige su radio a ojo, el sitio se ve inconsistente.
+**Por qué:** el sitio sigue siendo editorial donde manda la imagen (recta, como en las referencias).
+**Por qué solo dos roles (2026-10-11):** el primer mapa también daba radio a campos (8), bloques (16), menú móvil (24), botones (4) y chips (pill). Se sacó porque ningún elemento de las referencias los usa: el CTA no tiene formulario ni botones, la nav es texto plano y las disciplinas van como texto. Un rol nuevo nace de una sección de `SECCIONES.md`, no de suponer qué componente va a existir. Si vuelven, los valores elegidos fueron esos; el botón en 4 fue decisión de Pablo.
 **Ojo:** los radios de 8 y 24 de los paneles de la librería de Figma son de la documentación, no de la web.
 
 ### Bordes
@@ -295,7 +292,6 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 | Uso | Grosor | Color |
 |---|---|---|
 | Divisores y nav fija al hacer scroll | 1 px | `color/border/subtle` |
-| Controles (campos) | 1 px | `color/border/strong` |
 | Foco | 2 px, separado 2 px del elemento (`outline-offset`) | `color/focus` |
 | Capturas de interfaz con fondo claro | 1 px por dentro | `color/border/subtle` |
 
@@ -311,8 +307,8 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 ### En Figma
 
 - **Escala:** `radius/0` … `radius/24` y `radius/full` en `Primitives`.
-- **Roles:** colección `Shape` con `radius/image`, `/thumbnail`, `/field`, `/block`, `/overlay`, `/button` y `/chip` (alias de la escala), más `border/width`, `focus/width` y `focus/offset`.
-- **Documentación:** página ⬜ Forma y profundidad. El foco se simula con un anillo, porque Figma no tiene `outline-offset`.
+- **Roles:** colección `Shape` con `radius/image` y `radius/thumbnail` (alias de la escala), más `border/width`, `focus/width` y `focus/offset`.
+- **Documentación:** página ⬜ Forma y profundidad. El foco se muestra sobre un link y se simula con un anillo, porque Figma no tiene `outline-offset`.
 
 ---
 
