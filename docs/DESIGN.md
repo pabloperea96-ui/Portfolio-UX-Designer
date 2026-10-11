@@ -358,6 +358,10 @@ El **nombre del proyecto viaja** desde la lista hasta el titular del case study,
 - **Entradas decorativas** de títulos e imágenes, stagger de letras (Atmar) y texturas animadas.
 - **Fundido de página completa.**
 
+### En Figma
+
+Colección `Motion` con `motion/reveal/duration`, `/reveal/stagger`, `/reveal/easing`, `motion/hover/duration` y `/hover/easing`. No tienen scope, porque ninguna propiedad de Figma acepta una duración o una curva; están para que diseño y código lean los mismos valores (en código: `--motion-reveal-duration`, etc.). Documentación: página 🎞️ Movimiento, con las curvas dibujadas.
+
 ---
 
 _Las siguientes secciones se agregan a medida que avanza el grill._
