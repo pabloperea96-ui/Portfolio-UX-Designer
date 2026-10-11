@@ -308,6 +308,12 @@ El contenido se limita a **1440 px** de ancho y se centra. Las imágenes a sangr
 
 **Por qué:** ninguna referencia usa sombras, y una sombra suave es una de las marcas de una web hecha con plantilla. Si algún día aparece un overlay que lo necesite, la sombra se define con ese componente.
 
+### En Figma
+
+- **Escala:** `radius/0` … `radius/24` y `radius/full` en `Primitives`.
+- **Roles:** colección `Shape` con `radius/image`, `/thumbnail`, `/field`, `/block`, `/overlay`, `/button` y `/chip` (alias de la escala), más `border/width`, `focus/width` y `focus/offset`.
+- **Documentación:** página ⬜ Forma y profundidad. El foco se simula con un anillo, porque Figma no tiene `outline-offset`.
+
 ---
 
 _Las siguientes secciones se agregan a medida que avanza el grill._
