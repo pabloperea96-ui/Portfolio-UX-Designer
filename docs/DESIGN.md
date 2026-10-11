@@ -20,18 +20,25 @@
 **Por qué:** Helvetica Neue es la neo-grotesca que piden las referencias, y es gratis porque ya viene con el sistema operativo. Las neo-grotescas de pago se descartaron porque no hay presupuesto para licencias.
 Inter es la alternativa libre más cercana. La regla para Inter es **verse como Helvetica Neue**, no lucir lo mejor posible por su cuenta: quien entra desde Windows tiene que ver los mismos cortes de línea y el mismo peso visual.
 
-### Escala — Helvetica Neue (valores v2)
+### Rampa de tamaños
+
+**10, 12 y 14 como mínimos; desde 16, múltiplos de 8 hasta 128** (16, 24, 32 … 120, 128). Son 18 pasos. Todo tamaño de texto sale de aquí.
+
+**Por qué:** una rampa amplia permite documentar y crecer (CTA de página, breakpoints) sin inventar tamaños sueltos. Los múltiplos de 8 encajan con la retícula; los mínimos son la excepción para la letra chica.
+
+### Escala — Helvetica Neue (valores v2 sobre la rampa)
 
 | Rol | Tamaño | Line-height | Tracking |
 |---|---|---|---|
-| Ficha | 13 px | 140% | +1.5% |
-| Body | 17 px | 155% | +0.5% |
+| Ficha | 12 px | 140% | +1.5% |
+| Body | 16 px | 155% | +0.5% |
 | Métrica | 24 px | 125% | 0% |
-| Título de case study | 26 px | 120% | −0.5% |
-| Hero | 38 px | 115% | −1% |
-| CTA | 68 px | 100% | −2% |
+| Título de case study | 32 px | 120% | −0.5% |
+| Hero | 40 px | 115% | −1% |
+| CTA | 64 px | 100% | −2% |
 
-**Por qué:** con los valores v1 Helvetica Neue se veía demasiado comprimida y poco editorial. v2 abre los tamaños chicos y cierra menos los grandes: es una escala óptica, donde el tracking baja a medida que sube el tamaño.
+**Por qué estos valores:** con los valores v1 Helvetica Neue se veía demasiado comprimida y poco editorial. v2 abre los tamaños chicos y cierra menos los grandes: es una escala óptica, donde el tracking baja a medida que sube el tamaño.
+**Por qué estos tamaños (2026-10-11):** los anteriores (13, 17, 26, 38, 68) no estaban en la rampa. Cada rol pasó al paso más cercano. El título sube a 32 para no chocar con la métrica (24). La ficha baja a 12 para separarse del body. El CTA queda en 64 por ahora: el tamaño de página (REFERENCIAS pide ~140 px) se decide con la retícula y los breakpoints.
 El body va siempre en Regular.
 
 ### Fallback — Inter
@@ -49,17 +56,17 @@ El body va siempre en Regular.
 Ejemplo: el hero en Medium lleva −1% en Helvetica Neue y −1% + 1% = **0%** en Inter. El CTA en Bold lleva −2% + 1.6% + 1.4% = **+1%**.
 
 **Por qué la compensación:** a igual tracking, Inter queda más apretada que Helvetica Neue, y la diferencia crece con el peso.
-**Por qué el extra del CTA:** la Inter que se aloja no tiene eje óptico, así que a 68 px usa el diseño pensado para texto chico. Sin el extra, el CTA queda entre 1.5 y 2.3% más angosto.
+**Por qué el extra del CTA:** la Inter que se aloja no tiene eje óptico, así que a 64 px usa el diseño pensado para texto chico. Sin el extra, el CTA queda entre 1.5 y 2.3% más angosto.
 **Por qué no se usa el tracking que recomienda Inter** (su fórmula Dynamic Metrics): da entre 1.5 y 3 puntos menos que Helvetica Neue, por ejemplo −1.1% en el body contra +0.5%. Con eso cambiarían los cortes de línea.
 
-**Verificado en el specimen:** con estos valores, Helvetica Neue e Inter cortan en las mismas palabras en hero, título, body y métrica, en los tres pesos. La ficha queda entre +0.4 y +0.8% más ancha en Inter y el CTA queda igual (0.0%).
+**Verificado en el specimen** (de nuevo con los tamaños de la rampa, 2026-10-11): Helvetica Neue e Inter cortan en las mismas palabras en hero, título, body y métrica, en los tres pesos. La ficha queda entre +0.4 y +0.8% más ancha en Inter y el CTA queda igual (0.0%).
 
 ### Cómo se implementa
 
 - **Los % de tracking de Inter son relativos a su tamaño real** (el declarado × 0.947). En CSS, `letter-spacing` en `em` se calcula sobre el tamaño declarado, así que hay que multiplicar el valor de Inter por 0.947. Ejemplo: +1% pasa a `0.0095em`.
 - **Una sola lista de fuentes (`"Helvetica Neue", Inter`) no permite un tracking distinto para cada fuente**, porque `letter-spacing` se aplica al elemento sea cual sea la fuente que se dibuje. Para usar los valores de Inter hace falta detectar si Helvetica Neue está instalada (el specimen lo hace midiendo un texto en canvas) y marcar `<html>` con una clase, por ejemplo `no-hn`. Esa clase cambia las variables de tracking.
 - **El `size-adjust` va en el `@font-face` de Inter**, así que solo afecta a Inter.
-- **En Figma** (librería «Portfolio Design System», colección `Typography`), line-height y letter-spacing van en **px**, no en %: Figma lee esas variables en px (se midió el 2026-10-11). Los valores en px salen de esta tabla; si cambia un tamaño, hay que recalcularlos. Los roles se llaman en inglés, como en el código: `meta` (ficha), `body`, `metric`, `title`, `hero` y `cta`.
+- **En Figma** (librería «Portfolio Design System», colección `Typography`), el tamaño de cada rol es un alias de la rampa (colección `Primitives`, `font-size/<n>`). Line-height y letter-spacing van en **px**, no en %: Figma lee esas variables en px (se midió el 2026-10-11). Los valores en px salen de esta tabla; si cambia un tamaño, hay que recalcularlos. Los roles se llaman en inglés, como en el código: `meta` (ficha), `body`, `metric`, `title`, `hero` y `cta`.
 
 ### Pesos
 
@@ -71,7 +78,8 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El body va siem
 ### Pendiente
 
 - **Pesos por rol:** se definen en las pruebas en contexto.
-- **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y hay que aplicarle v2 a mano, porque el MCP no puede cargar fuentes locales.
+- **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
+- **Librería:** los 6 estilos de texto están en Inter provisional; falta conectar su familia a `typography/family/base` (Helvetica Neue) a mano.
 
 ---
 
