@@ -18,11 +18,11 @@
 
 | Página | Estado |
 |---|---|
-| Antes de escribir | pendiente |
-| Global (nav, CTA, metadatos) | pendiente |
+| Antes de escribir | MeLi resuelto · storytelling abierto |
+| Global (nav, CTA, metadatos) | datos listos · faltan frase del CTA y metadatos |
 | Home | pendiente |
 | 404 | pendiente |
-| Agentes | pendiente |
+| Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
 | Design System | pendiente |
 | MeLi benefits-engine | pendiente |
 | RappiCard | pendiente |
@@ -177,7 +177,7 @@ Para sumar una sección, copia un bloque de sección entero.
 - En el índice: ✎ Decision
 
 **4. Qué hace el agente por dentro**
-- Notas de Pablo (en bruto): caso de ejemplo, bolsillos compartidos con otras personas. Gaia ayuda a definir el problema, revisa la base de conocimiento (research previo, CX, mercado), ayuda a escribir una solución, corre benchmark de producto y de diseño, triangula y dice si hay que ajustar o pivotear, extrae las hipótesis que el benchmark no resuelve y, en paralelo, plantea un happy path y wireframes. Si el equipo decide testear: prototipo y papeleo de la metodología; después analiza las entrevistas que hace el equipo y propone ajustes al flujo. Sigue el Hi Fi para desarrollo, hasta code review y salida. Más de 15 skills de discovery, research y diseño; entre ellas product-benchmark, design-benchmark, hypothesis-writer, value-prop-builder, interview-analysis, emergent-category-creation, user-flow-diagram, ux-copy, translation y documentation (nombres reales, se pueden mostrar). Entrega final: un PRD con enlaces al research, Figma y lo demás que necesita desarrollo.
+- Notas de Pablo (en bruto): caso de ejemplo, bolsillos compartidos con otras personas. Fue una iniciativa real que se descartó, así que se puede usar; el hallazgo del paso 5 es inventado y Pablo lo aprobó (2026-10-17). **Cuando haya una iniciativa entera hecha con Gaia, reemplaza a este caso.** Gaia ayuda a definir el problema, revisa la base de conocimiento (research previo, CX, mercado), ayuda a escribir una solución, corre benchmark de producto y de diseño, triangula y dice si hay que ajustar o pivotear, extrae las hipótesis que el benchmark no resuelve y, en paralelo, plantea un happy path y wireframes. Si el equipo decide testear: prototipo y papeleo de la metodología; después analiza las entrevistas que hace el equipo y propone ajustes al flujo. Sigue el Hi Fi para desarrollo, hasta code review y salida. Más de 15 skills de discovery, research y diseño; entre ellas product-benchmark, design-benchmark, hypothesis-writer, value-prop-builder, interview-analysis, emergent-category-creation, user-flow-diagram, ux-copy, translation y documentation (nombres reales, se pueden mostrar). Entrega final: un PRD con enlaces al research, Figma y lo demás que necesita desarrollo.
 - Titular-tesis: ✎ Gaia carries an initiative from a question to a PRD
 - Texto: ✎ Take a typical request: letting people share a pocket with others. Gaia helps whoever leads the initiative define the problem, pulls what RappiPay already knows from past research and CX, and drafts a first solution. It runs a product benchmark and a design benchmark, triangulates them and flags whether to adjust or pivot. Whatever the benchmarks can't answer becomes a hypothesis for research, while a first happy path and wireframes take shape in parallel. If the team decides to test, Gaia prepares the prototype and the paperwork, then helps analyze the interviews the team runs and proposes changes to the flow. The final deliverable is a PRD that links the research, the Figma files and everything development needs. It all runs on more than 15 skills for discovery, research and design.
 - **Simulación** ([regla](SECCIONES.md#simulación-guionizada)): 4–6 pasos. Guion representativo, sin datos reales de RappiPay. Cubre el arranque del caso, hasta el primer checkpoint; el recorrido completo lo cuenta el texto.
