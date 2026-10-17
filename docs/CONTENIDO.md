@@ -177,20 +177,23 @@ Para sumar una sección, copia un bloque de sección entero.
 - En el índice: ✎ Decision
 
 **4. Qué hace el agente por dentro**
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
-- **Simulación** ([regla](SECCIONES.md#simulación-guionizada)): 4–6 pasos. Guion representativo, sin datos reales de RappiPay.
+- Notas de Pablo (en bruto): caso de ejemplo, bolsillos compartidos con otras personas. Gaia ayuda a definir el problema, revisa la base de conocimiento (research previo, CX, mercado), ayuda a escribir una solución, corre benchmark de producto y de diseño, triangula y dice si hay que ajustar o pivotear, extrae las hipótesis que el benchmark no resuelve y, en paralelo, plantea un happy path y wireframes. Si el equipo decide testear: prototipo y papeleo de la metodología; después analiza las entrevistas que hace el equipo y propone ajustes al flujo. Sigue el Hi Fi para desarrollo, hasta code review y salida. Más de 15 skills de discovery, research y diseño. Entrega final: un PRD con enlaces al research, Figma y lo demás que necesita desarrollo.
+- Titular-tesis: ✎ Gaia carries an initiative from a question to a PRD
+- Texto: ✎ Take a typical request: letting people share a pocket with others. Gaia helps whoever leads the initiative define the problem, pulls what RappiPay already knows from past research and CX, and drafts a first solution. It runs a product benchmark and a design benchmark, triangulates them and flags whether to adjust or pivot. Whatever the benchmarks can't answer becomes a hypothesis for research, while a first happy path and wireframes take shape in parallel. If the team decides to test, Gaia prepares the prototype and the paperwork, then helps analyze the interviews the team runs and proposes changes to the flow. The final deliverable is a PRD that links the research, the Figma files and everything development needs. It all runs on more than 15 skills for discovery, research and design.
+- **Simulación** ([regla](SECCIONES.md#simulación-guionizada)): 4–6 pasos. Guion representativo, sin datos reales de RappiPay. Cubre el arranque del caso, hasta el primer checkpoint; el recorrido completo lo cuenta el texto.
 
   | Paso | Qué se ve | Texto |
   |---|---|---|
-  | 1 | Pedido | ⟨por escribir⟩ |
-  | 2 | Razonamiento | ⟨por escribir⟩ |
-  | 3 | Skill que elige | ⟨por escribir⟩ |
-  | 4 | Resultado | ⟨por escribir⟩ |
+  | 1 | Pedido | ✎ I want people to be able to share a pocket with friends or family. Where do we start? |
+  | 2 | Razonamiento | ✎ First, the problem. Who already shares money, and what goes wrong when they do? Checking past pocket research and CX reports. |
+  | 3 | Skill que elige | ✎ Running product-benchmark: how shared pockets and joint accounts work in other fintechs. |
+  | 4 | Skill que elige | ✎ Running design-benchmark: how they handle inviting someone, permissions and leaving a shared pocket. |
+  | 5 | Resultado | ✎ Summary: the market supports the idea; permissions are where it gets hard. Three hypotheses the benchmarks can't answer, and a first happy path. |
+  | 6 | Checkpoint | ✎ Your call: keep the direction, adjust it, or pivot? |
 
-  - Aviso de que el guion es representativo: ⟨por escribir⟩
+  - Aviso de que el guion es representativo: ✎ A representative scenario. It contains no real RappiPay data.
   - Links: Replay · Next step (con movimiento reducido)
-- En el índice: ⟨por escribir⟩
+- En el índice: ✎ How it works
 
 **5. Cierre con una idea**
 - Notas de Pablo (en bruto): gracias a las skills y a dejar de perder tiempo en documentación y papeleo, los diseñadores dedican más tiempo a pensar las pantallas y la experiencia, y a subir el estándar de los entregables.
