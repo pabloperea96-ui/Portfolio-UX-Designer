@@ -31,7 +31,7 @@
 Dos decisiones que el BRIEF dejó abiertas y que condicionan el resto.
 
 - **Hilo del storytelling** ([BRIEF](BRIEF.md#7-primera-impresión-y-tono)): condiciona el hero y el About, así que va antes de la home. Uno de los tres hilos explorados o uno nuevo: ⟨por escribir⟩
-- **Material de MeLi** ([BRIEF](BRIEF.md#11-riesgos-abiertos)): qué capturas y qué métricas se pueden mostrar, y quién lo confirmó: ⟨por escribir⟩
+- **Material de MeLi** ([BRIEF](BRIEF.md#11-riesgos-abiertos)): qué capturas y qué métricas se pueden mostrar, y quién lo confirmó: **todo**, las capturas y la cifra de +10 días. Confirmado (Pablo, 2026-10-17).
 
 ---
 
@@ -39,17 +39,17 @@ Dos decisiones que el BRIEF dejó abiertas y que condicionan el resto.
 
 ### Nav · [regla](SECCIONES.md#2-nav)
 
-- **Nombre (desktop y tablet):** ⟨por escribir⟩
-- **Nombre en móvil:** el mismo, salvo que con los tres items no quepa en 327 px a 16 px. Si no cabe, el de pila: ⟨por escribir⟩
+- **Nombre (desktop y tablet):** Pablo Perea Bohórquez
+- **Nombre en móvil:** el mismo, salvo que con los tres items no quepa en 327 px a 16 px. **No cabe:** con el nombre completo la nav mide 379 px (medido en Helvetica Neue). En móvil va **Pablo Perea** (296 px).
 - **Items:** Work (4) · About · Contact
 
 ### CTA (cierra todas las páginas) · [regla](SECCIONES.md#7-cta-final-footer-global)
 
 - **Frase (link `mailto:`):** ⟨por escribir⟩
   Límite: corta. Va en Bold a 48 px en móvil, donde caben ~11 letras por línea: máximo 2 líneas.
-- **Email:** ⟨por escribir⟩
-- **LinkedIn (URL):** ⟨por escribir⟩ · texto del link: LinkedIn
-- **CV (archivo PDF):** ⟨por escribir⟩ · texto del link: CV
+- **Email:** pabloperea96@gmail.com
+- **LinkedIn (URL):** https://www.linkedin.com/in/pablopereab/ · texto del link: LinkedIn
+- **CV (archivo PDF):** [`docs/cv-en-2026.pdf`](cv-en-2026.pdf) · texto del link: CV
 
 ### Metadatos
 
@@ -80,10 +80,10 @@ Límite del nombre: 1–2 líneas a 48 px en las columnas 1–6 (~20 letras por 
 
 | # | Nombre en la web | Rol | Empresa | Año | Vídeo 4:5 (o imagen fija) |
 |---|---|---|---|---|---|
-| 1 | ⟨por escribir⟩ *(Superagente + skills de diseño)* | ⟨por escribir⟩ | RappiPay | ⟨por escribir⟩ | ⟨por escribir⟩ |
-| 2 | ⟨por escribir⟩ *(Rediseño del Design System)* | ⟨por escribir⟩ | RappiPay | ⟨por escribir⟩ | ⟨por escribir⟩ |
-| 3 | ⟨por escribir⟩ *(Benefits-engine)* | ⟨por escribir⟩ | Mercado Libre | ⟨por escribir⟩ | ⟨por escribir⟩ |
-| 4 | ⟨por escribir⟩ *(RappiCard)* | ⟨por escribir⟩ | RappiPay | ⟨por escribir⟩ | ⟨por escribir⟩ |
+| 1 | ⟨por escribir⟩ *(Superagente + skills de diseño)* | ⟨por escribir⟩ | RappiPay | 2026 | ⟨por escribir⟩ |
+| 2 | ⟨por escribir⟩ *(Rediseño del Design System)* | ⟨por escribir⟩ | RappiPay | 2026 | ⟨por escribir⟩ |
+| 3 | ⟨por escribir⟩ *(Benefits-engine)* | ⟨por escribir⟩ | Mercado Libre | 2025 | ⟨por escribir⟩ |
+| 4 | ⟨por escribir⟩ *(RappiCard)* | ⟨por escribir⟩ | RappiPay | 2026 | ⟨por escribir⟩ |
 
 En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra), como referencia: no sale en la web.
 
@@ -99,10 +99,10 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
 
   | Empresa | Rol | Años |
   |---|---|---|
-  | RappiPay | ⟨por escribir⟩ | ⟨por escribir⟩ |
-  | Binalogue | ⟨por escribir⟩ *(Partner — Colombia chapter, en paralelo)* | ⟨por escribir⟩ |
-  | Mercado Libre | ⟨por escribir⟩ *(UX Designer & Content Designer)* | ⟨por escribir⟩ |
-  | ⟨por escribir⟩ *(la agencia)* | ⟨por escribir⟩ *(Copywriter)* | ⟨por escribir⟩ |
+  | RappiPay | ⟨por escribir⟩ | 2026 |
+  | Binalogue | ⟨por escribir⟩ *(Partner — Colombia chapter, en paralelo)* | 2026 |
+  | Mercado Libre | ⟨por escribir⟩ *(UX Designer & Content Designer)* | 2023–2026 |
+  | Lavalentina Design | ⟨por escribir⟩ *(Copywriter)* | 2022 |
 
   Cómo se dice «en paralelo» en la línea de Binalogue: ⟨por escribir⟩
 
@@ -225,7 +225,7 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.3 MeLi benefits-engine · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
 - **Imagen del hero:** ⟨por escribir⟩
-- **Cifra estrella:** candidata, +10 días de stock almacenado promedio. ¿Se puede mostrar? ⟨por escribir⟩ (ver [Antes de escribir](#0-antes-de-escribir))
+- **Cifra estrella:** +10 días de stock almacenado promedio. Se puede mostrar ([Antes de escribir](#0-antes-de-escribir)).
 
 **Overview**
 - Etiqueta: ⟨por escribir⟩

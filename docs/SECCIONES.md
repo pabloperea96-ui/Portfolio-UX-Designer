@@ -57,7 +57,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 
 **Pendiente:**
 - ~~Legibilidad sobre el hero del case study~~: resuelto con un segundo degradado arriba ([Hero del case study](#hero)).
-- **Nombre largo en móvil:** si el nombre completo no entra en 327 px, en móvil va el nombre de pila. Se confirma con el nombre real en `CONTENIDO.md`.
+- ~~Nombre largo en móvil~~: medido con el nombre real el 2026-10-17. El completo da 379 px y no entra en 327; en móvil va nombre y primer apellido (296 px) en vez del nombre de pila, porque cabe y sigue siendo el nombre que se busca en LinkedIn ([CONTENIDO](CONTENIDO.md#1-global)).
 
 ---
 
