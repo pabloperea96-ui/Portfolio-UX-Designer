@@ -223,6 +223,25 @@ Común a los 4 case studies. Las variantes de Agentes y Design System suman bloq
 **Por qué «Tesis» (Pablo, 2026-10-11):** el rol de 32 ya existía como «Título de case study»; ahora lo usan los titulares-tesis y se renombra para decir lo que hace.
 **Por qué sin rol Métrica (Pablo, 2026-10-11):** la cifra nunca va suelta: vive en una frase que dice qué significa ([REFERENCIAS](REFERENCIAS.md#case-study), nunca tarjetas de KPI). Cuando es la estrella, la frase entera sube a Hero. Un token menos.
 
+### Imágenes del cuerpo
+
+| | |
+|---|---|
+| **Proporción** | La de cada imagen: ancho por columnas, alto el que salga. No se recorta para que cuadren entre sí |
+| **Ancho** | Columnas 5–12 en desktop · todo el ancho de la retícula en tablet y móvil |
+| **Capturas de móvil** | 2 o 3 lado a lado en el mismo ancho, separadas por el gutter · máximo 2 en móvil |
+| **Pantallas largas** | Recortadas a su tramo útil. Sin scroll interno |
+| **A sangre** | Máximo una por case study, y solo si es horizontal: todo el ancho de la ventana, fuera del límite de 1440 ([DESIGN](DESIGN.md#breakpoints)). El índice se oculta mientras pasa por su lugar |
+| **Vídeo** | Como en la lista: se reproduce al entrar en pantalla, sin sonido, en loop y sin controles. Con movimiento reducido muestra su primer cuadro |
+| **Pie de foto** | Opcional. Debajo de la imagen, a 16, en rol Ficha y `color/text/secondary`, alineado a la columna 5 (también bajo la imagen a sangre) |
+| **Forma** | Radio 0. Borde de 1 px por dentro solo en capturas con fondo claro ([DESIGN](DESIGN.md#bordes)) |
+| **Separación** | Texto → imagen: 48 / 48 / 32 · entre imágenes: 24 / 24 / 16 (el gutter) |
+
+**Por qué la proporción de cada imagen (Pablo, 2026-10-17):** las capturas de producto tienen tamaños distintos; forzar una sola proporción recorta interfaz que importa o la rellena.
+**Por qué una a sangre (Pablo, 2026-10-17):** un respiro visual a mitad del cuerpo. Costo aceptado: rompe la retícula y compite con el hero. Por eso es una sola y horizontal (una vertical a todo el ancho no cabe en pantalla), y el índice se aparta para no flotar sobre ella.
+**Por qué el pie opcional (Pablo, 2026-10-17):** solo cuando la imagen dice algo que el texto no dice. Un pie obligatorio termina repitiendo el párrafo. Usa un rol que ya existe: sin token nuevo.
+**Por qué el vídeo sin controles (Pablo, 2026-10-17):** un play sería el primer botón de la web. Es el mismo comportamiento de la lista, así que no se aprende nada nuevo.
+
 ### Siguiente proyecto
 
 | | |
