@@ -53,7 +53,7 @@ Por orden de aparición:
 
 1. **Superagente + skills de diseño** — RappiPay. El titular AI-native.
 2. **Rediseño del Design System** — RappiPay.
-3. **Benefits-engine** — Mercado Libre. Impacto medible: +10 días de stock almacenado promedio, en vivo en México y Brasil.
+3. **Benefits-engine** — Mercado Libre. Impacto medible: el stock almacenado promedio en Brasil pasó de 10 a 20 días (+10). En vivo en México y Brasil; la cifra es solo de Brasil (Pablo, 2026-10-17).
 4. **RappiCard** — RappiPay.
 
 **Fuera:** los case studies conceptuales de la v1 (inversión apalancada, ajustes de audio).

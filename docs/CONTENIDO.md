@@ -80,11 +80,12 @@ Límite del nombre: 1–2 líneas a 48 px en las columnas 1–6 (~20 letras por 
 
 | # | Nombre en la web | Rol | Empresa | Año | Vídeo 4:5 (o imagen fija) |
 |---|---|---|---|---|---|
-| 1 | ⟨por escribir⟩ *(Superagente + skills de diseño)* | ⟨por escribir⟩ | RappiPay | 2026 | ⟨por escribir⟩ |
-| 2 | ⟨por escribir⟩ *(Rediseño del Design System)* | ⟨por escribir⟩ | RappiPay | 2026 | ⟨por escribir⟩ |
-| 3 | ⟨por escribir⟩ *(Benefits-engine)* | ⟨por escribir⟩ | Mercado Libre | 2025 | ⟨por escribir⟩ |
-| 4 | ⟨por escribir⟩ *(RappiCard)* | ⟨por escribir⟩ | RappiPay | 2026 | ⟨por escribir⟩ |
+| 1 | ⟨por escribir⟩ *(Superagente + skills de diseño)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
+| 2 | ⟨por escribir⟩ *(Rediseño del Design System)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
+| 3 | ⟨por escribir⟩ *(Benefits-engine)* | UX Designer / Content Designer | Mercado Libre | 2025 | ⟨por escribir⟩ |
+| 4 | ⟨por escribir⟩ *(RappiCard)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
 
+Los roles salen del [CV](cv-en-2026.pdf), que es lo que abre el recruiter: tienen que decir lo mismo.
 En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra), como referencia: no sale en la web.
 
 ### About · [regla](SECCIONES.md#6-about)
@@ -99,10 +100,12 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
 
   | Empresa | Rol | Años |
   |---|---|---|
-  | RappiPay | ⟨por escribir⟩ | 2026 |
-  | Binalogue | ⟨por escribir⟩ *(Partner — Colombia chapter, en paralelo)* | 2026 |
-  | Mercado Libre | ⟨por escribir⟩ *(UX Designer & Content Designer)* | 2023–2026 |
-  | Lavalentina Design | ⟨por escribir⟩ *(Copywriter)* | 2022 |
+  | RappiPay | Product Designer | 2026 |
+  | Binalogue | Partner — Colombia chapter | 2026 |
+  | Mercado Libre | UX Designer / Content Designer | 2022–2026 |
+  | Lavalentina Design | Copywriter & Brand Designer | 2022 |
+
+  **Ojo:** el CV todavía no tiene la etapa de Partner (solo Junior Copywriter, 2021). Hay que sumarla al CV para que la web y el PDF digan lo mismo.
 
   Cómo se dice «en paralelo» en la línea de Binalogue: ⟨por escribir⟩
 
@@ -225,7 +228,7 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.3 MeLi benefits-engine · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
 - **Imagen del hero:** ⟨por escribir⟩
-- **Cifra estrella:** +10 días de stock almacenado promedio. Se puede mostrar ([Antes de escribir](#0-antes-de-escribir)).
+- **Cifra estrella:** el stock almacenado promedio en Brasil pasó de 10 a 20 días (el CV lo dice así). Se puede mostrar ([Antes de escribir](#0-antes-de-escribir)).
 
 **Overview**
 - Etiqueta: ⟨por escribir⟩
