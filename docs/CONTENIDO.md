@@ -197,9 +197,10 @@ Para sumar una sección, copia un bloque de sección entero.
   - Links: Replay · Next step (con movimiento reducido)
 
 **6. Cierre con una idea**
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
+- Notas de Pablo (en bruto): gracias a las skills y a dejar de perder tiempo en documentación y papeleo, los diseñadores dedican más tiempo a pensar las pantallas y la experiencia, y a subir el estándar de los entregables.
+- Titular-tesis: ✎ The time we saved went back into the screens
+- Texto: ✎ With skills handling the documentation and the paperwork, the designers on the team spend that time on what people actually use: the screens, the experience, and the standard of what we hand off. ⟨frase de la cifra, cuando se decida cuál⟩
+- En el índice: ✎ Outcome
 
 ### 4.2 Design System · [variante](SECCIONES.md#10-variante-case-study-de-design-system)
 
