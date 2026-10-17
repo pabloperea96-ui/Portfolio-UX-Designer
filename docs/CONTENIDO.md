@@ -142,7 +142,7 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.1 Agentes · [variante](SECCIONES.md#9-variante-case-study-de-agentes)
 
 - **Imagen del hero:** ⟨por escribir⟩ · horizontal, con el centro limpio (el titular va abajo a la izquierda y la nav arriba)
-- **Cifra estrella:** candidata: el discovery, sin contar el research con usuarios, pasó de 2–4 semanas a ~1 en promedio. Es una estimación de Pablo y varía según la iniciativa: ¿va como cifra estrella? ⟨por escribir⟩
+- **Cifra estrella:** ninguna. El tiempo de discovery es una estimación que varía según la iniciativa; el resultado se cuenta como cambio cualitativo en el cierre (Pablo, 2026-10-17).
 
 > ✎ = propuesta de Claude a partir de las notas de Pablo (2026-10-17). Sale la marca cuando Pablo la aprueba o la reescribe.
 
@@ -169,22 +169,16 @@ Para sumar una sección, copia un bloque de sección entero.
 - Imágenes: ⟨por escribir⟩
 - En el índice: ✎ Friction
 
-**3. La cita**
-- Cita (sin comillas, va en grande): ⟨por escribir⟩
-- Atribución (quién la dijo y su rol): ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
-
-**4. La decisión clave (por qué X y no Y)**
+**3. La decisión clave (por qué X y no Y)**
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - Imágenes: ⟨por escribir⟩
 - En el índice: ⟨por escribir⟩
 
-**5. Qué hace el agente por dentro**
+**4. Qué hace el agente por dentro**
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - **Simulación** ([regla](SECCIONES.md#simulación-guionizada)): 4–6 pasos. Guion representativo, sin datos reales de RappiPay.
-- En el índice: ⟨por escribir⟩
 
   | Paso | Qué se ve | Texto |
   |---|---|---|
@@ -195,11 +189,12 @@ Para sumar una sección, copia un bloque de sección entero.
 
   - Aviso de que el guion es representativo: ⟨por escribir⟩
   - Links: Replay · Next step (con movimiento reducido)
+- En el índice: ⟨por escribir⟩
 
-**6. Cierre con una idea**
+**5. Cierre con una idea**
 - Notas de Pablo (en bruto): gracias a las skills y a dejar de perder tiempo en documentación y papeleo, los diseñadores dedican más tiempo a pensar las pantallas y la experiencia, y a subir el estándar de los entregables.
 - Titular-tesis: ✎ The time we saved went back into the screens
-- Texto: ✎ With skills handling the documentation and the paperwork, the designers on the team spend that time on what people actually use: the screens, the experience, and the standard of what we hand off. ⟨frase de la cifra, cuando se decida cuál⟩
+- Texto: ✎ With skills handling the documentation and the paperwork, the designers on the team spend that time on what people actually use: the screens, the experience, and the standard of what we hand off.
 - En el índice: ✎ Outcome
 
 ### 4.2 Design System · [variante](SECCIONES.md#10-variante-case-study-de-design-system)

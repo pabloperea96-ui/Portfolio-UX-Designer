@@ -263,14 +263,11 @@ Usa la plantilla. El cuerpo sigue la narrativa de [REFERENCIAS](REFERENCIAS.md#c
 
 1. Frustración en primera persona
 2. Las fricciones concretas
-3. Una cita que lo condensa
-4. La decisión de diseño clave (por qué X y no Y)
-5. Qué hace el agente por dentro → **simulación**
-6. Cierre con una idea
+3. La decisión de diseño clave (por qué X y no Y)
+4. Qué hace el agente por dentro → **simulación**
+5. Cierre con una idea
 
-### Cita
-
-Rol Tesis, columnas 5–12, sin comillas decorativas. Atribución debajo en rol Ficha (`color/text/secondary`).
+**Por qué sin cita (Pablo, 2026-10-17):** la narrativa de Pixel Agent tenía una cita que condensa la frustración, pero no hay una real. Una cita reconstruida se lee como relleno, y el titular-tesis de la frustración ya hace ese trabajo.
 
 ### Simulación guionizada
 
