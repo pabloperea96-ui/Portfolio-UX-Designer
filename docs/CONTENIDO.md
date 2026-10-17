@@ -23,7 +23,7 @@
 | Home | pendiente |
 | 404 | pendiente |
 | Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
-| Design System | pendiente |
+| Design System | texto en borrador ✎ · faltan una cadena de tokens, imágenes y vídeo |
 | MeLi benefits-engine | pendiente |
 | RappiCard | pendiente |
 
