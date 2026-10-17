@@ -213,7 +213,7 @@ Para sumar una sección, copia un bloque de sección entero.
 - Principios: diseño atómico, con Material 3 y HIG como referentes. Resolver la desconexión entre diseño y desarrollo: reuniones semanales de avances y alineación. Documentación de cómo construir pantallas y frames en Figma para que un agente las lea y entienda. «La versión 8 del desorden es la versión 1 de la sincronía, la escalabilidad y la consistencia.» Un back to basics.
 - Tokens: una sola librería de primitivos de la que salen todos los semánticos. Ej.: indigo-500 → color/brand.
 - Do/Don't: nombres distintos para lo mismo en pantallas diferentes; publicidad sin control (siempre visible, sin poder quitarla); tipografías fuera del sistema.
-- Banco: en papel RappiPay no es un banco; trabaja para serlo y tiene que actuar como uno, porque es lo que esperan sus usuarios. En la web no se le llama banco.
+- Banco: en papel RappiPay no es un banco; trabaja para serlo y tiene que actuar como uno, porque es lo que esperan sus usuarios. En la web no se le llama banco; decir que trabaja para serlo sí se puede (Pablo, 2026-10-17).
 - Resultado: un sistema para las necesidades y oportunidades de RappiPay como banco; procesos estandarizados y patrones más predecibles entre vistas.
 
 **Overview**
