@@ -170,10 +170,11 @@ Para sumar una sección, copia un bloque de sección entero.
 - En el índice: ✎ Friction
 
 **3. La decisión clave (por qué X y no Y)**
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
+- Notas de Pablo (en bruto): checkpoints con humano para que el criterio, la decisión y la creatividad queden del lado del equipo. Al principio se quería delegar al agente todo lo posible; se revirtió porque el discovery y el diseño piden menos determinismo, más heterogeneidad, ruptura de ideas y discusión: hacer producto. Costo aceptado: más tiempo de discovery y diseño, justificado porque lo que sale es genuino y no guiado por resultados genéricos de IA.
+- Titular-tesis: ✎ Every decision still passes through a designer
+- Texto: ✎ At first, the plan was to hand the agent as much of the work as possible. We reversed it. Agentic development rewards determinism, and discovery and design need the opposite: different perspectives, ideas that break the frame, and arguments that end in a decision. So Gaia runs the repeatable stages, and the team owns the checkpoints where we validate, decide and add context. That makes discovery and design slower than handing everything to the agent. We accept the cost because it keeps the work original.
 - Imágenes: ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
+- En el índice: ✎ Decision
 
 **4. Qué hace el agente por dentro**
 - Titular-tesis: ⟨por escribir⟩
