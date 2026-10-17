@@ -287,14 +287,16 @@ Usa la plantilla. El cuerpo sigue la narrativa de [REFERENCIAS](REFERENCIAS.md#c
 
 ## 10. Variante: case study de Design System
 
-Usa la plantilla. El cuerpo sigue la presentación de [REFERENCIAS](REFERENCIAS.md#case-study) (Material 3, HIG, Polaris, Carbon, Atlassian), con tres módulos en este orden:
+Usa la plantilla. El cuerpo sigue la presentación de [REFERENCIAS](REFERENCIAS.md#case-study) (Material 3, HIG, Polaris, Carbon, Atlassian), con tres módulos y un cierre, en este orden:
 
 | Módulo | Cómo |
 |---|---|
 | **Principios** | 3–4, cada uno como sección con su titular-tesis |
 | **Tokens** | Diagrama primitivo → semántico → uso, revelado por capas (`motion/reveal`), en el par del acento como los gráficos |
 | **Do / Don't** | Pares lado a lado: columnas 5–8 y 9–12 en desktop, apilados en móvil. Debajo de cada ejemplo: «✓ Do» o «✕ Don't» en rol Ficha, `color/text/primary`, y el porqué en Body |
+| **Cierre** | Una sección más de la plantilla: el resultado, contado como cambio cualitativo |
 
+**Por qué un cierre (2026-10-17):** sin él, el case study terminaba en los Do / Don't y el resultado no tenía dónde ir. Es la misma sección de cierre que tiene Agentes.
 **Por qué Do / Don't sin verde ni rojo (Pablo, 2026-10-11):** la etiqueta y la frase dicen todo (el color nunca va solo, WCAG 1.4.1), y recuperar los tokens de feedback para un solo bloque los traería de vuelta sin otro uso. El ejemplo incorrecto se ve incorrecto por su contenido.
 
 ## 11. MeLi benefits-engine y RappiCard

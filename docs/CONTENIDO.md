@@ -204,41 +204,59 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.2 Design System · [variante](SECCIONES.md#10-variante-case-study-de-design-system)
 
 - **Imagen del hero:** ⟨por escribir⟩
-- **Cifra estrella:** ⟨por escribir⟩
+- **Cifra estrella:** ninguna; el resultado es cualitativo.
+
+**Notas de Pablo (en bruto, 2026-10-17)**
+- Contexto: RappiPay es otra compañía, pero vive dentro de la app de Rappi: una app dentro de otra. El sistema de diseño era compartido con Rappi, cuya audiencia, funcionalidades y propósito son muy distintos. Por eso se independizaron.
+- Rol: empezó apoyando la creación de componentes y pasó a liderar el sistema, de los colores a los componentes. Con otros 2 diseñadores en Figma, y de la mano con el equipo de desarrollo (Flutter y SDUI) para que no haya lost in translation de Figma a código.
+- Alcance: todo. Tokens, guidelines, documentación, componentes, Figma y el sitio web del sistema (en proceso).
+- Principios: diseño atómico, con Material 3 y HIG como referentes. Resolver la desconexión entre diseño y desarrollo: reuniones semanales de avances y alineación. Documentación de cómo construir pantallas y frames en Figma para que un agente las lea y entienda. «La versión 8 del desorden es la versión 1 de la sincronía, la escalabilidad y la consistencia.» Un back to basics.
+- Tokens: una sola librería de primitivos de la que salen todos los semánticos. Ej.: indigo-500 → color/brand.
+- Do/Don't: nombres distintos para lo mismo en pantallas diferentes; publicidad sin control (siempre visible, sin poder quitarla); tipografías fuera del sistema.
+- Resultado: un sistema para las necesidades y oportunidades de RappiPay como banco; procesos estandarizados y patrones más predecibles entre vistas.
 
 **Overview**
-- Pregunta-titular: ⟨por escribir⟩
-- Respuesta (2–3 frases): ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
+- Pregunta-titular: ✎ How do you build a bank inside someone else's app?
+- Respuesta (2–3 frases): ✎ RappiPay is a separate company that lives inside the Rappi app, and it shared Rappi's design system, made for a different audience, different features and a different purpose. We built our own: one set of tokens, components and guidelines, made with engineering for the way RappiPay works as a bank.
+- En el índice: ✎ Overview
 
 **Principios** (3–4, cada uno es una sección)
 
 | # | Titular-tesis | Texto | Imágenes | En el índice |
 |---|---|---|---|---|
-| 1 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
-| 2 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
-| 3 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
+| 1 | ✎ Everything starts from one library of primitives | ✎ We went back to basics with atomic design, using Material 3 and Apple's HIG as references for what a banking product needs. A single library of primitives feeds every semantic token, and every component is built from those tokens. Every value on screen traces back to it. | ⟨por escribir⟩ | ✎ Foundations |
+| 2 | ✎ Figma and code describe the same component | ✎ I led the system with two other designers, side by side with the engineers who implement it in Flutter and server-driven UI. Weekly reviews with engineering settled each open question before it reached a screen, and every component is built in Figma the way it's built in code, so nothing gets lost in translation. | ⟨por escribir⟩ | ✎ Engineering |
+| 3 | ✎ Screens are built so an agent can read them | ✎ We documented how to build frames and screens in Figma so that an AI agent can read and understand them. The same structure that makes a file legible to an agent makes it predictable for the next designer. | ⟨por escribir⟩ | ✎ Agents |
 
 **Tokens**
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
+- Titular-tesis: ✎ Each color has one source and one meaning
+- Texto: ✎ Primitives hold the raw values. Semantic tokens give them a meaning in RappiPay's product, and components only use semantic tokens. Changing the brand means changing one reference.
 - Ejemplos del diagrama, una cadena por fila:
-- En el índice: ⟨por escribir⟩
 
   | Primitivo | Semántico | Uso |
   |---|---|---|
+  | indigo-500 | color/brand | ⟨por escribir⟩ |
   | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
 
+- En el índice: ✎ Tokens
+
 **Do / Don't**
-- Titular-tesis: ⟨por escribir⟩
+- Titular-tesis: ✎ Three rules that fixed the most common mistakes
 - Pares (las etiquetas «✓ Do» y «✕ Don't» ya están):
-- En el índice: ⟨por escribir⟩
 
   | # | Imagen Do | Por qué | Imagen Don't | Por qué |
   |---|---|---|---|---|
-  | 1 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
+  | 1 | ⟨por escribir⟩ *(un nombre para cada cosa, en todas las pantallas)* | ✎ People learn a word once and recognize it everywhere. | ⟨por escribir⟩ *(la misma cosa con nombres distintos)* | ✎ Each new name makes people wonder whether it's a different feature. |
+  | 2 | ⟨por escribir⟩ *(una promoción que se puede cerrar)* | ✎ People stay in control of what they see. | ⟨por escribir⟩ *(una promoción fija, sin forma de cerrarla)* | ✎ A bank that takes control away loses trust. |
+  | 3 | ⟨por escribir⟩ *(solo los estilos de texto del sistema)* | ✎ Text looks and behaves the same across the app. | ⟨por escribir⟩ *(una tipografía de fuera del sistema)* | ✎ Every exception makes the app feel like several apps. |
 
   El ejemplo incorrecto tiene que verse incorrecto por su contenido: no hay verde ni rojo que lo marque.
+- En el índice: ✎ Do and don't
+
+**Cierre**
+- Titular-tesis: ✎ Version 8 of the mess became version 1 of the system
+- Texto: ✎ RappiPay now has a design system built for its needs and opportunities as a bank. Processes are standardized, patterns are predictable across views, and design and engineering work from the same source. The documentation site is in progress.
+- En el índice: ✎ Outcome
 
 ### 4.3 MeLi benefits-engine · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
