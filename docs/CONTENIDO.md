@@ -76,16 +76,17 @@ No son slots de SECCIONES, pero la web los necesita: el título de la pestaña y
 ### Lista de trabajo · [regla](SECCIONES.md#4-lista-de-trabajo)
 
 Estos nombres y fichas son también el titular y la ficha de cada case study, y su bloque de «siguiente proyecto». Se escriben solo aquí.
-Límite del nombre: 1–2 líneas a 48 px en las columnas 1–6 (~20 letras por línea).
+Límite del nombre: 1–2 líneas en todos los breakpoints. Medido en Helvetica Neue el 2026-10-17: caben ~30 letras por línea a 48 px en desktop y ~15 a 40 px en tablet, que es el más estrecho.
 
 | # | Nombre en la web | Rol | Empresa | Año | Vídeo 4:5 (o imagen fija) |
 |---|---|---|---|---|---|
-| 1 | ⟨por escribir⟩ *(Superagente + skills de diseño)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
-| 2 | ⟨por escribir⟩ *(Rediseño del Design System)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
-| 3 | ⟨por escribir⟩ *(Benefits-engine)* | UX Designer / Content Designer | Mercado Libre | 2025 | ⟨por escribir⟩ |
-| 4 | ⟨por escribir⟩ *(RappiCard)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
+| 1 | Gaia: end-to-end feature builder *(Superagente + skills de diseño)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
+| 2 | Design System *(Rediseño del Design System)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
+| 3 | Seller Stock Incentives *(Benefits-engine)* | UX Designer / Content Designer | Mercado Libre | 2025 | ⟨por escribir⟩ |
+| 4 | RappiCard Secured *(RappiCard)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
 
 Los roles salen del [CV](cv-en-2026.pdf), que es lo que abre el recruiter: tienen que decir lo mismo.
+«Gaia» es público (Pablo, 2026-10-17). «Superagent» salió del nombre para que entre en 2 líneas en tablet: va en la primera tesis del case study.
 En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra), como referencia: no sale en la web.
 
 ### About · [regla](SECCIONES.md#6-about)
