@@ -350,8 +350,8 @@ El **nombre del proyecto viaja** desde la lista hasta el titular del case study,
 | Reveal | Aparece en su estado final, sin animar |
 | Transición lista → case study | Corte directo |
 | Hover (color y subrayado) | Se mantiene: es un cambio de color, no movimiento |
-| Simulación del agente | Avanza solo con un botón «Siguiente paso», nunca sola |
-| Vídeos de la lista (variante B) | No se reproducen solos; muestran su primer cuadro |
+| Simulación del agente | No corre sola: avanza con un link «Next step» |
+| Vídeos de la lista | No se reproducen solos; muestran su primer cuadro |
 
 **Por qué estado final y no un fundido corto:** un fundido sigue siendo movimiento para algunas personas, y el estado final no esconde información (WCAG 2.3.3).
 
