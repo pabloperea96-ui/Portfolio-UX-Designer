@@ -9,6 +9,11 @@
 - Cada slot trae su límite práctico y el link a la regla. **Si un texto no cabe, se acorta el texto, no el diseño.**
 - Lo que ya está escrito (Work (4), Replay, ✓ Do…) se decidió en SECCIONES. Si quieres cambiarlo, se cambia allá.
 
+**Voz (Pablo, 2026-10-17):**
+- **Decir lo que algo hace, directo.** Nada de «no hace X, hace Y» ni «X, not Y». **Por qué:** es la muletilla más reconocible del texto hecho con IA, y gasta media frase en algo que no pasó.
+- **Nada encima del titular.** La sección empieza con su titular-tesis; la etiqueta corta vive solo en el índice lateral. **Por qué:** una etiqueta encima del titular es un eyebrow ([Nunca](REFERENCIAS.md#nunca)), y la limpieza es la regla.
+- **Solo afirmar lo que es cierto y se puede decir en público.** **Por qué:** cada frase la tienes que sostener en una entrevista.
+
 ## Estado
 
 | Página | Estado |
@@ -124,8 +129,9 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
 Los cuatro usan la [plantilla](SECCIONES.md#8-plantilla-de-case-study). El titular y la ficha salen de la [lista de trabajo de la home](#2-home); «siguiente proyecto» y el CTA se arman solos.
 
 **Cada sección del cuerpo** lleva:
-- **Etiqueta del índice:** 2–3 palabras.
-- **Titular-tesis:** afirma algo («Sellers kept stock 10 days longer»), nunca «Process» ni «Results».
+- **Titular-tesis:** con él empieza la sección; no lleva nada encima.
+- **En el índice:** 1–2 palabras. Solo aparece en el índice lateral (desktop), nunca en la página.
+- **Titular-tesis (cómo escribirlo):** afirma algo («Sellers kept stock 10 days longer»), nunca «Process» ni «Results».
 - **Texto:** en párrafos cortos. La columna mide ~380 px.
 - **Imágenes** ([regla](SECCIONES.md#imágenes-del-cuerpo)), una línea por imagen: archivo · texto alternativo · pie (opcional) · captura clara (sí/no, lleva borde) · a sangre (sí/no, máximo una por case study y solo horizontal).
 
@@ -136,41 +142,49 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.1 Agentes · [variante](SECCIONES.md#9-variante-case-study-de-agentes)
 
 - **Imagen del hero:** ⟨por escribir⟩ · horizontal, con el centro limpio (el titular va abajo a la izquierda y la nav arriba)
-- **Cifra estrella:** ¿hay una real y se puede mostrar? ⟨por escribir⟩
+- **Cifra estrella:** candidata: el discovery, sin contar el research con usuarios, pasó de 2–4 semanas a ~1 en promedio. Es una estimación de Pablo y varía según la iniciativa: ¿va como cifra estrella? ⟨por escribir⟩
+
+> ✎ = propuesta de Claude a partir de las notas de Pablo (2026-10-17). Sale la marca cuando Pablo la aprueba o la reescribe.
+
+**Notas de Pablo (en bruto, 2026-10-17)**
+- Frustraciones: equipos pequeños, con sobrecarga, ineficiencia, reprocesos e incoherencias; y había que agregar valor más rápido ante el aumento de neobancos en Colombia y el mundo.
+- Fricciones: documentos para la aprobación de legal, CX y demás; análisis de investigaciones, planificación de hipótesis y prototipos para tests; flujos, referentes y benchmarks página por página, captura por captura; formatos que no se correspondían entre sí y todo desagregado.
+- Qué es Gaia: la analogía es «un Claude a la medida de RappiPay», como el que todo el mundo usa para sus cosas, pero para sacar iniciativas. **No está construido sobre Claude**: en la web no se nombra Claude. Tiene el conocimiento de la compañía (dominios, reglas, código, diseños). Centraliza y agiliza la creación de features, del discovery al desarrollo. Potencia a las personas, no las reemplaza.
+- Rol: skills y agentes para las etapas de discovery y sus casos de uso; el user flow de todo el pipeline hasta la entrega del PRD y el diseño a desarrollo; el UX de la plataforma según ese pipeline.
 
 **Overview**
-- Etiqueta: ⟨por escribir⟩
-- Pregunta-titular: ⟨por escribir⟩
-- Respuesta (2–3 frases): ⟨por escribir⟩
+- Pregunta-titular: ✎ What if a small team could move at neobank speed?
+- Respuesta (2–3 frases): ✎ Gaia is RappiPay's internal AI assistant for building features. It knows the company's domains, rules, code and designs, and carries an initiative from discovery to development. It takes on the slowest, most repetitive work, so the team spends its time on decisions.
+- En el índice: ✎ Overview
 
 **1. Frustración en primera persona**
-- Etiqueta: ⟨por escribir⟩
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
+- Titular-tesis: ✎ We were too few people for the speed the market asked for
+- Texto: ✎ Our product teams are small. Every new initiative fell on the same few people, who had to research, write, design and document it, and the overload showed up as rework and deliverables that contradicted each other. Meanwhile, new neobanks kept launching in Colombia and everywhere else. We needed to add value faster without burning the team out.
 - Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Problem
 
 **2. Las fricciones concretas**
-- Etiqueta: ⟨por escribir⟩
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
+- Titular-tesis: ✎ Most of discovery went into assembling the base
+- Texto: ✎ Before anyone could make a product decision, someone had to build the base: documents for legal and CX approval, research plans and hypotheses, prototypes for user tests, flows, and benchmarks captured one screen at a time. Every format came from a different place and none of them fit together, so keeping it all in order took as long as the work itself.
 - Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Friction
 
 **3. La cita**
-- Etiqueta: ⟨por escribir⟩
 - Cita (sin comillas, va en grande): ⟨por escribir⟩
 - Atribución (quién la dijo y su rol): ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 **4. La decisión clave (por qué X y no Y)**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - Imágenes: ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 **5. Qué hace el agente por dentro**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - **Simulación** ([regla](SECCIONES.md#simulación-guionizada)): 4–6 pasos. Guion representativo, sin datos reales de RappiPay.
+- En el índice: ⟨por escribir⟩
 
   | Paso | Qué se ve | Texto |
   |---|---|---|
@@ -183,9 +197,9 @@ Para sumar una sección, copia un bloque de sección entero.
   - Links: Replay · Next step (con movimiento reducido)
 
 **6. Cierre con una idea**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 ### 4.2 Design System · [variante](SECCIONES.md#10-variante-case-study-de-design-system)
 
@@ -193,32 +207,32 @@ Para sumar una sección, copia un bloque de sección entero.
 - **Cifra estrella:** ⟨por escribir⟩
 
 **Overview**
-- Etiqueta: ⟨por escribir⟩
 - Pregunta-titular: ⟨por escribir⟩
 - Respuesta (2–3 frases): ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 **Principios** (3–4, cada uno es una sección)
 
-| # | Etiqueta | Titular-tesis | Texto | Imágenes |
+| # | Titular-tesis | Texto | Imágenes | En el índice |
 |---|---|---|---|---|
 | 1 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
 | 2 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
 | 3 | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
 
 **Tokens**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - Ejemplos del diagrama, una cadena por fila:
+- En el índice: ⟨por escribir⟩
 
   | Primitivo | Semántico | Uso |
   |---|---|---|
   | ⟨por escribir⟩ | ⟨por escribir⟩ | ⟨por escribir⟩ |
 
 **Do / Don't**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Pares (las etiquetas «✓ Do» y «✕ Don't» ya están):
+- En el índice: ⟨por escribir⟩
 
   | # | Imagen Do | Por qué | Imagen Don't | Por qué |
   |---|---|---|---|---|
@@ -232,15 +246,15 @@ Para sumar una sección, copia un bloque de sección entero.
 - **Cifra estrella:** el stock almacenado promedio en Brasil pasó de 10 a 20 días (el CV lo dice así). Se puede mostrar ([Antes de escribir](#0-antes-de-escribir)).
 
 **Overview**
-- Etiqueta: ⟨por escribir⟩
 - Pregunta-titular: ⟨por escribir⟩
 - Respuesta (2–3 frases): ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 **Sección 1**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - Imágenes: ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 ### 4.4 RappiCard · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
@@ -248,12 +262,13 @@ Para sumar una sección, copia un bloque de sección entero.
 - **Cifra estrella:** ⟨por escribir⟩
 
 **Overview**
-- Etiqueta: ⟨por escribir⟩
 - Pregunta-titular: ⟨por escribir⟩
 - Respuesta (2–3 frases): ⟨por escribir⟩
+- En el índice: ⟨por escribir⟩
 
 **Sección 1**
-- Etiqueta: ⟨por escribir⟩
 - Titular-tesis: ⟨por escribir⟩
 - Texto: ⟨por escribir⟩
 - Imágenes: ⟨por escribir⟩
+
+- En el índice: ⟨por escribir⟩
