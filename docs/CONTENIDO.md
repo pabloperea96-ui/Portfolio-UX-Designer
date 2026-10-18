@@ -360,7 +360,7 @@ Para sumar una sección, copia un bloque de sección entero.
 
 **5. La graduación**
 - Titular-tesis: ✎ Graduation runs on a schedule cardholders can see
-- Texto: ✎ RappiPay built its own risk engine for the card, and together with Product we designed a system of frequent reviews around it. In the first year, each cardholder is reviewed at eight months and told how they're doing. At twelve months, a second review decides whether they move up to the Classic RappiCard. Those who don't keep the secured card and are reviewed again every six months. I took the module from discovery through the design of every piece to the handoff to engineering.
+- Texto: ✎ RappiPay built its own risk engine for the card, and together with Product we designed a system of frequent reviews around it. In the first year, each cardholder is reviewed at eight months and told how they're doing. At twelve months, a second review decides whether they move up to the Classic RappiCard. Those who don't keep the secured card and are reviewed again every six months.
 - Imágenes: ⟨por escribir⟩
 - En el índice: ✎ Graduation
 
