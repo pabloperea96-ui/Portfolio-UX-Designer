@@ -404,6 +404,7 @@ Un solo componente para todos los links de la web. Dos variantes; el hover es el
 
 - **Grosor:** 1 px en Body; proporcional al tamaño en la frase del CTA (0.04 em).
 - **Sobre el acento:** el subrayado en reposo es el texto del acento al 55% sobre su fondo. Es el valor que ya usa el código; queda como `color/link/underline` en el contexto del acento.
+  **En Figma (Pablo, 2026-10-18):** sin token nuevo. La instancia lleva texto y línea en `color/accent/text`, y en reposo la capa de la línea va al 55% de opacidad. Es opacidad de capa y no de la pintura, porque Figma descarta la opacidad de una pintura enlazada a una variable al escribirla en una instancia (medido).
 - **Táctil:** sin hover. **Movimiento reducido:** la línea aparece completa, sin dibujarse.
 
 **Por qué dos variantes:** en una lista de destinos el contexto ya dice «esto es un link», y el subrayado fijo cargaba la nav. Un link suelto o dentro de un párrafo no tiene ese contexto: el subrayado es la única señal (WCAG 1.4.1).
@@ -415,7 +416,7 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 
 | Componente | Variantes | Dónde (SECCIONES) | Figma | Código |
 |---|---|---|---|---|
-| Link | En lista · En texto | Toda la web | pendiente | home (`.link`, `.link--list`, `.link--text`) |
+| Link | En lista · En texto | Toda la web | hecho: página 🔗 Link, set `2060:43` (Variante × Estado) | home (`.link`, `.link--list`, `.link--text`) |
 | Nav | Nombre completo · Nombre corto (móvil) · Sobre imagen | [§2](SECCIONES.md#2-nav) | pendiente | home |
 | Bloque de proyecto | Lista de trabajo · Siguiente proyecto | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | pendiente | home (lista) |
 | CTA | Continuo con el About · Solo | [§7](SECCIONES.md#7-cta-final-footer-global) | pendiente | home |
