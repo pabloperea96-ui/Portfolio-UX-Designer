@@ -124,6 +124,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 
 - **Pesos por rol:** se definen en las pruebas en contexto.
 - **Line-height y tracking de Proyecto:** 115% / −1% salen de la escala óptica (igual que el hero); se validan en contexto.
+- **Librería en Inter mientras se construye (Pablo, 2026-10-18):** `typography/family/base` apunta a `font-family/Inter`, porque el MCP de Figma no puede cargar Helvetica Neue y sin eso no puede aplicar estilos ni editar texto. Al terminar, Pablo vuelve el primitivo a Helvetica Neue (y su nombre a `font-family/helvetica-neue`). En Figma, Inter ocupa ~5% más ancho que en la web, donde lleva `size-adjust`: los cortes de línea se revisan después del cambio, no antes.
 - **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
 
 ---
