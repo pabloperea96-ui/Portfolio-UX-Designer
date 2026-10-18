@@ -125,7 +125,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 - **Pesos por rol:** se definen en las pruebas en contexto.
 - **Line-height y tracking de Proyecto:** 115% / −1% salen de la escala óptica (igual que el hero); se validan en contexto.
 - **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
-- **Librería:** los 6 estilos de texto están en Inter provisional; falta conectar su familia a `typography/family/base` (Helvetica Neue) a mano.
+- **Librería:** 5 de los 6 estilos ya están en Helvetica Neue con sus 5 variables conectadas (revisado el 2026-10-18). Falta `project`, que sigue en Inter: hay que conectar a mano su familia a `typography/family/base` y su peso a `typography/project/font-weight`, porque el MCP de Figma no puede cargar Helvetica Neue.
 
 ---
 
