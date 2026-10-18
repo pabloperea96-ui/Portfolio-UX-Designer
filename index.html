@@ -1,17 +1,116 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio de diseño UX y producto — Pablo Perea Bohórquez" />
-    <meta property="og:title" content="Design Portfolio Website" />
-    <meta property="og:description" content="Portfolio de diseño UX y producto — Pablo Perea Bohórquez" />
-    <meta property="og:type" content="website" />
-    <title>Design Portfolio Website</title>
+    <!-- Metadatos: título y descripción ⟨por escribir⟩ en CONTENIDO §1. Mientras, el nombre. -->
+    <title>Pablo Perea Bohórquez</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script>
+      // Antes del primer cuadro, para que nada parpadee:
+      // 1. ¿Está instalada Helvetica Neue? Si no, <html class="no-hn"> y el CSS usa el tracking de Inter (DESIGN §1).
+      //    Se mide en canvas: si "Helvetica Neue, monospace" mide igual que "monospace", no hay Helvetica Neue.
+      (function () {
+        var ctx = document.createElement('canvas').getContext('2d');
+        var probe = 'Pablo Perea Bohórquez designs products';
+        ctx.font = '72px monospace';
+        var mono = ctx.measureText(probe).width;
+        ctx.font = '72px "Helvetica Neue", monospace';
+        if (ctx.measureText(probe).width === mono) document.documentElement.classList.add('no-hn');
+        // 2. El saludo de entrada se ve una vez por sesión (SECCIONES §5). Si ya se vio, el hero sale directo.
+        var greeted = false;
+        try { greeted = sessionStorage.getItem('greeted') === '1'; } catch (e) {}
+        if (!greeted) document.documentElement.dataset.entrance = 'pending';
+      })();
+    </script>
+    <script src="/js/main.js" defer></script>
   </head>
 
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="nav grid">
+      <a class="nav-name" href="/">
+        <span class="nav-name-full">Pablo Perea Bohórquez</span>
+        <span class="nav-name-short">Pablo Perea</span>
+      </a>
+      <nav class="nav-items" aria-label="Site">
+        <a href="#work">Work (4)</a>
+        <a href="/#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero. El saludo y la frase ocupan la misma celda: el saludo se desvanece y la frase aparece en su lugar. -->
+      <section class="hero grid">
+        <div class="hero-stage">
+          <p class="hero-greeting role-hero" aria-hidden="true">Hi, I'm Pablo.</p>
+          <h1 class="hero-phrase role-hero">I design products people grow into, and help the teams behind them grow too.</h1>
+        </div>
+      </section>
+
+      <!-- Lista de trabajo: todo el bloque es el link. Texto a la izquierda, medio 4:5 a la derecha, sin zigzag. -->
+      <section id="work" class="work" aria-label="Work">
+        <a class="project grid" href="/gaia/">
+          <div class="project-text">
+            <h2 class="project-name role-project">Gaia: end-to-end feature builder</h2>
+            <p class="project-meta role-meta">Product Designer · RappiPay · 2026</p>
+          </div>
+          <div class="project-media placeholder" aria-hidden="true"><span class="role-meta">⟨Video 4:5⟩</span></div>
+        </a>
+
+        <a class="project grid" href="/design-system/">
+          <div class="project-text">
+            <h2 class="project-name role-project">Design System</h2>
+            <p class="project-meta role-meta">Product Designer · RappiPay · 2026</p>
+          </div>
+          <div class="project-media placeholder" aria-hidden="true"><span class="role-meta">⟨Video 4:5⟩</span></div>
+        </a>
+
+        <a class="project grid" href="/seller-stock-incentives/">
+          <div class="project-text">
+            <h2 class="project-name role-project">Seller Stock Incentives</h2>
+            <p class="project-meta role-meta">UX Designer / Content Designer · Mercado Libre · 2025</p>
+          </div>
+          <div class="project-media placeholder" aria-hidden="true"><span class="role-meta">⟨Video 4:5⟩</span></div>
+        </a>
+
+        <a class="project grid" href="/rappicard-secured/">
+          <div class="project-text">
+            <h2 class="project-name role-project">RappiCard Secured</h2>
+            <p class="project-meta role-meta">Product Designer · RappiPay · 2026</p>
+          </div>
+          <div class="project-media placeholder" aria-hidden="true"><span class="role-meta">⟨Video 4:5⟩</span></div>
+        </a>
+      </section>
+    </main>
+
+    <!-- About y CTA comparten un solo tramo sobre el acento: «quién soy → escríbeme». -->
+    <div class="accent">
+      <section id="about" class="about grid" aria-label="About">
+        <p class="about-lead role-hero">In January 2026 I was laid off. Months later I was designing the AI my team works with.</p>
+        <div class="about-bio">
+          <p>I studied psychology, then literature, and spent my first working years writing: brand concepts, naming and voice for more than ten brands. Words turned out to be good training for design. Most of an interface is sentences.</p>
+          <p>At Mercado Libre I spent three years as a UX and content designer for Fulfillment, working for sellers across Latin America, China and the United States. When I joined RappiPay, design mostly delivered the screens it was asked for. Today we take part in product decisions, with our own design system, shared standards and an agent that handles the paperwork. I'm also a partner at Binalogue's Colombia chapter, which keeps me close to the business side of the work.</p>
+          <p>I'll always be looking for the next big challenge that will drive my creativity and my skills to create experiences worth living and interacting with.</p>
+        </div>
+        <ul class="about-path role-meta">
+          <li>RappiPay · Product Designer · 2026</li>
+          <li>Binalogue · Partner — Colombia chapter · 2026 <span class="pending">⟨in parallel⟩</span></li>
+          <li>Mercado Libre · UX Designer / Content Designer · 2022–2026</li>
+          <li>Lavalentina Design · Copywriter &amp; Brand Designer · 2022</li>
+        </ul>
+      </section>
+
+      <footer id="contact" class="cta grid">
+        <a class="cta-phrase role-cta" href="mailto:pabloperea96@gmail.com">Let's talk.</a>
+        <p class="cta-contact">
+          <a href="mailto:pabloperea96@gmail.com">pabloperea96@gmail.com</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://www.linkedin.com/in/pablopereab/" target="_blank" rel="noopener">LinkedIn</a>
+          <span aria-hidden="true">·</span>
+          <a href="/docs/cv-en-2026.pdf" target="_blank" rel="noopener">CV</a>
+        </p>
+      </footer>
+    </div>
   </body>
 </html>

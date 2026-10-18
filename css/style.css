@@ -1,0 +1,287 @@
+/* Portfolio v2 — home.
+   Los valores salen de docs/DESIGN.md (tokens) y docs/SECCIONES.md (qué usa cada sección).
+   Si un número no está en esos documentos, aquí dice por qué. */
+
+/* ---------- Fuentes ----------
+   Helvetica Neue viene con macOS e iOS. Inter es el fallback y se aloja en public/fonts/
+   (Inter-Regular.woff2, Inter-Medium.woff2, Inter-Bold.woff2). El size-adjust la deja
+   con la altura de x de Helvetica Neue (DESIGN §1, Fallback). */
+@font-face { font-family: "Inter"; font-weight: 400; src: url("/fonts/Inter-Regular.woff2") format("woff2"); size-adjust: 94.7%; font-display: swap; }
+@font-face { font-family: "Inter"; font-weight: 500; src: url("/fonts/Inter-Medium.woff2") format("woff2"); size-adjust: 94.7%; font-display: swap; }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("/fonts/Inter-Bold.woff2") format("woff2"); size-adjust: 94.7%; font-display: swap; }
+
+/* ---------- Tokens ---------- */
+:root {
+  /* Color (DESIGN §2), modo claro */
+  --color-bg: #FAFAFA;
+  --color-surface: #F2F2F2;
+  --color-text: #121212;
+  --color-text-secondary: #6B6B6B;
+  --color-border-subtle: #DEDEDE;
+  --color-focus: #121212;
+  --color-accent-bg: #1F2A44;
+  --color-accent-text: #EFEEEB;
+  --color-link-underline: #6B6B6B;
+  --color-link-underline-hover: #121212;
+
+  /* Tipografía (DESIGN §1). Tracking de Helvetica Neue; .no-hn lo cambia por el de Inter. */
+  --font: "Helvetica Neue", "Inter", sans-serif;
+  --track-meta: 0.015em;
+  --track-body: 0.005em;
+  --track-project: -0.01em;
+  --track-hero: -0.01em;
+  --track-cta: -0.02em;
+
+  /* Tamaños por breakpoint: aquí móvil; tablet y desktop los cambian abajo. */
+  --size-hero: 32px;
+  --size-project: 24px;
+  --size-cta: 48px;
+
+  /* Retícula y ritmo (DESIGN §3): móvil */
+  --margin: 24px;
+  --gutter: 16px;
+  --columns: 4;
+  --section: 96px;      /* entre secciones */
+  --cta-gap: 32px;      /* frase del CTA → línea de contacto (SECCIONES §7) */
+  --nav-gap: 16px;      /* entre items de la nav (SECCIONES §2) */
+
+  /* Movimiento (DESIGN §5) */
+  --motion-reveal-duration: 900ms;
+  --motion-reveal-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-hover-duration: 200ms;
+  --motion-hover-easing: cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+/* Inter: tracking de Helvetica Neue + compensación por peso (Regular +0, Medium +1, Bold +1.6, y −0.7 extra
+   en el CTA), todo × 0.947 porque el em se calcula sobre el tamaño declarado y no sobre el real. */
+.no-hn {
+  --track-meta: 0.0142em;
+  --track-body: 0.0047em;
+  --track-project: 0em;
+  --track-hero: 0em;
+  --track-cta: -0.0104em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #121212;
+    --color-surface: #1E1E1E;
+    --color-text: #FAFAFA;
+    --color-text-secondary: #8A8A8A;
+    --color-border-subtle: #2E2E2E;
+    --color-focus: #FAFAFA;
+    --color-accent-bg: #EFEEEB;
+    --color-accent-text: #1F2A44;
+    --color-link-underline: #8A8A8A;
+    --color-link-underline-hover: #FAFAFA;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --size-hero: 48px;
+    --size-project: 40px;
+    --size-cta: 96px;
+    --margin: 32px;
+    --gutter: 24px;
+    --columns: 8;
+    --section: 128px;
+    --nav-gap: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --size-hero: 64px;
+    --size-project: 48px;
+    --size-cta: 128px;
+    --margin: 48px;
+    --columns: 12;
+    --section: 160px;
+    --cta-gap: 48px;
+  }
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { color-scheme: light dark; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: var(--track-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--color-accent-bg); color: var(--color-accent-text); }
+.accent ::selection { background: var(--color-accent-text); color: var(--color-accent-bg); }
+
+a { color: inherit; }
+
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+
+ul { list-style: none; }
+
+/* Links de texto: subrayado gris en reposo que sube al color del texto en hover (patrón color/link/*). */
+.nav a, .cta-contact a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-link-underline);
+  text-underline-offset: 0.15em;
+  transition: text-decoration-color var(--motion-hover-duration) var(--motion-hover-easing);
+}
+@media (hover: hover) {
+  .nav a:hover, .cta-contact a:hover { text-decoration-color: var(--color-link-underline-hover); }
+}
+
+/* Roles tipográficos. Body es el de <body>. */
+.role-meta { font-size: 12px; line-height: 1.4; font-weight: 400; letter-spacing: var(--track-meta); }
+.role-project { font-size: var(--size-project); line-height: 1.15; font-weight: 500; letter-spacing: var(--track-project); }
+.role-hero { font-size: var(--size-hero); line-height: 1.15; font-weight: 500; letter-spacing: var(--track-hero); text-wrap: balance; }
+.role-cta { font-size: var(--size-cta); line-height: 1; font-weight: 700; letter-spacing: var(--track-cta); }
+
+/* ---------- Retícula ----------
+   El contenido se limita a 1440 y se centra; cada sección es una fila de la retícula. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  column-gap: var(--gutter);
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+/* Placeholder visible mientras falta un archivo (vídeo, imagen). */
+.placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+}
+.pending { color: var(--color-text-secondary); }
+
+/* ---------- Nav ----------
+   No es fija: se va con el scroll. El aire sobre la nav no está en SECCIONES; 24 (móvil) y 32 es el
+   paso de la escala que la separa del borde sin comerse el presupuesto del hero. */
+.nav {
+  padding-top: 24px;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+}
+.nav-name { white-space: nowrap; }
+.nav-name-full { display: none; }
+.nav-items { display: flex; gap: var(--nav-gap); white-space: nowrap; }
+
+@media (min-width: 768px) {
+  .nav { padding-top: 32px; }
+  .nav-name-full { display: inline; }
+  .nav-name-short { display: none; }
+}
+
+/* ---------- Hero ----------
+   Sin 100vh: nav → ritmo → frase → ritmo → lista. 8 de 12 columnas en desktop. */
+.hero { padding-block: var(--section); }
+.hero-stage { grid-column: 1 / -1; display: grid; }
+.hero-stage > * { grid-area: 1 / 1; }   /* saludo y frase en la misma celda */
+
+@media (min-width: 1280px) { .hero-stage { grid-column: 1 / span 8; } }
+
+/* Entrada: mientras data-entrance="pending", se ve el saludo y la frase espera.
+   Cuando la web carga (techo 4 s) o la persona salta, el JS pasa a "done": el saludo se desvanece
+   y la frase aparece con motion/reveal. Sin el atributo (ya saludó esta sesión) la frase está desde el primer cuadro. */
+.hero-greeting { display: none; }
+html[data-entrance] .hero-greeting { display: block; }
+html[data-entrance="pending"] .hero-phrase { opacity: 0; }
+html[data-entrance="done"] .hero-greeting { opacity: 0; transition: opacity var(--motion-reveal-duration) var(--motion-reveal-easing); }
+html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--motion-reveal-duration) var(--motion-reveal-easing); }
+
+/* ---------- Lista de trabajo ---------- */
+.project {
+  text-decoration: none;
+  align-items: start;
+  row-gap: 24px;
+}
+.project + .project { margin-top: var(--section); }
+.project-text { grid-column: 1 / -1; }
+.project-name {
+  color: var(--color-text-secondary);
+  transition: color var(--motion-hover-duration) var(--motion-hover-easing);
+}
+/* En táctil no hay hover: el nombre va en primario (D1). Con hover, apagado → encendido (D2b). */
+@media not (hover: hover) { .project-name { color: var(--color-text); } }
+@media (hover: hover) { .project:hover .project-name { color: var(--color-text); } }
+.project-meta { margin-top: 16px; color: var(--color-text-secondary); }
+.project-media {
+  grid-column: 1 / -1;
+  aspect-ratio: 4 / 5;
+  border-radius: 8px;           /* radius/thumbnail (DESIGN §4) */
+  overflow: hidden;
+}
+.project-media video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+@media (min-width: 768px) {
+  .project-text { grid-column: 1 / span 4; }
+  .project-media { grid-column: 5 / span 4; }
+}
+@media (min-width: 1280px) {
+  .project-text { grid-column: 1 / span 6; }
+  .project-media { grid-column: 8 / span 5; }
+}
+
+/* ---------- About + CTA: un solo tramo sobre el acento ----------
+   El aire arriba y abajo del tramo es el ritmo entre secciones; abajo no está escrito en SECCIONES
+   y se usa el mismo valor para que la web cierre con el mismo aire con que separa todo. */
+.accent {
+  margin-top: var(--section);
+  padding-block: var(--section);
+  background: var(--color-accent-bg);
+  color: var(--color-accent-text);
+  --color-focus: var(--color-accent-text);
+  /* Sobre el acento no hay token de subrayado en reposo: se mezcla el texto del acento con su fondo.
+     Pendiente de decidir en DESIGN. */
+  --color-link-underline: color-mix(in oklch, var(--color-accent-text) 55%, var(--color-accent-bg));
+  --color-link-underline-hover: var(--color-accent-text);
+  --color-text-secondary: var(--color-accent-text);
+}
+
+.about { row-gap: 48px; }
+.about-lead { grid-column: 1 / -1; }
+.about-bio { grid-column: 1 / -1; }
+.about-bio p + p { margin-top: 24px; }
+.about-path { grid-column: 1 / -1; }
+.about-path li + li { margin-top: 4px; }
+
+@media (min-width: 768px) {
+  /* Tablet no está en SECCIONES: bio y trayectoria en la misma fila, 4 columnas cada una, como la lista. */
+  .about-bio { grid-column: 1 / span 4; }
+  .about-path { grid-column: 5 / span 4; }
+}
+@media (min-width: 1280px) {
+  .about-lead { grid-column: 1 / span 8; }
+  .about-bio { grid-column: 1 / span 4; }
+  .about-path { grid-column: 7 / span 4; }
+}
+
+.cta { margin-top: var(--section); row-gap: var(--cta-gap); }
+.cta-phrase {
+  grid-column: 1 / -1;
+  justify-self: start;
+  text-decoration: underline;
+  text-decoration-color: var(--color-link-underline);
+  text-decoration-thickness: 0.04em;    /* proporcional al tamaño de la frase */
+  text-underline-offset: 0.1em;
+  transition: text-decoration-color var(--motion-hover-duration) var(--motion-hover-easing);
+}
+@media (hover: hover) { .cta-phrase:hover { text-decoration-color: var(--color-link-underline-hover); } }
+.cta-contact { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 12px; }
+
+/* ---------- Movimiento reducido (DESIGN §5) ----------
+   Todo aparece en su estado final. El hover se mantiene: es color, no movimiento. */
+@media (prefers-reduced-motion: reduce) {
+  html[data-entrance="done"] .hero-greeting,
+  html[data-entrance="done"] .hero-phrase { transition: none; }
+}
