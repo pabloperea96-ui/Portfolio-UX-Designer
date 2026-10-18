@@ -418,7 +418,7 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 |---|---|---|---|---|
 | Link | En lista · En texto | Toda la web | hecho: página 🔗 Link, set `2060:43` (Variante × Estado) | home (`.link`, `.link--list`, `.link--text`) |
 | Nav | Pantalla (Desktop y tablet: nombre completo · Móvil: nombre corto) × Fondo (Base · Sobre imagen) | [§2](SECCIONES.md#2-nav) | hecho: página 🧭 Nav, set `2064:87` | home |
-| Bloque de proyecto | Lista de trabajo · Siguiente proyecto | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | pendiente | home (lista) |
+| Bloque de proyecto | Tipo (Lista · Siguiente proyecto) × Pantalla (Desktop · Tablet · Móvil) | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | hecho: página 🗂️ Bloque de proyecto, set `2065:67` | home (lista) |
 | CTA | Continuo con el About · Solo | [§7](SECCIONES.md#7-cta-final-footer-global) | pendiente | home |
 | Ficha | Tres campos | [§8](SECCIONES.md#ficha) | pendiente | pendiente |
 | Sección del cuerpo | Normal · Con cifra estrella | [§8](SECCIONES.md#cuerpo) | pendiente | pendiente |
