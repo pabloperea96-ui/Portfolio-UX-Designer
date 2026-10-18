@@ -201,14 +201,19 @@ html[data-entrance="done"] .hero-greeting { opacity: 0; transition: opacity var(
 html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--motion-reveal-duration) var(--motion-reveal-easing); }
 
 /* ---------- Lista de trabajo: Bloque de proyecto (SECCIONES §4, DESIGN §6) ----------
-   Móvil: nombre → 16 → Ficha → 24 → medio. Tablet y desktop: texto y medio en la misma fila; el nombre
+   Móvil: nombre → 16 → medio → 16 → Ficha. Tablet y desktop: texto y medio en la misma fila; el nombre
    arriba y la Ficha abajo, alineada con el borde inferior del medio. */
 .project {
   text-decoration: none;
-  row-gap: 24px;
+  row-gap: 16px;
 }
 .project + .project { margin-top: var(--section); }
-.project-text { grid-column: 1 / -1; display: flex; flex-direction: column; }
+/* En móvil la columna de texto se disuelve (display: contents) para que el medio quede entre el nombre
+   y la Ficha sin duplicar el HTML; el orden lo da `order`. */
+.project-text { display: contents; }
+.project-name { grid-column: 1 / -1; order: 1; }
+.project-media { order: 2; }
+.ficha { grid-column: 1 / -1; order: 3; }
 /* El nombre va siempre en primario (D1). El encendido gris → texto (D2b) salió el 2026-10-18 (Pablo):
    todo el bloque es el link, y con el medio al lado el nombre se encendía desde media pantalla. */
 .project-name { color: var(--color-text); }
@@ -223,12 +228,12 @@ html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--
 /* Ficha: Company · Role · Year. Etiqueta (rol Ficha, secundario) → 4 → valor (Body, primario).
    Apilada en móvil, con 16 entre campos (no está en SECCIONES: el paso de la escala que separa sin
    despegar); en fila y repartida a lo ancho en tablet y desktop. */
-.ficha { margin-top: 16px; display: flex; flex-direction: column; gap: 16px; }
+.ficha { display: flex; flex-direction: column; gap: 16px; }
 .ficha dt { color: var(--color-text-secondary); }
 .ficha dd { margin-top: 4px; color: var(--color-text); }
 
 @media (min-width: 768px) {
-  .project-text { grid-column: 1 / span 4; }
+  .project-text { grid-column: 1 / span 4; display: flex; flex-direction: column; }
   .project-media { grid-column: 5 / span 4; }
   .ficha { margin-top: auto; padding-top: 16px; flex-direction: row; justify-content: space-between; gap: 16px; }
 }
