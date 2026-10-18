@@ -24,7 +24,7 @@
 | 404 | pendiente |
 | Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
 | Design System | texto en borrador ✎ · faltan una cadena de tokens, imágenes y vídeo |
-| MeLi benefits-engine | texto en borrador ✎ · faltan la decisión clave, tu rol, imágenes y vídeo |
+| MeLi benefits-engine | texto en borrador ✎ · falta confirmar el año · imágenes y vídeo |
 | RappiCard | pendiente |
 
 **Mandan los 4 case studies** ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)): cada uno cierra su contenido antes de pasar al siguiente.
@@ -273,6 +273,8 @@ Para sumar una sección, copia un bloque de sección entero.
 - Grupos: 1 almacenamiento gratis (4 meses) · 2 exoneración de cargos por stock antiguo · 3 retiro gratis de lo no vendido · 4 todos los beneficios · 5 solo la propuesta de valor · control sin comunicación.
 - Resultados (días de stock): control 10 · propuesta de valor 19 (+9) · cargos por stock antiguo 20 (+10) · retiro gratis 20.6 (+10.6) · almacenamiento gratis 20.8 (+10.8) · todos 21 (+11). Promedio +10. El beneficio más atractivo fue el almacenamiento gratis.
 - Decisión: tras la POC se empezó por implementar el beneficio de cargos por stock antiguo, aunque fuera el más difícil.
+- Decisión, porqué: estrategia de producto. Venían nuevas iniciativas, y justo al terminar la POC era cuando había más tiempo para hacer la más difícil.
+- Rol: plan de comunicación y piezas enviadas a los vendedores; además, el impacto en la vista de cargos por stock antiguo (qué stock tiene beneficios por haber enviado lo pedido). De esa vista no hay material.
 - Conclusión: por la efectividad del plan de comunicación se implementó un motor de beneficios para productos estrella en toda la experiencia de Full, de la planificación de envíos a la gestión del stock almacenado.
 
 **Overview**
@@ -288,7 +290,7 @@ Para sumar una sección, copia un bloque de sección entero.
 
 **2. El experimento**
 - Titular-tesis: ✎ We tested four benefits and one message against a control group
-- Texto: ✎ In October 2024 we ran a proof of concept with 12.6k sellers, 69k products and 15M units in Brazil. Each group got a different offer: free storage for four months, waived charges for old stock, free removal of unsold units, all three together, or only the value proposition, which explained how distributing stock across the country helps them sell. A control group received nothing. For a month, email, WhatsApp and push notifications told sellers what to do, how to send the stock and what they would get.
+- Texto: ✎ In October 2024 we ran a proof of concept with 12.6k sellers, 69k products and 15M units in Brazil. Each group got a different offer: free storage for four months, waived charges for old stock, free removal of unsold units, all three together, or only the value proposition, which explained how distributing stock across the country helps them sell. A control group received nothing. I designed the communication plan and the pieces we sent: for a month, email, WhatsApp and push notifications told sellers what to do, how to send the stock and what they would get.
 - Imágenes: poc-7 (grupos) y poc-8 (plan de comunicación) (https://www.figma.com/design/9dEa793dvEy5mYv1ZNCyWy/?node-id=1-10733) · alt y pie ⟨por escribir⟩
 - En el índice: ✎ Experiment
 
@@ -300,14 +302,14 @@ Para sumar una sección, copia un bloque de sección entero.
 
 **4. La decisión clave**
 - Titular-tesis: ✎ We started with the hardest benefit to build
-- Texto: ⟨por escribir⟩ *(por qué cargos por stock antiguo y no almacenamiento gratis, que fue el más atractivo; qué costo se aceptó)*
+- Texto: ✎ All four benefits landed within a day of each other, so the choice came down to timing. New initiatives were coming to the roadmap, and right after the proof of concept was the moment we had the most room to take on the hardest one: waived charges for old stock. So we built it first, while we had the time.
 - Imágenes: ⟨por escribir⟩
 - En el índice: ✎ Decision
 
 **5. Cierre**
 - Titular-tesis: ✎ A one-month test became a benefits engine
-- Texto: ✎ Mercado Libre built a benefits engine for star products across the whole Fulfillment experience, from shipment planning to managing stored stock.
-- Imágenes: ⟨por escribir⟩
+- Texto: ✎ Mercado Libre built a benefits engine for star products across the whole Fulfillment experience, from shipment planning to managing stored stock. I designed its first appearance: the old-stock charges view, which shows sellers which units earned a benefit for sending the requested stock.
+- Imágenes: ninguna. Pablo diseñó la vista de cargos por stock antiguo, pero no tiene el material y no lo puede pedir: va solo en texto.
 - En el índice: ✎ Outcome
 
 ### 4.4 RappiCard · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
