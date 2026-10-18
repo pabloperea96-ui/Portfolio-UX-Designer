@@ -96,6 +96,10 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
 
 ### About · [regla](SECCIONES.md#6-about)
 
+- **Notas de Pablo para el About (en bruto, 2026-10-18; privadas, no se publican tal cual):**
+  - **El equipo.** Al llegar a RappiPay, diseño bajaba las pantallas que le pedían y no participaba en construir el producto; archivos sin estructura, mala documentación. Desde entonces: participación activa del equipo, visibilizar el trabajo, estándares, templates, vínculo con desarrollo, y persuadir a quienes deciden (dark mode). Hoy diseño tiene voz y participa en las decisiones. «De las experiencias más enriquecedoras.»
+  - **El punto de inflexión.** Con el ascenso de la IA, Pablo quedó en el layoff de Mercado Libre (enero de 2026), con el susto que eso trae. RappiPay le dio la oportunidad (abril de 2026): ahí implementó IA para potenciar su trabajo y pasó del contenido al diseño, cerca de producto. Se paró y siguió aprendiendo. Le da miedo contarlo y quiere cambiar eso.
+  - **Lo que sigue.** Acercarse a los datos y los números, y participar en la conversación de profitability.
 - **Primera frase (en grande):** ⟨por escribir⟩
   Límite: igual que el hero, 3–4 líneas en desktop. Es la bio empezando fuerte, no un título.
 - **Bio:** 2–3 párrafos en primera persona, con humor.
@@ -214,6 +218,9 @@ Para sumar una sección, copia un bloque de sección entero.
 - Tokens: una sola librería de primitivos de la que salen todos los semánticos. Ej.: indigo-500 → color/brand.
 - Do/Don't: nombres distintos para lo mismo en pantallas diferentes; publicidad sin control (siempre visible, sin poder quitarla); tipografías fuera del sistema.
 - Banco: en papel RappiPay no es un banco; trabaja para serlo y tiene que actuar como uno, porque es lo que esperan sus usuarios. En la web no se le llama banco; decir que trabaja para serlo sí se puede (Pablo, 2026-10-17).
+- Dark mode: al inicio no se quería (no gastar tiempo ni energía). Pablo bajó propuestas, se testearon y gustaron; desarrollo, producto y diseño están onboard. Aún no está construido. En la web, contado sin culpables (no se menciona a la líder).
+- Estándares: librerías de uso interno para documentar y referenciar elementos, pantallas y comportamientos; templates de archivos de proceso y de handoff; más vínculo con desarrollo para escuchar sus dolores.
+- Arquitectura de información: el mayor dolor, nunca se había hecho. Pablo impulsó documentar todo en Excel, organizar, definir reglas y patrones. En curso: va como «lo que sigue».
 - Resultado: un sistema para las necesidades y oportunidades de RappiPay como banco; procesos estandarizados y patrones más predecibles entre vistas.
 
 **Overview**
@@ -226,7 +233,7 @@ Para sumar una sección, copia un bloque de sección entero.
 | # | Titular-tesis | Texto | Imágenes | En el índice |
 |---|---|---|---|---|
 | 1 | ✎ Everything starts from one library of primitives | ✎ We went back to basics with atomic design, using Material 3 and Apple's HIG as references for what a financial product needs. A single library of primitives feeds every semantic token, and every component is built from those tokens. Every value on screen traces back to it. | ⟨por escribir⟩ | ✎ Foundations |
-| 2 | ✎ Figma and code describe the same component | ✎ I led the system with two other designers, side by side with the engineers who implement it in Flutter and server-driven UI. Weekly reviews with engineering settled each open question before it reached a screen, and every component is built in Figma the way it's built in code, so nothing gets lost in translation. | ⟨por escribir⟩ | ✎ Engineering |
+| 2 | ✎ Figma and code describe the same component | ✎ I led the system with two other designers, side by side with the engineers who implement it in Flutter and server-driven UI. Weekly reviews with engineering settled each open question before it reached a screen, and every component is built in Figma the way it's built in code, so nothing gets lost in translation. We also set the standards around it: internal libraries to document and reference elements, screens and behaviors, and templates for process and handoff files. | ⟨por escribir⟩ | ✎ Engineering |
 | 3 | ✎ Screens are built so an agent can read them | ✎ We documented how to build frames and screens in Figma so that an AI agent can read and understand them. The same structure that makes a file legible to an agent makes it predictable for the next designer. | ⟨por escribir⟩ | ✎ Agents |
 
 **Tokens**
@@ -254,9 +261,15 @@ Para sumar una sección, copia un bloque de sección entero.
   El ejemplo incorrecto tiene que verse incorrecto por su contenido: no hay verde ni rojo que lo marque.
 - En el índice: ✎ Do and don't
 
+**Decisión clave: dark mode**
+- Titular-tesis: ✎ We tested dark mode before anyone agreed to it
+- Texto: ✎ Dark mode wasn't in the initial plan: it looked like time and energy the team didn't have. I put together proposals for how we could build it on the new tokens, we tested them, and they landed. Design, product and engineering are now on board, and it's on the roadmap.
+- Imágenes: ⟨por escribir⟩ *(las propuestas o el test)*
+- En el índice: ✎ Dark mode
+
 **Cierre**
 - Titular-tesis: ✎ Version 8 of the mess became version 1 of the system
-- Texto: ✎ RappiPay now has a design system built for its own needs and opportunities as a financial product. Processes are standardized, patterns are predictable across views, and design and engineering work from the same source. The documentation site is in progress.
+- Texto: ✎ We started from scattered files and little documentation. RappiPay now has a design system built for its own needs and opportunities as a financial product. Processes are standardized, patterns are predictable across views, and design and engineering work from the same source. Next comes the information architecture: documenting every screen, defining rules and setting patterns, so the app is as consistent as the system behind it. The documentation site is in progress.
 - En el índice: ✎ Outcome
 
 ### 4.3 MeLi benefits-engine · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
