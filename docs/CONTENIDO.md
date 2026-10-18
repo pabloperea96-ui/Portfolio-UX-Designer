@@ -108,7 +108,7 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
 
   ✎ At Mercado Libre I spent three years as a UX and content designer for Fulfillment, working for sellers across Latin America, China and the United States. When I joined RappiPay, design mostly delivered the screens it was asked for. Today we take part in product decisions, with our own design system, shared standards and an agent that handles the paperwork. I'm also a partner at Binalogue's Colombia chapter, which keeps me close to the business side of the work.
 
-  I'll always be looking for the next big challenge that will drive my creativity and my skills to create experiences worth living and interacting with. *(de Pablo, 2026-10-18)*
+  I'll always be looking for the next big challenge that will drive my creativity and my skills to create experiences worth living and interacting with. *(de Pablo, 2026-10-18. Se queda así: Pablo lo prefiere aunque «looking for the next big challenge» roce la regla de no dar señal de open to work.)*
 
 - **Trayectoria** (una línea por etapa: empresa · rol · años, de la más reciente a la más antigua):
 
