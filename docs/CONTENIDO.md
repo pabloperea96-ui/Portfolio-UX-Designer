@@ -24,7 +24,7 @@
 | 404 | pendiente |
 | Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
 | Design System | texto en borrador ✎ · faltan una cadena de tokens, imágenes y vídeo |
-| MeLi benefits-engine | texto en borrador ✎ · falta confirmar el año · imágenes y vídeo |
+| MeLi benefits-engine | texto en borrador ✎ · faltan imágenes y vídeo |
 | RappiCard | pendiente |
 
 **Mandan los 4 case studies** ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)): cada uno cierra su contenido antes de pasar al siguiente.
@@ -275,6 +275,7 @@ Para sumar una sección, copia un bloque de sección entero.
 - Decisión: tras la POC se empezó por implementar el beneficio de cargos por stock antiguo, aunque fuera el más difícil.
 - Decisión, porqué: estrategia de producto. Venían nuevas iniciativas, y justo al terminar la POC era cuando había más tiempo para hacer la más difícil.
 - Rol: plan de comunicación y piezas enviadas a los vendedores; además, el impacto en la vista de cargos por stock antiguo (qué stock tiene beneficios por haber enviado lo pedido). De esa vista no hay material.
+- Año: la POC fue en octubre de 2024 y el motor salió en 2025; la ficha dice 2025 (Pablo, 2026-10-18).
 - Conclusión: por la efectividad del plan de comunicación se implementó un motor de beneficios para productos estrella en toda la experiencia de Full, de la planificación de envíos a la gestión del stock almacenado.
 
 **Overview**
