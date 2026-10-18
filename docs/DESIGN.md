@@ -405,6 +405,7 @@ Un solo componente para todos los links de la web. Dos variantes; el hover es el
 - **Grosor:** 1 px en Body; proporcional al tamaño en la frase del CTA (0.04 em).
 - **Sobre el acento:** el subrayado en reposo es el texto del acento al 55% sobre su fondo. Es el valor que ya usa el código; queda como `color/link/underline` en el contexto del acento.
   **En Figma (Pablo, 2026-10-18):** sin token nuevo. La instancia lleva texto y línea en `color/accent/text`, y en reposo la capa de la línea va al 55% de opacidad. Es opacidad de capa y no de la pintura, porque Figma descarta la opacidad de una pintura enlazada a una variable al escribirla en una instancia (medido).
+  **La línea en Figma** es un frame cuyo grosor es su padding de arriba (`border/width`), 1 px debajo del texto: mide lo mismo que el código y el grosor se puede sobrescribir en una instancia (la altura de un rectángulo no). En la frase del CTA: grosor 0.04 em y aire 0.
 - **Táctil:** sin hover. **Movimiento reducido:** la línea aparece completa, sin dibujarse.
 
 **Por qué dos variantes:** en una lista de destinos el contexto ya dice «esto es un link», y el subrayado fijo cargaba la nav. Un link suelto o dentro de un párrafo no tiene ese contexto: el subrayado es la única señal (WCAG 1.4.1).
@@ -419,7 +420,7 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 | Link | En lista · En texto | Toda la web | hecho: página 🔗 Link, set `2060:43` (Variante × Estado) | home (`.link`, `.link--list`, `.link--text`) |
 | Nav | Pantalla (Desktop y tablet: nombre completo · Móvil: nombre corto) × Fondo (Base · Sobre imagen) | [§2](SECCIONES.md#2-nav) | hecho: página 🧭 Nav, set `2064:87` | home |
 | Bloque de proyecto | Tipo (Lista · Siguiente proyecto) × Pantalla (Desktop · Tablet · Móvil) | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | hecho: página 🗂️ Bloque de proyecto, set `2065:67` | home (lista) |
-| CTA | Continuo con el About · Solo | [§7](SECCIONES.md#7-cta-final-footer-global) | pendiente | home |
+| CTA | Pantalla (Desktop · Tablet · Móvil); la continuidad con el About la da la plantilla | [§7](SECCIONES.md#7-cta-final-footer-global) | hecho: página 📣 CTA, set `2068:79` | home |
 | Ficha | Tres campos | [§8](SECCIONES.md#ficha) | pendiente | pendiente |
 | Sección del cuerpo | Normal · Con cifra estrella | [§8](SECCIONES.md#cuerpo) | pendiente | pendiente |
 | Imagen del cuerpo | Normal · Captura clara · A sangre · Capturas de móvil · Con pie | [§8](SECCIONES.md#imágenes-del-cuerpo) | pendiente | pendiente |
