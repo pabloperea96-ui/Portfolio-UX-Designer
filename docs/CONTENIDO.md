@@ -75,7 +75,7 @@ No son slots de SECCIONES, pero la web los necesita: el título de la pestaña y
 
 ### Hero · [regla](SECCIONES.md#3-hero-de-la-home)
 
-- **Frase:** ✎ I design AI that makes people better at their work, starting with my own team. *(medido: 4 líneas a 1280 y en móvil, 3 a 1440 y en tablet)*
+- **Frase:** I design products people grow into, and help the teams behind them grow too. *(elegida por Pablo el 2026-10-18 entre otras 20 opciones: habla del valor y deja fuera la IA y las palabras. Medida: 4 líneas a 1280 y en móvil, 3 a 1440 y en tablet, igual en Inter. A 1280 la última línea queda con una sola palabra, «too.»; se resuelve al construir con `text-wrap: balance`)*
   Límite: ~12–16 palabras, 3–4 líneas en desktop. El primer proyecto de la lista tiene que verse sin scroll a 1440×900 y a 375×812.
 
 ### Lista de trabajo · [regla](SECCIONES.md#4-lista-de-trabajo)
