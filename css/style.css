@@ -22,7 +22,6 @@
   --color-accent-bg: #1F2A44;
   --color-accent-text: #EFEEEB;
   --color-link-underline: #6B6B6B;
-  --color-link-underline-hover: #121212;
 
   /* Tipografía (DESIGN §1). Tracking de Helvetica Neue; .no-hn lo cambia por el de Inter. */
   --font: "Helvetica Neue", "Inter", sans-serif;
@@ -116,29 +115,29 @@ a { color: inherit; }
 
 ul { list-style: none; }
 
-/* Links de texto: subrayado gris en reposo que sube al color del texto en hover (patrón color/link/*). */
-.cta-contact a {
-  text-decoration: underline;
-  text-decoration-color: var(--color-link-underline);
-  text-underline-offset: 0.15em;
-  transition: text-decoration-color var(--motion-hover-duration) var(--motion-hover-easing);
-}
-@media (hover: hover) {
-  .cta-contact a:hover { text-decoration-color: var(--color-link-underline-hover); }
-}
-
-/* Nav: sin subrayado en reposo (Pablo, 2026-10-18). En hover, la línea se dibuja de izquierda a derecha
-   con motion/hover. Es un degradado de fondo de 1 px, porque text-decoration no se puede animar en ancho. */
-.nav a {
+/* ---------- Link (DESIGN §6) ----------
+   Un solo componente, dos variantes y el mismo hover: una línea del color del texto que se dibuja de
+   izquierda a derecha (motion/hover). Las dos líneas son degradados de fondo, porque text-decoration no
+   se puede animar en ancho. Capas: la de hover (arriba) y la de reposo (abajo).
+   - .link--list  (nav, contacto del CTA, índice): sin línea en reposo.
+   - .link--text  (frase del CTA, links sueltos o dentro de un párrafo): línea en color/link/underline en reposo. */
+.link {
+  --link-thickness: 1px;
+  --link-rest: transparent;
   text-decoration: none;
-  background-image: linear-gradient(currentColor, currentColor);
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(var(--link-rest), var(--link-rest));
   background-repeat: no-repeat;
-  background-position: 0 100%;
-  background-size: 0 1px;
+  background-position: 0 100%, 0 100%;
+  background-size: 0 var(--link-thickness), 100% var(--link-thickness);
   padding-bottom: 2px;
   transition: background-size var(--motion-hover-duration) var(--motion-hover-easing);
 }
-@media (hover: hover) { .nav a:hover { background-size: 100% 1px; } }
+.link--text { --link-rest: var(--color-link-underline); }
+@media (hover: hover) {
+  .link:hover { background-size: 100% var(--link-thickness), 100% var(--link-thickness); }
+}
 
 /* Roles tipográficos. Body es el de <body>. */
 .role-meta { font-size: 12px; line-height: 1.4; font-weight: 400; letter-spacing: var(--track-meta); }
@@ -241,10 +240,8 @@ html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--
   background: var(--color-accent-bg);
   color: var(--color-accent-text);
   --color-focus: var(--color-accent-text);
-  /* Sobre el acento no hay token de subrayado en reposo: se mezcla el texto del acento con su fondo.
-     Pendiente de decidir en DESIGN. */
+  /* color/link/underline sobre el acento: el texto del acento al 55% sobre su fondo (DESIGN §6). */
   --color-link-underline: color-mix(in oklch, var(--color-accent-text) 55%, var(--color-accent-bg));
-  --color-link-underline-hover: var(--color-accent-text);
   --color-text-secondary: var(--color-accent-text);
 }
 
@@ -270,19 +267,15 @@ html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--
 .cta-phrase {
   grid-column: 1 / -1;
   justify-self: start;
-  text-decoration: underline;
-  text-decoration-color: var(--color-link-underline);
-  text-decoration-thickness: 0.04em;    /* proporcional al tamaño de la frase */
-  text-underline-offset: 0.1em;
-  transition: text-decoration-color var(--motion-hover-duration) var(--motion-hover-easing);
+  --link-thickness: 0.04em;    /* proporcional al tamaño de la frase (DESIGN §6) */
+  padding-bottom: 0.04em;
 }
-@media (hover: hover) { .cta-phrase:hover { text-decoration-color: var(--color-link-underline-hover); } }
 .cta-contact { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 12px; }
 
 /* ---------- Movimiento reducido (DESIGN §5) ----------
-   Todo aparece en su estado final. El hover de color se mantiene; la línea de la nav aparece sin dibujarse. */
+   Todo aparece en su estado final. La línea del Link aparece completa, sin dibujarse. */
 @media (prefers-reduced-motion: reduce) {
   html[data-entrance="done"] .hero-greeting,
   html[data-entrance="done"] .hero-phrase,
-  .nav a { transition: none; }
+  .link { transition: none; }
 }

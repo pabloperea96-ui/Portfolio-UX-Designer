@@ -415,7 +415,7 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 
 | Componente | Variantes | Dónde (SECCIONES) | Figma | Código |
 |---|---|---|---|---|
-| Link | En lista · En texto | Toda la web | pendiente | en la home, sin unificar |
+| Link | En lista · En texto | Toda la web | pendiente | home (`.link`, `.link--list`, `.link--text`) |
 | Nav | Nombre completo · Nombre corto (móvil) · Sobre imagen | [§2](SECCIONES.md#2-nav) | pendiente | home |
 | Bloque de proyecto | Lista de trabajo · Siguiente proyecto | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | pendiente | home (lista) |
 | CTA | Continuo con el About · Solo | [§7](SECCIONES.md#7-cta-final-footer-global) | pendiente | home |
