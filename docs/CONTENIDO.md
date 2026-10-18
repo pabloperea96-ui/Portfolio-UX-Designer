@@ -323,16 +323,18 @@ Para sumar una sección, copia un bloque de sección entero.
 - Problema: rechazaban al menos 80.000 clientes que pedían la RappiCard, por no tener historial o tenerlo malo; «perder el 80% de los clientes que aplicaban» era un dolor que había que revertir cuanto antes. No había alternativa.
 - Cómo funciona: la persona deposita una garantía como respaldo en caso de no pago. El dinero se congela mientras la tarjeta esté vigente, y el monto depositado es el cupo.
 - Retos: 1) explicar claramente depósito y cupo; 2) se necesita cuenta de ahorros para abrir la tarjeta: si no la tiene, la apertura va embebida para hacer todo en un solo flujo; 3) un módulo pedagógico menos elemental y superficial que los de la competencia, pero lo bastante genérico para la diversidad de perfiles.
+- Cifra exacta: se rechazaba el 87% de las solicitudes, más de 85.000 clientes potenciales (Pablo, 2026-10-18).
+- El módulo pedagógico y el módulo de graduación son lo mismo.
 - Estado: la primera tarjeta no ha salido; se terminan los desarrollos. Se puede mostrar todo, del onboarding al módulo de graduación.
 
 **Overview**
 - Pregunta-titular: ✎ How do you give a credit card to people with no credit history?
-- Respuesta (2–3 frases): ✎ RappiPay was turning down at least 80,000 RappiCard applicants because they had no credit history or a poor one. The secured RappiCard lets them in: they deposit a guarantee, and that amount becomes their credit limit. I designed the onboarding and the graduation module.
+- Respuesta (2–3 frases): ✎ RappiPay was turning down 87% of RappiCard applicants, more than 85,000 people, because they had no credit history or a poor one. The secured RappiCard lets them in: they deposit a guarantee, and that amount becomes their credit limit. I designed the onboarding and the graduation module.
 - En el índice: ✎ Overview
 
 **1. El problema**
-- Titular-tesis: ✎ We were turning away at least 80,000 people who wanted a card
-- Texto: ✎ Every applicant without a credit history, or with a poor one, got a no. That was most of the people asking for a RappiCard, and the business needed to reverse it as soon as possible.
+- Titular-tesis: ✎ We were turning away 87% of the people who applied
+- Texto: ✎ Every applicant without a credit history, or with a poor one, got a no. That added up to more than 85,000 potential customers, and the business needed to reverse it as soon as possible.
 - Imágenes: ⟨por escribir⟩
 - En el índice: ✎ Problem
 
@@ -356,6 +358,6 @@ Para sumar una sección, copia un bloque de sección entero.
 
 **5. Cierre**
 - Titular-tesis: ✎ Ready for its first cardholders
-- Texto: ✎ Development is wrapping up, and the first secured RappiCards haven't gone out yet. The result to watch is how many of those 80,000 people get a card, and how many graduate. *(actualizar cuando salga la tarjeta)*
+- Texto: ✎ Development is wrapping up, and the first secured RappiCards haven't gone out yet. The result to watch is how many of those 85,000 people get a card, and how many graduate. *(actualizar cuando salga la tarjeta)*
 - Imágenes: ⟨por escribir⟩
 - En el índice: ✎ Outcome
