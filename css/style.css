@@ -62,20 +62,8 @@
   --track-cta: -0.0104em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-surface: #1E1E1E;
-    --color-text: #FAFAFA;
-    --color-text-secondary: #8A8A8A;
-    --color-border-subtle: #2E2E2E;
-    --color-focus: #FAFAFA;
-    --color-accent-bg: #EFEEEB;
-    --color-accent-text: #1F2A44;
-    --color-link-underline: #8A8A8A;
-    --color-link-underline-hover: #FAFAFA;
-  }
-}
+/* Modo oscuro: en pausa (Pablo, 2026-10-18). La web se prueba en claro, con About y CTA en tinta.
+   Los valores del modo oscuro siguen en DESIGN §2 por si vuelve. */
 
 @media (min-width: 768px) {
   :root {
@@ -105,7 +93,7 @@
 /* ---------- Base ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { color-scheme: light dark; }
+html { color-scheme: light; }
 
 body {
   background: var(--color-bg);
@@ -128,15 +116,28 @@ a { color: inherit; }
 ul { list-style: none; }
 
 /* Links de texto: subrayado gris en reposo que sube al color del texto en hover (patrón color/link/*). */
-.nav a, .cta-contact a {
+.cta-contact a {
   text-decoration: underline;
   text-decoration-color: var(--color-link-underline);
   text-underline-offset: 0.15em;
   transition: text-decoration-color var(--motion-hover-duration) var(--motion-hover-easing);
 }
 @media (hover: hover) {
-  .nav a:hover, .cta-contact a:hover { text-decoration-color: var(--color-link-underline-hover); }
+  .cta-contact a:hover { text-decoration-color: var(--color-link-underline-hover); }
 }
+
+/* Nav: sin subrayado en reposo (Pablo, 2026-10-18). En hover, la línea se dibuja de izquierda a derecha
+   con motion/hover. Es un degradado de fondo de 1 px, porque text-decoration no se puede animar en ancho. */
+.nav a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  padding-bottom: 2px;
+  transition: background-size var(--motion-hover-duration) var(--motion-hover-easing);
+}
+@media (hover: hover) { .nav a:hover { background-size: 100% 1px; } }
 
 /* Roles tipográficos. Body es el de <body>. */
 .role-meta { font-size: 12px; line-height: 1.4; font-weight: 400; letter-spacing: var(--track-meta); }
@@ -207,13 +208,9 @@ html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--
 }
 .project + .project { margin-top: var(--section); }
 .project-text { grid-column: 1 / -1; }
-.project-name {
-  color: var(--color-text-secondary);
-  transition: color var(--motion-hover-duration) var(--motion-hover-easing);
-}
-/* En táctil no hay hover: el nombre va en primario (D1). Con hover, apagado → encendido (D2b). */
-@media not (hover: hover) { .project-name { color: var(--color-text); } }
-@media (hover: hover) { .project:hover .project-name { color: var(--color-text); } }
+/* El nombre va siempre en primario (D1). El encendido gris → texto (D2b) salió el 2026-10-18 (Pablo):
+   todo el bloque es el link, y con el medio 4:5 al lado el nombre se encendía desde media pantalla. */
+.project-name { color: var(--color-text); }
 .project-meta { margin-top: 16px; color: var(--color-text-secondary); }
 .project-media {
   grid-column: 1 / -1;
@@ -280,8 +277,9 @@ html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--
 .cta-contact { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px 12px; }
 
 /* ---------- Movimiento reducido (DESIGN §5) ----------
-   Todo aparece en su estado final. El hover se mantiene: es color, no movimiento. */
+   Todo aparece en su estado final. El hover de color se mantiene; la línea de la nav aparece sin dibujarse. */
 @media (prefers-reduced-motion: reduce) {
   html[data-entrance="done"] .hero-greeting,
-  html[data-entrance="done"] .hero-phrase { transition: none; }
+  html[data-entrance="done"] .hero-phrase,
+  .nav a { transition: none; }
 }
