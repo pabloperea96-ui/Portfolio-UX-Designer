@@ -67,8 +67,11 @@ En los primeros 10 segundos, la web tiene que transmitir **dos cosas a la vez**:
 - **Un paso por delante** — precisión editorial, calma, criterio visible en la contención. Lo AI-native se demuestra, no se decora.
 - **Cercano y humano** — precisamente porque hoy todo es IA, la persona tiene que sentirse antes que la tecnología.
 
-**Storytelling: abierto. Lo define Pablo a medida que se construye.**
-Hilos explorados como material de partida (ninguno elegido):
+**Storytelling: el punto de inflexión (Pablo, 2026-10-18).** En enero de 2026 Pablo quedó en el layoff de Mercado Libre, en pleno cambio de la industria por la IA. En RappiPay aprendió a diseñar con ella: hoy construye el agente que potencia a su equipo, y el equipo de diseño pasó de bajar pantallas a tener voz en las decisiones.
+**Por qué este hilo:** explica por qué lo AI-native es suyo y no un adorno, y pone a la persona antes que la tecnología. Junta dos de los hilos explorados y les suma lo que ninguno tenía: le pasó a él.
+**Cómo se cuenta:** sin dramatismo y seguido de lo que hizo. Sin afirmar que la IA causó el layoff, porque esa es una razón de Mercado Libre que Pablo no puede sostener. El hero dice lo que hace; la historia va en el About, en primera persona.
+
+Hilos explorados como material de partida:
 - *"Siempre he diseñado con palabras"* — de marcas a vendedores a agentes.
 - *"Diseño IA que hace mejores a las personas"* — propósito del superagente.
 - *"Las máquinas aceleraron; el criterio no"* — defensa del criterio humano.
@@ -101,4 +104,4 @@ Hilos explorados como material de partida (ninguno elegido):
 ## 11. Riesgos abiertos
 
 - **Material de MeLi:** confirmar qué capturas y métricas se pueden mostrar (se resuelve en `CONTENIDO.md`).
-- **Storytelling sin definir:** condiciona el hero y la home; necesita estar cerrado antes de construir la home.
+- ~~Storytelling sin definir~~: cerrado el 2026-10-18 ([§7](#7-primera-impresión-y-tono)).

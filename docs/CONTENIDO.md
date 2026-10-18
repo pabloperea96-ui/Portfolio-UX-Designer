@@ -18,7 +18,7 @@
 
 | Página | Estado |
 |---|---|
-| Antes de escribir | MeLi resuelto · storytelling abierto |
+| Antes de escribir | listo |
 | Global (nav, CTA, metadatos) | datos listos · faltan frase del CTA y metadatos |
 | Home | pendiente |
 | 404 | pendiente |
@@ -35,7 +35,7 @@
 
 Dos decisiones que el BRIEF dejó abiertas y que condicionan el resto.
 
-- **Hilo del storytelling** ([BRIEF](BRIEF.md#7-primera-impresión-y-tono)): condiciona el hero y el About, así que va antes de la home. Uno de los tres hilos explorados o uno nuevo: ⟨por escribir⟩
+- **Hilo del storytelling** ([BRIEF](BRIEF.md#7-primera-impresión-y-tono)): condiciona el hero y el About, así que va antes de la home. **el punto de inflexión** (layoff en Mercado Libre → diseñar con IA en RappiPay). Decidido el 2026-10-18; cómo se cuenta, en el BRIEF.
 - **Material de MeLi** ([BRIEF](BRIEF.md#11-riesgos-abiertos)): qué capturas y qué métricas se pueden mostrar, y quién lo confirmó: **todo**, las capturas y la cifra de +10 días. Confirmado (Pablo, 2026-10-17).
 
 ---
@@ -50,7 +50,7 @@ Dos decisiones que el BRIEF dejó abiertas y que condicionan el resto.
 
 ### CTA (cierra todas las páginas) · [regla](SECCIONES.md#7-cta-final-footer-global)
 
-- **Frase (link `mailto:`):** ⟨por escribir⟩
+- **Frase (link `mailto:`):** ✎ Let's talk.
   Límite: corta. Va en Bold a 48 px en móvil, donde caben ~11 letras por línea: máximo 2 líneas.
 - **Email:** pabloperea96@gmail.com
 - **LinkedIn (URL):** https://www.linkedin.com/in/pablopereab/ · texto del link: LinkedIn
@@ -70,12 +70,12 @@ No son slots de SECCIONES, pero la web los necesita: el título de la pestaña y
 
 ### Entrada: el saludo · [regla](SECCIONES.md#5-entrada-el-saludo)
 
-- **Saludo:** ⟨por escribir⟩
+- **Saludo:** ✎ Hi, I'm Pablo.
   Límite: 1–3 palabras. Si la web carga rápido, dura medio segundo: tiene que leerse de un vistazo.
 
 ### Hero · [regla](SECCIONES.md#3-hero-de-la-home)
 
-- **Frase:** ⟨por escribir⟩
+- **Frase:** ✎ I design AI that makes people better at their work, starting with my own team. *(medido: 4 líneas a 1280 y en móvil, 3 a 1440 y en tablet)*
   Límite: ~12–16 palabras, 3–4 líneas en desktop. El primer proyecto de la lista tiene que verse sin scroll a 1440×900 y a 375×812.
 
 ### Lista de trabajo · [regla](SECCIONES.md#4-lista-de-trabajo)
@@ -100,7 +100,7 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
   - **El equipo.** Al llegar a RappiPay, diseño bajaba las pantallas que le pedían y no participaba en construir el producto; archivos sin estructura, mala documentación. Desde entonces: participación activa del equipo, visibilizar el trabajo, estándares, templates, vínculo con desarrollo, y persuadir a quienes deciden (dark mode). Hoy diseño tiene voz y participa en las decisiones. «De las experiencias más enriquecedoras.»
   - **El punto de inflexión.** Con el ascenso de la IA, Pablo quedó en el layoff de Mercado Libre (enero de 2026), con el susto que eso trae. RappiPay le dio la oportunidad (abril de 2026): ahí implementó IA para potenciar su trabajo y pasó del contenido al diseño, cerca de producto. Se paró y siguió aprendiendo. Le da miedo contarlo y quiere cambiar eso.
   - **Lo que sigue.** Acercarse a los datos y los números, y participar en la conversación de profitability.
-- **Primera frase (en grande):** ⟨por escribir⟩
+- **Primera frase (en grande):** ✎ In January I was laid off. By April I was designing the AI my team works with. *(medido: igual que el hero)*
   Límite: igual que el hero, 3–4 líneas en desktop. Es la bio empezando fuerte, no un título.
 - **Bio:** 2–3 párrafos en primera persona, con humor.
 
