@@ -108,7 +108,7 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
 
   ✎ At Mercado Libre I spent three years as a UX and content designer for Fulfillment, working for sellers across Latin America, China and the United States. When I joined RappiPay, design mostly delivered the screens it was asked for. Today we take part in product decisions, with our own design system, shared standards and an agent that handles the paperwork. I'm also a partner at Binalogue's Colombia chapter, which keeps me close to the business side of the work.
 
-  ✎ Next, I want to get closer to the numbers and to how what we design turns into profit. ⟨por escribir⟩ *(un detalle personal con humor, fuera del trabajo)*
+  I'll always be looking for the next big challenge that will drive my creativity and my skills to create experiences worth living and interacting with. *(de Pablo, 2026-10-18)*
 
 - **Trayectoria** (una línea por etapa: empresa · rol · años, de la más reciente a la más antigua):
 
