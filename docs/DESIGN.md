@@ -71,19 +71,32 @@ Line-height y tracking en % no cambian; sus valores en px se recalculan para cad
 **2. Line-height: el mismo de Helvetica Neue, en px.** No se ajusta.
 **3. Tracking = el de Helvetica Neue + una compensación por peso:**
 
-| Peso | Compensación | Extra solo para el CTA |
-|---|---|---|
-| Regular | +0% | +0.8% |
-| Medium | +1% | +1.0% |
-| Bold | +1.6% | +1.4% |
+| Peso | Compensación |
+|---|---|
+| Regular | +0% |
+| Medium | +1% |
+| Bold | +1.6% |
 
-Ejemplo: el hero en Medium lleva −1% en Helvetica Neue y −1% + 1% = **0%** en Inter. El CTA en Bold lleva −2% + 1.6% + 1.4% = **+1%**.
+**4. Extra del CTA: −0.7%** sobre la compensación de Bold (medido con «Let's talk.» el 2026-10-18).
+
+Ejemplo: el hero en Medium lleva −1% en Helvetica Neue y −1% + 1% = **0%** en Inter. El CTA en Bold lleva −2% + 1.6% − 0.7% = **−1.1%**.
 
 **Por qué la compensación:** a igual tracking, Inter queda más apretada que Helvetica Neue, y la diferencia crece con el peso.
-**Por qué el extra del CTA:** la Inter que se aloja no tiene eje óptico, así que a 64 px usa el diseño pensado para texto chico. Sin el extra, el CTA queda entre 1.5 y 2.3% más angosto.
+**Por qué el extra del CTA es de la frase y no del tamaño:** el CTA es una sola línea corta, así que su ancho depende de qué letras tiene. Con «Let's talk.» y solo la compensación de Bold, Inter queda un 1.5% más ancha; con −0.7% queda igual (−0.1%). El resultado es el mismo a 48, 96 y 128: la Inter que se aloja no tiene eje óptico, así que su ancho crece en proporción al tamaño. El +1.4% de antes salió de otra frase («Reach me out», a 64), que con este valor da un 3.8% de diferencia. **Regla:** si cambia la frase del CTA, se vuelve a medir el extra en el specimen.
 **Por qué no se usa el tracking que recomienda Inter** (su fórmula Dynamic Metrics): da entre 1.5 y 3 puntos menos que Helvetica Neue, por ejemplo −1.1% en el body contra +0.5%. Con eso cambiarían los cortes de línea.
 
-**Verificado en el specimen** (de nuevo con los tamaños de la rampa, 2026-10-11): Helvetica Neue e Inter cortan en las mismas palabras en hero, título, body y métrica, en los tres pesos. La ficha queda entre +0.4 y +0.8% más ancha en Inter y el CTA queda igual (0.0%).
+**Verificado en el specimen** (2026-10-11, con los tamaños de la rampa): Helvetica Neue e Inter cortan en las mismas palabras en tesis y body, en los tres pesos, a 400 px de ancho. La ficha queda entre +0.4 y +0.8% más ancha en Inter.
+
+**Proyecto y Hero, medidos en todos los anchos (2026-10-18).** En Medium, con los textos reales de [`CONTENIDO.md`](CONTENIDO.md) (los 4 nombres de la lista, la frase del hero y la primera frase del About), cada 8 px de 320 a 1440, con el tamaño y la columna de cada breakpoint:
+
+| Rol | Anchos que cortan distinto | Dónde se nota |
+|---|---|---|
+| Proyecto (24 / 40 / 48) | 3 de 564 (0.5%) | En 2 casos cambia el número de líneas: «RappiCard Secured» a 792 px y «Gaia: end-to-end feature builder» a 1256 px |
+| Hero y About (32 / 48 / 64) | 24 de 282 (8.5%) | Casi siempre una palabra que salta de línea. A 1280 el hero cierra con «own team.» en Inter y con «team.» en Helvetica Neue; a 768 la frase del About corta antes o después de «the» |
+
+**No se ajusta el tracking.** Se probó la compensación de Medium entre −0.6 y +0.6 puntos, de a 0.1: subir la compensación empeora los dos roles, y bajarla 0.1 o 0.2 deja Proyecto en 2 y 1 pero sube el hero a 25 y 26. El +1% actual es el mínimo del total, y el hero pesa más porque es lo primero que se lee. Lo que queda no es de tracking: cada palabra difiere en ancho de forma distinta entre las dos fuentes, así que en algún ancho una palabra salta de línea. **La regla se cumple así:** la misma línea de lectura y el mismo peso visual, con los mismos cortes en la mayoría de los anchos; una palabra que salta de línea en un ancho puntual se acepta.
+
+Se reproduce en el specimen: sección «Cortes por ancho de pantalla», con el peso Medium.
 
 ### Cómo se implementa
 
@@ -110,9 +123,7 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 ### Pendiente
 
 - **Pesos por rol:** se definen en las pruebas en contexto.
-- **Inter a 48 y 64:** Proyecto (48) y el hero nuevo (64) no están medidos en el specimen. Hay que confirmar que Inter corta en las mismas palabras y, si no, ajustar su tracking.
 - **Line-height y tracking de Proyecto:** 115% / −1% salen de la escala óptica (igual que el hero); se validan en contexto.
-- **Extra de Inter para el CTA:** se midió a 64 px. Con el CTA en 48 / 96 / 128 hay que medirlo de nuevo en el specimen.
 - **Figma (CP-003):** la columna de Helvetica Neue todavía tiene v1 y los tamaños anteriores a la rampa. Es una exploración archivable: la referencia ahora es la librería.
 - **Librería:** los 6 estilos de texto están en Inter provisional; falta conectar su familia a `typography/family/base` (Helvetica Neue) a mano.
 

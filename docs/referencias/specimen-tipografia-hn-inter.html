@@ -42,6 +42,7 @@
   .ficha { display: inline-flex; gap: 24px; white-space: nowrap; }
   .ficha div { display: flex; flex-direction: column; gap: 2px; }
   .ficha span:first-child { color: var(--muted); }
+  .role.wide .col { flex-basis: 100%; }
   .overlay .pair { display: grid; }
   .overlay .col { grid-area: 1 / 1; }
   .overlay .col.inter .sheet { background: transparent; }
@@ -50,6 +51,7 @@
   .breaks { color: var(--muted); font-size: 12px; margin-top: 6px; white-space: pre-wrap; }
   .hn { font-family: "Helvetica Neue"; }
   .inter { font-family: "Inter"; }
+  #anchos { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
   #out { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
   #out table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
   #out th, #out td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
@@ -95,24 +97,29 @@
     </div>
   </section>
   <section id="out"></section>
+  <section id="anchos"></section>
 </main>
 <script>
 const ROLES = [
-  { id: 'hero',   name: 'Hero',    size: 40, v2: [115, -1],   v1: [105, -2], weighted: true,
-    text: 'Product Designer at RappiPay. I design AI agents and the systems they run on.' },
-  { id: 'title',  name: 'Título',  size: 32, v2: [120, -0.5], v1: [112, -1], weighted: true,
+  // Textos reales de CONTENIDO.md y ancho de la columna a 1280 px (DESIGN §3): 8 columnas = 781 px, 6 columnas = 580 px.
+  { id: 'hero',    name: 'Hero',    size: 64, width: 781, v2: [115, -1],   v1: [105, -2], weighted: true,
+    text: 'I design AI that makes people better at their work, starting with my own team.' },
+  { id: 'about',   name: 'About (rol Hero)', size: 64, width: 781, v2: [115, -1], v1: [105, -2], weighted: true,
+    text: 'In January 2026 I was laid off. Months later I was designing the AI my team works with.' },
+  { id: 'project', name: 'Proyecto', size: 48, width: 580, v2: [115, -1],   v1: [115, -1], weighted: true,
+    text: 'Gaia: end-to-end feature builder' },
+  { id: 'thesis',  name: 'Tesis',   size: 32, v2: [120, -0.5], v1: [112, -1], weighted: true,
     text: 'One context for every initiative' },
-  { id: 'ficha',  name: 'Ficha',   size: 12, v2: [140, 1.5],  v1: [131, 0],  weighted: true, ficha: true },
-  { id: 'body',   name: 'Body (siempre Regular)', size: 16, v2: [155, 0.5], v1: [150, 0], weighted: false,
+  { id: 'ficha',   name: 'Ficha',   size: 12, v2: [140, 1.5],  v1: [131, 0],  weighted: true, ficha: true },
+  { id: 'body',    name: 'Body (siempre Regular)', size: 16, v2: [155, 0.5], v1: [150, 0], weighted: false,
     text: 'The superagent reads the company’s context before it acts. Each skill is a small, written decision about how a designer would approach the problem.' },
-  { id: 'metric', name: 'Métrica', size: 24, v2: [125, 0],    v1: [115, -1], weighted: true,
-    text: 'Sellers kept their stock 10 days longer.' },
-  { id: 'cta',    name: 'CTA',     size: 64, v2: [100, -2],   v1: [95, -4],  weighted: true, nowrap: true, interExtra: { 400: 0.8, 500: 1, 700: 1.4 },
-    text: 'Reach me out' },
+  // El extra depende de la frase, no del tamaño: medido con «Let's talk.» el 2026-10-18, igual a 48, 96 y 128.
+  { id: 'cta',     name: 'CTA',     size: 128, v2: [100, -2],  v1: [95, -4],  weighted: true, nowrap: true, interExtra: { 700: -0.7 },
+    text: "Let's talk." },
 ];
 // Compensación medida el 2026-10-10: Inter necesita más aire que HN a medida que sube el peso.
 const COMP = { 400: 0, 500: 1, 700: 1.6 };
-// El CTA a 68px necesita más aire en Inter que el resto: Inter sin eje óptico usa el corte de texto, más ancho en display.
+// El CTA es una frase corta: su ancho depende de sus letras, así que el extra se mide con la frase real.
 const extraFor = r => (r.interExtra && r.interExtra[weight]) || 0;
 const compFor = r => r.weighted ? state.comp[weight] + extraFor(r) : 0;
 const FICHA = [['Role', 'Product Designer'], ['Year', '2026'], ['Team', 'Design, Eng']];
@@ -120,8 +127,8 @@ const FICHA = [['Role', 'Product Designer'], ['Year', '2026'], ['Team', 'Design,
 let weight = 400;
 let state = load() || { vals: Object.fromEntries(ROLES.map(r => [r.id, [...r.v2]])), comp: { ...COMP }, scale: 94.7 };
 
-function load() { try { return JSON.parse(localStorage.getItem('specimen-hn-inter')); } catch (e) { return null; } }
-function save() { try { localStorage.setItem('specimen-hn-inter', JSON.stringify(state)); } catch (e) {} }
+function load() { try { return JSON.parse(localStorage.getItem('specimen-hn-inter-2026-10-18')); } catch (e) { return null; } }
+function save() { try { localStorage.setItem('specimen-hn-inter-2026-10-18', JSON.stringify(state)); } catch (e) {} }
 
 const main = document.getElementById('main');
 const out = document.getElementById('out');
@@ -132,9 +139,10 @@ function build() {
   for (const r of ROLES) {
     const sec = document.createElement('section');
     sec.className = 'role'; sec.id = 'role-' + r.id;
+    if (r.width) sec.classList.add('wide');
     const content = r.ficha
       ? `<div class="ficha">${FICHA.map(([k, v]) => `<div><span>${k}</span><span>${v}</span></div>`).join('')}</div>`
-      : `<div class="spec ${r.nowrap ? 'nowrap' : ''}">${wordsHTML(r.text)}</div>`;
+      : `<div class="spec ${r.nowrap ? 'nowrap' : ''}"${r.width ? ` style="width:${r.width}px;max-width:none"` : ''}>${wordsHTML(r.text)}</div>`;
     sec.innerHTML = `
       <div class="ctrl">
         <strong>${r.name} · ${r.size}px</strong>
@@ -175,7 +183,7 @@ function render() {
     sec.querySelector('.interlabel').textContent =
       `Inter · ${(r.size * scale).toFixed(2)}px · tracking ${(tr + c).toFixed(1)}%${c ? ` (HN ${tr} + comp ${c})` : ''}`;
   }
-  setTimeout(compare, 0);
+  setTimeout(() => { compare(); anchos(); }, 0);
   sweep();
   table();
   save();
@@ -216,8 +224,9 @@ function compare() {
 
 // Muestra corta por rol: el barrido es para mirar el espaciado, no los cortes.
 const SAMPLE = {
-  hero: 'Product Designer at RappiPay.', title: 'One context for every initiative', ficha: 'Role  Product Designer  2026  Design, Eng',
-  body: 'The superagent reads the company’s context before it acts.', metric: 'Sellers kept their stock 10 days longer.', cta: 'Reach me out',
+  hero: 'I design AI that makes people', about: 'In January 2026 I was laid off.', project: 'Gaia: end-to-end feature builder',
+  thesis: 'One context for every initiative', ficha: 'Role  Product Designer  2026  Design, Eng',
+  body: 'The superagent reads the company’s context before it acts.', cta: "Let's talk.",
 };
 // Inter Dynamic Metrics (v3): https://d.rsms.me/inter-website/v3/dynmetrics/ — en % del tamaño.
 const interRec = px => (-0.0223 + 0.185 * Math.exp(-0.1745 * px)) * 100;
@@ -283,6 +292,45 @@ function table() {
       <td><code>line-height: ${(lh / 100).toFixed(2)}; letter-spacing: ${(tr / 100).toFixed(3)}em</code></td><td>${(tr + c).toFixed(1)}%</td></tr>`;
   }).join('')}</table>
   <p style="color:var(--muted);margin:8px 0 0">✎ = distinto de v2. Los valores se guardan en este navegador.</p>`;
+}
+
+
+// Cortes en todos los anchos de pantalla, no solo en uno: de 320 a 1440 cada 8 px, con el tamaño y la columna
+// de cada breakpoint (DESIGN §1 y §3). Un corte que coincide solo en 1280 puede romperse en 1288.
+const ANCHOS = [
+  { role: 'project', name: 'Proyecto', sizes: [24, 40, 48], cols: [0, 4, 6],
+    texts: ['Gaia: end-to-end feature builder', 'Design System', 'Seller Stock Incentives', 'RappiCard Secured'] },
+  { role: 'hero', name: 'Hero y About', sizes: [32, 48, 64], cols: [0, 8, 8],
+    texts: [ROLES[0].text, ROLES[1].text] },
+];
+// Ancho de n columnas: móvil todo el ancho (margen 24), tablet 8 columnas (32 / 24), desktop 12 (48 / 24, tope 1440).
+function colWidth(vw, n) {
+  if (vw < 768) return vw - 48;
+  const [c, k] = vw < 1280 ? [vw - 64, 8] : [Math.min(vw, 1440) - 96, 12];
+  return (c - (k - 1) * 24) / k * n + (n - 1) * 24;
+}
+function linesAt(text, font, px, ls, w, width) {
+  const d = document.createElement('div');
+  Object.assign(d.style, { position: 'absolute', left: '-9999px', width: width + 'px', fontFamily: font, fontSize: px + 'px', fontWeight: w, letterSpacing: ls + 'em' });
+  d.innerHTML = wordsHTML(text); document.body.appendChild(d);
+  const rows = lines(d); d.remove(); return rows;
+}
+function anchos() {
+  const html = ANCHOS.map(g => {
+    const tr = state.vals[g.role][1], c = compFor(ROLES.find(r => r.id === g.role));
+    const bad = []; let total = 0;
+    for (let vw = 320; vw <= 1440; vw += 8) {
+      const i = vw < 768 ? 0 : vw < 1280 ? 1 : 2;
+      for (const t of g.texts) {
+        total++;
+        const a = linesAt(t, '"Helvetica Neue"', g.sizes[i], tr / 100, weight, colWidth(vw, g.cols[i]));
+        const b = linesAt(t, 'Inter', g.sizes[i] * state.scale / 100, (tr + c) / 100, weight, colWidth(vw, g.cols[i]));
+        if (a.join('|') !== b.join('|')) bad.push(`${vw}px · ${t.slice(0, 20)}… · líneas HN ${a.length} / Inter ${b.length}`);
+      }
+    }
+    return `<p><b>${g.name}:</b> ${bad.length} de ${total} cortan distinto</p><div class="breaks">${bad.join('\n')}</div>`;
+  }).join('');
+  document.getElementById('anchos').innerHTML = `<strong>Cortes por ancho de pantalla (320–1440)</strong>${html}`;
 }
 
 document.getElementById('weights').addEventListener('click', e => {
