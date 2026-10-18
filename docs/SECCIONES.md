@@ -253,7 +253,7 @@ Común a los 4 case studies. Las variantes de Agentes y Design System suman bloq
 | | |
 |---|---|
 | **Bloque** | El mismo bloque de la [lista de trabajo](#4-lista-de-trabajo): nombre en rol Proyecto + Ficha abajo + medio 4:3 a la derecha |
-| **Ficha** | Empieza con «Next project» como primer campo, sin etiqueta y en `color/text/secondary`: `Next project · Company · Role · Year` |
+| **Ficha** | «Next project» en Body y `color/text/secondary`, en su propia línea encima de Company · Role · Year (16 entre los dos). **Por qué en su línea (2026-10-18):** como primer campo de la fila, en tablet los cuatro no caben y quedan pegados |
 | **Orden** | Agentes → Design System → MeLi → RappiCard → Agentes (loop) |
 | **Después** | El CTA, sobre el acento |
 
