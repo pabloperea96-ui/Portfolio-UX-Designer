@@ -50,7 +50,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | **Destinos** | Work → lista de trabajo de la home · About → `/#about` · Contact → `#contact`, el CTA de la página actual |
 | **Texto** | Rol Body (16 px, Regular) en todos los breakpoints |
 | **Color** | `color/text/primary`; sobre el hero del case study, `color/text/on-image` |
-| **Links** | Sin subrayado en reposo. En hover, una línea de 1 px del color del texto se dibuja de izquierda a derecha bajo el texto (`motion/hover`, 0.2 s). Sin hover en táctil (Pablo, 2026-10-18: el subrayado fijo cargaba la nav) |
+| **Links** | [Link](DESIGN.md#link), variante **en lista**: sin subrayado en reposo, la línea se dibuja en hover (Pablo, 2026-10-18: el subrayado fijo cargaba la nav) |
 | **Espacio entre items** | 24 en desktop y tablet · 16 en móvil |
 | **Posición** | Arriba, dentro del margen de la retícula. **No es fija**: se va con el scroll |
 | **Móvil** | La misma nav, en una línea. Sin hamburguesa |
@@ -165,7 +165,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | **Slots** | Frase → línea de contacto |
 | **Frase** | Corta, es un link `mailto:`. Rol CTA (128 / 96 / 48, Bold), alineada a la izquierda, todo el ancho de la retícula |
 | **Línea de contacto** | Rol Body: email escrito (también `mailto:`, texto seleccionable) · LinkedIn · CV (PDF, pestaña nueva) |
-| **Links** | Patrón `color/link/*` sobre el acento; el subrayado de la frase, proporcional a su tamaño |
+| **Links** | [Link](DESIGN.md#link): la frase, variante **en texto** con el subrayado proporcional a su tamaño; la línea de contacto, variante **en lista** |
 | **Separación** | About → CTA: 160 / 128 / 96 · frase → línea de contacto: 48 / 32 / 32 |
 | **Ancla** | `#contact` (destino de la nav) |
 | **Fuera** | Formulario, botones, «copiar email», hora local ([REFERENCIAS](REFERENCIAS.md#cta-final)) |

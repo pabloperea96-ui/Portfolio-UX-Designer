@@ -189,6 +189,7 @@ Pruebas: Portfolio-V2, sección CP-005 (`2028:140`). Se eligió A6, B2, C3 y D2b
 
 **Por qué A6 (tinta y hueso), invertido en oscuro:** 12.29:1 de texto y un momento claro en los dos modos: 13.66:1 contra el fondo claro y, al invertirse, 16.15:1 contra el oscuro. Sin invertir, la tinta se fundía con el fondo oscuro (1.31:1). El acento se reserva para su momento: no se usa en links ni en botones.
 **Por qué B2:** el link se distingue por el subrayado y no por el color (WCAG 1.4.1). En reposo el subrayado es gris y discreto; en hover sube al color del texto.
+**Cómo se usa desde el 2026-10-18:** en el componente [Link](#link), que decide cuándo hay subrayado en reposo y cómo se dibuja en hover.
 **Por qué C3:** con fotos claras, un titular blanco necesita al menos 60% de negro debajo. El degradado (transparente desde el 35% de la altura hasta 70% abajo) oscurece solo donde va el texto y deja la imagen limpia arriba. Con un velo plano de 40% daba 2.85:1.
 **D2b en pausa (2026-10-18):** la lista de la home va toda en primario (D1) en todas las pantallas; ver [SECCIONES §4](SECCIONES.md#4-lista-de-trabajo).
 **Por qué D2b, y D1 en móvil:** el gris de Atmar en reposo daba 1.67:1 y la lista es la navegación principal. Con `color/text/secondary` (5.11 / 5.43:1) mantiene la idea —apagado en reposo, encendido en hover— y pasa AA en cualquier tamaño. En pantallas táctiles no hay hover (`@media (hover: hover)`), así que ahí la lista va toda en texto principal.
@@ -338,7 +339,7 @@ El resto de la escala queda disponible. El grill de [`SECCIONES.md`](SECCIONES.m
 | Token | Duración | Curva | Stagger | Qué lo usa |
 |---|---|---|---|---|
 | `motion/reveal` | 900 ms | `cubic-bezier(0.22, 1, 0.36, 1)` (ease-out-quint) | 60 ms | Cifras, pasos de la simulación del agente, diagramas del Design System y el nombre del proyecto que viaja al case study |
-| `motion/hover` | 200 ms | `cubic-bezier(0.44, 0, 0.56, 1)` | — | Subrayado de links y lista de trabajo (gris → texto) |
+| `motion/hover` | 200 ms | `cubic-bezier(0.44, 0, 0.56, 1)` | — | La línea del [Link](#link) que se dibuja en hover |
 
 Todo lo que se mueve usa uno de los dos. No hay más duraciones.
 
@@ -363,7 +364,7 @@ El **nombre del proyecto viaja** desde la lista hasta el titular del case study,
 |---|---|
 | Reveal | Aparece en su estado final, sin animar |
 | Transición lista → case study | Corte directo |
-| Hover (color y subrayado) | Se mantiene: es un cambio de color, no movimiento |
+| Hover del Link | La línea aparece completa, sin dibujarse: dibujarla es movimiento |
 | Simulación del agente | No corre sola: avanza con un link «Next step» |
 | Vídeos de la lista | No se reproducen solos; muestran su primer cuadro |
 
@@ -378,6 +379,58 @@ El **nombre del proyecto viaja** desde la lista hasta el titular del case study,
 ### En Figma
 
 Colección `Motion` con `motion/reveal/duration`, `/reveal/stagger`, `/reveal/easing`, `motion/hover/duration` y `/hover/easing`. No tienen scope, porque ninguna propiedad de Figma acepta una duración o una curva; están para que diseño y código lean los mismos valores (en código: `--motion-reveal-duration`, etc.). Documentación: página 🎞️ Movimiento, con las curvas dibujadas.
+
+---
+
+## 6. Componentes
+
+**Decidido el 2026-10-18 (Pablo).** El sistema tiene que vivir en Figma igual que en código, para que cada proyecto nuevo se arme con piezas que ya existen.
+
+### Reglas
+
+- **Una pieza, tres lugares, un solo nombre.** Qué es y dónde va: [`SECCIONES.md`](SECCIONES.md). Cómo se ve y se comporta: esta sección. Construida en la librería de Figma y en código con el mismo nombre y las mismas variantes.
+- **El orden es documento → Figma → código.** Si algo se decide probando en el navegador, primero se escribe aquí y después se cambia en Figma y en código.
+  **Por qué:** el 2026-10-18 la nav cambió su link en el navegador y el CTA se quedó con el anterior. Tres links distintos en una sola página: así se pierde la consistencia.
+- **Un proyecto nuevo es una plantilla llena.** El case study se arma en Figma duplicando su plantilla y llenándola con lo de [`CONTENIDO.md`](CONTENIDO.md); en código, con la misma plantilla. Nada se dibuja desde cero.
+
+### Link
+
+Un solo componente para todos los links de la web. Dos variantes; el hover es el mismo en las dos.
+
+| Variante | Dónde | Reposo | Hover |
+|---|---|---|---|
+| **En lista** | Nav, línea de contacto del CTA, índice del case study | Sin subrayado | Una línea de 1 px del color del texto se dibuja de izquierda a derecha (`motion/hover`) |
+| **En texto** | Frase del CTA, links dentro de un párrafo, links sueltos (404, Replay, Next step) | Subrayado en `color/link/underline` | La misma línea, del color del texto, se dibuja encima del subrayado gris |
+
+- **Grosor:** 1 px en Body; proporcional al tamaño en la frase del CTA (0.04 em).
+- **Sobre el acento:** el subrayado en reposo es el texto del acento al 55% sobre su fondo. Es el valor que ya usa el código; queda como `color/link/underline` en el contexto del acento.
+- **Táctil:** sin hover. **Movimiento reducido:** la línea aparece completa, sin dibujarse.
+
+**Por qué dos variantes:** en una lista de destinos el contexto ya dice «esto es un link», y el subrayado fijo cargaba la nav. Un link suelto o dentro de un párrafo no tiene ese contexto: el subrayado es la única señal (WCAG 1.4.1).
+**Por qué un solo hover:** la nav dibujaba la línea y el resto cambiaba de color. Un mismo gesto en toda la web se aprende una vez.
+
+### Inventario
+
+Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas armadas con ellos.
+
+| Componente | Variantes | Dónde (SECCIONES) | Figma | Código |
+|---|---|---|---|---|
+| Link | En lista · En texto | Toda la web | pendiente | en la home, sin unificar |
+| Nav | Nombre completo · Nombre corto (móvil) · Sobre imagen | [§2](SECCIONES.md#2-nav) | pendiente | home |
+| Bloque de proyecto | Lista de trabajo · Siguiente proyecto | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | pendiente | home (lista) |
+| CTA | Continuo con el About · Solo | [§7](SECCIONES.md#7-cta-final-footer-global) | pendiente | home |
+| Ficha | Tres campos | [§8](SECCIONES.md#ficha) | pendiente | pendiente |
+| Sección del cuerpo | Normal · Con cifra estrella | [§8](SECCIONES.md#cuerpo) | pendiente | pendiente |
+| Imagen del cuerpo | Normal · Captura clara · A sangre · Capturas de móvil · Con pie | [§8](SECCIONES.md#imágenes-del-cuerpo) | pendiente | pendiente |
+| Índice | — | [§8](SECCIONES.md#índice-de-secciones-solo-desktop) | pendiente | pendiente |
+| Par Do / Don't | — | [§10](SECCIONES.md#10-variante-case-study-de-design-system) | pendiente | pendiente |
+| Simulación | — | [§9](SECCIONES.md#simulación-guionizada) | pendiente | pendiente |
+
+| Plantilla | Hecha de | Figma | Código |
+|---|---|---|---|
+| Home | Nav, hero, lista (Bloque de proyecto), About, CTA | pendiente | hecha |
+| Case study | Nav, hero, Ficha, Índice, Secciones del cuerpo, Imágenes, Siguiente proyecto, CTA | pendiente | pendiente |
+| 404 | Nav, frase, Link, CTA | pendiente | pendiente |
 
 ---
 
