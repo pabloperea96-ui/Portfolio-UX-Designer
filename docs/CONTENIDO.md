@@ -25,7 +25,7 @@
 | Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
 | Design System | texto en borrador ✎ · faltan una cadena de tokens, imágenes y vídeo |
 | MeLi benefits-engine | texto en borrador ✎ · faltan imágenes y vídeo |
-| RappiCard | texto en borrador ✎ · faltan graduación, rol, imágenes y vídeo |
+| RappiCard | texto en borrador ✎ · faltan imágenes y vídeo |
 
 **Mandan los 4 case studies** ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)): cada uno cierra su contenido antes de pasar al siguiente.
 
@@ -325,11 +325,13 @@ Para sumar una sección, copia un bloque de sección entero.
 - Retos: 1) explicar claramente depósito y cupo; 2) se necesita cuenta de ahorros para abrir la tarjeta: si no la tiene, la apertura va embebida para hacer todo en un solo flujo; 3) un módulo pedagógico menos elemental y superficial que los de la competencia, pero lo bastante genérico para la diversidad de perfiles.
 - Cifra exacta: se rechazaba el 87% de las solicitudes, más de 85.000 clientes potenciales (Pablo, 2026-10-18).
 - El módulo pedagógico y el módulo de graduación son lo mismo.
+- Graduación: motor de riesgos interno propio y un sistema de evaluación frecuente. Año 1: evaluación a los 8 meses (visión de cómo va, se notifica) y a los 12 (se gradúa a RappiCard Clásica o sigue en RappiCard Garantizada). Si no se gradúa, se reevalúa cada 6 meses.
+- Rol: con Producto diseñaron la solución y el sistema de evaluación. Pablo hizo el módulo end-to-end: discovery (cómo funciona el módulo), diseño y ejecución de todas las piezas, y handoff a Desarrollo.
 - Estado: la primera tarjeta no ha salido; se terminan los desarrollos. Se puede mostrar todo, del onboarding al módulo de graduación.
 
 **Overview**
 - Pregunta-titular: ✎ How do you give a credit card to people with no credit history?
-- Respuesta (2–3 frases): ✎ RappiPay was turning down 87% of RappiCard applicants, more than 85,000 people, because they had no credit history or a poor one. The secured RappiCard lets them in: they deposit a guarantee, and that amount becomes their credit limit. I designed the onboarding and the graduation module.
+- Respuesta (2–3 frases): ✎ RappiPay was turning down 87% of RappiCard applicants, more than 85,000 people, because they had no credit history or a poor one. The secured RappiCard lets them in: they deposit a guarantee, and that amount becomes their credit limit. I designed the onboarding and owned the graduation module end to end, from the discovery that defined how it works to the handoff to engineering.
 - En el índice: ✎ Overview
 
 **1. El problema**
@@ -352,11 +354,17 @@ Para sumar una sección, copia un bloque de sección entero.
 
 **4. El módulo de graduación**
 - Titular-tesis: ✎ Credit education deep enough to matter, broad enough for everyone
-- Texto: ✎ Credit education in competing apps tends to stay basic. We designed a module that goes further into how credit works and how to graduate to an unsecured card, and kept it general enough for the wide range of people who apply. ⟨por escribir⟩ *(cómo y cuándo se gradúa la persona)*
+- Texto: ✎ Credit education in competing apps tends to stay basic. We designed a module that goes further into how credit works and what it takes to graduate, and kept it general enough for the wide range of people who apply.
+- Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Learning
+
+**5. La graduación**
+- Titular-tesis: ✎ Graduation runs on a schedule cardholders can see
+- Texto: ✎ RappiPay built its own risk engine for the card, and together with Product we designed a system of frequent reviews around it. In the first year, each cardholder is reviewed at eight months and told how they're doing. At twelve months, a second review decides whether they move up to the Classic RappiCard. Those who don't keep the secured card and are reviewed again every six months. I took the module from discovery through the design of every piece to the handoff to engineering.
 - Imágenes: ⟨por escribir⟩
 - En el índice: ✎ Graduation
 
-**5. Cierre**
+**6. Cierre**
 - Titular-tesis: ✎ Ready for its first cardholders
 - Texto: ✎ Development is wrapping up, and the first secured RappiCards haven't gone out yet. The result to watch is how many of those 85,000 people get a card, and how many graduate. *(actualizar cuando salga la tarjeta)*
 - Imágenes: ⟨por escribir⟩
