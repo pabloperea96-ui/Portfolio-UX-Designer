@@ -24,7 +24,7 @@
 | 404 | pendiente |
 | Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
 | Design System | texto en borrador ✎ · faltan una cadena de tokens, imágenes y vídeo |
-| MeLi benefits-engine | pendiente |
+| MeLi benefits-engine | texto en borrador ✎ · faltan la decisión clave, tu rol, imágenes y vídeo |
 | RappiCard | pendiente |
 
 **Mandan los 4 case studies** ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)): cada uno cierra su contenido antes de pasar al siguiente.
@@ -262,18 +262,53 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.3 MeLi benefits-engine · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
 - **Imagen del hero:** ⟨por escribir⟩
-- **Cifra estrella:** el stock almacenado promedio en Brasil pasó de 10 a 20 días (el CV lo dice así). Se puede mostrar ([Antes de escribir](#0-antes-de-escribir)).
+- **Cifra estrella:** +10 días de stock almacenado frente al grupo control, en un mes (sección 3). Medida en la POC; se puede mostrar ([Antes de escribir](#0-antes-de-escribir)).
+
+**Notas de Pablo y fuente (2026-10-18)**
+- Fuente: los frames «poc» del [archivo de Figma del portafolio](https://www.figma.com/design/9dEa793dvEy5mYv1ZNCyWy/?node-id=1-10124) (poc-1 a poc-12), una presentación en español.
+- Problema: los productos más vendidos de Full tenían tiempos de entrega y costos de envío muy altos por falta de stock. Quebrar stock en productos que se venden o se proyecta que se venderán bien significa ventas perdidas cada día, para el vendedor y para MeLi, que no puede distribuirlo donde habrá demanda.
+- Vendedores: enviaban stock para pocas semanas y preferían varios envíos al mes en vez de uno grande que asegurara cobertura nacional.
+- Por qué Brasil: más de 5 bodegas, de los países que más facturan, y muy baja cobertura de demanda.
+- POC: octubre de 2024 (lanzamiento 4 oct, seguimientos 13 y 21, cierre 4 nov). Universo: 12.6k vendedores, 69k productos, 15M de unidades. KPI: días de stock almacenado. Comunicación por mail, WhatsApp y push.
+- Grupos: 1 almacenamiento gratis (4 meses) · 2 exoneración de cargos por stock antiguo · 3 retiro gratis de lo no vendido · 4 todos los beneficios · 5 solo la propuesta de valor · control sin comunicación.
+- Resultados (días de stock): control 10 · propuesta de valor 19 (+9) · cargos por stock antiguo 20 (+10) · retiro gratis 20.6 (+10.6) · almacenamiento gratis 20.8 (+10.8) · todos 21 (+11). Promedio +10. El beneficio más atractivo fue el almacenamiento gratis.
+- Decisión: tras la POC se empezó por implementar el beneficio de cargos por stock antiguo, aunque fuera el más difícil.
+- Conclusión: por la efectividad del plan de comunicación se implementó un motor de beneficios para productos estrella en toda la experiencia de Full, de la planificación de envíos a la gestión del stock almacenado.
 
 **Overview**
-- Pregunta-titular: ⟨por escribir⟩
-- Respuesta (2–3 frases): ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
+- Pregunta-titular: ✎ How do you get sellers to stock up for a whole country?
+- Respuesta (2–3 frases): ✎ Fulfillment's best sellers kept running out of stock in Brazil, which pushed delivery times and shipping costs up. We ran a one-month proof of concept that offered sellers operating benefits in exchange for sending more stock, and its results became a benefits engine across the Fulfillment experience.
+- En el índice: ✎ Overview
 
-**Sección 1**
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
+**1. El problema**
+- Titular-tesis: ✎ Best sellers ran out exactly where demand was
+- Texto: ✎ Sellers sent stock for a few weeks at a time, in several small shipments a month. Best-selling products ran out, and Mercado Libre had no units to distribute to the regions where demand would come. That meant longer deliveries, higher shipping costs and lost sales every day, for sellers and for Mercado Libre. Brazil had the sharpest case: more than five warehouses, some of the highest revenue in the region, and very low demand coverage.
+- Imágenes: poc-3 y poc-4 como referencia (https://www.figma.com/design/9dEa793dvEy5mYv1ZNCyWy/?node-id=1-10708) · alt y pie ⟨por escribir⟩
+- En el índice: ✎ Problem
+
+**2. El experimento**
+- Titular-tesis: ✎ We tested four benefits and one message against a control group
+- Texto: ✎ In October 2024 we ran a proof of concept with 12.6k sellers, 69k products and 15M units in Brazil. Each group got a different offer: free storage for four months, waived charges for old stock, free removal of unsold units, all three together, or only the value proposition, which explained how distributing stock across the country helps them sell. A control group received nothing. For a month, email, WhatsApp and push notifications told sellers what to do, how to send the stock and what they would get.
+- Imágenes: poc-7 (grupos) y poc-8 (plan de comunicación) (https://www.figma.com/design/9dEa793dvEy5mYv1ZNCyWy/?node-id=1-10733) · alt y pie ⟨por escribir⟩
+- En el índice: ✎ Experiment
+
+**3. El resultado (cifra estrella, sube a rol Hero)**
+- Titular-tesis: ✎ Sellers kept 10 more days of stock than the control group
+- Texto: ✎ The control group stayed at 10 days of stored stock. Every group that heard from us roughly doubled it, from 19 days with the message alone to 21 with every benefit combined. The message alone brought 9 of those days: explaining why mattered almost as much as the incentive.
+- Imágenes: poc-11 (resultados por grupo) (https://www.figma.com/design/9dEa793dvEy5mYv1ZNCyWy/?node-id=1-10823) · alt y pie ⟨por escribir⟩
+- En el índice: ✎ Result
+
+**4. La decisión clave**
+- Titular-tesis: ✎ We started with the hardest benefit to build
+- Texto: ⟨por escribir⟩ *(por qué cargos por stock antiguo y no almacenamiento gratis, que fue el más atractivo; qué costo se aceptó)*
 - Imágenes: ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
+- En el índice: ✎ Decision
+
+**5. Cierre**
+- Titular-tesis: ✎ A one-month test became a benefits engine
+- Texto: ✎ Mercado Libre built a benefits engine for star products across the whole Fulfillment experience, from shipment planning to managing stored stock.
+- Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Outcome
 
 ### 4.4 RappiCard · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
