@@ -164,7 +164,7 @@ En negrita, los tonos del par A6. Transparencias: `color/neutral/1000-a70` (negr
 | `color/bg/surface` | 100 | 850 | Bloques y tarjetas sobre el fondo |
 | `color/text/primary` | 900 | 50 | Texto principal |
 | `color/text/secondary` | 600 | 500 | Texto secundario |
-| `color/border/subtle` | 200 | 800 | Divisores decorativos |
+| `color/border/subtle` | 200 | 800 | Borde de las capturas con fondo claro (§4) |
 | `color/focus` | 900 | 50 | Anillo de foco |
 
 **Contraste verificado en los dos modos:** texto principal entre 15.97 y 17.95:1; texto secundario entre 4.76 y 5.43:1 (AA). El borde sutil no llega a 3:1 y por eso solo es decorativo.
@@ -305,11 +305,11 @@ El resto de la escala queda disponible. El grill de [`SECCIONES.md`](SECCIONES.m
 
 | Uso | Grosor | Color |
 |---|---|---|
-| Divisores y nav fija al hacer scroll | 1 px | `color/border/subtle` |
 | Foco | 2 px, separado 2 px del elemento (`outline-offset`) | `color/focus` |
 | Capturas de interfaz con fondo claro | 1 px por dentro | `color/border/subtle` |
 
 **Por qué un solo grosor:** el foco es el único trazo de 2 px, así nunca se confunde con un borde.
+**Por qué sin divisores ni nav con borde (2026-10-18):** la nav no es fija ([SECCIONES §2](SECCIONES.md#2-nav)) y ninguna sección separa bloques con una línea: los separa el aire (§3). Si una sección pide un divisor, la fila vuelve con ese elemento.
 **Por qué el borde de las capturas va solo en las claras:** una captura con fondo blanco se funde con `color/bg/default`. Las fotos y el hero no lo necesitan. Es una regla de contenido: se decide imagen por imagen, no se aplica sola. Va por dentro para no cambiar el tamaño de la imagen.
 
 ### Sombras
