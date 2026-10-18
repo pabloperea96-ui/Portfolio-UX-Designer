@@ -93,7 +93,8 @@
 /* ---------- Base ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { color-scheme: light; }
+/* Sin rebote del scroll: en Mac el rebote mostraba el fondo claro debajo del CTA y el acento parecía cortado. */
+html { color-scheme: light; overscroll-behavior-y: none; }
 
 body {
   background: var(--color-bg);
@@ -173,7 +174,7 @@ ul { list-style: none; }
   grid-template-columns: 1fr auto;
   align-items: baseline;
 }
-.nav-name { white-space: nowrap; }
+.nav-name { white-space: nowrap; justify-self: start; }   /* mide lo que el texto, no la celda: la línea del hover va solo bajo el nombre */
 .nav-name-full { display: none; }
 .nav-items { display: flex; gap: var(--nav-gap); white-space: nowrap; }
 
@@ -233,6 +234,8 @@ html[data-entrance="done"] .hero-phrase { opacity: 1; transition: opacity var(--
    El aire arriba y abajo del tramo es el ritmo entre secciones; abajo no está escrito en SECCIONES
    y se usa el mismo valor para que la web cierre con el mismo aire con que separa todo. */
 .accent {
+  /* A sangre: el tramo está fuera de la retícula de 1440, así que su fondo va de borde a borde de la ventana. */
+  width: 100%;
   margin-top: var(--section);
   padding-block: var(--section);
   background: var(--color-accent-bg);

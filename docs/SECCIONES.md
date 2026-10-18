@@ -19,10 +19,15 @@
 
 Fuera de v2.0: Archive ([REFERENCIAS](REFERENCIAS.md#arquitectura)). El CV es un PDF enlazado desde el CTA, no una página.
 
-### Modo claro y oscuro
+### Modo claro, por ahora
 
-**Sigue al sistema (`prefers-color-scheme`), sin toggle.**
-**Por qué (Pablo, 2026-10-11):** un toggle sería el primer control de la web y la nav es texto plano (Givelet, Araújo). Quien visita no viene a elegir tema; respetar su sistema acierta sin pedirle nada. Costo aceptado: quien tiene el sistema en oscuro no puede ver la web en claro.
+**La base va solo en claro, sin toggle** (Pablo, 2026-10-18). Fondo `color/bg/default` claro; About y CTA sobre la tinta (`color/accent/bg`, ink/800).
+**Por qué:** al ver la home construida, el fondo negro del modo oscuro no convenció. Un solo modo deja probar la base y los colores de cada case study sin duplicar cada decisión. Los valores del oscuro siguen en [DESIGN §2](DESIGN.md#2-color) por si vuelve.
+**Antes (2026-10-11):** seguía al sistema (`prefers-color-scheme`). Lo de no tener toggle no cambia: sería el primer control de la web y la nav es texto plano (Givelet, Araújo).
+
+### Color y movimiento propios de cada case study (por explorar)
+
+Pablo quiere que cada case study sume colores propios y le dé más vida y movimiento a la navegación de la página (2026-10-18). **Pendiente de definir** antes de construir los case studies: qué color tiene cada uno, dónde se usa (sin tocar el acento de About y CTA) y qué se mueve. Cada color y cada movimiento nuevos entran a DESIGN con el elemento que los usa ([tokens desde referencias](DESIGN.md)) y la regla de movimiento de [DESIGN §5](DESIGN.md#5-movimiento): solo se mueve lo que cuenta algo.
 
 ### El CTA es el footer global
 
@@ -45,7 +50,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | **Destinos** | Work → lista de trabajo de la home · About → `/#about` · Contact → `#contact`, el CTA de la página actual |
 | **Texto** | Rol Body (16 px, Regular) en todos los breakpoints |
 | **Color** | `color/text/primary`; sobre el hero del case study, `color/text/on-image` |
-| **Links** | Patrón `color/link/*`: subrayado gris en reposo, sube al color del texto en hover (`motion/hover`, 0.2 s). Sin hover en táctil |
+| **Links** | Sin subrayado en reposo. En hover, una línea de 1 px del color del texto se dibuja de izquierda a derecha bajo el texto (`motion/hover`, 0.2 s). Sin hover en táctil (Pablo, 2026-10-18: el subrayado fijo cargaba la nav) |
 | **Espacio entre items** | 24 en desktop y tablet · 16 en móvil |
 | **Posición** | Arriba, dentro del margen de la retícula. **No es fija**: se va con el scroll |
 | **Móvil** | La misma nav, en una línea. Sin hamburguesa |
@@ -97,7 +102,7 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | **Tablet** | Texto en 4 columnas · medio en 4, misma fila |
 | **Móvil** | Apilado: texto primero, medio debajo a todo el ancho |
 | **Entre bloques** | 160 / 128 / 96 (ritmo entre secciones) |
-| **Estados** | Nombre en `color/text/secondary` que se enciende a `color/text/primary` en hover (`motion/hover`); en táctil, todo en primario ([DESIGN](DESIGN.md#acento-links-imagen-y-lista-cerrado-el-2026-10-11), D2b/D1). Todo el bloque es el link |
+| **Estados** | Nombre siempre en `color/text/primary`, sin encendido (D1 en todas las pantallas). Todo el bloque es el link. **Por qué (Pablo, 2026-10-18):** con el medio 4:5 al lado, el bloque es tan grande que el nombre se encendía con el cursor a media pantalla; el encendido se retoma con la página Archive |
 | **Movimiento** | Al entrar al case study, el nombre viaja al titular (`motion/reveal`, [DESIGN](DESIGN.md#transición-de-la-lista-al-case-study)) |
 | **Reduced motion** | El vídeo no se reproduce solo: muestra su primer cuadro |
 

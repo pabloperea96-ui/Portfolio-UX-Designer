@@ -131,7 +131,9 @@ Se trabaja con **Regular, Medium y Bold**, y solo con esos tres. El tamaño marc
 
 ## 2. Color
 
-**Cerrado el 2026-10-11.** Pruebas: archivo Portfolio-V2, sección CP-004 (`2020:300`). En la librería: colecciones `Primitives` (rampa) y `Color` (semánticos, modos Light y Dark), documentadas en la página 🎨 Color.
+**Cerrado el 2026-10-11.** Pruebas: archivo Portfolio-V2, sección CP-004 (`2020:300`).
+
+**La web va solo en modo claro por ahora** (Pablo, 2026-10-18; el porqué en [SECCIONES](SECCIONES.md#modo-claro-por-ahora)). Las columnas Dark de esta sección se conservan, ya verificadas, por si el modo oscuro vuelve. En la librería: colecciones `Primitives` (rampa) y `Color` (semánticos, modos Light y Dark), documentadas en la página 🎨 Color.
 
 ### Base
 
@@ -188,6 +190,7 @@ Pruebas: Portfolio-V2, sección CP-005 (`2028:140`). Se eligió A6, B2, C3 y D2b
 **Por qué A6 (tinta y hueso), invertido en oscuro:** 12.29:1 de texto y un momento claro en los dos modos: 13.66:1 contra el fondo claro y, al invertirse, 16.15:1 contra el oscuro. Sin invertir, la tinta se fundía con el fondo oscuro (1.31:1). El acento se reserva para su momento: no se usa en links ni en botones.
 **Por qué B2:** el link se distingue por el subrayado y no por el color (WCAG 1.4.1). En reposo el subrayado es gris y discreto; en hover sube al color del texto.
 **Por qué C3:** con fotos claras, un titular blanco necesita al menos 60% de negro debajo. El degradado (transparente desde el 35% de la altura hasta 70% abajo) oscurece solo donde va el texto y deja la imagen limpia arriba. Con un velo plano de 40% daba 2.85:1.
+**D2b en pausa (2026-10-18):** la lista de la home va toda en primario (D1) en todas las pantallas; ver [SECCIONES §4](SECCIONES.md#4-lista-de-trabajo).
 **Por qué D2b, y D1 en móvil:** el gris de Atmar en reposo daba 1.67:1 y la lista es la navegación principal. Con `color/text/secondary` (5.11 / 5.43:1) mantiene la idea —apagado en reposo, encendido en hover— y pasa AA en cualquier tamaño. En pantallas táctiles no hay hover (`@media (hover: hover)`), así que ahí la lista va toda en texto principal.
 
 ### Feedback — fuera por ahora
