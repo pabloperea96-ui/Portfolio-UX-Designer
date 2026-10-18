@@ -425,7 +425,7 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 | Sección del cuerpo | Tipo (Normal · Con cifra estrella) × Pantalla | [§8](SECCIONES.md#cuerpo) | hecho: página 📝 Sección del cuerpo, set `2076:49` | pendiente |
 | Imagen del cuerpo | Tipo (Normal · Captura clara · A sangre · Capturas de móvil) × Pantalla + Pie (booleano) | [§8](SECCIONES.md#imágenes-del-cuerpo) | hecho: página 🖼️ Imagen del cuerpo, set `2077:104` | pendiente |
 | Índice | Índice · item: Estado (Reposo · Actual) | [§8](SECCIONES.md#índice-de-secciones-solo-desktop) | hecho: página 📑 Índice, item `2077:1627` e Índice `2077:1628` | pendiente |
-| Par Do / Don't | — | [§10](SECCIONES.md#10-variante-case-study-de-design-system) | pendiente | pendiente |
+| Par Do / Don't | Pantalla | [§10](SECCIONES.md#10-variante-case-study-de-design-system) | hecho: página ✅ Do / Don't, set `2078:70` | pendiente |
 | Simulación | — | [§9](SECCIONES.md#simulación-guionizada) | pendiente | pendiente |
 
 | Plantilla | Hecha de | Figma | Código |
