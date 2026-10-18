@@ -25,7 +25,7 @@
 | Agentes | texto en borrador ✎ · faltan imágenes y vídeo |
 | Design System | texto en borrador ✎ · faltan una cadena de tokens, imágenes y vídeo |
 | MeLi benefits-engine | texto en borrador ✎ · faltan imágenes y vídeo |
-| RappiCard | pendiente |
+| RappiCard | texto en borrador ✎ · faltan graduación, rol, imágenes y vídeo |
 
 **Mandan los 4 case studies** ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)): cada uno cierra su contenido antes de pasar al siguiente.
 
@@ -316,16 +316,46 @@ Para sumar una sección, copia un bloque de sección entero.
 ### 4.4 RappiCard · [regla](SECCIONES.md#11-meli-benefits-engine-y-rappicard)
 
 - **Imagen del hero:** ⟨por escribir⟩
-- **Cifra estrella:** ⟨por escribir⟩
+- **Cifra estrella:** ninguna todavía: la tarjeta no ha salido. Cuando salga, la candidata es cuántas de las personas rechazadas consiguen la tarjeta y cuántas se gradúan.
+
+**Notas de Pablo (en bruto, 2026-10-18)**
+- Alcance: solo el onboarding y el módulo de graduación. La adaptación del resto del ciclo de vida fue muy básica y no entra.
+- Problema: rechazaban al menos 80.000 clientes que pedían la RappiCard, por no tener historial o tenerlo malo; «perder el 80% de los clientes que aplicaban» era un dolor que había que revertir cuanto antes. No había alternativa.
+- Cómo funciona: la persona deposita una garantía como respaldo en caso de no pago. El dinero se congela mientras la tarjeta esté vigente, y el monto depositado es el cupo.
+- Retos: 1) explicar claramente depósito y cupo; 2) se necesita cuenta de ahorros para abrir la tarjeta: si no la tiene, la apertura va embebida para hacer todo en un solo flujo; 3) un módulo pedagógico menos elemental y superficial que los de la competencia, pero lo bastante genérico para la diversidad de perfiles.
+- Estado: la primera tarjeta no ha salido; se terminan los desarrollos. Se puede mostrar todo, del onboarding al módulo de graduación.
 
 **Overview**
-- Pregunta-titular: ⟨por escribir⟩
-- Respuesta (2–3 frases): ⟨por escribir⟩
-- En el índice: ⟨por escribir⟩
+- Pregunta-titular: ✎ How do you give a credit card to people with no credit history?
+- Respuesta (2–3 frases): ✎ RappiPay was turning down at least 80,000 RappiCard applicants because they had no credit history or a poor one. The secured RappiCard lets them in: they deposit a guarantee, and that amount becomes their credit limit. I designed the onboarding and the graduation module.
+- En el índice: ✎ Overview
 
-**Sección 1**
-- Titular-tesis: ⟨por escribir⟩
-- Texto: ⟨por escribir⟩
+**1. El problema**
+- Titular-tesis: ✎ We were turning away at least 80,000 people who wanted a card
+- Texto: ✎ Every applicant without a credit history, or with a poor one, got a no. That was most of the people asking for a RappiCard, and the business needed to reverse it as soon as possible.
 - Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Problem
 
-- En el índice: ⟨por escribir⟩
+**2. Cómo funciona**
+- Titular-tesis: ✎ The deposit is the credit limit
+- Texto: ✎ To get the card, a person deposits a guarantee that backs it in case of non-payment. The money stays frozen while the card is active, and the amount they deposit becomes their limit. The onboarding had to make that clear before anyone put money in.
+- Imágenes: ⟨por escribir⟩
+- En el índice: ✎ How it works
+
+**3. Un solo flujo**
+- Titular-tesis: ✎ Opening a savings account happens inside the card flow
+- Texto: ✎ The card requires a savings account. People without one would have had to leave, open it somewhere else and come back. We embedded the account opening in the onboarding, so the whole process happens in one flow.
+- Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Onboarding
+
+**4. El módulo de graduación**
+- Titular-tesis: ✎ Credit education deep enough to matter, broad enough for everyone
+- Texto: ✎ Credit education in competing apps tends to stay basic. We designed a module that goes further into how credit works and how to graduate to an unsecured card, and kept it general enough for the wide range of people who apply. ⟨por escribir⟩ *(cómo y cuándo se gradúa la persona)*
+- Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Graduation
+
+**5. Cierre**
+- Titular-tesis: ✎ Ready for its first cardholders
+- Texto: ✎ Development is wrapping up, and the first secured RappiCards haven't gone out yet. The result to watch is how many of those 80,000 people get a card, and how many graduate. *(actualizar cuando salga la tarjeta)*
+- Imágenes: ⟨por escribir⟩
+- En el índice: ✎ Outcome
