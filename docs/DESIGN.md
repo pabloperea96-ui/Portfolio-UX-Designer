@@ -422,7 +422,7 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 | Bloque de proyecto | Tipo (Lista · Siguiente proyecto) × Pantalla (Desktop · Tablet · Móvil) | [§4](SECCIONES.md#4-lista-de-trabajo), [§8](SECCIONES.md#siguiente-proyecto) | hecho: página 🗂️ Bloque de proyecto, set `2065:67` (medio 4:3 y Ficha abajo desde el 2026-10-18) | home (lista) |
 | CTA | Pantalla (Desktop · Tablet · Móvil); la continuidad con el About la da la plantilla | [§7](SECCIONES.md#7-cta-final-footer-global) | hecho: página 📣 CTA, set `2068:79` | home |
 | Ficha | Disposición (Fila · Apilada) + Siguiente proyecto (booleano) | [§8](SECCIONES.md#ficha), también dentro del Bloque de proyecto | hecho: página 🪪 Ficha, set `2072:53` | pendiente |
-| Sección del cuerpo | Normal · Con cifra estrella | [§8](SECCIONES.md#cuerpo) | pendiente | pendiente |
+| Sección del cuerpo | Tipo (Normal · Con cifra estrella) × Pantalla | [§8](SECCIONES.md#cuerpo) | hecho: página 📝 Sección del cuerpo, set `2076:49` | pendiente |
 | Imagen del cuerpo | Normal · Captura clara · A sangre · Capturas de móvil · Con pie | [§8](SECCIONES.md#imágenes-del-cuerpo) | pendiente | pendiente |
 | Índice | — | [§8](SECCIONES.md#índice-de-secciones-solo-desktop) | pendiente | pendiente |
 | Par Do / Don't | — | [§10](SECCIONES.md#10-variante-case-study-de-design-system) | pendiente | pendiente |
