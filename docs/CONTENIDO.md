@@ -100,7 +100,7 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
   - **El equipo.** Al llegar a RappiPay, diseño bajaba las pantallas que le pedían y no participaba en construir el producto; archivos sin estructura, mala documentación. Desde entonces: participación activa del equipo, visibilizar el trabajo, estándares, templates, vínculo con desarrollo, y persuadir a quienes deciden (dark mode). Hoy diseño tiene voz y participa en las decisiones. «De las experiencias más enriquecedoras.»
   - **El punto de inflexión.** Con el ascenso de la IA, Pablo quedó en el layoff de Mercado Libre (enero de 2026), con el susto que eso trae. RappiPay le dio la oportunidad (abril de 2026): ahí implementó IA para potenciar su trabajo y pasó del contenido al diseño, cerca de producto. Se paró y siguió aprendiendo. Le da miedo contarlo y quiere cambiar eso.
   - **Lo que sigue.** Acercarse a los datos y los números, y participar en la conversación de profitability.
-- **Primera frase (en grande):** ✎ In January I was laid off. By April I was designing the AI my team works with. *(medido: igual que el hero)*
+- **Primera frase (en grande):** ✎ In January 2026 I was laid off. Months later I was designing the AI my team works with. *(medido: 4 líneas a 1280 y en móvil, 3 a 1440 y en tablet)*
   Límite: igual que el hero, 3–4 líneas en desktop. Es la bio empezando fuerte, no un título.
 - **Bio:** 2–3 párrafos en primera persona, con humor. Va después de la primera frase, así que no repite el layoff.
 
