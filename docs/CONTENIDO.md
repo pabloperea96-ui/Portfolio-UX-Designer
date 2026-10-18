@@ -102,9 +102,13 @@ En cursiva va el nombre de trabajo del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra
   - **Lo que sigue.** Acercarse a los datos y los números, y participar en la conversación de profitability.
 - **Primera frase (en grande):** ✎ In January I was laid off. By April I was designing the AI my team works with. *(medido: igual que el hero)*
   Límite: igual que el hero, 3–4 líneas en desktop. Es la bio empezando fuerte, no un título.
-- **Bio:** 2–3 párrafos en primera persona, con humor.
+- **Bio:** 2–3 párrafos en primera persona, con humor. Va después de la primera frase, así que no repite el layoff.
 
-  ⟨por escribir⟩
+  ✎ I studied psychology, then literature, and spent my first working years writing: brand concepts, naming and voice for more than ten brands. Words turned out to be good training for design. Most of an interface is sentences.
+
+  ✎ At Mercado Libre I spent three years as a UX and content designer for Fulfillment, working for sellers across Latin America, China and the United States. When I joined RappiPay, design mostly delivered the screens it was asked for. Today we take part in product decisions, with our own design system, shared standards and an agent that handles the paperwork. I'm also a partner at Binalogue's Colombia chapter, which keeps me close to the business side of the work.
+
+  ✎ Next, I want to get closer to the numbers and to how what we design turns into profit. ⟨por escribir⟩ *(un detalle personal con humor, fuera del trabajo)*
 
 - **Trayectoria** (una línea por etapa: empresa · rol · años, de la más reciente a la más antigua):
 
