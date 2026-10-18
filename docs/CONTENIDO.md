@@ -83,7 +83,7 @@ No son slots de SECCIONES, pero la web los necesita: el título de la pestaña y
 Estos nombres y fichas son también el titular y la ficha de cada case study, y su bloque de «siguiente proyecto». Se escriben solo aquí.
 Límite del nombre: 1–2 líneas en todos los breakpoints. Medido en Helvetica Neue el 2026-10-17: caben ~30 letras por línea a 48 px en desktop y ~15 a 40 px en tablet, que es el más estrecho.
 
-| # | Nombre en la web | Rol | Empresa | Año | Vídeo 4:5 (o imagen fija) |
+| # | Nombre en la web | Rol | Empresa | Año | Vídeo 4:3 (o imagen fija) |
 |---|---|---|---|---|---|
 | 1 | Gaia: end-to-end feature builder *(Superagente + skills de diseño)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |
 | 2 | Design System *(Rediseño del Design System)* | Product Designer | RappiPay | 2026 | ⟨por escribir⟩ |

@@ -96,20 +96,21 @@ Mínima y hecha de piezas existentes: nav, una frase con el token del hero y un 
 | **Propósito** | Presentar cada proyecto y llevar al case study. Es la navegación principal |
 | **Proyectos** | Los 4, en el orden del [BRIEF](BRIEF.md#6-trabajo-que-se-muestra): Agentes · Design System · MeLi benefits-engine · RappiCard. Con placeholders mientras falte contenido |
 | **Bloque** | Uno por proyecto. Texto a la izquierda, medio a la derecha, siempre igual (sin zigzag) |
-| **Texto** | Nombre (rol **Proyecto**, Medium: 48 desktop · 40 tablet · 24 móvil) → 16 → Ficha: rol · empresa · año (rol Ficha, `color/text/secondary`) |
-| **Medio** | Vídeo 4:5, propio de cada proyecto. Se reproduce al entrar en pantalla, sin hover; acepta una imagen fija si el vídeo no está |
-| **Desktop** | Texto en columnas 1–6 · columna 7 libre · medio en 8–12 (~465 px a 1280). Texto alineado arriba con el medio |
-| **Tablet** | Texto en 4 columnas · medio en 4, misma fila |
-| **Móvil** | Apilado: texto primero, medio debajo a todo el ancho |
+| **Texto** | Nombre arriba (rol **Proyecto**, Medium: 48 desktop · 40 tablet · 24 móvil) y la [Ficha](#ficha) abajo, alineada con el borde inferior del medio: Company · Role · Year, cada campo con su etiqueta (rol Ficha, `color/text/secondary`) sobre el valor (Body, `color/text/primary`), repartidos a lo ancho de la columna de texto |
+| **Medio** | Vídeo 4:3, propio de cada proyecto. Se reproduce al entrar en pantalla, sin hover; acepta una imagen fija si el vídeo no está |
+| **Desktop** | Texto en columnas 1–5 · columna 6 libre · medio en 7–12 (660 × 495 a 1440). El nombre arriba y la ficha abajo, a la altura del medio |
+| **Tablet** | Texto en 4 columnas · medio en 4, misma fila (340 × 255 a 768), ficha abajo |
+| **Móvil** | Apilado: nombre → 16 → ficha → 24 → medio a todo el ancho (327 × 245 a 375) |
 | **Entre bloques** | 160 / 128 / 96 (ritmo entre secciones) |
-| **Estados** | Nombre siempre en `color/text/primary`, sin encendido (D1 en todas las pantallas). Todo el bloque es el link. **Por qué (Pablo, 2026-10-18):** con el medio 4:5 al lado, el bloque es tan grande que el nombre se encendía con el cursor a media pantalla; el encendido se retoma con la página Archive |
+| **Estados** | Nombre siempre en `color/text/primary`, sin encendido (D1 en todas las pantallas). Todo el bloque es el link. **Por qué (Pablo, 2026-10-18):** con el medio al lado, el bloque es tan grande que el nombre se encendía con el cursor a media pantalla; el encendido se retoma con la página Archive |
 | **Movimiento** | Al entrar al case study, el nombre viaja al titular (`motion/reveal`, [DESIGN](DESIGN.md#transición-de-la-lista-al-case-study)) |
 | **Reduced motion** | El vídeo no se reproduce solo: muestra su primer cuadro |
 
 **Por qué una mezcla y no A contra B (2026-10-11):** las dos variantes de [REFERENCIAS](REFERENCIAS.md#lista-de-trabajo-en-la-home) se veían flacas por separado. Integra el vídeo 4:5 que se reproduce al entrar (Pianetti), el nombre como pieza tipográfica con encendido (Atmar) y la ficha como dato (Pamidor).
 **Por qué el medio a la derecha (Pablo, 2026-10-11):** el nombre queda sobre el mismo borde izquierdo que el hero: una sola línea de lectura. Alternar sería un patrón de landing.
-**Por qué texto primero en móvil (Pablo, 2026-10-11):** mismo orden que en desktop, y cumple la regla del hero: el nombre y la ficha del primer proyecto se ven sin scroll (el vídeo 4:5 primero ocuparía ~410 px).
+**Por qué texto primero en móvil (Pablo, 2026-10-11):** mismo orden que en desktop, y cumple la regla del hero: el nombre y la ficha del primer proyecto se ven sin scroll (el vídeo primero ocuparía ~245 px a 4:3).
 **Por qué el rol Proyecto a 48 / 40 / 24 (Pablo, 2026-10-11):** queda debajo del hero en cada pantalla (64 / 48 / 32), así la frase sigue siendo el punto de entrada. Rol nuevo con elemento que lo usa; sale de la rampa. Si el titular del case study termina más grande, la transición escala el nombre al viajar.
+**Por qué 4:3 en 6 columnas y la ficha abajo (Pablo, 2026-10-18):** al verlo en Figma, el 4:5 en 5 columnas era demasiado alto en desktop (546 × 683) y se leía como póster; el 4:3 se ve como un preview del proyecto. La ficha a 12 px era muy chica: ahora es la misma [Ficha](#ficha) del case study, con el valor en Body, y al bajar al borde del medio llena el espacio entre el nombre y la imagen. Antes: 4:5, columnas 1–6 y 8–12, ficha de una línea debajo del nombre.
 **Por qué solo nombre y ficha (Pablo, 2026-10-11):** sin frase-tesis. La ficha va debajo del nombre (encima sería un eyebrow) y trae lo que filtra el recruiter: rol, empresa y año. Timeline y equipo quedan para la ficha del case study. Resuelve el riesgo anotado en el hero.
 **Por qué los 4 (Pablo, 2026-10-11):** la v2.0 sale con los cuatro case studies ([BRIEF](BRIEF.md#9-plan-de-lanzamiento)); nada de filas «próximamente».
 
@@ -251,8 +252,8 @@ Común a los 4 case studies. Las variantes de Agentes y Design System suman bloq
 
 | | |
 |---|---|
-| **Bloque** | El mismo bloque de la [lista de trabajo](#4-lista-de-trabajo): nombre en rol Proyecto + ficha + medio 4:5 a la derecha |
-| **Ficha** | Empieza con «Next project»: `Next project · Company · Role · Year` |
+| **Bloque** | El mismo bloque de la [lista de trabajo](#4-lista-de-trabajo): nombre en rol Proyecto + Ficha abajo + medio 4:3 a la derecha |
+| **Ficha** | Empieza con «Next project» como primer campo, sin etiqueta y en `color/text/secondary`: `Next project · Company · Role · Year` |
 | **Orden** | Agentes → Design System → MeLi → RappiCard → Agentes (loop) |
 | **Después** | El CTA, sobre el acento |
 
