@@ -415,6 +415,8 @@ Un solo componente para todos los links de la web. Dos variantes; el hover es el
 
 Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas armadas con ellos.
 
+**Un proyecto nuevo en Figma:** duplica la plantilla Case study de «📄 Plantillas» y cambia el contenido de las instancias con lo de CONTENIDO.md (titular, ficha, secciones, imágenes, siguiente proyecto). Las plantillas son frames, no componentes, para que cada copia se pueda editar libremente; las piezas sí son instancias de la librería. El hero del case study y el About de la home se arman dentro de la plantilla porque no se repiten. Los velos del hero son degradados de negro al 70%, el valor de `color/overlay/scrim`: un degradado no se puede enlazar a una variable.
+
 | Componente | Variantes | Dónde (SECCIONES) | Figma | Código |
 |---|---|---|---|---|
 | Link | En lista · En texto | Toda la web | hecho: página 🔗 Link, set `2060:43` (Variante × Estado) | home (`.link`, `.link--list`, `.link--text`) |
@@ -430,9 +432,9 @@ Estado al 2026-10-18. Componentes: piezas que se repiten. Plantillas: páginas a
 
 | Plantilla | Hecha de | Figma | Código |
 |---|---|---|---|
-| Home | Nav, hero, lista (Bloque de proyecto), About, CTA | pendiente | hecha |
-| Case study | Nav, hero, Ficha, Índice, Secciones del cuerpo, Imágenes, Siguiente proyecto, CTA | pendiente | pendiente |
-| 404 | Nav, frase, Link, CTA | pendiente | pendiente |
+| Home | Nav, hero, lista (Bloque de proyecto), About, CTA | hecha: página 📄 Plantillas, desktop `2080:44` · móvil `2080:197` | hecha |
+| Case study | Nav, hero, Ficha, Índice, Secciones del cuerpo, Imágenes, Siguiente proyecto, CTA | hecha con Gaia: página 📄 Plantillas, desktop `2081:314` · móvil `2081:503` | pendiente |
+| 404 | Nav, frase, Link, CTA | hecha con marcadores (copy ⟨por escribir⟩): página 📄 Plantillas, desktop `2081:673` · móvil `2081:719` | pendiente |
 
 ---
 
